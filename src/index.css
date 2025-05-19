@@ -4,13 +4,28 @@
   --color-blue-light: #576CA8; /* True Blue - Light accent */
   --color-blue-dark: #1B264F;  /* Space cadet - Dark accent */
   --color-cream: #F5F3F5;      /* White smoke - Text color */
+  --color-cream-highlight: #FFFFFF; /* Pure white for high contrast highlights */
   --color-background: #1B1B1E; /* Dark background as requested */
   --color-text: #F5F3F5;       /* White smoke for text */
+  --color-text-highlight: #FFFFFF; /* Pure white for highlighted text */
   --color-card-bg: #222225;    /* Slightly lighter background */
   --color-section-alt: #222225; /* Slightly lighter background for alternating sections */
   --color-gray: #9A9A9D;       /* Medium gray for secondary text */
   --color-text-secondary: #576CA8; /* Light blue for secondary text */
   --color-border: rgba(39, 70, 144, 0.2); /* Subtle border based on main blue */
+  
+  /* Shadow Effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(87, 108, 168, 0.2);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 108, 168, 0.3);
+  --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(87, 108, 168, 0.4);
+  
+  /* Text Effects */
+  --text-shadow-sm: 0 0 5px rgba(0, 0, 0, 0.3);
+  --text-shadow-md: 0 0 10px rgba(0, 0, 0, 0.5);
+  --text-shadow-lg: 0 0 15px rgba(0, 0, 0, 0.7);
+  --text-shadow-glow: 0 0 10px rgba(87, 108, 168, 0.6);
+  --text-shadow-highlight: 0 0 15px rgba(255, 255, 255, 0.5);
   
   /* Typography */
   font-family: 'Montserrat', sans-serif;
@@ -84,4 +99,19 @@ section {
   .container {
     padding: 0 1.5rem;
   }
+}
+
+/* Utility classes for text effects */
+.text-highlight {
+  color: var(--color-cream-highlight);
+  text-shadow: var(--text-shadow-highlight);
+}
+
+.text-glow {
+  text-shadow: var(--text-shadow-glow);
+}
+
+.text-contrast {
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }

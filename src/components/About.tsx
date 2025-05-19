@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const AboutSection = styled.section`
   padding: 8rem 0;
@@ -25,19 +25,35 @@ const AboutHeader = styled.div`
   margin-right: auto;
 `;
 
-const AboutTitle = styled.h2`
+const AboutTitle = styled(motion.h2)`
   font-size: 2.5rem;
   margin-bottom: 2rem;
   color: var(--color-blue);
   font-weight: 800;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
+  position: relative;
+  display: inline-block;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light), var(--color-blue));
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
+  }
 `;
 
-const AboutSubtitle = styled.p`
+const AboutSubtitle = styled(motion.p)`
   font-size: 1.25rem;
-  color: var(--color-dark-brown);
+  color: var(--color-cream);
   opacity: 0.9;
   line-height: 1.6;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 `;
 
 const AboutContent = styled.div`
@@ -52,7 +68,7 @@ const AboutContent = styled.div`
   }
 `;
 
-const AboutTextContent = styled.div`
+const AboutTextContent = styled(motion.div)`
   grid-column: 1 / 7;
   
   @media (max-width: 992px) {
@@ -61,15 +77,16 @@ const AboutTextContent = styled.div`
   }
 `;
 
-const AboutDescription = styled.p`
+const AboutDescription = styled(motion.p)`
   font-size: 1.1rem;
   margin-bottom: 2rem;
   line-height: 1.7;
   color: var(--color-cream);
   opacity: 0.9;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 `;
 
-const FeatureList = styled.div`
+const FeatureList = styled(motion.div)`
   margin: 3rem 0;
 `;
 
@@ -83,10 +100,28 @@ const FeatureItem = styled(motion.div)`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   border-left: 3px solid var(--color-blue);
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(39, 70, 144, 0.1) 0%,
+      rgba(39, 70, 144, 0) 50%,
+      rgba(39, 70, 144, 0.1) 100%
+    );
+    z-index: 0;
+  }
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(87, 108, 168, 0.3);
   }
 `;
 
@@ -102,10 +137,15 @@ const FeatureIcon = styled.div`
   flex-shrink: 0;
   color: var(--color-cream);
   font-size: 1.5rem;
+  box-shadow: 0 0 15px rgba(87, 108, 168, 0.5);
+  position: relative;
+  z-index: 1;
 `;
 
 const FeatureContent = styled.div`
   flex: 1;
+  position: relative;
+  z-index: 1;
 `;
 
 const FeatureTitle = styled.h4`
@@ -113,15 +153,17 @@ const FeatureTitle = styled.h4`
   margin-bottom: 0.5rem;
   color: var(--color-cream);
   font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 `;
 
 const FeatureDescription = styled.p`
   color: var(--color-cream);
   opacity: 0.85;
   line-height: 1.6;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 `;
 
-const AboutVisual = styled.div`
+const AboutVisual = styled(motion.div)`
   grid-column: 7 / 13;
   position: relative;
   
@@ -136,7 +178,7 @@ const VisualContainer = styled(motion.div)`
   border-radius: 16px;
   padding: 3rem;
   color: var(--color-cream);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(87, 108, 168, 0.3);
   overflow: hidden;
   position: relative;
   
@@ -158,6 +200,7 @@ const VisualContainer = styled(motion.div)`
     font-size: 1.75rem;
     font-weight: 700;
     position: relative;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
   p {
@@ -165,79 +208,130 @@ const VisualContainer = styled(motion.div)`
     line-height: 1.7;
     font-size: 1.1rem;
     position: relative;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   }
 `;
 
-const Code = styled.div`
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 1.5rem;
-  border-radius: 10px;
+// Componentes para texto animado
+const AnimatedTextContainer = styled(motion.div)`
   margin-top: 2rem;
-  font-family: 'Fira Code', monospace;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
   position: relative;
-  
-  &:before {
-    content: 'Modelo de Agente';
-    position: absolute;
-    top: -15px;
-    left: 20px;
-    background-color: var(--color-gray);
-    color: var(--color-cream);
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    font-weight: 600;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  }
+  overflow: hidden;
 `;
 
-const CodeLine = styled.div`
-  color: #f8f8f8;
-  line-height: 1.6;
-  
-  .keyword {
-    color: #F5F5DC;
-  }
-  
-  .string {
-    color: #F5F5DC;
-  }
-  
-  .function {
-    color: #A0522D;
-  }
-  
-  .comment {
-    color: #4A4A4A;
-  }
+const TextBlock = styled(motion.div)`
+  margin-bottom: 1.5rem;
+  position: relative;
 `;
 
-const FeatureCard = styled(motion.div)`
-  background-color: var(--color-card-bg);
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  margin-bottom: 2rem;
-  border-left: 3px solid var(--color-blue);
+const AnimatedWord = styled(motion.span)`
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--color-cream-highlight);
+  font-weight: 600;
 `;
 
-const HighlightBox = styled.div`
-  padding: 2rem;
-  background-color: var(--color-blue);
-  color: var(--color-cream);
-  border-radius: 10px;
-  margin-top: 3rem;
+const AnimatedHighlight = styled(motion.span)`
+  display: inline-block;
+  color: var(--color-blue-light);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
 `;
 
-const StatsBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-  background-color: var(--color-blue);
-  border-radius: 10px;
-  padding: 2rem;
+const AnimatedIcon = styled(motion.div)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(87, 108, 168, 0.2);
+  border-radius: 50%;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  box-shadow: 0 0 15px rgba(87, 108, 168, 0.3);
 `;
+
+const AnimatedDot = styled(motion.span)`
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-blue-light);
+  border-radius: 50%;
+  margin: 0 0.5rem;
+`;
+
+// Variantes de animación
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
+const wordVariants = {
+  hidden: { 
+    opacity: 0,
+    y: 20
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.5
+    }
+  })
+};
+
+const iconVariants = {
+  hidden: { scale: 0, rotate: -180 },
+  visible: { 
+    scale: 1, 
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20
+    }
+  },
+  hover: { 
+    scale: 1.2,
+    rotate: 15,
+    transition: {
+      duration: 0.3
+    }
+  }
+};
+
+const dotVariants = {
+  hidden: { scale: 0 },
+  visible: (i: number) => ({
+    scale: [1, 1.5, 1],
+    transition: {
+      delay: i * 0.1,
+      repeat: Infinity,
+      repeatDelay: 2,
+      duration: 0.5
+    }
+  })
+};
 
 const About: React.FC = () => {
   const features = [
@@ -258,31 +352,71 @@ const About: React.FC = () => {
     }
   ];
   
+  // Refs para animaciones basadas en scroll
+  const aboutRef = React.useRef(null);
+  const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px 0px" });
+  
+  // Textos para animación
+  const animatedTexts = [
+    {
+      icon: "🔍",
+      text: "Análisis de datos en tiempo real",
+      highlight: "inteligencia artificial"
+    },
+    {
+      icon: "🤖",
+      text: "Automatización de procesos mediante",
+      highlight: "agentes autónomos"
+    },
+    {
+      icon: "📊",
+      text: "Optimización continua con",
+      highlight: "aprendizaje adaptativo"
+    }
+  ];
+  
   return (
     <AboutSection id="about">
       <AboutContainer>
         <AboutHeader>
-          <AboutTitle>Transforma tu Negocio con Agentes Inteligentes</AboutTitle>
-          <AboutSubtitle>
+          <AboutTitle
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px 0px" }}
+            transition={{ duration: 0.7 }}
+          >
+            Transforma tu Negocio con Agentes Inteligentes
+          </AboutTitle>
+          <AboutSubtitle
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px 0px" }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             La próxima generación de automatización empresarial ha llegado, 
             revolucionando la forma en que las empresas operan y crecen.
           </AboutSubtitle>
         </AboutHeader>
         
         <AboutContent>
-          <AboutTextContent>
-            <AboutDescription>
+          <AboutTextContent
+            ref={aboutRef}
+            initial="hidden"
+            animate={isAboutInView ? "visible" : "hidden"}
+            variants={containerVariants}
+          >
+            <AboutDescription variants={itemVariants}>
               En Breakaway, desarrollamos ecosistemas de agentes digitales avanzados
               que revolucionan cualquier industria mediante la automatización
               inteligente de procesos empresariales complejos.
             </AboutDescription>
-            <AboutDescription>
+            <AboutDescription variants={itemVariants}>
               Nuestros agentes supervisores orquestan flujos complejos mientras
               los agentes operativos ejecutan tareas específicas con precisión y
               eficiencia superiores a las capacidades humanas.
             </AboutDescription>
             
-            <FeatureList>
+            <FeatureList variants={containerVariants}>
               {features.map((feature, index) => (
                 <FeatureItem
                   key={index}
@@ -291,6 +425,10 @@ const About: React.FC = () => {
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   viewport={{ once: true }}
                   className="hover-lift"
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: "0 12px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(87, 108, 168, 0.4)"
+                  }}
                 >
                   <FeatureIcon>{feature.icon}</FeatureIcon>
                   <FeatureContent>
@@ -302,33 +440,115 @@ const About: React.FC = () => {
             </FeatureList>
           </AboutTextContent>
           
-          <AboutVisual>
+          <AboutVisual
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px 0px" }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 50 }}
+          >
             <VisualContainer
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              whileHover={{ 
+                boxShadow: "0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(87, 108, 168, 0.4)"
+              }}
             >
-              <h3>Arquitectura Modular Adaptativa</h3>
-              <p>
+              <motion.h3
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                Arquitectura Modular Adaptativa
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 Diseñamos cada ecosistema de agentes con una arquitectura modular
                 que permite escalar componentes de forma independiente, garantizando
                 adaptabilidad constante a los cambios del mercado y tecnológicos.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
                 Nuestros sistemas incluyen agentes con memoria contextual compartida
                 que aprenden y mejoran continuamente, optimizando su rendimiento con cada interacción.
-              </p>
+              </motion.p>
               
-              <Code>
-                <CodeLine><span className="keyword">class</span> <span className="function">AgenteSupervisor</span> {'{'}</CodeLine>
-                <CodeLine>  <span className="comment">// Orquesta flujos complejos</span></CodeLine>
-                <CodeLine>  <span className="function">optimizarFlujo</span>() {'{'}</CodeLine>
-                <CodeLine>    <span className="keyword">const</span> decisiones = <span className="function">analizarDatos</span>()</CodeLine>
-                <CodeLine>    <span className="keyword">return</span> <span className="function">asignarTareas</span>(decisiones)</CodeLine>
-                <CodeLine>  {'}'}</CodeLine>
-                <CodeLine>{'}'}</CodeLine>
-              </Code>
+              {/* Textos animados en lugar del código */}
+              <AnimatedTextContainer
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                whileHover={{ 
+                  boxShadow: "0 12px 30px rgba(0, 0, 0, 0.4)"
+                }}
+              >
+                {animatedTexts.map((item, index) => (
+                  <TextBlock
+                    key={index}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={containerVariants}
+                  >
+                    <AnimatedIcon
+                      variants={iconVariants}
+                      whileHover="hover"
+                    >
+                      {item.icon}
+                    </AnimatedIcon>
+                    
+                    {item.text.split(' ').map((word, i) => (
+                      <AnimatedWord
+                        key={i}
+                        custom={i}
+                        variants={wordVariants}
+                      >
+                        {word}
+                      </AnimatedWord>
+                    ))}
+                    
+                    <AnimatedHighlight
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ 
+                        opacity: 1, 
+                        scale: 1,
+                        transition: {
+                          delay: 0.5 + index * 0.2,
+                          duration: 0.5,
+                          type: "spring"
+                        }
+                      }}
+                      viewport={{ once: true }}
+                      whileHover={{
+                        scale: 1.1,
+                        color: "var(--color-cream-highlight)",
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      {item.highlight}
+                    </AnimatedHighlight>
+                    
+                    {[0, 1, 2].map((dot) => (
+                      <AnimatedDot
+                        key={dot}
+                        custom={dot}
+                        variants={dotVariants}
+                      />
+                    ))}
+                  </TextBlock>
+                ))}
+              </AnimatedTextContainer>
             </VisualContainer>
           </AboutVisual>
         </AboutContent>

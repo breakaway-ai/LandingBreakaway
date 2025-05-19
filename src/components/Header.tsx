@@ -11,7 +11,18 @@ const HeaderContainer = styled.header`
   padding-top: 80px;
   position: relative;
   overflow: hidden;
-  background-color: var(--color-background);
+  background: linear-gradient(135deg, #1E0B2C 0%, #0F0117 100%);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.15;
+  }
 `;
 
 const NavBar = styled(motion.nav)`
@@ -21,7 +32,7 @@ const NavBar = styled(motion.nav)`
   width: 100%;
   z-index: 100;
   padding: 1.5rem 0;
-  background-color: rgba(27, 27, 30, 0.9);
+  background-color: rgba(15, 1, 23, 0.8);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -42,8 +53,8 @@ const Logo = styled(motion.div)`
   color: var(--color-cream);
   
   span {
-    color: var(--color-blue);
-    text-shadow: 0 0 10px rgba(87, 108, 168, 0.4);
+    color: var(--color-blue-light);
+    text-shadow: 0 0 10px rgba(18, 130, 162, 0.4);
   }
 `;
 
@@ -72,13 +83,13 @@ const NavLink = styled(motion.a)`
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-light);
     transition: width 0.3s ease;
   }
   
   &:hover {
     color: var(--color-blue-light);
-    text-shadow: 0 0 8px rgba(87, 108, 168, 0.8);
+    text-shadow: 0 0 8px rgba(18, 130, 162, 0.8);
   }
   
   &:hover:after {
@@ -88,17 +99,17 @@ const NavLink = styled(motion.a)`
 
 const NavButton = styled(motion.a)`
   padding: 0.8rem 1.5rem;
-  background-color: var(--color-blue);
+  background-color: var(--color-blue-light);
   color: var(--color-cream);
   border-radius: 4px;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(87, 108, 168, 0.4);
-    background-color: var(--color-blue-dark);
+    box-shadow: 0 0 20px rgba(138, 79, 255, 0.8);
+    background-color: var(--color-blue-light);
   }
 `;
 
@@ -133,7 +144,7 @@ const HeroTitle = styled(motion.h1)`
   
   span {
     color: var(--color-blue-light);
-    text-shadow: 0 0 15px rgba(87, 108, 168, 0.8);
+    text-shadow: 0 0 15px rgba(18, 130, 162, 0.8);
   }
   
   @media (max-width: 768px) {
@@ -166,13 +177,13 @@ const HeroButtons = styled(motion.div)`
 
 const PrimaryButton = styled(motion.a)`
   padding: 1rem 2.5rem;
-  background-color: var(--color-blue);
+  background-color: var(--color-blue-light);
   color: var(--color-cream);
   border-radius: 4px;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
   position: relative;
   overflow: hidden;
   
@@ -186,7 +197,7 @@ const PrimaryButton = styled(motion.a)`
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.3),
       transparent
     );
     transition: 0.5s;
@@ -194,8 +205,8 @@ const PrimaryButton = styled(motion.a)`
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 20px rgba(87, 108, 168, 0.4);
-    background-color: var(--color-blue-dark);
+    box-shadow: 0 0 25px rgba(138, 79, 255, 0.8);
+    background-color: var(--color-blue-light);
   }
   
   &:hover:before {
@@ -207,13 +218,14 @@ const SecondaryButton = styled(motion.a)`
   padding: 1rem 2.5rem;
   background-color: transparent;
   color: var(--color-cream);
-  border: 2px solid var(--color-blue);
+  border: 2px solid var(--color-blue-light);
   border-radius: 4px;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(138, 79, 255, 0.3);
   
   &:before {
     content: '';
@@ -225,16 +237,17 @@ const SecondaryButton = styled(motion.a)`
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(87, 108, 168, 0.2),
+      rgba(138, 79, 255, 0.3),
       transparent
     );
     transition: 0.5s;
   }
   
   &:hover {
-    background-color: var(--color-blue);
+    background-color: rgba(138, 79, 255, 0.2);
     color: var(--color-cream);
-    box-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
+    box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
+    border-color: var(--color-blue-light);
   }
   
   &:hover:before {
@@ -281,33 +294,6 @@ const Particle = styled(motion.div)`
   opacity: 0.2;
 `;
 
-// Estrella fugaz
-const ShootingStar = styled(motion.div)`
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background-color: var(--color-cream-highlight);
-  border-radius: 50%;
-  opacity: 0.8;
-  z-index: 0;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.7),
-      transparent
-    );
-    transform: translateY(-100%) rotate(-45deg);
-    transform-origin: bottom;
-  }
-`;
-
 // 3D Animation
 const AnimatedLogo = () => {
   return (
@@ -319,7 +305,7 @@ const AnimatedLogo = () => {
       <mesh>
         <sphereGeometry args={[1.4, 64, 64]} />
         <MeshDistortMaterial 
-          color="#274690" 
+          color="#8A4FFF" 
           attach="material" 
           distort={0.5} 
           speed={2} 
@@ -359,16 +345,6 @@ const Header: React.FC = () => {
     x: Math.random() * 100,
     y: Math.random() * 100,
     duration: Math.random() * 20 + 10
-  }));
-
-  // Generar estrellas fugaces
-  const shootingStars = Array.from({ length: 10 }).map((_, i) => ({
-    id: i,
-    top: Math.random() * 80 + 10, // 10-90%
-    left: Math.random() * 80 + 10, // 10-90%
-    size: Math.random() * 2 + 1,
-    delay: Math.random() * 15,
-    duration: Math.random() * 3 + 2
   }));
 
   return (
@@ -438,38 +414,8 @@ const Header: React.FC = () => {
         transition={{ duration: 1.5 }}
       />
       
-      {/* Estrellas fugaces */}
+      {/* Partículas flotantes */}
       <FloatingParticles>
-        {shootingStars.map(star => (
-          <ShootingStar
-            key={`star-${star.id}`}
-            style={{
-              top: `${star.top}%`,
-              left: `${star.left}%`,
-              width: `${star.size}px`,
-              height: `${star.size}px`,
-            }}
-            initial={{ 
-              opacity: 0,
-              x: 0,
-              y: 0,
-              scale: 0
-            }}
-            animate={{ 
-              opacity: [0, 1, 0],
-              x: [0, -200],
-              y: [0, 200],
-              scale: [0, 1, 0]
-            }}
-            transition={{
-              duration: star.duration,
-              delay: star.delay,
-              repeat: Infinity,
-              repeatDelay: Math.random() * 20 + 10
-            }}
-          />
-        ))}
-        
         {particles.map(particle => (
           <Particle
             key={particle.id}

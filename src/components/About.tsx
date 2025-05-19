@@ -263,6 +263,88 @@ const AnimatedDot = styled(motion.span)`
   margin: 0 0.5rem;
 `;
 
+// Nueva sección de desarrollo de software
+const SoftwareDevSection = styled(motion.div)`
+  margin-top: 8rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(87, 108, 168, 0.2);
+`;
+
+const SoftwareDevContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const SoftwareDevTitle = styled(motion.h3)`
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-blue);
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
+`;
+
+const SoftwareDevDescription = styled(motion.p)`
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  color: var(--color-cream);
+  opacity: 0.9;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+`;
+
+const DevServicesList = styled(motion.div)`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const DevServiceItem = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--color-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(87, 108, 168, 0.4);
+  }
+`;
+
+const ServiceIcon = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background-color: var(--color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cream);
+  font-size: 1.8rem;
+  box-shadow: 0 0 15px rgba(87, 108, 168, 0.5);
+  margin-bottom: 0.5rem;
+`;
+
+const ServiceText = styled.span`
+  color: var(--color-cream);
+  font-weight: 600;
+  font-size: 1.1rem;
+`;
+
 // Variantes de animación
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -354,7 +436,9 @@ const About: React.FC = () => {
   
   // Refs para animaciones basadas en scroll
   const aboutRef = React.useRef(null);
+  const softwareRef = React.useRef(null);
   const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px 0px" });
+  const isSoftwareInView = useInView(softwareRef, { once: true, margin: "-100px 0px" });
   
   // Textos para animación
   const animatedTexts = [
@@ -552,6 +636,58 @@ const About: React.FC = () => {
             </VisualContainer>
           </AboutVisual>
         </AboutContent>
+        
+        {/* Nueva sección de desarrollo de software */}
+        <SoftwareDevSection
+          ref={softwareRef}
+          initial={{ opacity: 0 }}
+          animate={isSoftwareInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <SoftwareDevContainer>
+            <SoftwareDevTitle
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              Desarrollo Integral de Software
+            </SoftwareDevTitle>
+            <SoftwareDevDescription
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              Complementamos nuestra especialización en agentes con desarrollo integral de software en todas sus modalidades: aplicaciones web, móviles multiplataforma, sistemas backend y plataformas empresariales, todos diseñados para integrarse perfectamente con nuestros ecosistemas de agentes inteligentes.
+            </SoftwareDevDescription>
+            
+            <DevServicesList
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+            >
+              {[
+                { icon: "📱", text: "Apps Móviles" },
+                { icon: "🖥️", text: "Aplicaciones Web" },
+                { icon: "⚙️", text: "Sistemas Backend" },
+                { icon: "🔄", text: "Integración API" },
+                { icon: "🛠️", text: "DevOps" },
+                { icon: "🔒", text: "Seguridad" }
+              ].map((service, index) => (
+                <DevServiceItem 
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <ServiceIcon>{service.icon}</ServiceIcon>
+                  <ServiceText>{service.text}</ServiceText>
+                </DevServiceItem>
+              ))}
+            </DevServicesList>
+          </SoftwareDevContainer>
+        </SoftwareDevSection>
       </AboutContainer>
     </AboutSection>
   );

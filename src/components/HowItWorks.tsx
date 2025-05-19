@@ -1,21 +1,34 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
 
 const HowItWorksSection = styled.section`
   padding: 6rem 0;
-  background-color: var(--color-background);
+  background: linear-gradient(135deg, #1E0B2C 0%, #0F0117 100%);
   color: var(--color-cream);
   position: relative;
   overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
 `;
 
 const HowItWorksContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 1;
 `;
 
 const HowItWorksTitle = styled.h2`
@@ -25,6 +38,7 @@ const HowItWorksTitle = styled.h2`
   color: var(--color-cream);
   position: relative;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   
   &:after {
     content: '';
@@ -34,7 +48,8 @@ const HowItWorksTitle = styled.h2`
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-light);
+    box-shadow: 0 0 10px rgba(138, 79, 255, 0.5);
   }
 `;
 
@@ -51,7 +66,8 @@ const FlowContainer = styled.div`
     bottom: 0;
     left: 50%;
     width: 2px;
-    background-color: var(--color-blue);
+    background-color: var(--color-blue-light);
+    box-shadow: 0 0 10px rgba(138, 79, 255, 0.5);
     transform: translateX(-50%);
     z-index: 1;
     
@@ -87,7 +103,7 @@ const StepNumber = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: var(--color-blue);
+  background-color: var(--color-blue-light);
   color: var(--color-cream);
   display: flex;
   align-items: center;
@@ -95,7 +111,7 @@ const StepNumber = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   flex-shrink: 0;
-  box-shadow: 0 0 0 5px var(--color-background), 0 0 0 10px rgba(39, 70, 144, 0.2);
+  box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
   
   @media (max-width: 768px) {
     width: 50px;
@@ -106,12 +122,14 @@ const StepNumber = styled.div`
 
 const StepContent = styled.div`
   flex: 1;
-  background-color: var(--color-card-bg);
+  background-color: rgba(30, 11, 44, 0.8);
   padding: 2rem;
   border-radius: 10px;
   backdrop-filter: blur(5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border-left: 3px solid var(--color-blue);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--color-blue-light);
+  border-top: 1px solid rgba(138, 79, 255, 0.3);
+  border-bottom: 1px solid rgba(138, 79, 255, 0.3);
   
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -123,6 +141,7 @@ const StepTitle = styled.h3`
   margin-bottom: 1rem;
   color: var(--color-blue-light);
   letter-spacing: -0.02em;
+  text-shadow: 0 0 8px rgba(138, 79, 255, 0.5);
 `;
 
 const StepDescription = styled.p`
@@ -131,63 +150,6 @@ const StepDescription = styled.p`
   margin-bottom: 1rem;
   color: var(--color-cream);
 `;
-
-const AnimationContainer = styled.div`
-  width: 100%;
-  height: 400px;
-  position: relative;
-  margin-bottom: 5rem;
-`;
-
-// A simplified 3D network visualization 
-const NetworkAnimation = () => {
-  return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
-      <ambientLight intensity={0.8} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} />
-      <OrbitControls enableZoom={false} autoRotate rotateSpeed={0.5} />
-      
-      {/* Central node */}
-      <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshStandardMaterial color="#274690" />
-      </mesh>
-      
-      {/* Surrounding nodes and connections */}
-      {Array.from({ length: 8 }).map((_, i) => {
-        const angle = (i / 8) * Math.PI * 2;
-        const x = Math.cos(angle) * 5;
-        const y = Math.sin(angle) * 5;
-        const z = Math.sin(angle * 2) * 2;
-        
-        return (
-          <React.Fragment key={i}>
-            <mesh position={[x, y, z]}>
-              <sphereGeometry args={[0.5, 32, 32]} />
-              <meshStandardMaterial color={i % 2 === 0 ? "#F5F3F5" : "#576CA8"} />
-            </mesh>
-            
-            <mesh>
-              <cylinderGeometry 
-                args={[0.05, 0.05, Math.sqrt(x*x + y*y + z*z), 8]} 
-              />
-              <meshStandardMaterial color="#274690" opacity={0.6} transparent />
-              <group
-                position={[x/2, y/2, z/2]}
-                rotation={[
-                  Math.atan2(Math.sqrt(x*x + z*z), y), 
-                  Math.atan2(x, z), 
-                  0
-                ]}
-              />
-            </mesh>
-          </React.Fragment>
-        );
-      })}
-    </Canvas>
-  );
-};
 
 const HowItWorks: React.FC = () => {
   const flowSteps = [
@@ -232,10 +194,6 @@ const HowItWorks: React.FC = () => {
       <motion.div style={{ opacity, scale }}>
         <HowItWorksContainer>
           <HowItWorksTitle>Cómo Funcionan Nuestros Ecosistemas de Agentes</HowItWorksTitle>
-          
-          <AnimationContainer>
-            <NetworkAnimation />
-          </AnimationContainer>
           
           <FlowContainer>
             {flowSteps.map((step, index) => (

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, MeshDistortMaterial, Float } from '@react-three/drei';
+import logoImage from '../assets/logo.png';
 
 const HeaderContainer = styled.header`
   min-height: 100vh;
@@ -12,6 +11,12 @@ const HeaderContainer = styled.header`
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #1E0B2C 0%, #0F0117 100%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding-top: 150px;
+  box-sizing: border-box;
+  
   &::before {
     content: '';
     position: absolute;
@@ -22,6 +27,9 @@ const HeaderContainer = styled.header`
     background-image: radial-gradient(white 1px, transparent 1px);
     background-size: 50px 50px;
     opacity: 0.15;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -48,6 +56,8 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled(motion.div)`
+  display: flex;
+  align-items: center;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--color-cream);
@@ -56,6 +66,11 @@ const Logo = styled(motion.div)`
     color: var(--color-blue-light);
     text-shadow: 0 0 10px rgba(18, 130, 162, 0.4);
   }
+`;
+
+const LogoImage = styled.img`
+  height: 40px;
+  margin-right: 12px;
 `;
 
 const NavList = styled.ul`
@@ -155,7 +170,7 @@ const HeroTitle = styled(motion.h1)`
 const HeroSubtitle = styled(motion.p)`
   font-size: 1.5rem;
   margin-bottom: 3rem;
-  color: var(--color-blue-light);
+  color: #FFFFFF;
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto 3rem;
@@ -255,16 +270,6 @@ const SecondaryButton = styled(motion.a)`
   }
 `;
 
-const AnimationContainer = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0.6;
-`;
-
 const HeroBackground = styled(motion.div)`
   position: absolute;
   top: 0;
@@ -291,31 +296,9 @@ const Particle = styled(motion.div)`
   position: absolute;
   background-color: var(--color-blue-light);
   border-radius: 50%;
-  opacity: 0.2;
+  opacity: 0.7;
+  box-shadow: 0 0 25px var(--color-blue-light), 0 0 40px rgba(138, 79, 255, 0.6);
 `;
-
-// 3D Animation
-const AnimatedLogo = () => {
-  return (
-    <Float
-      speed={2}
-      rotationIntensity={0.5}
-      floatIntensity={1}
-    >
-      <mesh>
-        <sphereGeometry args={[1.4, 64, 64]} />
-        <MeshDistortMaterial 
-          color="#8A4FFF" 
-          attach="material" 
-          distort={0.5} 
-          speed={2} 
-          roughness={0.3}
-          metalness={0.8}
-        />
-      </mesh>
-    </Float>
-  );
-};
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -339,9 +322,9 @@ const Header: React.FC = () => {
   }, []);
   
   // Generate particles for background effect
-  const particles = Array.from({ length: 20 }).map((_, i) => ({
+  const particles = Array.from({ length: 25 }).map((_, i) => ({
     id: i,
-    size: Math.random() * 10 + 5,
+    size: Math.random() * 15 + 8,
     x: Math.random() * 100,
     y: Math.random() * 100,
     duration: Math.random() * 20 + 10
@@ -366,6 +349,7 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
+            <LogoImage src={logoImage} alt="Breakaway Logo" />
             BREAK<span>AWAY</span>
           </Logo>
           <NavList>
@@ -398,16 +382,6 @@ const Header: React.FC = () => {
         </NavContainer>
       </NavBar>
       
-      {/* Animación 3D detrás del texto */}
-      <AnimationContainer>
-        <Canvas>
-          <ambientLight intensity={0.8} />
-          <pointLight position={[10, 10, 10]} intensity={1.5} />
-          <OrbitControls enableZoom={false} autoRotate={true} rotateSpeed={0.5} />
-          <AnimatedLogo />
-        </Canvas>
-      </AnimationContainer>
-      
       <HeroBackground 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
@@ -426,9 +400,10 @@ const Header: React.FC = () => {
               top: `${particle.y}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              opacity: [0.2, 0.4, 0.2],
+              y: [0, -40, 0],
+              x: [0, 20, 0],
+              opacity: [0.4, 0.8, 0.4],
+              scale: [1, 1.2, 1],
             }}
             transition={{
               repeat: Infinity,

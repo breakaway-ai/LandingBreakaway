@@ -37,14 +37,14 @@ const ContactHeader = styled.div`
 `;
 
 const ContactTitle = styled(motion.h2)`
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-align: center;
-  color: var(--color-blue);
-  position: relative;
+  color: #FFFFFF !important;
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-shadow: var(--text-shadow-glow);
+  text-shadow: none !important;
+  position: relative;
+  display: inline-block;
   
   &:after {
     content: '';
@@ -59,6 +59,7 @@ const ContactTitle = styled(motion.h2)`
     box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
   }
 `;
+
 
 const ContactSubtitle = styled(motion.p)`
   font-size: 1.25rem;
@@ -299,7 +300,7 @@ const ContactIcon = styled(motion.div)`
 
 const ContactText = styled.div`
   font-weight: 600;
-  color: var(--color-blue-light);
+  color: #FFFFFF;
   font-size: 1.1rem;
   text-shadow: var(--text-shadow-sm);
 `;
@@ -418,7 +419,7 @@ const ContactForm: React.FC = () => {
   };
   
   return (
-    <ContactSection id="contact" className="section-cream">
+    <ContactSection id="contact">
       <ContactContainer>
         <ContactHeader>
           <ContactTitle

@@ -28,7 +28,7 @@ const AboutHeader = styled.div`
 const AboutTitle = styled(motion.h2)`
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: var(--color-blue);
+  color: var(--color-cream);
   font-weight: 800;
   letter-spacing: -0.02em;
   text-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
@@ -276,12 +276,27 @@ const SoftwareDevContainer = styled.div`
   text-align: center;
 `;
 
-const SoftwareDevTitle = styled(motion.h3)`
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  color: var(--color-blue);
-  font-weight: 700;
+const SoftwareDevTitle = styled(motion.h2)`
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-cream);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
+  position: relative;
+  display: inline-block;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light), var(--color-blue));
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
+  }
 `;
 
 const SoftwareDevDescription = styled(motion.p)`

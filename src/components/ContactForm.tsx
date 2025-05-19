@@ -1,0 +1,407 @@
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+
+const ContactSection = styled.section`
+  padding: 6rem 0;
+  background-color: var(--color-section-alt);
+  position: relative;
+`;
+
+const ContactContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+`;
+
+const ContactHeader = styled.div`
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const ContactTitle = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-blue);
+  position: relative;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+`;
+
+const ContactSubtitle = styled.p`
+  font-size: 1.25rem;
+  color: var(--color-cream);
+  opacity: 0.9;
+  line-height: 1.6;
+`;
+
+const ContactContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+`;
+
+const FormContainer = styled.div`
+  grid-column: 2 / 12;
+  background-color: var(--color-card-bg);
+  padding: 3.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-border);
+  
+  @media (max-width: 992px) {
+    grid-column: 1 / -1;
+    padding: 2.5rem;
+  }
+`;
+
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 1.5rem;
+  position: relative;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-blue);
+  }
+`;
+
+const FullWidthFormGroup = styled(FormGroup)`
+  grid-column: 1 / -1;
+`;
+
+const FormInput = styled.input`
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--color-gray);
+  border-radius: 8px;
+  background-color: rgba(245, 243, 245, 0.05);
+  color: var(--color-cream);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(39, 70, 144, 0.2);
+  }
+`;
+
+const FormTextarea = styled.textarea`
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--color-gray);
+  border-radius: 8px;
+  background-color: rgba(245, 243, 245, 0.05);
+  color: var(--color-cream);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-height: 150px;
+  resize: vertical;
+  
+  &:focus {
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(39, 70, 144, 0.2);
+  }
+`;
+
+const SubmitButton = styled(motion.button)`
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--color-blue);
+  color: var(--color-cream);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background-color: var(--color-blue-dark); /* Slightly darker when hovered */
+  }
+`;
+
+const SuccessMessage = styled(motion.div)`
+  padding: 1.2rem;
+  background-color: rgba(75, 181, 67, 0.1);
+  border: 1px solid rgba(75, 181, 67, 0.3);
+  border-radius: 6px;
+  color: #2e7d32;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 600;
+`;
+
+const FormInfo = styled.div`
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-gray);
+  opacity: 0.7;
+`;
+
+const ContactDetails = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+`;
+
+const ContactItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+const ContactIcon = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  
+  svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-cream);
+  }
+`;
+
+const ContactText = styled.div`
+  font-weight: 500;
+  color: var(--color-blue);
+`;
+
+const InfoCard = styled.div`
+  background-color: var(--color-blue);
+  border-radius: 10px;
+  padding: 2.5rem;
+  height: 100%;
+  color: var(--color-cream);
+  position: relative;
+  overflow: hidden;
+`;
+
+const InfoFeature = styled.p`
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 2rem;
+  
+  svg {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--color-blue);
+  }
+`;
+
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: ''
+  });
+  
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    
+    setIsSubmitted(true);
+    
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      phone: '',
+      message: ''
+    });
+    
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 5000);
+  };
+  
+  return (
+    <ContactSection id="contact" className="section-cream">
+      <ContactContainer>
+        <ContactHeader>
+          <ContactTitle>¿Listo para Transformar tu Negocio?</ContactTitle>
+          <ContactSubtitle>
+            Solicita tu consultoría gratuita y descubre cómo nuestros ecosistemas
+            de agentes inteligentes pueden revolucionar tus operaciones.
+          </ContactSubtitle>
+        </ContactHeader>
+        
+        <ContactContent>
+          <FormContainer>
+            <Form onSubmit={handleSubmit}>
+              <FormGroup>
+                <label htmlFor="name">Nombre Completo*</label>
+                <FormInput 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  value={formData.name} 
+                  onChange={handleChange} 
+                  required 
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <label htmlFor="email">Correo Electrónico*</label>
+                <FormInput 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  value={formData.email} 
+                  onChange={handleChange} 
+                  required 
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <label htmlFor="company">Empresa</label>
+                <FormInput 
+                  type="text" 
+                  id="company" 
+                  name="company" 
+                  value={formData.company} 
+                  onChange={handleChange} 
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <label htmlFor="phone">Teléfono</label>
+                <FormInput 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  value={formData.phone} 
+                  onChange={handleChange} 
+                />
+              </FormGroup>
+              
+              <FullWidthFormGroup>
+                <label htmlFor="message">Mensaje*</label>
+                <FormTextarea 
+                  id="message" 
+                  name="message" 
+                  value={formData.message} 
+                  onChange={handleChange} 
+                  required 
+                  placeholder="Cuéntanos sobre tu proyecto o necesidades específicas..."
+                />
+              </FullWidthFormGroup>
+              
+              <FullWidthFormGroup>
+                <SubmitButton 
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="hover-lift"
+                >
+                  Solicitar Consultoría Gratuita
+                </SubmitButton>
+                
+                {isSubmitted && (
+                  <SuccessMessage
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    ¡Gracias por contactarnos! Te responderemos a la brevedad.
+                  </SuccessMessage>
+                )}
+                
+                <FormInfo>
+                  Al enviar este formulario, aceptas nuestra política de privacidad 
+                  y te comprometes a recibir comunicaciones relacionadas con tu consulta.
+                </FormInfo>
+              </FullWidthFormGroup>
+            </Form>
+          </FormContainer>
+        </ContactContent>
+        
+        <ContactDetails>
+          <ContactItem>
+            <ContactIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </ContactIcon>
+            <ContactText>info@breakaway.tech</ContactText>
+          </ContactItem>
+          
+          <ContactItem>
+            <ContactIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </ContactIcon>
+            <ContactText>+52 55 1234 5678</ContactText>
+          </ContactItem>
+          
+          <ContactItem>
+            <ContactIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </ContactIcon>
+            <ContactText>Ciudad de México, México</ContactText>
+          </ContactItem>
+        </ContactDetails>
+      </ContactContainer>
+    </ContactSection>
+  );
+};
+
+export default ContactForm; 

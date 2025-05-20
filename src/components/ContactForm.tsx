@@ -202,21 +202,31 @@ const FormTextarea = styled(motion.textarea)`
 `;
 
 const SubmitButton = styled(motion.button)`
-  display: inline-block;
-  padding: 1.2rem 2.5rem;
-  background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light));
-  color: var(--color-cream-highlight);
+  width: 100%;
+  padding: 1.2rem;
+  background-color: var(--color-blue-light);
+  color: var(--color-cream);
   border: none;
   border-radius: 10px;
-  font-weight: 700;
   font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(87, 108, 168, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
+  margin-top: 1rem;
+  box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
+  
+  &:hover {
+    background-color: var(--color-blue);
+    box-shadow: 0 0 25px rgba(138, 79, 255, 0.8);
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: rgba(138, 79, 255, 0.6);
+  }
   
   &:before {
     content: '';
@@ -234,7 +244,7 @@ const SubmitButton = styled(motion.button)`
     transition: 0.5s;
   }
   
-  &:hover:before {
+  &:hover:not(:disabled):before {
     left: 100%;
   }
 `;
@@ -249,6 +259,19 @@ const SuccessMessage = styled(motion.div)`
   text-align: center;
   font-weight: 600;
   text-shadow: 0 0 5px rgba(75, 181, 67, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+`;
+
+const ErrorMessage = styled(motion.div)`
+  padding: 1.5rem;
+  background-color: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 10px;
+  color: #FF0000;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 `;
 
@@ -303,30 +326,6 @@ const ContactText = styled.div`
   color: #FFFFFF;
   font-size: 1.1rem;
   text-shadow: var(--text-shadow-sm);
-`;
-
-const InfoCard = styled.div`
-  background-color: var(--color-blue);
-  border-radius: 10px;
-  padding: 2.5rem;
-  height: 100%;
-  color: var(--color-cream);
-  position: relative;
-  overflow: hidden;
-`;
-
-const InfoFeature = styled.p`
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  position: relative;
-  padding-left: 2rem;
-  
-  svg {
-    position: absolute;
-    left: 0;
-    top: 5px;
-    color: var(--color-blue);
-  }
 `;
 
 // Variantes de animación
@@ -389,7 +388,9 @@ const ContactForm: React.FC = () => {
     message: ''
   });
   
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -399,23 +400,54 @@ const ContactForm: React.FC = () => {
     }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setError(null);
     
-    setIsSubmitted(true);
-    
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      message: ''
-    });
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    try {
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      // Check if the response has content before trying to parse it
+      const text = await response.text();
+      let data;
+      
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch (jsonError) {
+        console.error('Error parsing JSON response:', jsonError, 'Response text:', text);
+        throw new Error('Error parsing server response');
+      }
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Error submitting form');
+      }
+      
+      setIsSubmitted(true);
+      
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        message: ''
+      });
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Error submitting form');
+      console.error('Form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   return (
@@ -463,6 +495,7 @@ const ContactForm: React.FC = () => {
                   required 
                   whileFocus="focus"
                   variants={inputVariants}
+                  disabled={isSubmitting}
                 />
               </FormGroup>
               
@@ -477,6 +510,7 @@ const ContactForm: React.FC = () => {
                   required 
                   whileFocus="focus"
                   variants={inputVariants}
+                  disabled={isSubmitting}
                 />
               </FormGroup>
               
@@ -490,6 +524,7 @@ const ContactForm: React.FC = () => {
                   onChange={handleChange}
                   whileFocus="focus"
                   variants={inputVariants}
+                  disabled={isSubmitting}
                 />
               </FormGroup>
               
@@ -503,6 +538,7 @@ const ContactForm: React.FC = () => {
                   onChange={handleChange}
                   whileFocus="focus"
                   variants={inputVariants}
+                  disabled={isSubmitting}
                 />
               </FormGroup>
               
@@ -517,6 +553,7 @@ const ContactForm: React.FC = () => {
                   placeholder="Cuéntanos sobre tu proyecto o necesidades específicas..."
                   whileFocus="focus"
                   variants={inputVariants}
+                  disabled={isSubmitting}
                 />
               </FullWidthFormGroup>
               
@@ -526,8 +563,9 @@ const ContactForm: React.FC = () => {
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
+                  disabled={isSubmitting}
                 >
-                  Solicitar Consultoría Gratuita
+                  {isSubmitting ? 'Enviando...' : 'Solicitar Consultoría Gratuita'}
                 </SubmitButton>
                 
                 {isSubmitted && (
@@ -537,6 +575,15 @@ const ContactForm: React.FC = () => {
                   >
                     ¡Gracias por contactarnos! Te responderemos a la brevedad.
                   </SuccessMessage>
+                )}
+                
+                {error && (
+                  <ErrorMessage
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {error}
+                  </ErrorMessage>
                 )}
                 
                 <FormInfo>

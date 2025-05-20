@@ -1,9 +1,11 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import dotenv from 'dotenv';
 
-// Configure Mailchimp with the user's API key
+dotenv.config();
+
 mailchimp.setConfig({
-  apiKey: '10e31a5d9a72a0073a8f634b280078e2-us15',
-  server: 'us15'
+  apiKey: process.env.MAILCHIMP_API_KEY,
+  server: process.env.MAILCHIMP_SERVER_PREFIX || 'us15'
 });
 
 const listId = 'b4e746a599';

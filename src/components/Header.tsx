@@ -4,7 +4,6 @@ import logoImage from '../assets/logo.png';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -23,10 +22,6 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
   
   // Generate particles for background effect
   const particles = Array.from({ length: 25 }).map((_, i) => ({
@@ -58,22 +53,43 @@ const Header: React.FC = () => {
             : 'py-6 bg-background bg-opacity-80'
         }`}
       >
-        <div className="flex justify-between items-center max-w-7xl mx-auto px-8 md:px-6">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center text-2xl font-bold text-cream"
-          >
-            <img src={logoImage} alt="Breakaway Logo" className="h-10 mr-3 md:h-8 md:mr-2" />
-            BREAK<span className="text-blue-light">AWAY</span>
-          </motion.div>
-          
-          {/* Mobile Menu Controls */}
-          <div className="flex items-center gap-4 md:gap-2">
+        <div className="flex justify-between items-center max-w-7xl mx-auto px-8">
+          {/* Desktop Layout: Logo (Left) - Navigation (Center) - Button (Right) */}
+          <div className="flex items-center justify-between w-full md:justify-start">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center text-2xl font-bold text-cream"
+            >
+              <img src={logoImage} alt="Breakaway Logo" className="h-10 mr-3 md:h-8 md:mr-2" />
+              BREAK<span className="text-blue-light">AWAY</span>
+            </motion.div>
+            
+            {/* Navigation Links - Desktop Only */}
+            <div className="hidden md:hidden lg:block flex-1">
+              <ul className="flex justify-center list-none gap-10">
+                {["Tecnología", "Beneficios", "Contacto"].map((item, i) => (
+                  <motion.li key={i}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 * i }}
+                  >
+                    <a 
+                      href={`#${item.toLowerCase() === "tecnología" ? "about" : item.toLowerCase()}`}
+                      className="text-cream font-semibold relative transition-colors duration-300 text-base hover:text-blue-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-blue-light after:transition-width after:duration-300 hover:after:w-full"
+                    >
+                      {item}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Consultoría Button - Desktop Only */}
             <motion.a
               href="#contact"
               initial={{ opacity: 0, x: 20 }}
@@ -81,53 +97,11 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-blue-light text-cream px-6 py-3 rounded font-semibold transition-all duration-300 shadow-glow md:px-4 md:py-2 md:text-sm md:whitespace-nowrap"
+              className="bg-blue-light text-cream px-6 py-3 rounded font-semibold transition-all duration-300 shadow-glow hidden md:hidden lg:block"
             >
               Consultoría Gratuita
             </motion.a>
-            
-            {/* Hamburger Menu Button (mobile only) */}
-            <button 
-              onClick={toggleMenu}
-              className="hidden md:flex flex-col justify-between w-[30px] h-[20px] bg-transparent border-none cursor-pointer p-0 z-50"
-            >
-              <div 
-                className="w-full h-[2px] bg-cream transition-all duration-300"
-                style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}
-              />
-              <div 
-                className="w-full h-[2px] bg-cream transition-all duration-300"
-                style={{ opacity: menuOpen ? 0 : 1 }}
-              />
-              <div 
-                className="w-full h-[2px] bg-cream transition-all duration-300"
-                style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }}
-              />
-            </button>
           </div>
-          
-          {/* Navigation Links */}
-          <ul 
-            className={`flex list-none gap-10 md:fixed md:top-[80px] md:left-0 md:w-full md:flex-col md:bg-background md:bg-opacity-95 md:backdrop-blur-md md:p-6 md:gap-6 md:shadow-lg md:items-center md:z-50 ${
-              menuOpen ? 'md:flex' : 'md:hidden'
-            }`}
-          >
-            {["Tecnología", "Beneficios", "Contacto"].map((item, i) => (
-              <motion.li key={i}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * i }}
-              >
-                <a 
-                  href={`#${item.toLowerCase() === "tecnología" ? "about" : item.toLowerCase()}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-cream font-semibold relative transition-colors duration-300 text-base hover:text-blue-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-blue-light after:transition-width after:duration-300 hover:after:w-full md:text-lg"
-                >
-                  {item}
-                </a>
-              </motion.li>
-            ))}
-          </ul>
         </div>
       </motion.nav>
       

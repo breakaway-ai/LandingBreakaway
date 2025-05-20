@@ -1,307 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import logoImage from '../assets/logo.png';
 
-const HeaderContainer = styled.header`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding-top: 80px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1E0B2C 0%, #0F0117 100%);
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  padding-top: 150px;
-  box-sizing: border-box;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(white 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.15;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const NavBar = styled(motion.nav)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: 1.5rem 0;
-  background-color: rgba(15, 1, 23, 0.8);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-`;
-
-const NavContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-`;
-
-const Logo = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--color-cream);
-  
-  span {
-    color: var(--color-blue-light);
-    text-shadow: 0 0 10px rgba(18, 130, 162, 0.4);
-  }
-`;
-
-const LogoImage = styled.img`
-  height: 40px;
-  margin-right: 12px;
-`;
-
-const NavList = styled.ul`
-  display: flex;
-  list-style: none;
-  gap: 2.5rem;
-  
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const NavLink = styled(motion.a)`
-  color: var(--color-cream);
-  font-weight: 600;
-  position: relative;
-  transition: color 0.3s ease;
-  font-size: 1.05rem;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-blue-light);
-    transition: width 0.3s ease;
-  }
-  
-  &:hover {
-    color: var(--color-blue-light);
-    text-shadow: 0 0 8px rgba(18, 130, 162, 0.8);
-  }
-  
-  &:hover:after {
-    width: 100%;
-  }
-`;
-
-const NavButton = styled(motion.a)`
-  padding: 0.8rem 1.5rem;
-  background-color: var(--color-blue-light);
-  color: var(--color-cream);
-  border-radius: 4px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(138, 79, 255, 0.8);
-    background-color: var(--color-blue-light);
-  }
-`;
-
-const HeroContent = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 5;
-`;
-
-const HeroText = styled.div`
-  max-width: 800px;
-  z-index: 5;
-  margin-bottom: 4rem;
-`;
-
-const HeroTitle = styled(motion.h1)`
-  font-size: 4.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--color-cream);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  
-  span {
-    color: var(--color-blue-light);
-    text-shadow: 0 0 15px rgba(18, 130, 162, 0.8);
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 3rem;
-  }
-`;
-
-const HeroSubtitle = styled(motion.p)`
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
-  color: #FFFFFF;
-  opacity: 0.9;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  font-weight: 500;
-`;
-
-const HeroButtons = styled(motion.div)`
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  
-  @media (max-width: 480px) {
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-  }
-`;
-
-const PrimaryButton = styled(motion.a)`
-  padding: 1rem 2.5rem;
-  background-color: var(--color-blue-light);
-  color: var(--color-cream);
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
-  position: relative;
-  overflow: hidden;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
-    transition: 0.5s;
-  }
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(138, 79, 255, 0.8);
-    background-color: var(--color-blue-light);
-  }
-  
-  &:hover:before {
-    left: 100%;
-  }
-`;
-
-const SecondaryButton = styled(motion.a)`
-  padding: 1rem 2.5rem;
-  background-color: transparent;
-  color: var(--color-cream);
-  border: 2px solid var(--color-blue-light);
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(138, 79, 255, 0.3);
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(138, 79, 255, 0.3),
-      transparent
-    );
-    transition: 0.5s;
-  }
-  
-  &:hover {
-    background-color: rgba(138, 79, 255, 0.2);
-    color: var(--color-cream);
-    box-shadow: 0 0 15px rgba(138, 79, 255, 0.5);
-    border-color: var(--color-blue-light);
-  }
-  
-  &:hover:before {
-    left: 100%;
-  }
-`;
-
-const HeroBackground = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background-image: radial-gradient(var(--color-gray) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.1;
-`;
-
-const FloatingParticles = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  overflow: hidden;
-`;
-
-const Particle = styled(motion.div)`
-  position: absolute;
-  background-color: var(--color-blue-light);
-  border-radius: 50%;
-  opacity: 0.7;
-  box-shadow: 0 0 25px var(--color-blue-light), 0 0 40px rgba(138, 79, 255, 0.6);
-`;
-
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -320,6 +23,10 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   
   // Generate particles for background effect
   const particles = Array.from({ length: 25 }).map((_, i) => ({
@@ -331,73 +38,123 @@ const Header: React.FC = () => {
   }));
 
   return (
-    <HeaderContainer>
-      <NavBar 
+    <header className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-br from-blue-dark to-background pt-[150px] box-border">
+      {/* Dotted background pattern */}
+      <div className="absolute inset-0 z-0 opacity-15 w-full h-full" 
+           style={{ 
+             backgroundImage: 'radial-gradient(white 1px, transparent 1px)', 
+             backgroundSize: '50px 50px' 
+           }}>
+      </div>
+      
+      {/* Navigation Bar */}
+      <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        style={{ 
-          boxShadow: scrolled ? '0 4px 15px rgba(0, 0, 0, 0.2)' : 'none',
-          padding: scrolled ? '1rem 0' : '1.5rem 0',
-        }}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
+          scrolled 
+            ? 'py-4 shadow-md bg-background bg-opacity-80' 
+            : 'py-6 bg-background bg-opacity-80'
+        }`}
       >
-        <NavContainer>
-          <Logo
+        <div className="flex justify-between items-center max-w-7xl mx-auto px-8 md:px-6">
+          {/* Logo */}
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="flex items-center text-2xl font-bold text-cream"
           >
-            <LogoImage src={logoImage} alt="Breakaway Logo" />
-            BREAK<span>AWAY</span>
-          </Logo>
-          <NavList>
+            <img src={logoImage} alt="Breakaway Logo" className="h-10 mr-3 md:h-8 md:mr-2" />
+            BREAK<span className="text-blue-light">AWAY</span>
+          </motion.div>
+          
+          {/* Mobile Menu Controls */}
+          <div className="flex items-center gap-4 md:gap-2">
+            <motion.a
+              href="#contact"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-light text-cream px-6 py-3 rounded font-semibold transition-all duration-300 shadow-glow md:px-4 md:py-2 md:text-sm md:whitespace-nowrap"
+            >
+              Consultoría Gratuita
+            </motion.a>
+            
+            {/* Hamburger Menu Button (mobile only) */}
+            <button 
+              onClick={toggleMenu}
+              className="hidden md:flex flex-col justify-between w-[30px] h-[20px] bg-transparent border-none cursor-pointer p-0 z-50"
+            >
+              <div 
+                className="w-full h-[2px] bg-cream transition-all duration-300"
+                style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }}
+              />
+              <div 
+                className="w-full h-[2px] bg-cream transition-all duration-300"
+                style={{ opacity: menuOpen ? 0 : 1 }}
+              />
+              <div 
+                className="w-full h-[2px] bg-cream transition-all duration-300"
+                style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }}
+              />
+            </button>
+          </div>
+          
+          {/* Navigation Links */}
+          <ul 
+            className={`flex list-none gap-10 md:fixed md:top-[80px] md:left-0 md:w-full md:flex-col md:bg-background md:bg-opacity-95 md:backdrop-blur-md md:p-6 md:gap-6 md:shadow-lg md:items-center md:z-50 ${
+              menuOpen ? 'md:flex' : 'md:hidden'
+            }`}
+          >
             {["Tecnología", "Beneficios", "Contacto"].map((item, i) => (
               <motion.li key={i}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * i }}
               >
-                <NavLink 
+                <a 
                   href={`#${item.toLowerCase() === "tecnología" ? "about" : item.toLowerCase()}`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-cream font-semibold relative transition-colors duration-300 text-base hover:text-blue-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-blue-light after:transition-width after:duration-300 hover:after:w-full md:text-lg"
                 >
                   {item}
-                </NavLink>
+                </a>
               </motion.li>
             ))}
-          </NavList>
-          <NavButton 
-            href="#contact"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Consultoría Gratuita
-          </NavButton>
-        </NavContainer>
-      </NavBar>
+          </ul>
+        </div>
+      </motion.nav>
       
-      <HeroBackground 
+      {/* Background grid effect */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
         transition={{ duration: 1.5 }}
+        className="absolute top-0 left-0 w-full h-full z-0"
+        style={{
+          backgroundImage: 'radial-gradient(var(--tw-colors-gray) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
       />
       
-      {/* Partículas flotantes */}
-      <FloatingParticles>
+      {/* Floating Particles */}
+      <div className="absolute w-full h-full top-0 left-0 z-0 overflow-hidden">
         {particles.map(particle => (
-          <Particle
+          <motion.div
             key={particle.id}
+            className="absolute rounded-full bg-blue-light opacity-70"
             style={{
               width: particle.size,
               height: particle.size,
               left: `${particle.x}%`,
               top: `${particle.y}%`,
+              boxShadow: '0 0 25px #8A4FFF, 0 0 40px rgba(138, 79, 255, 0.6)'
             }}
             animate={{
               y: [0, -40, 0],
@@ -412,9 +169,10 @@ const Header: React.FC = () => {
             }}
           />
         ))}
-      </FloatingParticles>
+      </div>
       
-      <HeroContent>
+      {/* Hero Content */}
+      <div className="flex-1 flex flex-col items-center justify-center max-w-7xl mx-auto px-8 text-center relative z-10 md:px-4">
         <motion.div
           style={{
             opacity,
@@ -422,8 +180,8 @@ const Header: React.FC = () => {
             y,
           }}
         >
-          <HeroText>
-            <HeroTitle
+          <div className="max-w-3xl z-10 mb-16">
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -431,38 +189,48 @@ const Header: React.FC = () => {
                 type: "spring",
                 stiffness: 100
               }}
+              className="text-6xl mb-6 text-cream font-extrabold leading-tight tracking-tight md:text-4xl md:mb-4"
             >
-              Empodera tu Negocio con <span>Agentes Inteligentes</span>
-            </HeroTitle>
-            <HeroSubtitle
+              Empodera tu Negocio con <span className="text-blue-light">Agentes Inteligentes</span>
+            </motion.h1>
+            
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-2xl mb-12 text-white opacity-90 max-w-2xl mx-auto md:text-xl md:mb-8"
             >
               Ecosistemas de Agentes Digitales que Automatizan Procesos, Eliminan Errores y Potencian el Crecimiento Exponencial
-            </HeroSubtitle>
-            <HeroButtons
+            </motion.p>
+            
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex gap-6 justify-center md:flex-col md:max-w-xs md:mx-auto md:gap-4"
             >
-              <PrimaryButton href="#contact"
+              <motion.a
+                href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
+                className="bg-blue-light text-cream px-10 py-4 rounded font-semibold transition-all duration-300 shadow-glow relative overflow-hidden md:px-6 md:py-3 md:text-base"
               >
                 Solicita tu Consultoría
-              </PrimaryButton>
-              <SecondaryButton href="#about"
+              </motion.a>
+              
+              <motion.a
+                href="#about"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
+                className="bg-transparent text-cream border-2 border-blue-light px-10 py-4 rounded font-semibold transition-all duration-300 relative overflow-hidden shadow-sm hover:bg-blue-light hover:bg-opacity-20 hover:shadow-glow md:px-6 md:py-3 md:text-base"
               >
                 Descubre Cómo
-              </SecondaryButton>
-            </HeroButtons>
-          </HeroText>
+              </motion.a>
+            </motion.div>
+          </div>
         </motion.div>
-      </HeroContent>
-    </HeaderContainer>
+      </div>
+    </header>
   );
 };
 

@@ -1,117 +1,113 @@
-:root {
-  /* Color Palette - Space Theme */
-  --color-background: #0F0117;       /* Deep space black with purple tint */
-  --color-blue-dark: #1E0B2C;        /* Deep purple for sections */
-  --color-blue: #4A2C6D;             /* Medium purple accent */
-  --color-blue-light: #8A4FFF;       /* Bright purple for highlights/buttons */
-  --color-cream: #FFFFFF;            /* Pure white for text */
-  --color-cream-highlight: #FFFFFF;  /* Pure white for high contrast highlights */
-  --color-text: #FFFFFF;             /* White for text */
-  --color-text-highlight: #FFFFFF;   /* Pure white for highlighted text */
-  --color-card-bg: #1E0B2C;          /* Deep purple for card backgrounds */
-  --color-section-alt: #1E0B2C;      /* Deep purple for alternating sections */
-  --color-gray: #9A9A9D;             /* Medium gray for secondary text */
-  --color-text-secondary: #B68FFF;   /* Light purple for secondary text */
-  --color-border: rgba(138, 79, 255, 0.3); /* Subtle border based on accent */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   
-  /* Shadow Effects */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(138, 79, 255, 0.2);
-  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(138, 79, 255, 0.3);
-  --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(138, 79, 255, 0.4);
+  body {
+    @apply bg-background text-text min-h-screen overflow-x-hidden font-sans;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   
-  /* Text Effects */
-  --text-shadow-sm: 0 0 5px rgba(0, 0, 0, 0.3);
-  --text-shadow-md: 0 0 10px rgba(0, 0, 0, 0.5);
-  --text-shadow-lg: 0 0 15px rgba(0, 0, 0, 0.7);
-  --text-shadow-glow: 0 0 10px rgba(138, 79, 255, 0.6);
-  --text-shadow-highlight: 0 0 15px rgba(255, 255, 255, 0.5);
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight text-cream tracking-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block py-2 px-6 rounded font-semibold transition-all duration-300 text-center;
+  }
   
-  /* Typography */
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  .btn-primary {
+    @apply bg-blue-light text-cream border-2 border-blue-light shadow-glow;
+  }
   
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--color-cream);
-  letter-spacing: -0.02em;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-family: inherit;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-input, textarea {
-  font-family: inherit;
-  outline: none;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-section {
-  padding: 5rem 0;
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: 3rem 0;
+  .btn-primary:hover {
+    @apply -translate-y-1 shadow-glow-hover;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-cream border-2 border-blue-light shadow-sm;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-opacity-20 bg-blue-light shadow-glow;
+  }
+  
+  .section-title {
+    @apply text-4xl mb-6 relative text-cream tracking-tight;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-3 left-0 w-20 h-1 bg-blue-light shadow-glow;
+  }
+  
+  .text-center .section-title::after {
+    @apply left-1/2 -translate-x-1/2;
+  }
+  
+  .section-cream {
+    @apply bg-white text-background;
+  }
+  
+  .section-cream h2, 
+  .section-cream h3, 
+  .section-cream h4 {
+    @apply text-blue-dark;
+  }
+  
+  .section-cream .section-title::after {
+    @apply bg-blue;
+  }
+  
+  .section-dark {
+    @apply bg-gradient-to-br from-blue-dark to-background relative;
+  }
+  
+  .section-dark::before {
+    content: '';
+    @apply absolute inset-0 opacity-5 pointer-events-none;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 8px rgba(138, 79, 255, 0.7);
+  }
+  
+  .glow-box {
+    @apply shadow-glow;
   }
   
   .container {
-    padding: 0 1.5rem;
+    @apply w-full max-w-7xl mx-auto px-8;
   }
-}
-
-/* Utility classes for text effects */
-.text-highlight {
-  color: var(--color-cream-highlight);
-  text-shadow: var(--text-shadow-highlight);
-}
-
-.text-glow {
-  text-shadow: var(--text-shadow-glow);
-}
-
-.text-contrast {
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  
+  @media (max-width: 768px) {
+    .container {
+      @apply px-6;
+    }
+    
+    .section-title {
+      @apply text-3xl;
+    }
+  }
 }

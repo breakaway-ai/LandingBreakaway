@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Header from './components/Header';
 import About from './components/About';
@@ -7,42 +6,6 @@ import Benefits from './components/Benefits';
 import HowItWorks from './components/HowItWorks';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import './App.css';
-
-// Add Google Fonts
-const FontStyles = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-`;
-
-// Scroll progress indicator
-const ScrollProgressBar = styled(motion.div)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--color-blue);
-  transform-origin: 0%;
-  z-index: 1000;
-`;
-
-// Custom cursor
-const Cursor = styled(motion.div)`
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(87, 108, 168, 0.3);
-  mix-blend-mode: difference;
-  pointer-events: none;
-  z-index: 9999;
-  
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -51,6 +14,8 @@ function App() {
     damping: 30,
     restDelta: 0.001
   });
+  
+  const cursorRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     // Add Google Fonts to the document head
@@ -67,10 +32,9 @@ function App() {
   // Custom cursor effect
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      const cursor = document.querySelector('.custom-cursor') as HTMLElement;
-      if (cursor) {
-        cursor.style.left = `${e.clientX - 10}px`;
-        cursor.style.top = `${e.clientY - 10}px`;
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${e.clientX - 10}px`;
+        cursorRef.current.style.top = `${e.clientY - 10}px`;
       }
     };
 
@@ -83,9 +47,18 @@ function App() {
 
   return (
     <>
-      <FontStyles />
-      <ScrollProgressBar style={{ scaleX }} />
-      <Cursor className="custom-cursor" />
+      {/* Scroll Progress Bar */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-blue z-[1000] origin-[0%]"
+        style={{ scaleX }}
+      />
+      
+      {/* Custom Cursor (hidden on mobile) */}
+      <div 
+        ref={cursorRef}
+        className="fixed w-5 h-5 rounded-full bg-blue-light bg-opacity-30 mix-blend-difference pointer-events-none z-[9999] hidden md:block"
+      />
+      
       <Header />
       <About />
       <Benefits />

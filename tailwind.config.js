@@ -9,19 +9,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0F0117',
-        'blue-dark': '#1E0B2C',
-        blue: '#4A2C6D',
-        'blue-light': '#8A4FFF',
-        cream: '#FFFFFF',
-        'cream-highlight': '#FFFFFF',
-        text: '#FFFFFF',
-        'text-highlight': '#FFFFFF',
-        'card-bg': '#1E0B2C',
-        'section-alt': '#1E0B2C',
-        gray: '#9A9A9D',
-        'text-secondary': '#B68FFF',
-        border: 'rgba(138, 79, 255, 0.3)'
+        background: '#0B0815',
+        'blue-dark': '#2A1D3F',
+        blue: '#9d71e8',
+        'blue-light': '#be99ff',
+        cream: '#f2f7ff',
+        'cream-highlight': '#b2c9ff',
+        text: '#f2f7ff',
+        'text-highlight': '#9d71e8',
+        'card-bg': '#e6eeff',
+        'section-alt': '#c9dcff',
+        gray: '#b2c9ff',
+        'text-secondary': '#9d71e8',
+        border: 'rgba(190, 153, 255, 0.4)'
       },
       boxShadow: {
         'sm': '0 2px 8px rgba(0, 0, 0, 0.3)',

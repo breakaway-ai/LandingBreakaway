@@ -128,13 +128,13 @@ const Header: React.FC = () => {
               height: particle.size,
               left: `${particle.x}%`,
               top: `${particle.y}%`,
-              boxShadow: '0 0 25px #8A4FFF, 0 0 40px rgba(138, 79, 255, 0.6)'
+              boxShadow: '0 0 25px #be99ff, 0 0 40px rgba(190, 153, 255, 0.6)'
             }}
             animate={{
-              y: [0, -40, 0],
-              x: [0, 20, 0],
+              y: [0, -30, 0],
+              x: [0, 15, 0],
               opacity: [0.4, 0.8, 0.4],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.15, 1],
             }}
             transition={{
               repeat: Infinity,

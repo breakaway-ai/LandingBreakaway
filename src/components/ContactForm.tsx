@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const ContactSection = styled.section`
   padding: 6rem 0;
-  background-color: var(--color-section-alt);
+  background-color: var(--color-card-bg);
   position: relative;
   overflow: hidden;
   
@@ -15,7 +15,7 @@ const ContactSection = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 30%, rgba(87, 108, 168, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at 20% 30%, rgba(157, 113, 232, 0.1) 0%, transparent 70%);
     z-index: 0;
   }
 `;
@@ -39,7 +39,7 @@ const ContactHeader = styled.div`
 const ContactTitle = styled(motion.h2)`
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #FFFFFF !important;
+  color: #2A1D3F !important;
   font-weight: 800;
   letter-spacing: -0.02em;
   text-shadow: none !important;
@@ -56,15 +56,15 @@ const ContactTitle = styled(motion.h2)`
     height: 4px;
     background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light));
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
+    box-shadow: 0 0 10px rgba(157, 113, 232, 0.6);
   }
 `;
 
 
 const ContactSubtitle = styled(motion.p)`
   font-size: 1.25rem;
-  color: var(--color-cream);
-  opacity: 0.9;
+  color: #2A1D3F;
+  opacity: 0.8;
   line-height: 1.6;
   margin-top: 2rem;
 `;
@@ -82,11 +82,11 @@ const ContactContent = styled.div`
 
 const FormContainer = styled(motion.div)`
   grid-column: 2 / 12;
-  background: linear-gradient(145deg, var(--color-card-bg), rgba(39, 70, 144, 0.1));
+  background: linear-gradient(145deg, var(--color-blue-dark), var(--color-background));
   padding: 3.5rem;
   border-radius: 16px;
   box-shadow: var(--shadow-xl);
-  border: 1px solid rgba(87, 108, 168, 0.2);
+  border: 1px solid rgba(190, 153, 255, 0.3);
   position: relative;
   overflow: hidden;
   
@@ -147,7 +147,7 @@ const FormGroup = styled.div`
     display: block;
     margin-bottom: 0.8rem;
     font-weight: 600;
-    color: var(--color-blue-light);
+    color: var(--color-cream);
     font-size: 1.05rem;
     letter-spacing: 0.02em;
   }
@@ -160,30 +160,30 @@ const FullWidthFormGroup = styled(FormGroup)`
 const FormInput = styled(motion.input)`
   width: 100%;
   padding: 1.2rem 1.5rem;
-  border: 2px solid rgba(87, 108, 168, 0.3);
+  border: 2px solid rgba(190, 153, 255, 0.3);
   border-radius: 10px;
-  background-color: rgba(245, 243, 245, 0.05);
+  background-color: rgba(0, 0, 0, 0.2);
   color: var(--color-cream);
   font-size: 1rem;
   transition: all 0.3s ease;
   
   &:focus {
-    border-color: var(--color-blue);
-    box-shadow: 0 0 0 4px rgba(39, 70, 144, 0.2), 0 0 15px rgba(87, 108, 168, 0.3);
+    border-color: var(--color-blue-light);
+    box-shadow: 0 0 0 4px rgba(190, 153, 255, 0.2), 0 0 15px rgba(190, 153, 255, 0.3);
     outline: none;
   }
   
   &::placeholder {
-    color: rgba(245, 243, 245, 0.3);
+    color: rgba(242, 247, 255, 0.5);
   }
 `;
 
 const FormTextarea = styled(motion.textarea)`
   width: 100%;
   padding: 1.2rem 1.5rem;
-  border: 2px solid rgba(87, 108, 168, 0.3);
+  border: 2px solid rgba(190, 153, 255, 0.3);
   border-radius: 10px;
-  background-color: rgba(245, 243, 245, 0.05);
+  background-color: rgba(0, 0, 0, 0.2);
   color: var(--color-cream);
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -191,13 +191,13 @@ const FormTextarea = styled(motion.textarea)`
   resize: vertical;
   
   &:focus {
-    border-color: var(--color-blue);
-    box-shadow: 0 0 0 4px rgba(39, 70, 144, 0.2), 0 0 15px rgba(87, 108, 168, 0.3);
+    border-color: var(--color-blue-light);
+    box-shadow: 0 0 0 4px rgba(190, 153, 255, 0.2), 0 0 15px rgba(190, 153, 255, 0.3);
     outline: none;
   }
   
   &::placeholder {
-    color: rgba(245, 243, 245, 0.3);
+    color: rgba(242, 247, 255, 0.5);
   }
 `;
 
@@ -279,7 +279,7 @@ const FormInfo = styled.div`
   margin-top: 2rem;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--color-gray);
+  color: var(--color-cream);
   opacity: 0.7;
 `;
 
@@ -323,9 +323,9 @@ const ContactIcon = styled(motion.div)`
 
 const ContactText = styled.div`
   font-weight: 600;
-  color: #FFFFFF;
+  color: #2A1D3F;
   font-size: 1.1rem;
-  text-shadow: var(--text-shadow-sm);
+  text-shadow: none;
 `;
 
 // Variantes de animación

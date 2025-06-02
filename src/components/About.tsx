@@ -151,16 +151,16 @@ const FeatureContent = styled.div`
 const FeatureTitle = styled.h4`
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: var(--color-cream);
+  color: #2A1D3F;
   font-weight: 700;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 `;
 
 const FeatureDescription = styled.p`
-  color: var(--color-cream);
-  opacity: 0.85;
+  color: #1A0F2E;
+  opacity: 0.8;
   line-height: 1.6;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 `;
 
 const AboutVisual = styled(motion.div)`
@@ -355,7 +355,7 @@ const ServiceIcon = styled.div`
 `;
 
 const ServiceText = styled.span`
-  color: var(--color-cream);
+  color: #2A1D3F;
   font-weight: 600;
   font-size: 1.1rem;
 `;

@@ -128,7 +128,7 @@ const BenefitIcon = styled(motion.div)`
 const BenefitTitle = styled(motion.h3)`
   font-size: 1.5rem;
   margin: 1.5rem 0 1rem;
-  color: #FFFFFF !important;
+  color: #2A1D3F !important;
   letter-spacing: -0.02em;
   position: relative;
   z-index: 1;
@@ -137,12 +137,12 @@ const BenefitTitle = styled(motion.h3)`
 `;
 
 const BenefitDescription = styled(motion.p)`
-  color: var(--color-cream);
+  color: #1A0F2E;
   line-height: 1.7;
-  opacity: 0.9;
+  opacity: 0.8;
   position: relative;
   z-index: 1;
-  text-shadow: var(--text-shadow-sm);
+  text-shadow: none;
   text-align: center;
 `;
 

@@ -6,37 +6,37 @@
 
 @layer base {
   :root {
-    /* Color Variables for Styled Components */
-    --color-background: #0B0815;
-    --color-blue-dark: #2A1D3F;
-    --color-blue: #9d71e8;
-    --color-blue-light: #be99ff;
-    --color-cream: #f2f7ff;
-    --color-cream-highlight: #b2c9ff;
-    --color-card-bg: #e6eeff;
-    --color-section-alt: #c9dcff;
-    --color-gray: #b2c9ff;
-    --color-text-secondary: #9d71e8;
+    /* Color Variables for Styled Components - New Pink to Blue Gradient Palette */
+    --color-background: #2A1B3D; /* Dark purple background */
+    --color-blue-dark: #3D2C5F; /* Medium dark purple */
+    --color-blue: #6A319B; /* Blue purple from gradient */
+    --color-blue-light: #AC4BA3; /* Purple medium from gradient */
+    --color-cream: #F5F0FF; /* Very light purple-tinted white */
+    --color-cream-highlight: #E8A5D9; /* Light pink from gradient */
+    --color-card-bg: #F8F3FF; /* Very light background for cards */
+    --color-section-alt: #EDE3FF; /* Light purple for sections */
+    --color-gray: #C169B5; /* Pink-purple medium */
+    --color-text-secondary: #8B3E9F; /* Purple blue medium */
     
     /* Text colors for better contrast */
-    --color-text-on-light: #2A1D3F;
+    --color-text-on-light: #2A1B3D;
     --color-text-dark: #1A0F2E;
-    --color-text-muted: #6B4C93;
+    --color-text-muted: #6A319B;
     
     /* Shadow Variables */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(190, 153, 255, 0.2);
-    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(190, 153, 255, 0.3);
-    --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(190, 153, 255, 0.4);
-    --shadow-glow: 0 0 15px rgba(190, 153, 255, 0.5);
-    --shadow-glow-hover: 0 0 20px rgba(190, 153, 255, 0.8);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(172, 75, 163, 0.2);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(172, 75, 163, 0.3);
+    --shadow-xl: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(172, 75, 163, 0.4);
+    --shadow-glow: 0 0 15px rgba(172, 75, 163, 0.5);
+    --shadow-glow-hover: 0 0 20px rgba(172, 75, 163, 0.8);
     
     /* Text Shadow Variables */
     --text-shadow-sm: 0 0 5px rgba(0, 0, 0, 0.3);
     --text-shadow-md: 0 0 10px rgba(0, 0, 0, 0.5);
     --text-shadow-lg: 0 0 15px rgba(0, 0, 0, 0.7);
-    --text-shadow-glow: 0 0 10px rgba(190, 153, 255, 0.6);
-    --text-shadow-highlight: 0 0 15px rgba(255, 255, 255, 0.5);
+    --text-shadow-glow: 0 0 10px rgba(172, 75, 163, 0.6);
+    --text-shadow-highlight: 0 0 15px rgba(232, 165, 217, 0.5);
   }
   
   html {

@@ -76,8 +76,8 @@ const Header: React.FC = () => {
               <ul className="flex justify-center list-none gap-10">
                 {[
                   { key: 'header.nav.technology', href: '#about' },
-                  { key: 'header.nav.benefits', href: '#beneficios' },
-                  { key: 'header.nav.contact', href: '#contacto' }
+                  { key: 'header.nav.benefits', href: '#benefits' },
+                  { key: 'header.nav.contact', href: '#contact' }
                 ].map((item, i) => (
                   <motion.li key={i}
                     initial={{ opacity: 0, y: -20 }}

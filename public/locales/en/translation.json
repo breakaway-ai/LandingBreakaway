@@ -1,0 +1,95 @@
+{
+  "header": {
+    "nav": {
+      "technology": "Technology",
+      "benefits": "Benefits",
+      "contact": "Contact",
+      "freeConsultation": "Free Consultation"
+    },
+    "hero": {
+      "title": "Empower your Business with <1>Intelligent Agents</1>",
+      "subtitle": "Digital Agent Ecosystems that Automate Processes, Eliminate Errors and Drive Exponential Growth",
+      "requestConsultation": "Request your Consultation",
+      "discoverHow": "Discover How"
+    },
+    "logoAlt": "Breakaway Logo"
+  },
+  "about": {
+    "mainTitle": "Transform your Business with Intelligent Agents",
+    "mainSubtitle": "The next generation of business automation has arrived, revolutionizing how companies operate and grow.",
+    "description1": "At Breakaway, we develop advanced digital agent ecosystems that revolutionize any industry through intelligent automation of complex business processes.",
+    "description2": "Our supervisor agents orchestrate complex workflows while operational agents execute specific tasks with precision and efficiency superior to human capabilities.",
+    "feature1Title": "Interconnected Ecosystems",
+    "feature1Description": "Networks of specialized digital agents that work together to automate complete business processes.",
+    "feature2Title": "Adaptive Intelligence",
+    "feature2Description": "Agents capable of making data-driven decisions and adapting to real-time changes.",
+    "feature3Title": "Superior Efficiency",
+    "feature3Description": "Continuous optimization that eliminates inefficiencies and human errors across all processes.",
+    "visualTitle": "Adaptive Modular Architecture",
+    "visualParagraph1": "We design each agent ecosystem with a modular architecture that allows independent component scaling, ensuring constant adaptability to market and technological changes.",
+    "visualParagraph2": "Our systems include agents with shared contextual memory that continuously learn and improve, optimizing their performance with each interaction.",
+    "animatedText1": "Real-time data analysis",
+    "animatedHighlight1": "artificial intelligence",
+    "animatedText2": "Process automation through",
+    "animatedHighlight2": "autonomous agents",
+    "animatedText3": "Continuous optimization with",
+    "animatedHighlight3": "adaptive learning",
+    "softwareDevTitle": "Comprehensive Software Development",
+    "softwareDevDescription": "We complement our agent specialization with comprehensive software development across all modalities: web applications, cross-platform mobile apps, backend systems, and enterprise platforms, all designed to integrate seamlessly with our intelligent agent ecosystems.",
+    "serviceMobileApps": "Mobile Apps",
+    "serviceWebApps": "Web Applications",
+    "serviceBackendSystems": "Backend Systems",
+    "serviceApiIntegration": "API Integration",
+    "serviceDevOps": "DevOps",
+    "serviceSecurity": "Security"
+  },
+  "benefits": {
+    "sectionTitle": "Key Benefits of Our Digital Agents",
+    "sectionSubtitle": "Discover how intelligent automation can radically transform your business, unlocking unprecedented levels of efficiency, savings, and growth.",
+    "benefit1Title": "Intelligent Comprehensive Automation",
+    "benefit1Description": "Our digital agents automate complete end-to-end processes, eliminating inefficiencies and human errors, allowing you to focus on what really matters.",
+    "benefit2Title": "Radical Cost Reduction",
+    "benefit2Description": "Achieve up to 70% reduction in operational costs through automation of repetitive tasks and resource optimization across your entire organization.",
+    "benefit3Title": "Limitless Scalability",
+    "benefit3Description": "Scale your operation without traditional human growth limitations, enabling exponential expansion and rapid adaptation to new markets.",
+    "benefit4Title": "Data-Driven Decisions",
+    "benefit4Description": "Transform your decision-making with agents that analyze data in real-time, improving accuracy and anticipating market needs.",
+    "benefit5Title": "Continuous Optimization",
+    "benefit5Description": "Implement systems that continuously learn and improve, adapting to changes and automatically optimizing processes without manual intervention.",
+    "benefit6Title": "Low-Code Workflows",
+    "benefit6Description": "Quickly create complex workflows by connecting agents and tools with a simple interface, without requiring advanced technical knowledge."
+  },
+  "howItWorks": {
+    "sectionTitle": "How Our Agent Ecosystems Work",
+    "step1Title": "Analysis and Design",
+    "step1Description": "We analyze your current processes and design a personalized digital agent ecosystem for your business.",
+    "step2Title": "Supervisor Agent Implementation",
+    "step2Description": "We develop high-level agents that will orchestrate the complete workflow and make strategic decisions.",
+    "step3Title": "Operational Agent Configuration",
+    "step3Description": "We implement specialized agents for each specific task, optimized for efficiency and precision.",
+    "step4Title": "System Integration",
+    "step4Description": "We connect the agent ecosystem with your existing systems, ensuring a smooth transition without interruptions.",
+    "step5Title": "Continuous Learning and Optimization",
+    "step5Description": "Our agents continuously learn, improving their performance and adapting to changes in the business environment."
+  },
+  "contactForm": {
+    "title": "Ready to Transform your Business?",
+    "subtitle": "Request your free consultation and discover how our intelligent agent ecosystems can revolutionize your operations.",
+    "labelName": "Full Name*",
+    "labelEmail": "Email Address*",
+    "labelCompany": "Company",
+    "labelPhone": "Phone",
+    "labelMessage": "Message*",
+    "placeholderMessage": "Tell us about your project or specific needs...",
+    "buttonSubmit": "Request Free Consultation",
+    "buttonSubmitting": "Sending...",
+    "messageSuccess": "Thank you for contacting us! We'll get back to you shortly.",
+    "errorParse": "Error processing server response",
+    "errorSubmitFallback": "Error submitting form",
+    "privacyInfo": "By submitting this form, you accept our privacy policy and agree to receive communications related to your inquiry.",
+    "location": "Querétaro, México"
+ },
+  "footer": {
+    "copyright": "© {currentYear} Breakaway. All rights reserved."
+  }
+}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslation, Trans } from 'react-i18next';
 import logoImage from '../assets/logo.png';
 
 const Header: React.FC = () => {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   
@@ -65,24 +67,28 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className="flex items-center text-2xl font-bold text-cream"
             >
-              <img src={logoImage} alt="Breakaway Logo" className="h-10 mr-3 md:h-8 md:mr-2" />
+              <img src={logoImage} alt={t('header.logoAlt')} className="h-10 mr-3 md:h-8 md:mr-2" />
               BREAK<span className="text-blue-light">AWAY</span>
             </motion.div>
             
             {/* Navigation Links - Desktop Only */}
             <div className="hidden md:hidden lg:block flex-1">
               <ul className="flex justify-center list-none gap-10">
-                {["Tecnología", "Beneficios", "Contacto"].map((item, i) => (
+                {[
+                  { key: 'header.nav.technology', href: '#about' },
+                  { key: 'header.nav.benefits', href: '#beneficios' },
+                  { key: 'header.nav.contact', href: '#contacto' }
+                ].map((item, i) => (
                   <motion.li key={i}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * i }}
                   >
                     <a 
-                      href={`#${item.toLowerCase() === "tecnología" ? "about" : item.toLowerCase()}`}
+                      href={item.href}
                       className="text-cream font-semibold relative transition-colors duration-300 text-base hover:text-blue-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-blue-light after:transition-width after:duration-300 hover:after:w-full"
                     >
-                      {item}
+                      {t(item.key)}
                     </a>
                   </motion.li>
                 ))}
@@ -99,7 +105,7 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-blue-light text-cream px-6 py-3 rounded font-semibold transition-all duration-300 shadow-glow hidden md:hidden lg:block"
             >
-              Consultoría Gratuita
+              {t('header.nav.freeConsultation')}
             </motion.a>
           </div>
         </div>
@@ -165,7 +171,9 @@ const Header: React.FC = () => {
               }}
               className="text-6xl mb-6 text-cream font-extrabold leading-tight tracking-tight md:text-4xl md:mb-4"
             >
-              Empodera tu Negocio con <span className="text-blue-light">Agentes Inteligentes</span>
+              <Trans i18nKey="header.hero.title">
+                Empodera tu Negocio con <span className="text-blue-light">Agentes Inteligentes</span>
+              </Trans>
             </motion.h1>
             
             <motion.p
@@ -174,7 +182,7 @@ const Header: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-2xl mb-12 text-white opacity-90 max-w-2xl mx-auto md:text-xl md:mb-8"
             >
-              Ecosistemas de Agentes Digitales que Automatizan Procesos, Eliminan Errores y Potencian el Crecimiento Exponencial
+              {t('header.hero.subtitle')}
             </motion.p>
             
             <motion.div
@@ -189,7 +197,7 @@ const Header: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-blue-light text-cream px-10 py-4 rounded font-semibold transition-all duration-300 shadow-glow relative overflow-hidden md:px-6 md:py-3 md:text-base"
               >
-                Solicita tu Consultoría
+                {t('header.hero.requestConsultation')}
               </motion.a>
               
               <motion.a
@@ -198,7 +206,7 @@ const Header: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-transparent text-cream border-2 border-blue-light px-10 py-4 rounded font-semibold transition-all duration-300 relative overflow-hidden shadow-sm hover:bg-blue-light hover:bg-opacity-20 hover:shadow-glow md:px-6 md:py-3 md:text-base"
               >
-                Descubre Cómo
+                {t('header.hero.discoverHow')}
               </motion.a>
             </motion.div>
           </div>

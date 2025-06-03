@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Trans } from 'react-i18next';
 
 const FooterContainer = styled.footer`
   background: linear-gradient(135deg, #0F0117 0%, #1E0B2C 100%);
@@ -100,7 +101,9 @@ const Footer: React.FC = () => {
         </SocialLinks>
         
         <Copyright>
-          &copy; {currentYear} Breakaway. Todos los derechos reservados.
+          <Trans i18nKey="footer.copyright" values={{ currentYear }}>
+            &copy; {{currentYear}} Breakaway. Todos los derechos reservados.
+          </Trans>
         </Copyright>
       </FooterContent>
     </FooterContainer>

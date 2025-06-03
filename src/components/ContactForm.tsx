@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const ContactSection = styled.section`
   padding: 6rem 0;
@@ -59,7 +60,6 @@ const ContactTitle = styled(motion.h2)`
     box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
   }
 `;
-
 
 const ContactSubtitle = styled(motion.p)`
   font-size: 1.25rem;
@@ -380,6 +380,7 @@ const iconVariants = {
 };
 
 const ContactForm: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -422,11 +423,11 @@ const ContactForm: React.FC = () => {
         data = text ? JSON.parse(text) : {};
       } catch (jsonError) {
         console.error('Error parsing JSON response:', jsonError, 'Response text:', text);
-        throw new Error('Error parsing server response');
+        throw new Error(t('contactForm.errorParse'));
       }
       
       if (!response.ok) {
-        throw new Error(data.message || 'Error submitting form');
+        throw new Error(data.message || t('contactForm.errorSubmitFallback'));
       }
       
       setIsSubmitted(true);
@@ -443,7 +444,7 @@ const ContactForm: React.FC = () => {
         setIsSubmitted(false);
       }, 5000);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error submitting form');
+      setError(err instanceof Error ? err.message : t('contactForm.errorSubmitFallback'));
       console.error('Form submission error:', err);
     } finally {
       setIsSubmitting(false);
@@ -460,7 +461,7 @@ const ContactForm: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            ¿Listo para Transformar tu Negocio?
+            {t('contactForm.title')}
           </ContactTitle>
           <ContactSubtitle
             initial={{ opacity: 0 }}
@@ -468,8 +469,7 @@ const ContactForm: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Solicita tu consultoría gratuita y descubre cómo nuestros ecosistemas
-            de agentes inteligentes pueden revolucionar tus operaciones.
+            {t('contactForm.subtitle')}
           </ContactSubtitle>
         </ContactHeader>
         
@@ -485,7 +485,7 @@ const ContactForm: React.FC = () => {
             
             <Form onSubmit={handleSubmit}>
               <FormGroup>
-                <label htmlFor="name">Nombre Completo*</label>
+                <label htmlFor="name">{t('contactForm.labelName')}</label>
                 <FormInput 
                   type="text" 
                   id="name" 
@@ -500,7 +500,7 @@ const ContactForm: React.FC = () => {
               </FormGroup>
               
               <FormGroup>
-                <label htmlFor="email">Correo Electrónico*</label>
+                <label htmlFor="email">{t('contactForm.labelEmail')}</label>
                 <FormInput 
                   type="email" 
                   id="email" 
@@ -515,7 +515,7 @@ const ContactForm: React.FC = () => {
               </FormGroup>
               
               <FormGroup>
-                <label htmlFor="company">Empresa</label>
+                <label htmlFor="company">{t('contactForm.labelCompany')}</label>
                 <FormInput 
                   type="text" 
                   id="company" 
@@ -529,7 +529,7 @@ const ContactForm: React.FC = () => {
               </FormGroup>
               
               <FormGroup>
-                <label htmlFor="phone">Teléfono</label>
+                <label htmlFor="phone">{t('contactForm.labelPhone')}</label>
                 <FormInput 
                   type="tel" 
                   id="phone" 
@@ -543,14 +543,14 @@ const ContactForm: React.FC = () => {
               </FormGroup>
               
               <FullWidthFormGroup>
-                <label htmlFor="message">Mensaje*</label>
+                <label htmlFor="message">{t('contactForm.labelMessage')}</label>
                 <FormTextarea 
                   id="message" 
                   name="message" 
                   value={formData.message} 
                   onChange={handleChange} 
                   required 
-                  placeholder="Cuéntanos sobre tu proyecto o necesidades específicas..."
+                  placeholder={t('contactForm.placeholderMessage')}
                   whileFocus="focus"
                   variants={inputVariants}
                   disabled={isSubmitting}
@@ -565,7 +565,7 @@ const ContactForm: React.FC = () => {
                   whileTap="tap"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Solicitar Consultoría Gratuita'}
+                  {isSubmitting ? t('contactForm.buttonSubmitting') : t('contactForm.buttonSubmit')}
                 </SubmitButton>
                 
                 {isSubmitted && (
@@ -573,7 +573,7 @@ const ContactForm: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
-                    ¡Gracias por contactarnos! Te responderemos a la brevedad.
+                    {t('contactForm.messageSuccess')}
                   </SuccessMessage>
                 )}
                 
@@ -587,8 +587,7 @@ const ContactForm: React.FC = () => {
                 )}
                 
                 <FormInfo>
-                  Al enviar este formulario, aceptas nuestra política de privacidad 
-                  y te comprometes a recibir comunicaciones relacionadas con tu consulta.
+                  {t('contactForm.privacyInfo')}
                 </FormInfo>
               </FullWidthFormGroup>
             </Form>
@@ -629,7 +628,7 @@ const ContactForm: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </ContactIcon>
-            <ContactText>Querétaro, México</ContactText>
+            <ContactText>{t('contactForm.location')}</ContactText>
           </ContactItem>
         </ContactDetails>
       </ContactContainer>

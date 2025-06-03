@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const AboutSection = styled.section`
   padding: 8rem 0;
@@ -431,21 +432,23 @@ const dotVariants = {
 };
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
+
   const features = [
     {
       icon: "🔄",
-      title: "Ecosistemas Interconectados",
-      description: "Redes de agentes digitales especializados que trabajan juntos para automatizar procesos completos de negocio."
+      titleKey: "about.feature1Title",
+      descriptionKey: "about.feature1Description"
     },
     {
       icon: "🧠",
-      title: "Inteligencia Adaptativa",
-      description: "Agentes capaces de tomar decisiones basadas en datos y adaptarse a cambios en tiempo real."
+      titleKey: "about.feature2Title",
+      descriptionKey: "about.feature2Description"
     },
     {
       icon: "⚡",
-      title: "Eficiencia Superior",
-      description: "Optimización continua que elimina ineficiencias y errores humanos en todos los procesos."
+      titleKey: "about.feature3Title",
+      descriptionKey: "about.feature3Description"
     }
   ];
   
@@ -459,19 +462,28 @@ const About: React.FC = () => {
   const animatedTexts = [
     {
       icon: "🔍",
-      text: "Análisis de datos en tiempo real",
-      highlight: "inteligencia artificial"
+      textKey: "about.animatedText1",
+      highlightKey: "about.animatedHighlight1"
     },
     {
       icon: "🤖",
-      text: "Automatización de procesos mediante",
-      highlight: "agentes autónomos"
+      textKey: "about.animatedText2",
+      highlightKey: "about.animatedHighlight2"
     },
     {
       icon: "📊",
-      text: "Optimización continua con",
-      highlight: "aprendizaje adaptativo"
+      textKey: "about.animatedText3",
+      highlightKey: "about.animatedHighlight3"
     }
+  ];
+
+  const devServices = [
+    { icon: "📱", textKey: "about.serviceMobileApps" },
+    { icon: "🖥️", textKey: "about.serviceWebApps" },
+    { icon: "⚙️", textKey: "about.serviceBackendSystems" },
+    { icon: "🔄", textKey: "about.serviceApiIntegration" },
+    { icon: "🛠️", textKey: "about.serviceDevOps" },
+    { icon: "🔒", textKey: "about.serviceSecurity" }
   ];
   
   return (
@@ -484,7 +496,7 @@ const About: React.FC = () => {
             viewport={{ once: true, margin: "-100px 0px" }}
             transition={{ duration: 0.7 }}
           >
-            Transforma tu Negocio con Agentes Inteligentes
+            {t('about.mainTitle')}
           </AboutTitle>
           <AboutSubtitle
             initial={{ opacity: 0 }}
@@ -492,8 +504,7 @@ const About: React.FC = () => {
             viewport={{ once: true, margin: "-100px 0px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            La próxima generación de automatización empresarial ha llegado, 
-            revolucionando la forma en que las empresas operan y crecen.
+            {t('about.mainSubtitle')}
           </AboutSubtitle>
         </AboutHeader>
         
@@ -505,14 +516,10 @@ const About: React.FC = () => {
             variants={containerVariants}
           >
             <AboutDescription variants={itemVariants}>
-              En Breakaway, desarrollamos ecosistemas de agentes digitales avanzados
-              que revolucionan cualquier industria mediante la automatización
-              inteligente de procesos empresariales complejos.
+              {t('about.description1')}
             </AboutDescription>
             <AboutDescription variants={itemVariants}>
-              Nuestros agentes supervisores orquestan flujos complejos mientras
-              los agentes operativos ejecutan tareas específicas con precisión y
-              eficiencia superiores a las capacidades humanas.
+              {t('about.description2')}
             </AboutDescription>
             
             <FeatureList variants={containerVariants}>
@@ -531,8 +538,8 @@ const About: React.FC = () => {
                 >
                   <FeatureIcon>{feature.icon}</FeatureIcon>
                   <FeatureContent>
-                    <FeatureTitle>{feature.title}</FeatureTitle>
-                    <FeatureDescription>{feature.description}</FeatureDescription>
+                    <FeatureTitle>{t(feature.titleKey)}</FeatureTitle>
+                    <FeatureDescription>{t(feature.descriptionKey)}</FeatureDescription>
                   </FeatureContent>
                 </FeatureItem>
               ))}
@@ -560,7 +567,7 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                Arquitectura Modular Adaptativa
+                {t('about.visualTitle')}
               </motion.h3>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -568,9 +575,7 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Diseñamos cada ecosistema de agentes con una arquitectura modular
-                que permite escalar componentes de forma independiente, garantizando
-                adaptabilidad constante a los cambios del mercado y tecnológicos.
+                {t('about.visualParagraph1')}
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -578,8 +583,7 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                Nuestros sistemas incluyen agentes con memoria contextual compartida
-                que aprenden y mejoran continuamente, optimizando su rendimiento con cada interacción.
+                {t('about.visualParagraph2')}
               </motion.p>
               
               {/* Textos animados en lugar del código */}
@@ -607,7 +611,7 @@ const About: React.FC = () => {
                       {item.icon}
                     </AnimatedIcon>
                     
-                    {item.text.split(' ').map((word, i) => (
+                    {t(item.textKey).split(' ').map((word, i) => (
                       <AnimatedWord
                         key={i}
                         custom={i}
@@ -635,7 +639,7 @@ const About: React.FC = () => {
                         transition: { duration: 0.2 }
                       }}
                     >
-                      {item.highlight}
+                      {t(item.highlightKey)}
                     </AnimatedHighlight>
                     
                     {[0, 1, 2].map((dot) => (
@@ -666,7 +670,7 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              Desarrollo Integral de Software
+              {t('about.softwareDevTitle')}
             </SoftwareDevTitle>
             <SoftwareDevDescription
               initial={{ opacity: 0 }}
@@ -674,7 +678,7 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              Complementamos nuestra especialización en agentes con desarrollo integral de software en todas sus modalidades: aplicaciones web, móviles multiplataforma, sistemas backend y plataformas empresariales, todos diseñados para integrarse perfectamente con nuestros ecosistemas de agentes inteligentes.
+              {t('about.softwareDevDescription')}
             </SoftwareDevDescription>
             
             <DevServicesList
@@ -683,21 +687,14 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               variants={containerVariants}
             >
-              {[
-                { icon: "📱", text: "Apps Móviles" },
-                { icon: "🖥️", text: "Aplicaciones Web" },
-                { icon: "⚙️", text: "Sistemas Backend" },
-                { icon: "🔄", text: "Integración API" },
-                { icon: "🛠️", text: "DevOps" },
-                { icon: "🔒", text: "Seguridad" }
-              ].map((service, index) => (
+              {devServices.map((service, index) => (
                 <DevServiceItem 
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.03 }}
                 >
                   <ServiceIcon>{service.icon}</ServiceIcon>
-                  <ServiceText>{service.text}</ServiceText>
+                  <ServiceText>{t(service.textKey)}</ServiceText>
                 </DevServiceItem>
               ))}
             </DevServicesList>

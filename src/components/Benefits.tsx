@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const BenefitsSection = styled.section`
   padding: 8rem 0;
@@ -196,36 +197,38 @@ const BackgroundCircle = styled(motion.div)`
 `;
 
 const Benefits: React.FC = () => {
+  const { t } = useTranslation();
+
   const benefits = [
     {
       icon: "🤖",
-      title: "Automatización Integral Inteligente",
-      description: "Nuestros agentes digitales automatizan procesos completos end-to-end, eliminando ineficiencias y errores humanos, permitiéndote enfocarte en lo que realmente importa."
+      titleKey: "benefits.benefit1Title",
+      descriptionKey: "benefits.benefit1Description"
     },
     {
       icon: "📉",
-      title: "Reducción Radical de Costos",
-      description: "Logra hasta un 70% de reducción en costos operativos mediante la automatización de tareas repetitivas y la optimización de recursos en toda tu organización."
+      titleKey: "benefits.benefit2Title",
+      descriptionKey: "benefits.benefit2Description"
     },
     {
       icon: "🚀",
-      title: "Escalabilidad Sin Límites",
-      description: "Escala tu operación sin las limitaciones tradicionales del crecimiento humano, permitiendo una expansión exponencial y adaptación rápida a nuevos mercados."
+      titleKey: "benefits.benefit3Title",
+      descriptionKey: "benefits.benefit3Description"
     },
     {
       icon: "🧠",
-      title: "Decisiones Basadas en Datos",
-      description: "Transforma tu toma de decisiones con agentes que analizan datos en tiempo real, mejorando la precisión y anticipándose a las necesidades del mercado."
+      titleKey: "benefits.benefit4Title",
+      descriptionKey: "benefits.benefit4Description"
     },
     {
       icon: "⚙️",
-      title: "Optimización Continua",
-      description: "Implementa sistemas que aprenden y mejoran constantemente, adaptándose a cambios y optimizando procesos automáticamente sin intervención manual."
+      titleKey: "benefits.benefit5Title",
+      descriptionKey: "benefits.benefit5Description"
     },
     {
       icon: "🔄",
-      title: "Flujos de Trabajo de Bajo Código",
-      description: "Crea rápidamente flujos de trabajo complejos conectando agentes y herramientas con una interfaz sencilla, sin necesidad de conocimientos técnicos avanzados."
+      titleKey: "benefits.benefit6Title",
+      descriptionKey: "benefits.benefit6Description"
     }
   ];
   
@@ -481,7 +484,7 @@ const Benefits: React.FC = () => {
             viewport={{ once: true, margin: "-100px 0px" }}
             transition={{ duration: 0.7 }}
           >
-            Beneficios de Nuestros Agentes Inteligentes
+            {t('benefits.sectionTitle')}
           </BenefitsTitle>
           <BenefitsSubtitle
             initial={{ opacity: 0 }}
@@ -489,8 +492,7 @@ const Benefits: React.FC = () => {
             viewport={{ once: true, margin: "-100px 0px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Los ecosistemas de agentes digitales de Breakaway transforman la operación de tu empresa, 
-            automatizando tareas complejas y maximizando la eficiencia en todos los niveles.
+            {t('benefits.sectionSubtitle')}
           </BenefitsSubtitle>
         </BenefitsSectionHeader>
         
@@ -516,8 +518,8 @@ const Benefits: React.FC = () => {
               >
                 {benefit.icon}
               </BenefitIcon>
-              <BenefitTitle>{benefit.title}</BenefitTitle>
-              <BenefitDescription>{benefit.description}</BenefitDescription>
+              <BenefitTitle>{t(benefit.titleKey)}</BenefitTitle>
+              <BenefitDescription>{t(benefit.descriptionKey)}</BenefitDescription>
             </BenefitCard>
           ))}
         </BenefitsGrid>

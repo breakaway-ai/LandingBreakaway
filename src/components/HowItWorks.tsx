@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const HowItWorksSection = styled.section`
   padding: 6rem 0;
@@ -152,31 +153,33 @@ const StepDescription = styled.p`
 `;
 
 const HowItWorks: React.FC = () => {
+  const { t } = useTranslation();
+
   const flowSteps = [
     {
       number: 1,
-      title: "Análisis y Diseño",
-      description: "Analizamos sus procesos actuales y diseñamos un ecosistema de agentes digitales personalizado para su negocio."
+      titleKey: "howItWorks.step1Title",
+      descriptionKey: "howItWorks.step1Description"
     },
     {
       number: 2,
-      title: "Implementación de Agentes Supervisores",
-      description: "Desarrollamos los agentes de alto nivel que orquestarán el flujo completo de trabajo y tomarán decisiones estratégicas."
+      titleKey: "howItWorks.step2Title",
+      descriptionKey: "howItWorks.step2Description"
     },
     {
       number: 3,
-      title: "Configuración de Agentes Operativos",
-      description: "Implementamos agentes especializados para cada tarea específica, optimizados para eficiencia y precisión."
+      titleKey: "howItWorks.step3Title",
+      descriptionKey: "howItWorks.step3Description"
     },
     {
       number: 4,
-      title: "Integración de Sistemas",
-      description: "Conectamos el ecosistema de agentes con sus sistemas existentes, garantizando una transición fluida y sin interrupciones."
+      titleKey: "howItWorks.step4Title",
+      descriptionKey: "howItWorks.step4Description"
     },
     {
       number: 5,
-      title: "Aprendizaje y Optimización Continua",
-      description: "Nuestros agentes aprenden constantemente, mejorando su rendimiento y adaptándose a cambios en el entorno empresarial."
+      titleKey: "howItWorks.step5Title",
+      descriptionKey: "howItWorks.step5Description"
     }
   ];
   
@@ -193,7 +196,7 @@ const HowItWorks: React.FC = () => {
     <HowItWorksSection id="how-it-works" ref={ref} className="section-dark">
       <motion.div style={{ opacity, scale }}>
         <HowItWorksContainer>
-          <HowItWorksTitle>Cómo Funcionan Nuestros Ecosistemas de Agentes</HowItWorksTitle>
+          <HowItWorksTitle>{t('howItWorks.sectionTitle')}</HowItWorksTitle>
           
           <FlowContainer>
             {flowSteps.map((step, index) => (
@@ -207,8 +210,8 @@ const HowItWorks: React.FC = () => {
               >
                 <StepNumber>{step.number}</StepNumber>
                 <StepContent>
-                  <StepTitle>{step.title}</StepTitle>
-                  <StepDescription>{step.description}</StepDescription>
+                  <StepTitle>{t(step.titleKey)}</StepTitle>
+                  <StepDescription>{t(step.descriptionKey)}</StepDescription>
                 </StepContent>
               </FlowStep>
             ))}

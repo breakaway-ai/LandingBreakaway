@@ -90,6 +90,6 @@
     "location": "Querétaro, México"
   },
   "footer": {
-    "copyright": "© {currentYear} Breakaway. Todos los derechos reservados."
+    "copyright": "© {{currentYear}} Breakaway. Todos los derechos reservados."
   }
 } 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation, Trans } from 'react-i18next';
 import logoImage from '../assets/logo.png';
+import LanguageSelector from './LanguageSelector';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
@@ -57,7 +58,7 @@ const Header: React.FC = () => {
       >
         <div className="flex justify-between items-center max-w-7xl mx-auto px-8">
           {/* Desktop Layout: Logo (Left) - Navigation (Center) - Button (Right) */}
-          <div className="flex items-center justify-between w-full md:justify-start">
+          <div className="flex items-center justify-between w-full">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -70,9 +71,19 @@ const Header: React.FC = () => {
               <img src={logoImage} alt={t('header.logoAlt')} className="h-10 mr-3 md:h-8 md:mr-2" />
               BREAK<span className="text-blue-light">AWAY</span>
             </motion.div>
+
+            {/* Language Selector - Mobile/Tablet Only */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="lg:hidden"
+            >
+              <LanguageSelector />
+            </motion.div>
             
             {/* Navigation Links - Desktop Only */}
-            <div className="hidden md:hidden lg:block flex-1">
+            <div className="hidden lg:block flex-1">
               <ul className="flex justify-center list-none gap-10">
                 {[
                   { key: 'header.nav.technology', href: '#about' },
@@ -95,18 +106,28 @@ const Header: React.FC = () => {
               </ul>
             </div>
             
-            {/* Consultoría Button - Desktop Only */}
-            <motion.a
-              href="#contact"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-light text-cream px-6 py-3 rounded font-semibold transition-all duration-300 shadow-glow hidden md:hidden lg:block"
-            >
-              {t('header.nav.freeConsultation')}
-            </motion.a>
+            {/* Consultoría Button and Language Selector - Desktop Only */}
+            <div className="hidden lg:flex items-center gap-4">
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-blue-light text-cream px-6 py-3 rounded font-semibold transition-all duration-300 shadow-glow"
+              >
+                {t('header.nav.freeConsultation')}
+              </motion.a>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <LanguageSelector />
+              </motion.div>
+            </div>
           </div>
         </div>
       </motion.nav>

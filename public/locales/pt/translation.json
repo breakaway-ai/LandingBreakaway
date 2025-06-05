@@ -1,0 +1,95 @@
+{
+  "header": {
+    "nav": {
+      "technology": "Tecnologia",
+      "benefits": "Benefícios",
+      "contact": "Contato",
+      "freeConsultation": "Consultoria Gratuita"
+    },
+    "hero": {
+      "title": "Potencialize seu Negócio com <1>Agentes Inteligentes</1>",
+      "subtitle": "Ecossistemas de Agentes Digitais que Automatizam Processos, Eliminam Erros e Impulsionam o Crescimento Exponencial",
+      "requestConsultation": "Solicite sua Consultoria",
+      "discoverHow": "Descubra Como"
+    },
+    "logoAlt": "Logo Breakaway"
+  },
+  "about": {
+    "mainTitle": "Transforme seu Negócio com Agentes Inteligentes",
+    "mainSubtitle": "A próxima geração de automação empresarial chegou, revolucionando como as empresas operam e crescem.",
+    "description1": "Na Breakaway, desenvolvemos ecossistemas avançados de agentes digitais que revolucionam qualquer indústria através da automação inteligente de processos empresariais complexos.",
+    "description2": "Nossos agentes supervisores orquestram fluxos complexos enquanto agentes operacionais executam tarefas específicas com precisão e eficiência superiores às capacidades humanas.",
+    "feature1Title": "Ecossistemas Interconectados",
+    "feature1Description": "Redes de agentes digitais especializados que trabalham juntos para automatizar processos empresariais completos.",
+    "feature2Title": "Inteligência Adaptativa",
+    "feature2Description": "Agentes capazes de tomar decisões baseadas em dados e se adaptar a mudanças em tempo real.",
+    "feature3Title": "Eficiência Superior",
+    "feature3Description": "Otimização contínua que elimina ineficiências e erros humanos em todos os processos.",
+    "visualTitle": "Arquitetura Modular Adaptativa",
+    "visualParagraph1": "Projetamos cada ecossistema de agentes com uma arquitetura modular que permite escalabilidade independente de componentes, garantindo adaptabilidade constante às mudanças do mercado e tecnológicas.",
+    "visualParagraph2": "Nossos sistemas incluem agentes com memória contextual compartilhada que aprendem e melhoram continuamente, otimizando seu desempenho a cada interação.",
+    "animatedText1": "Análise de dados em tempo real",
+    "animatedHighlight1": "inteligência artificial",
+    "animatedText2": "Automação de processos através de",
+    "animatedHighlight2": "agentes autônomos",
+    "animatedText3": "Otimização contínua com",
+    "animatedHighlight3": "aprendizado adaptativo",
+    "softwareDevTitle": "Desenvolvimento de Software Abrangente",
+    "softwareDevDescription": "Complementamos nossa especialização em agentes com desenvolvimento abrangente de software em todas as modalidades: aplicações web, aplicativos móveis multiplataforma, sistemas backend e plataformas empresariais, todos projetados para se integrar perfeitamente com nossos ecossistemas de agentes inteligentes.",
+    "serviceMobileApps": "Apps Móveis",
+    "serviceWebApps": "Aplicações Web",
+    "serviceBackendSystems": "Sistemas Backend",
+    "serviceApiIntegration": "Integração API",
+    "serviceDevOps": "DevOps",
+    "serviceSecurity": "Segurança"
+  },
+  "benefits": {
+    "sectionTitle": "Benefícios Principais dos Nossos Agentes Digitais",
+    "sectionSubtitle": "Descubra como a automação inteligente pode transformar radicalmente seu negócio, desbloqueando níveis sem precedentes de eficiência, economia e crescimento.",
+    "benefit1Title": "Automação Abrangente Inteligente",
+    "benefit1Description": "Nossos agentes digitais automatizam processos completos end-to-end, eliminando ineficiências e erros humanos, permitindo que você foque no que realmente importa.",
+    "benefit2Title": "Redução Radical de Custos",
+    "benefit2Description": "Alcance até 70% de redução nos custos operacionais através da automação de tarefas repetitivas e otimização de recursos em toda sua organização.",
+    "benefit3Title": "Escalabilidade Ilimitada",
+    "benefit3Description": "Escale sua operação sem as limitações tradicionais do crescimento humano, permitindo expansão exponencial e adaptação rápida a novos mercados.",
+    "benefit4Title": "Decisões Baseadas em Dados",
+    "benefit4Description": "Transforme sua tomada de decisões com agentes que analisam dados em tempo real, melhorando a precisão e antecipando necessidades do mercado.",
+    "benefit5Title": "Otimização Contínua",
+    "benefit5Description": "Implemente sistemas que aprendem e melhoram continuamente, adaptando-se a mudanças e otimizando processos automaticamente sem intervenção manual.",
+    "benefit6Title": "Fluxos de Trabalho Low-Code",
+    "benefit6Description": "Crie rapidamente fluxos de trabalho complexos conectando agentes e ferramentas com uma interface simples, sem necessidade de conhecimento técnico avançado."
+  },
+  "howItWorks": {
+    "sectionTitle": "Como Funcionam Nossos Ecossistemas de Agentes",
+    "step1Title": "Análise e Design",
+    "step1Description": "Analisamos seus processos atuais e projetamos um ecossistema de agentes digitais personalizado para seu negócio.",
+    "step2Title": "Implementação de Agentes Supervisores",
+    "step2Description": "Desenvolvemos agentes de alto nível que orquestrarão o fluxo completo de trabalho e tomarão decisões estratégicas.",
+    "step3Title": "Configuração de Agentes Operacionais",
+    "step3Description": "Implementamos agentes especializados para cada tarefa específica, otimizados para eficiência e precisão.",
+    "step4Title": "Integração de Sistemas",
+    "step4Description": "Conectamos o ecossistema de agentes com seus sistemas existentes, garantindo uma transição suave sem interrupções.",
+    "step5Title": "Aprendizado e Otimização Contínua",
+    "step5Description": "Nossos agentes aprendem continuamente, melhorando seu desempenho e se adaptando a mudanças no ambiente empresarial."
+  },
+  "contactForm": {
+    "title": "Pronto para Transformar seu Negócio?",
+    "subtitle": "Solicite sua consultoria gratuita e descubra como nossos ecossistemas de agentes inteligentes podem revolucionar suas operações.",
+    "labelName": "Nome Completo*",
+    "labelEmail": "Endereço de Email*",
+    "labelCompany": "Empresa",
+    "labelPhone": "Telefone",
+    "labelMessage": "Mensagem*",
+    "placeholderMessage": "Conte-nos sobre seu projeto ou necessidades específicas...",
+    "buttonSubmit": "Solicitar Consultoria Gratuita",
+    "buttonSubmitting": "Enviando...",
+    "messageSuccess": "Obrigado por nos contatar! Responderemos em breve.",
+    "errorParse": "Erro ao processar resposta do servidor",
+    "errorSubmitFallback": "Erro ao enviar formulário",
+    "privacyInfo": "Ao enviar este formulário, você aceita nossa política de privacidade e concorda em receber comunicações relacionadas à sua consulta.",
+    "location": "Querétaro, México"
+  },
+  "footer": {
+    "copyright": "© {{currentYear}} Breakaway. Todos os direitos reservados."
+  }
+} 

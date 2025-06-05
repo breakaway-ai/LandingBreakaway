@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next) // Pasa la instancia de i18n a react-i18next.
   .init({
     lng: undefined, // Permite que i18next detecte automáticamente
-    supportedLngs: ['en', 'es', 'it'],
+    supportedLngs: ['en', 'es', 'it', 'pt'],
     fallbackLng: 'es', // Idioma por defecto si el detectado no está disponible
     debug: import.meta.env.DEV, // Logs en consola en desarrollo
     
@@ -36,11 +36,11 @@ i18n
       // Mapeo de códigos de idioma (por si el navegador devuelve códigos diferentes)
       convertDetectedLanguage: (lng: string) => {
         // Convierte códigos de idioma largos a cortos
-        // ej: 'es-ES' -> 'es', 'en-US' -> 'en', 'it-IT' -> 'it'
+        // ej: 'es-ES' -> 'es', 'en-US' -> 'en', 'it-IT' -> 'it', 'pt-BR' -> 'pt'
         const shortLng = lng.split('-')[0];
         
         // Si el idioma detectado está soportado, úsalo
-        if (['en', 'es', 'it'].includes(shortLng)) {
+        if (['en', 'es', 'it', 'pt'].includes(shortLng)) {
           return shortLng;
         }
         

@@ -1,18 +1,30 @@
 {
   "header": {
-    "nav": {
-      "technology": "Tecnologia",
-      "benefits": "Vantaggi",
-      "contact": "Contatto",
-      "freeConsultation": "Consulenza Gratuita"
-    },
-    "hero": {
-      "title": "Potenzia la tua Azienda con <1>Agenti Intelligenti</1>",
-      "subtitle": "Ecosistemi di Agenti Digitali che Automatizzano i Processi, Eliminano gli Errori e Guidano la Crescita Esponenziale",
-      "requestConsultation": "Richiedi la tua Consulenza",
-      "discoverHow": "Scopri Come"
-    },
     "logoAlt": "Logo Breakaway"
+  },
+  "nav": {
+    "about": "Chi Siamo",
+    "services": "Servizi",
+    "process": "Processo",
+    "benefits": "Vantaggi",
+    "contact": "Contatto",
+    "cta": "Consulenza Gratuita"
+  },
+  "hero": {
+    "badge": "Automazione IA di nuova generazione",
+    "title": "Potenzia la tua Azienda con <1>Agenti Intelligenti</1>",
+    "subtitle": "Ecosistemi di Agenti Digitali che Automatizzano i Processi, Eliminano gli Errori e Guidano la Crescita Esponenziale.",
+    "cta": "Richiedi la tua Consulenza",
+    "secondary": "Scopri Come",
+    "stat1": "Agenti distribuiti",
+    "stat2": "Soddisfazione",
+    "stat3": "Più efficienza",
+    "nodeMain": "Orchestratore",
+    "nodeAgent1": "Agente NLP",
+    "nodeAgent2": "Agente Dati",
+    "nodeAgent3": "Agente Ops",
+    "nodeAgent4": "Agente API",
+    "nodeAgent5": "Agente ML"
   },
   "about": {
     "mainTitle": "Trasforma la tua Azienda con Agenti Intelligenti",
@@ -26,16 +38,10 @@
     "feature3Title": "Efficienza Superiore",
     "feature3Description": "Ottimizzazione continua che elimina inefficienze ed errori umani in tutti i processi.",
     "visualTitle": "Architettura Modulare Adattiva",
-    "visualParagraph1": "Progettiamo ogni ecosistema di agenti con un'architettura modulare che permette la scalabilità indipendente dei componenti, garantendo un adattamento costante ai cambiamenti del mercato e tecnologici.",
-    "visualParagraph2": "I nostri sistemi includono agenti con memoria contestuale condivisa che apprendono e migliorano continuamente, ottimizzando le loro prestazioni ad ogni interazione.",
-    "animatedText1": "Analisi dei dati in tempo reale",
-    "animatedHighlight1": "intelligenza artificiale",
-    "animatedText2": "Automazione dei processi attraverso",
-    "animatedHighlight2": "agenti autonomi",
-    "animatedText3": "Ottimizzazione continua con",
-    "animatedHighlight3": "apprendimento adattivo",
+    "visualParagraph1": "Progettiamo ogni ecosistema di agenti con un'architettura modulare che permette la scalabilità indipendente dei componenti.",
+    "visualParagraph2": "I nostri sistemi includono agenti con memoria contestuale condivisa che apprendono e migliorano continuamente.",
     "softwareDevTitle": "Sviluppo Software Completo",
-    "softwareDevDescription": "Completiamo la nostra specializzazione negli agenti con sviluppo software completo in tutte le modalità: applicazioni web, app mobile multipiattaforma, sistemi backend e piattaforme enterprise, tutto progettato per integrarsi perfettamente con i nostri ecosistemi di agenti intelligenti.",
+    "softwareDevDescription": "Completiamo la nostra specializzazione negli agenti con sviluppo software completo in tutte le modalità.",
     "serviceMobileApps": "App Mobile",
     "serviceWebApps": "Applicazioni Web",
     "serviceBackendSystems": "Sistemi Backend",
@@ -43,34 +49,46 @@
     "serviceDevOps": "DevOps",
     "serviceSecurity": "Sicurezza"
   },
+  "services": {
+    "sectionTitle": "I Nostri Servizi",
+    "sectionSubtitle": "Dagli ecosistemi di agenti intelligenti allo sviluppo software completo, creiamo soluzioni che trasformano le tue operazioni.",
+    "aiAgentsTitle": "Ecosistemi di Agenti IA",
+    "aiAgentsDesc": "Progettiamo e distribuiamo ecosistemi di agenti digitali autonomi che orchestrano processi complessi, prendono decisioni in tempo reale e ottimizzano continuamente le tue operazioni.",
+    "mobileDesc": "Applicazioni mobile native e multipiattaforma progettate per integrarsi con i tuoi ecosistemi di agenti.",
+    "webDesc": "Piattaforme web moderne e scalabili con interfacce intuitive e alte prestazioni.",
+    "backendDesc": "Architetture backend robuste e API scalabili per supportare le tue operazioni digitali.",
+    "apiDesc": "Colleghiamo i tuoi sistemi esistenti con i nostri ecosistemi di agenti in modo trasparente.",
+    "devopsDesc": "Infrastruttura automatizzata, CI/CD e monitoraggio per operazioni affidabili e scalabili.",
+    "securityDesc": "Protezione integrale di dati e sistemi con le migliori pratiche di cybersicurezza."
+  },
   "benefits": {
     "sectionTitle": "Vantaggi Chiave dei Nostri Agenti Digitali",
-    "sectionSubtitle": "Scopri come l'automazione intelligente può trasformare radicalmente la tua azienda, sbloccando livelli senza precedenti di efficienza, risparmio e crescita.",
+    "sectionSubtitle": "Scopri come l'automazione intelligente può trasformare radicalmente la tua azienda.",
     "benefit1Title": "Automazione Completa Intelligente",
-    "benefit1Description": "I nostri agenti digitali automatizzano processi completi end-to-end, eliminando inefficienze ed errori umani, permettendoti di concentrarti su ciò che conta davvero.",
+    "benefit1Description": "I nostri agenti digitali automatizzano processi completi end-to-end, eliminando inefficienze ed errori umani.",
     "benefit2Title": "Riduzione Radicale dei Costi",
-    "benefit2Description": "Ottieni fino al 70% di riduzione dei costi operativi attraverso l'automazione di compiti ripetitivi e l'ottimizzazione delle risorse in tutta la tua organizzazione.",
+    "benefit2Description": "Ottieni fino al 70% di riduzione dei costi operativi attraverso l'automazione di compiti ripetitivi.",
     "benefit3Title": "Scalabilità Illimitata",
-    "benefit3Description": "Scala la tua operazione senza le limitazioni tradizionali della crescita umana, permettendo espansione esponenziale e rapido adattamento a nuovi mercati.",
+    "benefit3Description": "Scala la tua operazione senza limitazioni tradizionali, permettendo espansione esponenziale.",
     "benefit4Title": "Decisioni Basate sui Dati",
-    "benefit4Description": "Trasforma il tuo processo decisionale con agenti che analizzano i dati in tempo reale, migliorando l'accuratezza e anticipando le esigenze del mercato.",
+    "benefit4Description": "Agenti che analizzano i dati in tempo reale, migliorando l'accuratezza e anticipando le esigenze del mercato.",
     "benefit5Title": "Ottimizzazione Continua",
-    "benefit5Description": "Implementa sistemi che apprendono e migliorano continuamente, adattandosi ai cambiamenti e ottimizzando automaticamente i processi senza intervento manuale.",
+    "benefit5Description": "Sistemi che apprendono e migliorano continuamente, adattandosi ai cambiamenti automaticamente.",
     "benefit6Title": "Flussi di Lavoro Low-Code",
-    "benefit6Description": "Crea rapidamente flussi di lavoro complessi collegando agenti e strumenti con un'interfaccia semplice, senza richiedere conoscenze tecniche avanzate."
+    "benefit6Description": "Crea rapidamente flussi di lavoro complessi collegando agenti con un'interfaccia semplice, senza conoscenze tecniche avanzate."
   },
   "howItWorks": {
-    "sectionTitle": "Come Funzionano i Nostri Ecosistemi di Agenti",
+    "sectionTitle": "Come Funzionano i Nostri Ecosistemi",
     "step1Title": "Analisi e Progettazione",
     "step1Description": "Analizziamo i tuoi processi attuali e progettiamo un ecosistema di agenti digitali personalizzato per la tua azienda.",
-    "step2Title": "Implementazione Agente Supervisore",
-    "step2Description": "Sviluppiamo agenti di alto livello che orchestreranno il flusso di lavoro completo e prenderanno decisioni strategiche.",
-    "step3Title": "Configurazione Agenti Operativi",
+    "step2Title": "Agenti Supervisori",
+    "step2Description": "Sviluppiamo agenti di alto livello che orchestrano il flusso di lavoro completo e prendono decisioni strategiche.",
+    "step3Title": "Agenti Operativi",
     "step3Description": "Implementiamo agenti specializzati per ogni compito specifico, ottimizzati per efficienza e precisione.",
     "step4Title": "Integrazione del Sistema",
-    "step4Description": "Colleghiamo l'ecosistema di agenti con i tuoi sistemi esistenti, garantendo una transizione fluida senza interruzioni.",
-    "step5Title": "Apprendimento Continuo e Ottimizzazione",
-    "step5Description": "I nostri agenti apprendono continuamente, migliorando le loro prestazioni e adattandosi ai cambiamenti nell'ambiente aziendale."
+    "step4Description": "Colleghiamo l'ecosistema di agenti con i tuoi sistemi esistenti, garantendo una transizione fluida.",
+    "step5Title": "Apprendimento Continuo",
+    "step5Description": "I nostri agenti apprendono continuamente, migliorando le loro prestazioni e adattandosi all'ambiente aziendale."
   },
   "contactForm": {
     "title": "Pronto a Trasformare la tua Azienda?",
@@ -92,4 +110,4 @@
   "footer": {
     "copyright": "© {{currentYear}} Breakaway. Tutti i diritti riservati."
   }
-} 
+}

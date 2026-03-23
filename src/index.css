@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,106 +8,65 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-background text-text min-h-screen overflow-x-hidden font-sans;
+    @apply bg-background text-white min-h-screen overflow-x-hidden;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold leading-tight text-cream tracking-tight;
+    @apply font-display font-bold leading-tight tracking-tight;
   }
 }
 
-@layer components {
-  .btn {
-    @apply inline-block py-2 px-6 rounded font-semibold transition-all duration-300 text-center;
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #A875FF 0%, #00E5FF 100%);
   }
-  
-  .btn-primary {
-    @apply bg-blue-light text-cream border-2 border-blue-light shadow-glow;
+
+  .glass {
+    @apply bg-surface/70 backdrop-blur-xl border border-white/[0.12];
   }
-  
-  .btn-primary:hover {
-    @apply -translate-y-1 shadow-glow-hover;
+
+  .glass-card {
+    @apply bg-surface-light/50 backdrop-blur-md border border-white/[0.12] rounded-2xl shadow-card;
   }
-  
-  .btn-secondary {
-    @apply bg-transparent text-cream border-2 border-blue-light shadow-sm;
+
+  .gradient-border {
+    position: relative;
   }
-  
-  .btn-secondary:hover {
-    @apply bg-opacity-20 bg-blue-light shadow-glow;
-  }
-  
-  .section-title {
-    @apply text-4xl mb-6 relative text-cream tracking-tight;
-  }
-  
-  .section-title::after {
+
+  .gradient-border::before {
     content: '';
-    @apply absolute -bottom-3 left-0 w-20 h-1 bg-blue-light shadow-glow;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(138, 79, 255, 0.6), rgba(0, 229, 255, 0.6));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-  
-  .text-center .section-title::after {
-    @apply left-1/2 -translate-x-1/2;
+
+  .gradient-border:hover::before {
+    opacity: 1;
   }
-  
-  .section-cream {
-    @apply bg-white text-background;
-  }
-  
-  .section-cream h2, 
-  .section-cream h3, 
-  .section-cream h4 {
-    @apply text-blue-dark;
-  }
-  
-  .section-cream .section-title::after {
-    @apply bg-blue;
-  }
-  
-  .section-dark {
-    @apply bg-gradient-to-br from-blue-dark to-background relative;
-  }
-  
-  .section-dark::before {
-    content: '';
-    @apply absolute inset-0 opacity-5 pointer-events-none;
-    background-image: radial-gradient(white 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-  
-  .hover-lift {
-    @apply transition-transform duration-300;
-  }
-  
-  .hover-lift:hover {
-    @apply -translate-y-1;
-  }
-  
-  .glow-text {
-    text-shadow: 0 0 8px rgba(138, 79, 255, 0.7);
-  }
-  
-  .glow-box {
-    @apply shadow-glow;
-  }
-  
-  .container {
-    @apply w-full max-w-7xl mx-auto px-8;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      @apply px-6;
-    }
-    
-    .section-title {
-      @apply text-3xl;
-    }
-  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }

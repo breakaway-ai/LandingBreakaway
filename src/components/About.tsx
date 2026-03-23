@@ -1,708 +1,112 @@
-import React from 'react';
-import styled from 'styled-components';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Network, Brain, Zap } from 'lucide-react';
 
-const AboutSection = styled.section`
-  padding: 8rem 0;
-  background-color: var(--color-background);
-  position: relative;
-  overflow: hidden;
-`;
-
-const AboutContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-  z-index: 2;
-`;
-
-const AboutHeader = styled.div`
-  text-align: center;
-  margin-bottom: 5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
-const AboutTitle = styled(motion.h2)`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: var(--color-cream);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  text-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
-  position: relative;
-  display: inline-block;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light), var(--color-blue));
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
-  }
-`;
-
-const AboutSubtitle = styled(motion.p)`
-  font-size: 1.25rem;
-  color: var(--color-cream);
-  opacity: 0.9;
-  line-height: 1.6;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-`;
-
-const AboutContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 3rem;
-  align-items: center;
-  
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-`;
-
-const AboutTextContent = styled(motion.div)`
-  grid-column: 1 / 7;
-  
-  @media (max-width: 992px) {
-    grid-column: 1 / -1;
-    order: 2;
-  }
-`;
-
-const AboutDescription = styled(motion.p)`
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-  color: var(--color-cream);
-  opacity: 0.9;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-`;
-
-const FeatureList = styled(motion.div)`
-  margin: 3rem 0;
-`;
-
-const FeatureItem = styled(motion.div)`
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  background-color: var(--color-card-bg);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-  border-left: 3px solid var(--color-blue);
-  position: relative;
-  overflow: hidden;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      135deg,
-      rgba(39, 70, 144, 0.1) 0%,
-      rgba(39, 70, 144, 0) 50%,
-      rgba(39, 70, 144, 0.1) 100%
-    );
-    z-index: 0;
-  }
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(87, 108, 168, 0.3);
-  }
-`;
-
-const FeatureIcon = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--color-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1.5rem;
-  flex-shrink: 0;
-  color: var(--color-cream);
-  font-size: 1.5rem;
-  box-shadow: 0 0 15px rgba(87, 108, 168, 0.5);
-  position: relative;
-  z-index: 1;
-`;
-
-const FeatureContent = styled.div`
-  flex: 1;
-  position: relative;
-  z-index: 1;
-`;
-
-const FeatureTitle = styled.h4`
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--color-cream);
-  font-weight: 700;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-`;
-
-const FeatureDescription = styled.p`
-  color: var(--color-cream);
-  opacity: 0.85;
-  line-height: 1.6;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-`;
-
-const AboutVisual = styled(motion.div)`
-  grid-column: 7 / 13;
-  position: relative;
-  
-  @media (max-width: 992px) {
-    grid-column: 1 / -1;
-    order: 1;
-  }
-`;
-
-const VisualContainer = styled(motion.div)`
-  background-color: var(--color-blue);
-  border-radius: 16px;
-  padding: 3rem;
-  color: var(--color-cream);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 30px rgba(87, 108, 168, 0.3);
-  overflow: hidden;
-  position: relative;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(rgba(245, 245, 220, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.2;
-  }
-  
-  h3 {
-    color: var(--color-cream);
-    margin-bottom: 1.5rem;
-    font-size: 1.75rem;
-    font-weight: 700;
-    position: relative;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  p {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-    font-size: 1.1rem;
-    position: relative;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  }
-`;
-
-// Componentes para texto animado
-const AnimatedTextContainer = styled(motion.div)`
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-`;
-
-const TextBlock = styled(motion.div)`
-  margin-bottom: 1.5rem;
-  position: relative;
-`;
-
-const AnimatedWord = styled(motion.span)`
-  display: inline-block;
-  margin-right: 0.5rem;
-  color: var(--color-cream-highlight);
-  font-weight: 600;
-`;
-
-const AnimatedHighlight = styled(motion.span)`
-  display: inline-block;
-  color: var(--color-blue-light);
-  font-weight: 700;
-  text-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
-`;
-
-const AnimatedIcon = styled(motion.div)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(87, 108, 168, 0.2);
-  border-radius: 50%;
-  margin-right: 1rem;
-  font-size: 1.5rem;
-  box-shadow: 0 0 15px rgba(87, 108, 168, 0.3);
-`;
-
-const AnimatedDot = styled(motion.span)`
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: var(--color-blue-light);
-  border-radius: 50%;
-  margin: 0 0.5rem;
-`;
-
-// Nueva sección de desarrollo de software
-const SoftwareDevSection = styled(motion.div)`
-  margin-top: 8rem;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(87, 108, 168, 0.2);
-`;
-
-const SoftwareDevContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-`;
-
-const SoftwareDevTitle = styled(motion.h2)`
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: var(--color-cream);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  text-shadow: 0 0 15px rgba(87, 108, 168, 0.4);
-  position: relative;
-  display: inline-block;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-blue), var(--color-blue-light), var(--color-blue));
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(87, 108, 168, 0.6);
-  }
-`;
-
-const SoftwareDevDescription = styled(motion.p)`
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-  color: var(--color-cream);
-  opacity: 0.9;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-`;
-
-const DevServicesList = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const DevServiceItem = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  background-color: var(--color-card-bg);
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(87, 108, 168, 0.4);
-  }
-`;
-
-const ServiceIcon = styled.div`
-  width: 60px;
-  height: 60px;
-  border-radius: 15px;
-  background-color: var(--color-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-cream);
-  font-size: 1.8rem;
-  box-shadow: 0 0 15px rgba(87, 108, 168, 0.5);
-  margin-bottom: 0.5rem;
-`;
-
-const ServiceText = styled.span`
-  color: var(--color-cream);
-  font-weight: 600;
-  font-size: 1.1rem;
-`;
-
-// Variantes de animación
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5
-    }
-  }
-};
-
-const wordVariants = {
-  hidden: { 
-    opacity: 0,
-    y: 20
-  },
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.5
-    }
-  })
+    transition: { duration: 0.5, delay: i * 0.1 },
+  }),
 };
 
-const iconVariants = {
-  hidden: { scale: 0, rotate: -180 },
-  visible: { 
-    scale: 1, 
-    rotate: 0,
-    transition: {
-      type: "spring",
-      stiffness: 260,
-      damping: 20
-    }
-  },
-  hover: { 
-    scale: 1.2,
-    rotate: 15,
-    transition: {
-      duration: 0.3
-    }
-  }
-};
-
-const dotVariants = {
-  hidden: { scale: 0 },
-  visible: (i: number) => ({
-    scale: [1, 1.5, 1],
-    transition: {
-      delay: i * 0.1,
-      repeat: Infinity,
-      repeatDelay: 2,
-      duration: 0.5
-    }
-  })
-};
-
-const About: React.FC = () => {
+export default function About() {
   const { t } = useTranslation();
 
   const features = [
-    {
-      icon: "🔄",
-      titleKey: "about.feature1Title",
-      descriptionKey: "about.feature1Description"
-    },
-    {
-      icon: "🧠",
-      titleKey: "about.feature2Title",
-      descriptionKey: "about.feature2Description"
-    },
-    {
-      icon: "⚡",
-      titleKey: "about.feature3Title",
-      descriptionKey: "about.feature3Description"
-    }
-  ];
-  
-  // Refs para animaciones basadas en scroll
-  const aboutRef = React.useRef(null);
-  const softwareRef = React.useRef(null);
-  const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px 0px" });
-  const isSoftwareInView = useInView(softwareRef, { once: true, margin: "-100px 0px" });
-  
-  // Textos para animación
-  const animatedTexts = [
-    {
-      icon: "🔍",
-      textKey: "about.animatedText1",
-      highlightKey: "about.animatedHighlight1"
-    },
-    {
-      icon: "🤖",
-      textKey: "about.animatedText2",
-      highlightKey: "about.animatedHighlight2"
-    },
-    {
-      icon: "📊",
-      textKey: "about.animatedText3",
-      highlightKey: "about.animatedHighlight3"
-    }
+    { icon: Network, titleKey: 'about.feature1Title', descKey: 'about.feature1Description' },
+    { icon: Brain, titleKey: 'about.feature2Title', descKey: 'about.feature2Description' },
+    { icon: Zap, titleKey: 'about.feature3Title', descKey: 'about.feature3Description' },
   ];
 
-  const devServices = [
-    { icon: "📱", textKey: "about.serviceMobileApps" },
-    { icon: "🖥️", textKey: "about.serviceWebApps" },
-    { icon: "⚙️", textKey: "about.serviceBackendSystems" },
-    { icon: "🔄", textKey: "about.serviceApiIntegration" },
-    { icon: "🛠️", textKey: "about.serviceDevOps" },
-    { icon: "🔒", textKey: "about.serviceSecurity" }
-  ];
-  
   return (
-    <AboutSection id="about">
-      <AboutContainer>
-        <AboutHeader>
-          <AboutTitle
+    <section id="about" className="relative py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-surface/30 to-background" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px 0px" }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
             {t('about.mainTitle')}
-          </AboutTitle>
-          <AboutSubtitle
+          </motion.h2>
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px 0px" }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-text-dim text-lg"
           >
             {t('about.mainSubtitle')}
-          </AboutSubtitle>
-        </AboutHeader>
-        
-        <AboutContent>
-          <AboutTextContent
-            ref={aboutRef}
-            initial="hidden"
-            animate={isAboutInView ? "visible" : "hidden"}
-            variants={containerVariants}
-          >
-            <AboutDescription variants={itemVariants}>
-              {t('about.description1')}
-            </AboutDescription>
-            <AboutDescription variants={itemVariants}>
-              {t('about.description2')}
-            </AboutDescription>
-            
-            <FeatureList variants={containerVariants}>
-              {features.map((feature, index) => (
-                <FeatureItem
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="hover-lift"
-                  whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: "0 12px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(87, 108, 168, 0.4)"
-                  }}
-                >
-                  <FeatureIcon>{feature.icon}</FeatureIcon>
-                  <FeatureContent>
-                    <FeatureTitle>{t(feature.titleKey)}</FeatureTitle>
-                    <FeatureDescription>{t(feature.descriptionKey)}</FeatureDescription>
-                  </FeatureContent>
-                </FeatureItem>
-              ))}
-            </FeatureList>
-          </AboutTextContent>
-          
-          <AboutVisual
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px 0px" }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 50 }}
-          >
-            <VisualContainer
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              whileHover={{ 
-                boxShadow: "0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(87, 108, 168, 0.4)"
-              }}
-            >
-              <motion.h3
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                {t('about.visualTitle')}
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {t('about.visualParagraph1')}
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                {t('about.visualParagraph2')}
-              </motion.p>
-              
-              {/* Textos animados en lugar del código */}
-              <AnimatedTextContainer
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.6 }}
-                whileHover={{ 
-                  boxShadow: "0 12px 30px rgba(0, 0, 0, 0.4)"
-                }}
-              >
-                {animatedTexts.map((item, index) => (
-                  <TextBlock
-                    key={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={containerVariants}
-                  >
-                    <AnimatedIcon
-                      variants={iconVariants}
-                      whileHover="hover"
-                    >
-                      {item.icon}
-                    </AnimatedIcon>
-                    
-                    {t(item.textKey).split(' ').map((word, i) => (
-                      <AnimatedWord
-                        key={i}
-                        custom={i}
-                        variants={wordVariants}
-                      >
-                        {word}
-                      </AnimatedWord>
-                    ))}
-                    
-                    <AnimatedHighlight
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ 
-                        opacity: 1, 
-                        scale: 1,
-                        transition: {
-                          delay: 0.5 + index * 0.2,
-                          duration: 0.5,
-                          type: "spring"
-                        }
-                      }}
-                      viewport={{ once: true }}
-                      whileHover={{
-                        scale: 1.1,
-                        color: "var(--color-cream-highlight)",
-                        transition: { duration: 0.2 }
-                      }}
-                    >
-                      {t(item.highlightKey)}
-                    </AnimatedHighlight>
-                    
-                    {[0, 1, 2].map((dot) => (
-                      <AnimatedDot
-                        key={dot}
-                        custom={dot}
-                        variants={dotVariants}
-                      />
-                    ))}
-                  </TextBlock>
-                ))}
-              </AnimatedTextContainer>
-            </VisualContainer>
-          </AboutVisual>
-        </AboutContent>
-        
-        {/* Nueva sección de desarrollo de software */}
-        <SoftwareDevSection
-          ref={softwareRef}
-          initial={{ opacity: 0 }}
-          animate={isSoftwareInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <SoftwareDevContainer>
-            <SoftwareDevTitle
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              {t('about.softwareDevTitle')}
-            </SoftwareDevTitle>
-            <SoftwareDevDescription
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              {t('about.softwareDevDescription')}
-            </SoftwareDevDescription>
-            
-            <DevServicesList
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={containerVariants}
-            >
-              {devServices.map((service, index) => (
-                <DevServiceItem 
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.03 }}
-                >
-                  <ServiceIcon>{service.icon}</ServiceIcon>
-                  <ServiceText>{t(service.textKey)}</ServiceText>
-                </DevServiceItem>
-              ))}
-            </DevServicesList>
-          </SoftwareDevContainer>
-        </SoftwareDevSection>
-      </AboutContainer>
-    </AboutSection>
-  );
-};
+          </motion.p>
+        </div>
 
-export default About; 
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+          {/* Large card - Company Description */}
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="md:col-span-2 glass-card p-8 lg:p-10 group hover:bg-surface/60 transition-colors"
+          >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                <Network className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-white">{t('about.visualTitle')}</h3>
+            </div>
+            <p className="text-text-dim leading-relaxed mb-4">{t('about.description1')}</p>
+            <p className="text-text-dim leading-relaxed">{t('about.description2')}</p>
+          </motion.div>
+
+          {/* Stats card */}
+          <motion.div
+            custom={1}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="glass-card p-8 flex flex-col justify-center items-center text-center gradient-border"
+          >
+            <div className="text-5xl font-black gradient-text mb-2">15+</div>
+            <div className="text-text-dim text-sm">{t('hero.stat1')}</div>
+            <div className="w-12 h-px bg-gradient-primary my-4" />
+            <div className="text-5xl font-black gradient-text mb-2">100%</div>
+            <div className="text-text-dim text-sm">{t('hero.stat2')}</div>
+          </motion.div>
+
+          {/* Feature cards */}
+          {features.map((feat, i) => {
+            const Icon = feat.icon;
+            return (
+              <motion.div
+                key={i}
+                custom={i + 2}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="glass-card p-7 group hover:bg-surface/60 transition-colors gradient-border"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/25 transition-colors">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">{t(feat.titleKey)}</h3>
+                <p className="text-text-dim text-sm leading-relaxed">{t(feat.descKey)}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

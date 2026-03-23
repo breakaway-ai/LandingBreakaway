@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import textShadow from './src/tailwind-plugins/text-shadow.js';
-
 export default {
   content: [
     "./index.html",
@@ -9,43 +7,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#0F0117',
-        'blue-dark': '#1E0B2C',
-        blue: '#4A2C6D',
-        'blue-light': '#8A4FFF',
-        cream: '#FFFFFF',
-        'cream-highlight': '#FFFFFF',
+        background: '#0A0012',
+        surface: '#1A0D2E',
+        'surface-light': '#271545',
+        primary: '#8A4FFF',
+        'primary-dark': '#4A2C6D',
+        'primary-light': '#C4A0FF',
+        accent: '#00E5FF',
+        'accent-soft': '#7DD8E8',
         text: '#FFFFFF',
-        'text-highlight': '#FFFFFF',
-        'card-bg': '#1E0B2C',
-        'section-alt': '#1E0B2C',
-        gray: '#9A9A9D',
-        'text-secondary': '#B68FFF',
-        border: 'rgba(138, 79, 255, 0.3)'
+        'text-muted': '#C4A0FF',
+        'text-dim': '#B8B5C0',
+        border: 'rgba(138, 79, 255, 0.3)',
       },
       boxShadow: {
-        'sm': '0 2px 8px rgba(0, 0, 0, 0.3)',
-        'md': '0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(138, 79, 255, 0.2)',
-        'lg': '0 8px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(138, 79, 255, 0.3)',
-        'xl': '0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(138, 79, 255, 0.4)',
-        'glow': '0 0 15px rgba(138, 79, 255, 0.5)',
-        'glow-hover': '0 0 20px rgba(138, 79, 255, 0.8)',
-      },
-      textShadow: {
-        'sm': '0 0 5px rgba(0, 0, 0, 0.3)',
-        'md': '0 0 10px rgba(0, 0, 0, 0.5)',
-        'lg': '0 0 15px rgba(0, 0, 0, 0.7)',
-        'glow': '0 0 10px rgba(138, 79, 255, 0.6)',
-        'highlight': '0 0 15px rgba(255, 255, 255, 0.5)',
+        'glow': '0 0 20px rgba(138, 79, 255, 0.4)',
+        'glow-lg': '0 0 40px rgba(138, 79, 255, 0.3)',
+        'glow-accent': '0 0 20px rgba(0, 229, 255, 0.25)',
+        'card': '0 4px 24px rgba(0, 0, 0, 0.5)',
+        'card-hover': '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 24px rgba(138, 79, 255, 0.15)',
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
-      screens: {
-        'md': {'max': '768px'},
-        'sm': {'max': '640px'},
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-primary': 'linear-gradient(135deg, #8A4FFF, #00E5FF)',
+        'gradient-surface': 'linear-gradient(135deg, #1A0D2E, #0A0012)',
       },
     },
   },
-  plugins: [textShadow],
-} 
+  plugins: [],
+}

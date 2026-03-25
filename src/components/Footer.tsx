@@ -8,8 +8,8 @@ export default function Footer() {
     <footer className="relative border-t border-white/10">
       <div className="absolute inset-0 bg-gradient-to-t from-surface/50 to-background" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 py-8 sm:py-12">
+        <div className="flex flex-col items-center gap-5 sm:gap-6 md:flex-row md:justify-between">
           <div className="flex items-center gap-2">
             <img src={logoImage} alt="Breakaway" className="h-7" />
             <span className="font-display text-lg font-bold text-white">
@@ -31,7 +31,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <p className="text-text-dim text-sm">
+          <p className="text-text-dim text-xs sm:text-sm text-center">
             <Trans i18nKey="footer.copyright" values={{ currentYear }}>
               &copy; {{ currentYear }} Breakaway. Todos los derechos reservados.
             </Trans>

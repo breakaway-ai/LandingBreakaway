@@ -21,17 +21,17 @@ export default function Process() {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ['0%', '100%']);
 
   return (
-    <section id="process" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="process" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface/20 to-background" />
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6" ref={containerRef}>
-        <div className="text-center mb-16">
+      <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6" ref={containerRef}>
+        <div className="text-center mb-12 sm:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
             {t('howItWorks.sectionTitle')}
           </motion.h2>
@@ -39,14 +39,14 @@ export default function Process() {
 
         <div className="relative">
           {/* Animated vertical line */}
-          <div className="absolute left-6 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-white/5">
+          <div className="absolute left-[22px] sm:left-6 lg:left-1/2 lg:-translate-x-px top-0 bottom-0 w-0.5 bg-white/5">
             <motion.div
               className="w-full bg-gradient-to-b from-primary to-accent"
               style={{ height: lineHeight }}
             />
           </div>
 
-          <div className="space-y-12 lg:space-y-16">
+          <div className="space-y-8 sm:space-y-12 lg:space-y-16">
             {steps.map((step, i) => {
               const Icon = step.icon;
               const isLeft = i % 2 === 0;
@@ -54,31 +54,31 @@ export default function Process() {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-50px' }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className={`relative flex items-start gap-6 lg:gap-0 ${
+                  className={`relative flex items-start gap-4 sm:gap-6 lg:gap-0 ${
                     isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
                   }`}
                 >
                   {/* Step number circle */}
-                  <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 z-10">
-                    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold shadow-glow">
+                  <div className="absolute left-[22px] sm:left-6 lg:left-1/2 -translate-x-1/2 z-10">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-white text-sm sm:text-base font-bold shadow-glow">
                       {i + 1}
                     </div>
                   </div>
 
                   {/* Content card */}
-                  <div className={`ml-16 lg:ml-0 lg:w-[calc(50%-2.5rem)] ${
+                  <div className={`ml-14 sm:ml-16 lg:ml-0 lg:w-[calc(50%-2.5rem)] ${
                     isLeft ? 'lg:pr-0' : 'lg:pl-0'
                   }`}>
-                    <div className="glass-card p-6 hover:bg-surface/60 transition-colors group">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-9 h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
+                    <div className="glass-card p-5 sm:p-6 hover:bg-surface/60 transition-colors group">
+                      <div className="flex items-center gap-3 mb-2 sm:mb-3">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors shrink-0">
                           <Icon className="w-4 h-4 text-primary" />
                         </div>
-                        <h3 className="text-lg font-bold text-white">{t(step.titleKey)}</h3>
+                        <h3 className="text-base sm:text-lg font-bold text-white">{t(step.titleKey)}</h3>
                       </div>
                       <p className="text-text-dim text-sm leading-relaxed">{t(step.descKey)}</p>
                     </div>

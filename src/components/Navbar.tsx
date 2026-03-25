@@ -41,7 +41,7 @@ export default function Navbar() {
             : 'py-5 bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
             <img src={logoImage} alt={t('header.logoAlt')} className="h-8 lg:h-10" />
             <span className="font-display text-xl lg:text-2xl font-bold text-white">

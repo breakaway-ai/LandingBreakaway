@@ -1,37 +1,23 @@
-import { motion, useScroll, useSpring } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Process from './components/Process';
-import Benefits from './components/Benefits';
-import ContactForm from './components/ContactForm';
-import Footer from './components/Footer';
+import { Navigate, Route, Routes, useSearchParams } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import SuccessPage from './pages/SuccessPage';
 
-function App() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+function HomeRoute() {
+  const [searchParams] = useSearchParams();
 
-  return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-primary z-[100] origin-left"
-        style={{ scaleX }}
-      />
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Process />
-      <Benefits />
-      <ContactForm />
-      <Footer />
-    </>
-  );
+  if (searchParams.get('lead') === 'success') {
+    return <Navigate to="/thank-you" replace />;
+  }
+
+  return <LandingPage />;
 }
 
-export default App;
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomeRoute />} />
+      <Route path="/thank-you" element={<SuccessPage />} />
+      <Route path="/gracias" element={<Navigate to="/thank-you" replace />} />
+    </Routes>
+  );
+}

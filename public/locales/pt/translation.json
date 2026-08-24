@@ -109,5 +109,20 @@
   },
   "footer": {
     "copyright": "© {{currentYear}} Breakaway. Todos os direitos reservados."
+  },
+  "successPage": {
+    "badge": "Solicitação enviada",
+    "title": "Mensagem recebida!",
+    "subtitle": "Obrigado por entrar em contato. Nossa equipe analisará sua solicitação e retornará em breve com os próximos passos.",
+    "step1Title": "Analisamos sua solicitação",
+    "step1Desc": "Analisamos sua mensagem para entender suas necessidades e objetivos.",
+    "step2Title": "Entramos em contato",
+    "step2Desc": "Um especialista entrará em contato em até 24 horas úteis.",
+    "step3Title": "Consultoria gratuita",
+    "step3Desc": "Agendamos uma call para explorar como podemos ajudá-lo.",
+    "responseTime": "Tempo de resposta estimado: 24 horas úteis.",
+    "emailNote": "Você também pode nos escrever em",
+    "ctaHome": "Voltar ao início",
+    "ctaServices": "Ver serviços"
   }
 }

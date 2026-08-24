@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Send, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Mail, MapPin, AlertCircle } from 'lucide-react';
 
 export default function ContactForm() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '', email: '', company: '', phone: '', message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const resetSubmittingState = () => setIsSubmitting(false);
+    resetSubmittingState();
+    window.addEventListener('pageshow', resetSubmittingState);
+    return () => window.removeEventListener('pageshow', resetSubmittingState);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -26,6 +34,7 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
+        signal: AbortSignal.timeout(30_000),
       });
 
       const text = await response.text();
@@ -40,11 +49,15 @@ export default function ContactForm() {
         throw new Error(data.message || t('contactForm.errorSubmitFallback'));
       }
 
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 5000);
+      setIsSubmitting(false);
+      navigate('/thank-you', { replace: true });
+      return;
     } catch (err) {
-      setError(err instanceof Error ? err.message : t('contactForm.errorSubmitFallback'));
+      if (err instanceof DOMException && err.name === 'TimeoutError') {
+        setError(t('contactForm.errorSubmitFallback'));
+      } else {
+        setError(err instanceof Error ? err.message : t('contactForm.errorSubmitFallback'));
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -159,17 +172,6 @@ export default function ContactForm() {
                 {isSubmitting ? t('contactForm.buttonSubmitting') : t('contactForm.buttonSubmit')}
                 {!isSubmitting && <Send size={16} />}
               </motion.button>
-
-              {isSubmitted && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-3 sm:p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 flex items-center gap-3 text-sm"
-                >
-                  <CheckCircle size={18} className="shrink-0" />
-                  {t('contactForm.messageSuccess')}
-                </motion.div>
-              )}
 
               {error && (
                 <motion.div

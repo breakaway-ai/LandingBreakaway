@@ -109,5 +109,20 @@
   },
   "footer": {
     "copyright": "© {{currentYear}} Breakaway. All rights reserved."
+  },
+  "successPage": {
+    "badge": "Request submitted",
+    "title": "Message received!",
+    "subtitle": "Thank you for reaching out. Our team will review your request and get back to you soon with next steps.",
+    "step1Title": "We review your request",
+    "step1Desc": "We analyze your message to understand your needs and goals.",
+    "step2Title": "We contact you",
+    "step2Desc": "A specialist will reach out within 24 business hours.",
+    "step3Title": "Free consultation",
+    "step3Desc": "We schedule a call to explore how we can help you.",
+    "responseTime": "Estimated response time: 24 business hours.",
+    "emailNote": "You can also email us at",
+    "ctaHome": "Back to home",
+    "ctaServices": "View services"
   }
 }

@@ -60,6 +60,11 @@ When deploying to Netlify, add the same environment variables:
 2. Navigate to **Site settings** > **Environment variables**
 3. Add each variable from your `.env` file
 
+Note that `CONTACT_NOTIFICATION_EMAIL` is listed under `SECRETS_SCAN_OMIT_KEYS` in
+`netlify.toml`. That address is also displayed publicly on the site, so without the
+exemption Netlify's secrets scanning fails the build when it finds the value in the
+generated files. Never add `RESEND_API_KEY` to that list.
+
 ## 7. Testing the Integration
 
 To test locally:

@@ -1,65 +1,49 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import {
-  ArrowRight,
-  CheckCircle2,
-  Clock,
-  Home,
-  Mail,
-  MessageSquare,
-  Sparkles,
-} from 'lucide-react';
-import logoImage from '../assets/logo.png';
+import { ArrowRight, Check, Clock, Home, Mail, MessageSquare, Sparkles } from 'lucide-react';
 import LanguageSelector from '../components/LanguageSelector';
+import Wordmark from '../components/Wordmark';
 import Footer from '../components/Footer';
 
 const steps = [
-  { icon: MessageSquare, titleKey: 'step1Title', descKey: 'step1Desc', delay: 0.3 },
-  { icon: Clock, titleKey: 'step2Title', descKey: 'step2Desc', delay: 0.45 },
-  { icon: Sparkles, titleKey: 'step3Title', descKey: 'step3Desc', delay: 0.6 },
+  { icon: MessageSquare, titleKey: 'step1Title', descKey: 'step1Desc' },
+  { icon: Clock, titleKey: 'step2Title', descKey: 'step2Desc' },
+  { icon: Sparkles, titleKey: 'step3Title', descKey: 'step3Desc' },
 ] as const;
 
 export default function SuccessPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-surface/40" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-
-      <header className="relative z-10 py-5 px-5 sm:px-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <img src={logoImage} alt={t('header.logoAlt')} className="h-8 lg:h-10" />
-            <span className="font-display text-xl lg:text-2xl font-bold text-white">
-              BREAK<span className="text-primary">AWAY</span>
-            </span>
+    <div className="flex min-h-screen flex-col">
+      <header className="px-4 pt-3 sm:px-6 sm:pt-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 shadow-card backdrop-blur-md">
+          <Link to="/" aria-label={t('header.logoAlt')}>
+            <Wordmark />
           </Link>
           <LanguageSelector />
         </div>
       </header>
 
-      <main className="relative z-10 flex-1 flex items-center justify-center px-5 sm:px-6 py-12 sm:py-16">
-        <div className="max-w-3xl w-full text-center">
+      <main className="relative flex flex-1 items-center overflow-hidden px-5 py-16 sm:px-6 sm:py-20">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" />
+
+        <div className="relative mx-auto w-full max-w-3xl text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            className="relative flex justify-center mx-auto mb-8"
+            transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+            className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 ring-1 ring-emerald-500/25 sm:h-20 sm:w-20"
           >
-            <div className="absolute inset-0 bg-green-400/20 rounded-full blur-2xl scale-150" />
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center">
-              <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12 text-green-400" strokeWidth={1.5} />
-            </div>
+            <Check className="h-7 w-7 text-emerald-500 sm:h-9 sm:w-9" strokeWidth={2.5} />
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
+            transition={{ delay: 0.12 }}
+            className="text-3xl text-ink sm:text-4xl lg:text-[2.75rem]"
           >
             {t('successPage.title')}
           </motion.h1>
@@ -67,74 +51,69 @@ export default function SuccessPage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-            className="text-text-dim text-base sm:text-lg max-w-xl mx-auto mb-10 sm:mb-12"
+            transition={{ delay: 0.2 }}
+            className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-ink-soft"
           >
             {t('successPage.subtitle')}
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-10 sm:mb-12">
-            {steps.map(({ icon: Icon, titleKey, descKey, delay }) => (
+          <div className="mt-12 grid gap-4 text-left sm:grid-cols-3 sm:gap-5">
+            {steps.map(({ icon: Icon, titleKey, descKey }, i) => (
               <motion.div
                 key={titleKey}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay }}
-                className="glass-card p-5 sm:p-6 text-left"
+                transition={{ delay: 0.28 + i * 0.1 }}
+                className="card p-6"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-white font-semibold text-sm sm:text-base mb-2">
-                  {t(`successPage.${titleKey}`)}
-                </h3>
-                <p className="text-text-dim text-xs sm:text-sm leading-relaxed">
-                  {t(`successPage.${descKey}`)}
-                </p>
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-wash">
+                  <Icon className="h-4 w-4 text-primary" />
+                </span>
+                <h3 className="mt-4 text-[15px] text-ink">{t(`successPage.${titleKey}`)}</h3>
+                <p className="prose-mono mt-2.5">{t(`successPage.${descKey}`)}</p>
               </motion.div>
             ))}
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
-            className="glass-card px-5 py-4 sm:px-6 sm:py-5 mb-8 sm:mb-10 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-sm text-text-dim"
+            transition={{ delay: 0.6 }}
+            className="mt-10 flex flex-col items-center gap-2 font-mono text-[11px] text-ink-dim sm:flex-row sm:justify-center sm:gap-3"
           >
-            <Clock className="w-4 h-4 text-primary shrink-0" />
             <span>{t('successPage.responseTime')}</span>
-            <span className="hidden sm:inline text-white/20">·</span>
+            <span className="hidden text-ink/20 sm:inline">·</span>
             <span className="flex items-center gap-1.5">
               {t('successPage.emailNote')}
               <a
                 href="mailto:general@breakaway.work"
-                className="text-primary-light hover:text-white transition-colors inline-flex items-center gap-1 font-medium"
+                className="inline-flex items-center gap-1 font-medium text-primary transition-colors hover:text-primary-bright"
               >
-                <Mail className="w-3.5 h-3.5" />
+                <Mail className="h-3 w-3" />
                 general@breakaway.work
               </a>
             </span>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+            transition={{ delay: 0.7 }}
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Link
               to="/"
-              className="w-full sm:w-auto px-6 py-3.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl shadow-glow transition-colors flex items-center justify-center gap-2 text-sm"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:w-auto"
             >
-              <Home className="w-4 h-4" />
+              <Home className="h-4 w-4" />
               {t('successPage.ctaHome')}
             </Link>
             <Link
               to="/#services"
-              className="w-full sm:w-auto px-6 py-3.5 glass hover:bg-white/10 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface px-6 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill sm:w-auto"
             >
               {t('successPage.ctaServices')}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </div>

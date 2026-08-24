@@ -2,8 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
-import logoImage from '../assets/logo.png';
 import LanguageSelector from './LanguageSelector';
+import Wordmark from './Wordmark';
+
+const navLinks = [
+  { key: 'nav.about', href: '#about' },
+  { key: 'nav.services', href: '#services' },
+  { key: 'nav.process', href: '#process' },
+  { key: 'nav.benefits', href: '#benefits' },
+];
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -11,126 +18,111 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [mobileOpen]);
-
-  const navLinks = [
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.services'), href: '#services' },
-    { label: t('nav.process'), href: '#process' },
-    { label: t('nav.benefits'), href: '#benefits' },
-    { label: t('nav.contact'), href: '#contact' },
-  ];
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? 'py-3 glass shadow-lg'
-            : 'py-5 bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
-            <img src={logoImage} alt={t('header.logoAlt')} className="h-8 lg:h-10" />
-            <span className="font-display text-xl lg:text-2xl font-bold text-white">
-              BREAK<span className="text-primary">AWAY</span>
-            </span>
+      <div className="fixed inset-x-0 top-3 z-50 px-4 sm:top-4 sm:px-6">
+        <motion.nav
+          initial={{ y: -24, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+          className={`mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 backdrop-blur-md transition-shadow duration-300 ${
+            scrolled ? 'shadow-pill' : 'shadow-card'
+          }`}
+        >
+          <a href="#" aria-label={t('header.logoAlt')} className="shrink-0">
+            <Wordmark />
           </a>
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link, i) => (
-              <motion.a
-                key={i}
+          <div className="hidden items-center gap-7 lg:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
                 href={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i }}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group"
+                className="text-[13px] font-medium text-ink-soft transition-colors hover:text-ink"
               >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full" />
-              </motion.a>
+                {t(link.key)}
+              </a>
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-4">
-            <motion.a
+          <div className="flex items-center gap-1">
+            <LanguageSelector />
+            <a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm font-semibold rounded-full transition-all shadow-glow"
+              className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
             >
               {t('nav.cta')}
-            </motion.a>
-            <LanguageSelector />
-          </div>
-
-          <div className="flex items-center gap-3 lg:hidden">
-            <LanguageSelector />
+            </a>
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 text-white"
-              aria-label="Toggle menu"
+              onClick={() => setMobileOpen(true)}
+              aria-label={t('nav.menu')}
+              className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5 lg:hidden"
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              <Menu size={20} />
             </button>
           </div>
-        </div>
-      </motion.nav>
+        </motion.nav>
+      </div>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25 }}
-            className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[60] flex flex-col bg-background/98 backdrop-blur-xl lg:hidden"
           >
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="absolute top-5 right-6 p-2 text-white"
-              aria-label="Close menu"
-            >
-              <X size={28} />
-            </button>
-
-            {navLinks.map((link, i) => (
-              <motion.a
-                key={i}
-                href={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 * i }}
+            <div className="flex items-center justify-between px-6 py-5">
+              <Wordmark />
+              <button
                 onClick={() => setMobileOpen(false)}
-                className="text-2xl font-display font-semibold text-white hover:text-primary transition-colors"
+                aria-label={t('nav.close')}
+                className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5"
               >
-                {link.label}
-              </motion.a>
-            ))}
+                <X size={22} />
+              </button>
+            </div>
 
-            <motion.a
-              href="#contact"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 px-8 py-3 bg-primary text-white font-semibold rounded-full shadow-glow"
-            >
-              {t('nav.cta')}
-            </motion.a>
+            <div className="flex flex-1 flex-col justify-center gap-2 px-6 pb-20">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * i }}
+                  onClick={() => setMobileOpen(false)}
+                  className="border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
+                >
+                  {t(link.key)}
+                </motion.a>
+              ))}
+
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                onClick={() => setMobileOpen(false)}
+                className="mt-8 rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
+              >
+                {t('nav.cta')}
+              </motion.a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

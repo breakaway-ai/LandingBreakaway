@@ -13,6 +13,7 @@ export default function LanguageSelector() {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const current = i18n.resolvedLanguage ?? i18n.language;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -30,16 +31,14 @@ export default function LanguageSelector() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Change language"
         aria-expanded={isOpen}
-        className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+        className="flex items-center rounded-full p-2 text-ink-soft transition-colors hover:bg-ink/5 hover:text-ink"
       >
-        <Globe className="w-5 h-5 text-white" />
+        <Globe className="h-[18px] w-[18px]" />
       </button>
 
       <div
-        className={`absolute top-full right-0 mt-2 glass rounded-xl overflow-hidden min-w-[140px] z-50 transition-all duration-200 ${
-          isOpen
-            ? 'opacity-100 visible translate-y-0'
-            : 'opacity-0 invisible -translate-y-2'
+        className={`absolute right-0 top-full z-50 mt-2 min-w-[150px] overflow-hidden rounded-2xl bg-surface shadow-pill transition-all duration-200 ${
+          isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'
         }`}
       >
         {languages.map((lang) => (
@@ -49,14 +48,14 @@ export default function LanguageSelector() {
               i18n.changeLanguage(lang.code);
               setIsOpen(false);
             }}
-            className={`w-full px-4 py-2.5 text-left text-sm flex items-center gap-3 transition-colors ${
-              lang.code === i18n.language
-                ? 'bg-primary/20 text-white'
-                : 'text-white/80 hover:bg-white/10'
+            className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-[13px] transition-colors ${
+              lang.code === current
+                ? 'bg-primary-wash font-semibold text-primary'
+                : 'text-ink-soft hover:bg-ink/[0.04]'
             }`}
           >
-            <span className="text-base">{lang.flag}</span>
-            <span className="font-medium">{lang.name}</span>
+            <span className="text-base leading-none">{lang.flag}</span>
+            <span>{lang.name}</span>
           </button>
         ))}
       </div>

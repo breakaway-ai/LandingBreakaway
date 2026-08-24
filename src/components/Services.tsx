@@ -1,77 +1,108 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import {
-  Bot, Smartphone, Monitor, Server,
-  Link, Wrench, Shield,
-} from 'lucide-react';
 
-const services = [
-  { icon: Bot, titleKey: 'services.aiAgentsTitle', descKey: 'services.aiAgentsDesc', featured: true },
-  { icon: Smartphone, titleKey: 'about.serviceMobileApps', descKey: 'services.mobileDesc' },
-  { icon: Monitor, titleKey: 'about.serviceWebApps', descKey: 'services.webDesc' },
-  { icon: Server, titleKey: 'about.serviceBackendSystems', descKey: 'services.backendDesc' },
-  { icon: Link, titleKey: 'about.serviceApiIntegration', descKey: 'services.apiDesc' },
-  { icon: Wrench, titleKey: 'about.serviceDevOps', descKey: 'services.devopsDesc' },
-  { icon: Shield, titleKey: 'about.serviceSecurity', descKey: 'services.securityDesc' },
+interface Service {
+  titleKey: string;
+  descKey: string;
+  tags: string[];
+  tagKeys?: string[];
+  span: string;
+  lifted?: boolean;
+}
+
+const services: Service[] = [
+  {
+    titleKey: 'services.aiAgentsTitle',
+    descKey: 'services.aiAgentsDesc',
+    tags: ['NLP', 'RAG', 'Multi-Agent', 'LLM'],
+    span: 'sm:col-span-2 lg:col-span-3',
+  },
+  {
+    titleKey: 'services.apiTitle',
+    descKey: 'services.apiDesc',
+    tags: ['REST', 'Webhooks', 'ERP'],
+    span: 'sm:col-span-2 lg:col-span-3',
+  },
+  {
+    titleKey: 'services.webTitle',
+    descKey: 'services.webDesc',
+    tags: [],
+    tagKeys: ['services.tagWeb'],
+    span: 'lg:col-span-2',
+  },
+  {
+    titleKey: 'services.mobileTitle',
+    descKey: 'services.mobileDesc',
+    tags: ['iOS', 'Android'],
+    span: 'lg:col-span-2',
+    lifted: true,
+  },
+  {
+    titleKey: 'services.backendTitle',
+    descKey: 'services.backendDesc',
+    tags: ['APIs', 'Cloud'],
+    span: 'sm:col-span-2 lg:col-span-2',
+  },
+  {
+    titleKey: 'services.devopsTitle',
+    descKey: 'services.devopsDesc',
+    tags: ['CI/CD'],
+    tagKeys: ['services.tagMonitoring'],
+    span: 'sm:col-span-2 lg:col-span-3',
+  },
+  {
+    titleKey: 'services.securityTitle',
+    descKey: 'services.securityDesc',
+    tags: [],
+    tagKeys: ['services.tagPermissions', 'services.tagAudit', 'services.tagIsolation'],
+    span: 'sm:col-span-2 lg:col-span-3',
+  },
 ];
 
 export default function Services() {
   const { t } = useTranslation();
 
   return (
-    <section id="services" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-surface" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+    <section id="services" className="relative bg-background-alt/60 py-20 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <span className="label text-primary">{t('services.label')}</span>
+          <h2 className="mx-auto mt-5 max-w-2xl text-[1.75rem] leading-[1.15] text-ink sm:text-4xl lg:text-[2.6rem]">
+            {t('services.headline')}
+          </h2>
+          <p className="prose-mono mx-auto mt-5 max-w-xl">{t('services.sectionSubtitle')}</p>
+        </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
-          >
-            {t('services.sectionTitle')}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-text-dim text-base sm:text-lg"
-          >
-            {t('services.sectionSubtitle')}
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-6">
           {services.map((service, i) => {
-            const Icon = service.icon;
+            const tags = [...service.tags, ...(service.tagKeys ?? []).map((key) => t(key))];
+
             return (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={service.titleKey}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0, transition: { delay: (i % 3) * 0.08 } }}
+                whileHover={{ y: -8, transition: { duration: 0.28, ease: 'easeOut' } }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="glass-card p-6 sm:p-7 group hover:bg-surface/60 transition-all duration-300 gradient-border"
+                className={`card card-float flex flex-col p-6 sm:p-7 ${service.span} ${
+                  service.lifted ? 'lg:-my-4 lg:shadow-card-lift' : ''
+                }`}
               >
-                <div
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-4 sm:mb-5"
-                  style={{ background: 'linear-gradient(135deg, rgba(138,79,255,0.15), rgba(0,229,255,0.15))' }}
-                >
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">{t(service.titleKey)}</h3>
-                <p className="text-text-dim text-sm leading-relaxed">{t(service.descKey)}</p>
+                <span className="font-mono text-[11px] text-primary">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-4 text-[17px] text-ink">{t(service.titleKey)}</h3>
+                <p className="prose-mono mt-3 flex-1">{t(service.descKey)}</p>
 
-                {service.featured && (
-                  <div className="mt-5 sm:mt-6 flex flex-wrap gap-2">
-                    {['NLP', 'RAG', 'Multi-Agent', 'LLM'].map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary-light border border-primary/20"
-                      >
+                {tags.length > 0 && (
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {tags.map((tag) => (
+                      <span key={tag} className="tag">
                         {tag}
                       </span>
                     ))}

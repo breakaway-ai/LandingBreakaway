@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Send, Mail, MapPin, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
+
+const fields = [
+  { name: 'name', labelKey: 'contactForm.labelName', type: 'text', required: true },
+  { name: 'email', labelKey: 'contactForm.labelEmail', type: 'email', required: true },
+  { name: 'company', labelKey: 'contactForm.labelCompany', type: 'text', required: false },
+  { name: 'phone', labelKey: 'contactForm.labelPhone', type: 'tel', required: false },
+] as const;
 
 export default function ContactForm() {
   const { t } = useTranslation();
@@ -63,157 +70,111 @@ export default function ContactForm() {
     }
   };
 
-  const inputClasses =
-    'w-full px-4 py-3 sm:py-3.5 bg-white/[0.04] border border-white/10 rounded-xl text-white placeholder:text-white/25 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all text-sm';
-
   return (
-    <section id="contact" className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background to-surface/30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+    <section id="contact" className="relative overflow-hidden bg-night py-20 sm:py-24 lg:py-28">
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[130px]" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6">
-        <div className="text-center mb-10 sm:mb-12">
-          <motion.h2
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
           >
-            {t('contactForm.title')}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            <h2 className="max-w-sm text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
+              {t('contactForm.title')}
+            </h2>
+            <p className="mt-5 max-w-md font-mono text-xs leading-relaxed text-white/50 sm:text-[12.5px]">
+              {t('contactForm.subtitle')}
+            </p>
+
+            <div className="mt-8 flex flex-col items-start gap-3">
+              <a
+                href="mailto:general@breakaway.work"
+                className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-2.5 font-mono text-[11px] text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-primary-soft" />
+                general@breakaway.work
+              </a>
+              <span className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-2.5 font-mono text-[11px] text-white/70">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                {t('contactForm.location')}
+              </span>
+            </div>
+          </motion.div>
+
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-text-dim text-base sm:text-lg max-w-2xl mx-auto"
+            transition={{ delay: 0.1 }}
+            className="grid grid-cols-1 gap-5 sm:grid-cols-2"
           >
-            {t('contactForm.subtitle')}
-          </motion.p>
-        </div>
+            {fields.map((field) => (
+              <div key={field.name}>
+                <label
+                  htmlFor={field.name}
+                  className="mb-2 block font-mono text-[11px] text-white/50"
+                >
+                  {t(field.labelKey)}
+                </label>
+                <input
+                  type={field.type}
+                  id={field.name}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  required={field.required}
+                  disabled={isSubmitting}
+                  className="field"
+                />
+              </div>
+            ))}
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="glass-card p-5 sm:p-8 lg:p-10"
-        >
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-primary-light mb-1.5 sm:mb-2">
-                {t('contactForm.labelName')}
-              </label>
-              <input
-                type="text" id="name" name="name"
-                value={formData.name} onChange={handleChange}
-                required disabled={isSubmitting}
-                className={inputClasses}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-primary-light mb-1.5 sm:mb-2">
-                {t('contactForm.labelEmail')}
-              </label>
-              <input
-                type="email" id="email" name="email"
-                value={formData.email} onChange={handleChange}
-                required disabled={isSubmitting}
-                className={inputClasses}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="company" className="block text-sm font-medium text-primary-light mb-1.5 sm:mb-2">
-                {t('contactForm.labelCompany')}
-              </label>
-              <input
-                type="text" id="company" name="company"
-                value={formData.company} onChange={handleChange}
-                disabled={isSubmitting}
-                className={inputClasses}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-primary-light mb-1.5 sm:mb-2">
-                {t('contactForm.labelPhone')}
-              </label>
-              <input
-                type="tel" id="phone" name="phone"
-                value={formData.phone} onChange={handleChange}
-                disabled={isSubmitting}
-                className={inputClasses}
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <label htmlFor="message" className="block text-sm font-medium text-primary-light mb-1.5 sm:mb-2">
+            <div className="sm:col-span-2">
+              <label htmlFor="message" className="mb-2 block font-mono text-[11px] text-white/50">
                 {t('contactForm.labelMessage')}
               </label>
               <textarea
-                id="message" name="message" rows={4}
-                value={formData.message} onChange={handleChange}
-                required disabled={isSubmitting}
+                id="message"
+                name="message"
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
                 placeholder={t('contactForm.placeholderMessage')}
-                className={`${inputClasses} resize-y`}
+                className="field resize-y"
               />
             </div>
 
-            <div className="md:col-span-2">
-              <motion.button
+            <div className="sm:col-span-2">
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                className="w-full py-3.5 sm:py-4 bg-primary hover:bg-primary/90 disabled:bg-primary/50 disabled:cursor-not-allowed text-white font-semibold rounded-xl shadow-glow transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="w-full rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSubmitting ? t('contactForm.buttonSubmitting') : t('contactForm.buttonSubmit')}
-                {!isSubmitting && <Send size={16} />}
-              </motion.button>
+              </button>
 
               {error && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-3 sm:p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 flex items-center gap-3 text-sm"
+                  className="mt-4 flex items-center gap-3 rounded-xl bg-red-500/10 p-3.5 text-xs text-red-300 ring-1 ring-red-500/20"
                 >
-                  <AlertCircle size={18} className="shrink-0" />
+                  <AlertCircle size={16} className="shrink-0" />
                   {error}
                 </motion.div>
               )}
 
-              <p className="text-text-dim text-xs mt-3 sm:mt-4 text-center">{t('contactForm.privacyInfo')}</p>
+              <p className="mt-4 font-mono text-[10px] leading-relaxed text-white/35">
+                {t('contactForm.privacyInfo')}
+              </p>
             </div>
-          </form>
-        </motion.div>
-
-        {/* Contact details */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mt-10 sm:mt-12"
-        >
-          <a
-            href="mailto:general@breakaway.work"
-            className="flex items-center gap-3 text-text-dim hover:text-white transition-colors group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors shrink-0">
-              <Mail className="w-5 h-5 text-primary" />
-            </div>
-            <span className="text-sm font-medium">general@breakaway.work</span>
-          </a>
-
-          <div className="flex items-center gap-3 text-text-dim">
-            <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
-              <MapPin className="w-5 h-5 text-primary" />
-            </div>
-            <span className="text-sm font-medium">{t('contactForm.location')}</span>
-          </div>
-        </motion.div>
+          </motion.form>
+        </div>
       </div>
     </section>
   );

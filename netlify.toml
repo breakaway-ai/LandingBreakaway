@@ -5,9 +5,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
-  # Public contact address, rendered in the site itself, so secrets scanning
-  # would otherwise flag every page that displays it.
-  SECRETS_SCAN_OMIT_KEYS = "CONTACT_NOTIFICATION_EMAIL"
+  # Both hold public addresses on the same domain the site renders on screen,
+  # so secrets scanning matches them in the bundle. Never add RESEND_API_KEY.
+  SECRETS_SCAN_OMIT_KEYS = "CONTACT_NOTIFICATION_EMAIL,RESEND_FROM_EMAIL"
 
 [dev]
   command = "npm run dev"

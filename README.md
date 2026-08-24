@@ -61,7 +61,7 @@ This is the landing page for Breakaway, featuring AI agent ecosystems and softwa
 
 - Modern space-themed design
 - Responsive layout
-- Contact form with Mailchimp integration
+- Contact form with Resend integration
 - Serverless functions using Netlify Functions
 
 ## Getting Started
@@ -89,26 +89,20 @@ npm install
 npm run dev
 ```
 
-## Mailchimp Integration Setup
+## Resend Integration Setup
 
-The contact form is integrated with Mailchimp to collect and manage leads. To set up the Mailchimp integration:
+The contact form uses Resend to save contacts and send notification emails. See [RESEND_SETUP.md](./RESEND_SETUP.md) for the full setup guide.
 
-1. Create a Mailchimp account if you don't have one already
-2. Get your API key from Mailchimp:
-   - Go to Account > Extras > API keys
-   - Create a new API key or use an existing one
-3. Identify your server prefix (e.g., 'us1') from your Mailchimp URL
-4. Create an audience list and get the List ID
-5. Create a `.env` file in the root directory with the following variables:
+Create a `.env` file in the root directory with:
+
 ```
-MAILCHIMP_API_KEY=your_api_key_here
-MAILCHIMP_SERVER_PREFIX=your_server_prefix_here
-MAILCHIMP_LIST_ID=your_list_id_here
+RESEND_API_KEY=re_your_api_key_here
+RESEND_FROM_EMAIL=Breakaway <noreply@breakaway.work>
+CONTACT_NOTIFICATION_EMAIL=general@breakaway.work
+RESEND_SEGMENT_ID=your_segment_id_here
 ```
 
-6. If deploying to Netlify, add these environment variables in the Netlify dashboard:
-   - Go to Site settings > Build & deploy > Environment
-   - Add the same variables as above
+If deploying to Netlify, add the same environment variables in **Site settings > Environment variables**.
 
 ## Deployment
 
@@ -129,4 +123,4 @@ This site is configured to be deployed on Netlify:
 - [Framer Motion](https://www.framer.com/motion/) - Animations
 - [Styled Components](https://styled-components.com/) - Styling
 - [Netlify Functions](https://www.netlify.com/products/functions/) - Serverless backend
-- [Mailchimp Marketing API](https://mailchimp.com/developer/marketing/api/) - Email marketing
+- [Resend](https://resend.com/docs) - Email delivery and contact management

@@ -1,21 +1,49 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import Wordmark from './Wordmark';
 
-const navLinks = [
-  { key: 'nav.about', href: '#about' },
-  { key: 'nav.services', href: '#services' },
-  { key: 'nav.process', href: '#process' },
-  { key: 'nav.benefits', href: '#benefits' },
+const sectionLinks = [
+  { key: 'nav.services', id: 'services' },
+  { key: 'nav.process', id: 'process' },
+  { key: 'nav.benefits', id: 'benefits' },
 ];
+
+interface SectionLinkProps {
+  onHome: boolean;
+  id: string;
+  className: string;
+  onClick?: () => void;
+  children: ReactNode;
+}
+
+/** In-page anchor while on the landing, client-side route + hash from any other page. */
+function SectionLink({ onHome, id, className, onClick, children }: SectionLinkProps) {
+  if (onHome) {
+    return (
+      <a href={`#${id}`} className={className} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={`/#${id}`} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const onHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -42,30 +70,41 @@ export default function Navbar() {
             scrolled ? 'shadow-pill' : 'shadow-card'
           }`}
         >
-          <a href="#" aria-label={t('header.logoAlt')} className="shrink-0">
+          <Link to="/" aria-label={t('header.logoAlt')} className="shrink-0">
             <Wordmark />
-          </a>
+          </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
+            <Link
+              to="/about"
+              className={`text-[13px] font-medium transition-colors hover:text-ink ${
+                onHome ? 'text-ink-soft' : 'text-ink'
+              }`}
+            >
+              {t('nav.about')}
+            </Link>
+
+            {sectionLinks.map((link) => (
+              <SectionLink
+                key={link.id}
+                onHome={onHome}
+                id={link.id}
                 className="text-[13px] font-medium text-ink-soft transition-colors hover:text-ink"
               >
                 {t(link.key)}
-              </a>
+              </SectionLink>
             ))}
           </div>
 
           <div className="flex items-center gap-1">
             <LanguageSelector />
-            <a
-              href="#contact"
+            <SectionLink
+              onHome={onHome}
+              id="contact"
               className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
             >
               {t('nav.cta')}
-            </a>
+            </SectionLink>
             <button
               onClick={() => setMobileOpen(true)}
               aria-label={t('nav.menu')}
@@ -98,30 +137,49 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-1 flex-col justify-center gap-2 px-6 pb-20">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
+              <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}>
+                <Link
+                  to="/about"
+                  onClick={() => setMobileOpen(false)}
+                  className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
+                >
+                  {t('nav.about')}
+                </Link>
+              </motion.div>
+
+              {sectionLinks.map((link, i) => (
+                <motion.div
+                  key={link.id}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
-                  onClick={() => setMobileOpen(false)}
-                  className="border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
+                  transition={{ delay: 0.05 * (i + 1) }}
                 >
-                  {t(link.key)}
-                </motion.a>
+                  <SectionLink
+                    onHome={onHome}
+                    id={link.id}
+                    onClick={() => setMobileOpen(false)}
+                    className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
+                  >
+                    {t(link.key)}
+                  </SectionLink>
+                </motion.div>
               ))}
 
-              <motion.a
-                href="#contact"
+              <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                onClick={() => setMobileOpen(false)}
-                className="mt-8 rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
+                className="mt-8"
               >
-                {t('nav.cta')}
-              </motion.a>
+                <SectionLink
+                  onHome={onHome}
+                  id="contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="block rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
+                >
+                  {t('nav.cta')}
+                </SectionLink>
+              </motion.div>
             </div>
           </motion.div>
         )}

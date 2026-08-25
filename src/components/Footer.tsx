@@ -12,7 +12,7 @@ export default function Footer() {
           <Wordmark tone="dark" />
 
           <p className="order-3 font-mono text-[11px] text-white/40 sm:order-2">
-            {t('contactForm.location')} · general@breakaway.work
+            general@breakaway.work
           </p>
 
           <div className="order-2 flex items-center gap-4 sm:order-3">

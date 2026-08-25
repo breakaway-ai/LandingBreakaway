@@ -58,6 +58,10 @@
     @apply font-mono text-xs sm:text-[12.5px] leading-relaxed text-ink-dim;
   }
 
+  .mark {
+    @apply font-medium text-primary;
+  }
+
   .field {
     @apply w-full rounded-xl bg-night-soft px-4 py-3 text-sm text-white ring-1 ring-white/[0.06] transition
            placeholder:text-white/25 focus:outline-none focus:ring-2 focus:ring-primary-soft/50

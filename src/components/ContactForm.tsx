@@ -96,10 +96,6 @@ export default function ContactForm() {
                 <span className="h-1.5 w-1.5 rounded-full bg-primary-soft" />
                 general@breakaway.work
               </a>
-              <span className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-2.5 font-mono text-[11px] text-white/70">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                {t('contactForm.location')}
-              </span>
             </div>
           </motion.div>
 

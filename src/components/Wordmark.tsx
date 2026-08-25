@@ -1,4 +1,4 @@
-import logoImage from '../assets/logo.png';
+import logoImage from '../assets/logo.webp';
 
 interface WordmarkProps {
   tone?: 'light' | 'dark';

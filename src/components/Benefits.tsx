@@ -7,7 +7,6 @@ const benefits = [
   { titleKey: 'benefits.benefit3Title', descKey: 'benefits.benefit3Description' },
   { titleKey: 'benefits.benefit4Title', descKey: 'benefits.benefit4Description' },
   { titleKey: 'benefits.benefit5Title', descKey: 'benefits.benefit5Description' },
-  { titleKey: 'benefits.benefit6Title', descKey: 'benefits.benefit6Description' },
 ];
 
 export default function Benefits() {

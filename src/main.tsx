@@ -3,12 +3,13 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import PageLoader from './components/PageLoader.tsx'
 import './i18n'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <Suspense fallback="Cargando...">
+      <Suspense fallback={<PageLoader />}>
         <App />
       </Suspense>
     </BrowserRouter>

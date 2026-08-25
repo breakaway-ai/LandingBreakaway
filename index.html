@@ -8,9 +8,75 @@
     <meta name="description" content="Breakaway - Ecosistemas de Agentes Digitales Inteligentes para la Automatización Empresarial" />
     <meta name="keywords" content="agentes inteligentes, automatización, transformación digital, IA, inteligencia artificial" />
     <title>Breakaway | Automatización Empresarial con Agentes Inteligentes</title>
+    <style>
+      #app-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #edeaf7;
+      }
+
+      #app-loader img {
+        width: 28px;
+        height: 28px;
+        filter: invert(1);
+      }
+
+      #app-loader p {
+        margin: 14px 0 0;
+        font-family: Inter, system-ui, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: #151122;
+      }
+
+      #app-loader p span {
+        color: #6d28d9;
+      }
+
+      #app-loader-bar {
+        margin-top: 32px;
+        width: 112px;
+        height: 2px;
+        overflow: hidden;
+        border-radius: 9999px;
+        background: rgba(109, 40, 217, 0.15);
+      }
+
+      #app-loader-bar span {
+        display: block;
+        width: 50%;
+        height: 100%;
+        border-radius: 9999px;
+        background: #6d28d9;
+        animation: app-loader-shimmer 1.4s ease-in-out infinite;
+      }
+
+      @keyframes app-loader-shimmer {
+        0% { transform: translateX(-120%); }
+        100% { transform: translateX(320%); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #app-loader-bar span {
+          animation: none;
+          transform: translateX(50%);
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="app-loader" aria-live="polite" aria-busy="true" aria-label="Loading">
+        <img src="/favicon.png" alt="" width="28" height="28" />
+        <p>BREAK<span>AWAY</span></p>
+        <div id="app-loader-bar" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

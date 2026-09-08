@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://breakaway.work/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://breakaway.work/?lng=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://breakaway.work/?lng=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breakaway.work/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/?lng=es</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/?lng=en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/about</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://breakaway.work/about?lng=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://breakaway.work/about?lng=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breakaway.work/about" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/about?lng=es</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/about?lng=en</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://breakaway.work/privacy?lng=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://breakaway.work/privacy?lng=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breakaway.work/privacy" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/privacy?lng=es</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://breakaway.work/privacy?lng=en</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

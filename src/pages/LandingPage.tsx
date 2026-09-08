@@ -8,6 +8,7 @@ import Clients from '../components/Clients';
 import Benefits from '../components/Benefits';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
+import SeoHead from '../components/SeoHead';
 
 export default function LandingPage() {
   useEffect(() => {
@@ -23,14 +24,17 @@ export default function LandingPage() {
 
   return (
     <>
+      <SeoHead page="home" path="/" includeOrganizationSchema />
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Process />
-      <Clients />
-      <Benefits />
-      <ContactForm />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Process />
+        <Clients />
+        <Benefits />
+        <ContactForm />
+      </main>
       <Footer />
     </>
   );

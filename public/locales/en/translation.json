@@ -224,5 +224,23 @@
     "changesTitle": "Changes",
     "changesBody": "We may update this policy. The date at the top shows the current version.",
     "contact": "Privacy contact:"
+  },
+  "seo": {
+    "home": {
+      "title": "Breakaway | Enterprise automation with AI agents",
+      "description": "We build digital agent ecosystems that automate complex business processes, eliminate errors, and drive growth."
+    },
+    "about": {
+      "title": "About us · Breakaway",
+      "description": "Three Tec de Monterrey engineers building production AI agent ecosystems for companies."
+    },
+    "privacy": {
+      "title": "Privacy · Breakaway",
+      "description": "Breakaway privacy policy: how we handle data on breakaway.work, our contact form, and WhatsApp assistants."
+    },
+    "thankYou": {
+      "title": "Thank you · Breakaway",
+      "description": "We received your request. Our team will contact you soon."
+    }
   }
 }

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import AboutHero from '../components/about/AboutHero';
 import AboutStory from '../components/about/AboutStory';
@@ -8,10 +7,9 @@ import AboutTalks from '../components/about/AboutTalks';
 import AboutStance from '../components/about/AboutStance';
 import AboutCta from '../components/about/AboutCta';
 import Footer from '../components/Footer';
+import SeoHead from '../components/SeoHead';
 
 export default function AboutPage() {
-  const { t } = useTranslation();
-
   useEffect(() => {
     const hash = window.location.hash.slice(1);
 
@@ -27,24 +25,18 @@ export default function AboutPage() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = t('aboutPage.metaTitle');
-
-    return () => {
-      document.title = previousTitle;
-    };
-  }, [t]);
-
   return (
     <>
+      <SeoHead page="about" path="/about" />
       <Navbar />
-      <AboutHero />
-      <AboutStory />
-      <AboutFounders />
-      <AboutTalks />
-      <AboutStance />
-      <AboutCta />
+      <main>
+        <AboutHero />
+        <AboutStory />
+        <AboutFounders />
+        <AboutTalks />
+        <AboutStance />
+        <AboutCta />
+      </main>
       <Footer />
     </>
   );

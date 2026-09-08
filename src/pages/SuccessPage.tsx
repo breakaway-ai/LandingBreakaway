@@ -5,6 +5,7 @@ import { ArrowRight, Check, Clock, Home, Mail, MessageSquare, Sparkles } from 'l
 import LanguageSelector from '../components/LanguageSelector';
 import Wordmark from '../components/Wordmark';
 import Footer from '../components/Footer';
+import SeoHead from '../components/SeoHead';
 
 const steps = [
   { icon: MessageSquare, titleKey: 'step1Title', descKey: 'step1Desc' },
@@ -17,6 +18,7 @@ export default function SuccessPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SeoHead page="thankYou" path="/thank-you" noindex />
       <header className="px-4 pt-3 sm:px-6 sm:pt-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 shadow-card backdrop-blur-md">
           <Link to="/" aria-label={t('header.logoAlt')}>

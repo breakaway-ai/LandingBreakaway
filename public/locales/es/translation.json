@@ -224,5 +224,23 @@
     "changesTitle": "Cambios",
     "changesBody": "Podemos actualizar esta política. La fecha del encabezado indicará la versión vigente.",
     "contact": "Contacto de privacidad:"
+  },
+  "seo": {
+    "home": {
+      "title": "Breakaway | Automatización empresarial con agentes de IA",
+      "description": "Desarrollamos ecosistemas de agentes digitales que automatizan procesos empresariales complejos, eliminan errores e impulsan el crecimiento."
+    },
+    "about": {
+      "title": "Nosotros · Breakaway",
+      "description": "Tres ingenieros del Tec de Monterrey que construyen ecosistemas de agentes de IA en producción para empresas."
+    },
+    "privacy": {
+      "title": "Privacidad · Breakaway",
+      "description": "Política de privacidad de Breakaway: cómo tratamos datos en breakaway.work, el formulario de contacto y nuestros asistentes de WhatsApp."
+    },
+    "thankYou": {
+      "title": "Gracias · Breakaway",
+      "description": "Hemos recibido tu solicitud. Nuestro equipo te contactará pronto."
+    }
   }
 }

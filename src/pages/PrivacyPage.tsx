@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SeoHead from '../components/SeoHead';
 
 const sections = [
   'who',
@@ -24,16 +25,9 @@ export default function PrivacyPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = t('privacyPage.metaTitle');
-    return () => {
-      document.title = previousTitle;
-    };
-  }, [t]);
-
   return (
     <>
+      <SeoHead page="privacy" path="/privacy" />
       <Navbar />
       <main className="px-5 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-32">
         <div className="mx-auto max-w-3xl">

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Wordmark from './Wordmark';
 
@@ -16,6 +17,12 @@ export default function Footer() {
           </p>
 
           <div className="order-2 flex items-center gap-4 sm:order-3">
+            <Link
+              to="/privacy"
+              className="font-mono text-[11px] text-white/40 transition-colors hover:text-white"
+            >
+              {t('footer.policy')}
+            </Link>
             <a
               href="https://www.linkedin.com/company/breakawayai"
               target="_blank"

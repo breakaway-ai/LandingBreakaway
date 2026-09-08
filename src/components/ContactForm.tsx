@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { AlertCircle } from 'lucide-react';
 
 const fields = [
@@ -166,7 +166,17 @@ export default function ContactForm() {
               )}
 
               <p className="mt-4 font-mono text-[10px] leading-relaxed text-white/35">
-                {t('contactForm.privacyInfo')}
+                <Trans
+                  i18nKey="contactForm.privacyInfo"
+                  components={{
+                    policy: (
+                      <Link
+                        to="/privacy"
+                        className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-white/60"
+                      />
+                    ),
+                  }}
+                />
               </p>
             </div>
           </motion.form>

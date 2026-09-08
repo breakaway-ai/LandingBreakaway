@@ -119,10 +119,11 @@
     "buttonSubmitting": "Enviando...",
     "errorParse": "Erro ao processar resposta do servidor",
     "errorSubmitFallback": "Erro ao enviar formulário",
-    "privacyInfo": "Ao enviar este formulário você aceita nossa política de privacidade e o envio de comunicações relacionadas à sua solicitação."
+    "privacyInfo": "Ao enviar este formulário você aceita nossa <policy>política de privacidade</policy> e o envio de comunicações relacionadas à sua solicitação."
   },
   "footer": {
-    "short": "© {{currentYear}} Breakaway"
+    "short": "© {{currentYear}} Breakaway",
+    "policy": "Privacidade"
   },
   "successPage": {
     "title": "Mensagem recebida!",
@@ -193,5 +194,35 @@
     "ctaText": "A primeira conversa é um diagnóstico sem custo. Dizemos com franqueza se um agente resolve seu problema ou se não vale a pena.",
     "ctaButton": "Agendar diagnóstico",
     "ctaPhotoAlt": "O time da Breakaway em um evento de tecnologia"
+  },
+  "privacyPage": {
+    "metaTitle": "Privacidade · Breakaway",
+    "label": "Legal",
+    "title": "Política de privacidade",
+    "updated": "Última atualização: 8 de setembro de 2026",
+    "intro": "Esta política descreve como a Breakaway AI (\"Breakaway\", \"nós\") trata dados pessoais no nosso site e nos assistentes de WhatsApp que operamos. Ao usar estes serviços, você aceita esta política.",
+    "whoTitle": "Quem somos",
+    "whoBody": "A Breakaway AI constrói e opera agentes de inteligência artificial para empresas. Contato: general@breakaway.work.",
+    "scopeTitle": "Âmbito",
+    "scopeBody": "Aplica-se ao site breakaway.work (ou ao domínio em que esta página estiver publicada), ao formulário de contato e aos nossos canais WhatsApp Business / WhatsApp Cloud API, incluindo o assistente que responde consultas (por exemplo, clima) e as conversas que nossa equipe pode ver ou continuar no WhatsApp Business.",
+    "dataTitle": "Que dados tratamos",
+    "dataBody": "Site e formulário: nome, e-mail, empresa, telefone e a mensagem que você nos envia.\n\nWhatsApp: número de telefone, conteúdo das mensagens (texto e, se enviados, arquivos ou mídia), identificadores técnicos que a Meta envia (por exemplo IDs de mensagem) e, se você perguntar o clima, a cidade indicada.\n\nNão pedimos senhas, cartões nem documentos oficiais para estes serviços.",
+    "purposeTitle": "Para que usamos",
+    "purposeBody": "Para responder à sua solicitação comercial, operar o chat, gerar uma resposta automática, permitir que a equipe da Breakaway leia e continue a conversa e manter o serviço. As bases são a prestação do serviço que você solicita ao nos escrever e nosso interesse legítimo em operar vendas e suporte.",
+    "whatsappTitle": "WhatsApp e Meta",
+    "whatsappBody": "As mensagens trafegam pelo WhatsApp. A Meta as trata segundo as próprias políticas. Nós as recebemos pela WhatsApp Cloud API. Consulte a política do WhatsApp (whatsapp.com/legal/privacy-policy) e a da Meta (facebook.com/privacy/policy).",
+    "aiTitle": "Inteligência artificial",
+    "aiBody": "As respostas automáticas podem ser geradas por um modelo de linguagem por meio da nossa infraestrutura (por exemplo Vercel AI Gateway). O texto da mensagem é enviado a esse modelo para produzir a resposta. Não vendemos conversas nem as usamos para treinar modelos públicos além do que esses provedores indicam em suas políticas.",
+    "sharingTitle": "Com quem compartilhamos",
+    "sharingBody": "Não vendemos dados pessoais nem os usamos para anúncios de terceiros. Compartilhamos apenas com Meta/WhatsApp (o canal), provedores de hosting, e-mail e IA necessários para operar o serviço, e a equipe da Breakaway que atende a inbox. O formulário de contato é processado com nosso provedor de e-mail (Resend) para nos notificar e, se for o caso, registrá-lo como lead.",
+    "retentionTitle": "Conservação",
+    "retentionBody": "Conservamos os dados pelo tempo necessário para atender a conversa ou a solicitação comercial e por um período razoável de suporte ou auditoria, salvo se a lei exigir mais tempo. Depois os eliminamos ou anonimizamos.",
+    "rightsTitle": "Seus direitos e exclusão",
+    "rightsBody": "Você pode pedir acesso ou exclusão escrevendo para general@breakaway.work e indicando o e-mail ou o número de WhatsApp. Apagaremos o que armazenarmos sobre essa conversa ou lead, salvo o que precisarmos conservar por lei. Apagar o chat no telefone não apaga automaticamente nossa cópia no servidor.\n\nEsta página também serve como instruções de exclusão de dados do usuário para a Meta App Review.",
+    "childrenTitle": "Menores",
+    "childrenBody": "Estes serviços não são dirigidos a menores de 13 anos (ou a idade mínima aplicável no seu país).",
+    "changesTitle": "Alterações",
+    "changesBody": "Podemos atualizar esta política. A data no topo indica a versão vigente.",
+    "contact": "Contato de privacidade:"
   }
 }

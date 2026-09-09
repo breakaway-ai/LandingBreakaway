@@ -30,12 +30,30 @@
   "console": {
     "title": "registro.log",
     "agents": "15 agenti",
-    "line1": "data-agent · estrae 38 documenti",
-    "line2": "api-agent · sync CRM → magazzino",
-    "line3": "2 eccezioni → revisione umana",
-    "line4": "nlp-agent · classifica 91 ticket",
-    "line5": "ciclo completo — 4 m 12 s risparmiati",
-    "line6": "ml-agent · riaddestra modello di domanda"
+    "pool": {
+      "data1": "data-agent · estrae 38 documenti",
+      "data2": "data-agent · normalizza 142 record",
+      "data3": "data-agent · valida lotto fatture · 98% confidenza",
+      "data4": "data-agent · importa 2.4k righe dall'ERP",
+      "api1": "api-agent · sync CRM → magazzino",
+      "api2": "api-agent · webhook consegnato · 200 OK × 47",
+      "api3": "api-agent · bypass rate limit · coda svuotata",
+      "api4": "api-agent · ponte REST · SAP ↔ Shopify",
+      "nlp1": "nlp-agent · classifica 91 ticket",
+      "nlp2": "nlp-agent · analisi sentiment · 847 recensioni",
+      "nlp3": "nlp-agent · routing intent · 12 code",
+      "nlp4": "nlp-agent · estrae entità · bozza contratto",
+      "ops1": "ml-agent · riaddestra modello di domanda",
+      "ops2": "ops-agent · deploy v2.4 su staging",
+      "ops3": "ops-agent · scala cluster · 3 → 8 nodi",
+      "ops4": "ops-agent · health check · tutto verde",
+      "orch1": "2 eccezioni → revisione umana",
+      "orch2": "orchestrator · scala ticket prioritario",
+      "orch3": "orchestrator · riassegna flusso · collo di bottiglia risolto",
+      "all1": "ciclo completo — 4 m 12 s risparmiati",
+      "all2": "pipeline OK · 6 agenti sincronizzati",
+      "all3": "SLA raggiunto · throughput +23%"
+    }
   },
   "about": {
     "label": "Architettura modulare adattiva",

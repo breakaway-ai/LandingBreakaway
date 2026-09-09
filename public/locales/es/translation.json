@@ -30,12 +30,30 @@
   "console": {
     "title": "bitacora.log",
     "agents": "15 agentes",
-    "line1": "data-agent · extrae 38 documentos",
-    "line2": "api-agent · sync CRM → almacén",
-    "line3": "2 excepciones → revisión humana",
-    "line4": "nlp-agent · clasifica 91 tickets",
-    "line5": "ciclo completo — 4 m 12 s ahorrados",
-    "line6": "ml-agent · reentrena modelo de demanda"
+    "pool": {
+      "data1": "data-agent · extrae 38 documentos",
+      "data2": "data-agent · normaliza 142 registros",
+      "data3": "data-agent · valida lote de facturas · 98% confianza",
+      "data4": "data-agent · ingiere 2.4k filas del ERP",
+      "api1": "api-agent · sync CRM → almacén",
+      "api2": "api-agent · webhook entregado · 200 OK × 47",
+      "api3": "api-agent · bypass rate limit · cola vacía",
+      "api4": "api-agent · puente REST · SAP ↔ Shopify",
+      "nlp1": "nlp-agent · clasifica 91 tickets",
+      "nlp2": "nlp-agent · análisis de sentimiento · 847 reseñas",
+      "nlp3": "nlp-agent · enrutamiento de intención · 12 colas",
+      "nlp4": "nlp-agent · extrae entidades · borrador de contrato",
+      "ops1": "ml-agent · reentrena modelo de demanda",
+      "ops2": "ops-agent · despliega v2.4 a staging",
+      "ops3": "ops-agent · escala cluster · 3 → 8 nodos",
+      "ops4": "ops-agent · health check · todo en verde",
+      "orch1": "2 excepciones → revisión humana",
+      "orch2": "orchestrator · escala ticket prioritario",
+      "orch3": "orchestrator · reasigna flujo · cuello de botella resuelto",
+      "all1": "ciclo completo — 4 m 12 s ahorrados",
+      "all2": "pipeline OK · 6 agentes sincronizados",
+      "all3": "SLA cumplido · throughput +23%"
+    }
   },
   "about": {
     "label": "Arquitectura modular adaptativa",

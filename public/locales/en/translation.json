@@ -30,12 +30,30 @@
   "console": {
     "title": "agent.log",
     "agents": "15 agents",
-    "line1": "data-agent · extracts 38 documents",
-    "line2": "api-agent · sync CRM → warehouse",
-    "line3": "2 exceptions → human review",
-    "line4": "nlp-agent · classifies 91 tickets",
-    "line5": "cycle complete — 4 m 12 s saved",
-    "line6": "ml-agent · retrains demand model"
+    "pool": {
+      "data1": "data-agent · extracts 38 documents",
+      "data2": "data-agent · normalizes 142 records",
+      "data3": "data-agent · validates invoice batch · 98% confidence",
+      "data4": "data-agent · ingests 2.4k rows from ERP",
+      "api1": "api-agent · sync CRM → warehouse",
+      "api2": "api-agent · webhook delivery · 200 OK × 47",
+      "api3": "api-agent · rate limit bypass · queue cleared",
+      "api4": "api-agent · REST bridge · SAP ↔ Shopify",
+      "nlp1": "nlp-agent · classifies 91 tickets",
+      "nlp2": "nlp-agent · sentiment scan · 847 reviews",
+      "nlp3": "nlp-agent · intent routing · 12 queues",
+      "nlp4": "nlp-agent · extracts entities · contract draft",
+      "ops1": "ml-agent · retrains demand model",
+      "ops2": "ops-agent · deploys v2.4 to staging",
+      "ops3": "ops-agent · scales cluster · 3 → 8 nodes",
+      "ops4": "ops-agent · health check · all green",
+      "orch1": "2 exceptions → human review",
+      "orch2": "orchestrator · escalates priority ticket",
+      "orch3": "orchestrator · reassigns workflow · bottleneck cleared",
+      "all1": "cycle complete — 4 m 12 s saved",
+      "all2": "pipeline OK · 6 agents synced",
+      "all3": "SLA met · throughput +23%"
+    }
   },
   "about": {
     "label": "Adaptive modular architecture",

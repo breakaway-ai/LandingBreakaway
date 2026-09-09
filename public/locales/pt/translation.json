@@ -30,12 +30,30 @@
   "console": {
     "title": "registro.log",
     "agents": "15 agentes",
-    "line1": "data-agent · extrai 38 documentos",
-    "line2": "api-agent · sync CRM → armazém",
-    "line3": "2 exceções → revisão humana",
-    "line4": "nlp-agent · classifica 91 tickets",
-    "line5": "ciclo completo — 4 m 12 s economizados",
-    "line6": "ml-agent · retreina modelo de demanda"
+    "pool": {
+      "data1": "data-agent · extrai 38 documentos",
+      "data2": "data-agent · normaliza 142 registros",
+      "data3": "data-agent · valida lote de faturas · 98% confiança",
+      "data4": "data-agent · ingere 2.4k linhas do ERP",
+      "api1": "api-agent · sync CRM → armazém",
+      "api2": "api-agent · webhook entregue · 200 OK × 47",
+      "api3": "api-agent · bypass rate limit · fila limpa",
+      "api4": "api-agent · ponte REST · SAP ↔ Shopify",
+      "nlp1": "nlp-agent · classifica 91 tickets",
+      "nlp2": "nlp-agent · análise de sentimento · 847 avaliações",
+      "nlp3": "nlp-agent · roteamento de intenção · 12 filas",
+      "nlp4": "nlp-agent · extrai entidades · rascunho de contrato",
+      "ops1": "ml-agent · retreina modelo de demanda",
+      "ops2": "ops-agent · implanta v2.4 em staging",
+      "ops3": "ops-agent · escala cluster · 3 → 8 nós",
+      "ops4": "ops-agent · health check · tudo verde",
+      "orch1": "2 exceções → revisão humana",
+      "orch2": "orchestrator · escala ticket prioritário",
+      "orch3": "orchestrator · reatribui fluxo · gargalo resolvido",
+      "all1": "ciclo completo — 4 m 12 s economizados",
+      "all2": "pipeline OK · 6 agentes sincronizados",
+      "all3": "SLA atendido · throughput +23%"
+    }
   },
   "about": {
     "label": "Arquitetura modular adaptativa",

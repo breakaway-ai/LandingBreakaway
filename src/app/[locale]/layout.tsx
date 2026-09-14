@@ -4,7 +4,7 @@ import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { SITE_URL } from "@/config/site";
 import { routing } from "@/i18n/routing";
 import "@/index.css";
@@ -50,7 +50,6 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (

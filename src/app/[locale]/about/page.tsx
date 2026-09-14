@@ -1,4 +1,3 @@
-import { setRequestLocale } from "next-intl/server";
 import AboutPage from "@/components/pages/AboutPage";
 import { buildPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
@@ -16,7 +15,6 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+  await params;
   return <AboutPage />;
 }

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import { getPrimaryCtaHref, isExternalBookingUrl } from "@/config/booking";
+import { Link } from "@/i18n/navigation";
 
 const boothPhoto = "/images/stage-booth.webp";
 
@@ -33,15 +34,23 @@ export default function AboutCta() {
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
-                href={primaryCtaHref}
-                {...(primaryCtaExternal
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
-              >
-                {t("ctaButton")}
-              </a>
+              {primaryCtaExternal ? (
+                <a
+                  href={primaryCtaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
+                >
+                  {t("ctaButton")}
+                </a>
+              ) : (
+                <Link
+                  href={primaryCtaHref}
+                  className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
+                >
+                  {t("ctaButton")}
+                </Link>
+              )}
 
               <a
                 href="mailto:general@breakaway.work"

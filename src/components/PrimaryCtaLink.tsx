@@ -34,16 +34,12 @@ export default function PrimaryCtaLink({
     );
   }
 
-  if (onHome) {
-    return (
-      <a href={href} className={className} onClick={onClick}>
-        {children}
-      </a>
-    );
-  }
-
   return (
-    <Link href="/#contact" className={className} onClick={onClick}>
+    <Link
+      href={onHome ? href : "/#contact"}
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </Link>
   );

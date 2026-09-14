@@ -1,11 +1,17 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import { SITE_URL } from "@/config/site";
 import { routing } from "@/i18n/routing";
 import "@/index.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+};
 
 const inter = Inter({
   subsets: ["latin"],

@@ -65,7 +65,6 @@ Legacy redirects are handled in `next.config.ts` and `src/proxy.ts`:
 - `/nosotros` → `/es/about`
 - `/privacidad` → `/es/privacy`
 - `/gracias` → `/es/thank-you`
-- `?lng=…` → locale-prefixed path
 - `?lead=success` → `/[locale]/thank-you`
 
 ## Built With

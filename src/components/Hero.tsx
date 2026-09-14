@@ -58,16 +58,25 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
-              <a
-                href={primaryCtaHref}
-                {...(primaryCtaExternal
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
-              >
-                {t("hero.cta")}
-                <ArrowRight size={16} />
-              </a>
+              {primaryCtaExternal ? (
+                <a
+                  href={primaryCtaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
+                >
+                  {t("hero.cta")}
+                  <ArrowRight size={16} />
+                </a>
+              ) : (
+                <Link
+                  href={primaryCtaHref}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
+                >
+                  {t("hero.cta")}
+                  <ArrowRight size={16} />
+                </Link>
+              )}
               <Link
                 href="/about"
                 className="inline-flex items-center justify-center rounded-full bg-surface px-7 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill"

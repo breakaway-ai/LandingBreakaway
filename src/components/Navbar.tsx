@@ -30,16 +30,12 @@ function SectionLink({
   onClick,
   children,
 }: SectionLinkProps) {
-  if (onHome) {
-    return (
-      <a href={`#${id}`} className={className} onClick={onClick}>
-        {children}
-      </a>
-    );
-  }
-
   return (
-    <Link href={`/#${id}`} className={className} onClick={onClick}>
+    <Link
+      href={onHome ? `#${id}` : `/#${id}`}
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </Link>
   );

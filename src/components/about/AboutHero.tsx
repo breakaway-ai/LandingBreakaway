@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { getPrimaryCtaHref, isExternalBookingUrl } from "@/config/booking";
+import { Link } from "@/i18n/navigation";
 
 const heroPhoto = "/images/founders-agentic.webp";
 
@@ -93,22 +94,31 @@ export default function AboutHero() {
           <p className="prose-mono max-w-xl">{t("introText")}</p>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a
-              href={primaryCtaHref}
-              {...(primaryCtaExternal
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
-            >
-              {t("introCtaPrimary")}
-              <ArrowRight size={16} />
-            </a>
-            <a
+            {primaryCtaExternal ? (
+              <a
+                href={primaryCtaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
+              >
+                {t("introCtaPrimary")}
+                <ArrowRight size={16} />
+              </a>
+            ) : (
+              <Link
+                href={primaryCtaHref}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
+              >
+                {t("introCtaPrimary")}
+                <ArrowRight size={16} />
+              </Link>
+            )}
+            <Link
               href="#founders"
               className="inline-flex items-center justify-center rounded-full bg-surface px-7 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill"
             >
               {t("introCtaSecondary")}
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

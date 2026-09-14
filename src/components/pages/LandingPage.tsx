@@ -9,14 +9,12 @@ import Clients from "@/components/Clients";
 import Benefits from "@/components/Benefits";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
-import HashScroll from "@/components/HashScroll";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 
 export default function LandingPage() {
   return (
     <>
       <OrganizationJsonLd />
-      <HashScroll />
       <Navbar />
       <main>
         <Hero />

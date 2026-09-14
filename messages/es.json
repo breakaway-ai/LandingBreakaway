@@ -7,7 +7,7 @@
     "services": "Servicios",
     "process": "Proceso",
     "benefits": "Beneficios",
-    "cta": "Diagnóstico de un proceso",
+    "cta": "Contáctanos",
     "menu": "Abrir menú",
     "close": "Cerrar menú"
   },
@@ -15,7 +15,7 @@
     "label": "Integración operativa para firmas de servicios",
     "title": "Tus procesos corren solos —<highlight> sin que el equipo sea el pegamento</highlight>",
     "subtitle": "Para agencias, consultorías y despachos en México (20–100 personas): conectamos hojas de cálculo, correo, WhatsApp, CRM y facturación para que dejen de perder horas no facturables en captura, seguimiento y conocimiento tribal.",
-    "cta": "Diagnóstico de un proceso",
+    "cta": "Contáctanos",
     "secondary": "Cómo trabajamos",
     "nodeMain": "Orquestador",
     "nodeAgent1": "NLP",
@@ -224,7 +224,7 @@
     "stance3Desc": "Hay procesos que<highlight> no conviene automatizar todavía</highlight>. Preferimos decirlo en el diagnóstico que descubrirlo a mitad del proyecto.",
     "ctaHeadline": "¿Nos cuentas qué proceso te está costando?",
     "ctaText": "La primera conversación es un diagnóstico sin costo. Te decimos con franqueza si un agente resuelve tu problema o si no vale la pena.",
-    "ctaButton": "Diagnóstico de un proceso",
+    "ctaButton": "Contáctanos",
     "ctaPhotoAlt": "El equipo de Breakaway en un evento de tecnología"
   },
   "privacyPage": {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, type ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -14,6 +14,21 @@ const sectionLinks = [
   { key: "nav.process", id: "process" },
   { key: "nav.benefits", id: "benefits" },
 ];
+
+const expandEase = [0.22, 1, 0.36, 1] as const;
+const collapseEase = [0.7, 0, 0.84, 0] as const;
+const expandTransition = {
+  type: "tween" as const,
+  duration: 0.85,
+  ease: expandEase,
+};
+const collapseTransition = {
+  type: "tween" as const,
+  duration: 0.85,
+  ease: collapseEase,
+};
+const ISLAND_RADIUS = 12;
+const LAYOUT_MAX = 1152;
 
 interface SectionLinkProps {
   onHome: boolean;
@@ -41,19 +56,43 @@ function SectionLink({
   );
 }
 
+function viewWidth() {
+  return document.documentElement.clientWidth;
+}
+
 export default function Navbar() {
   const t = useTranslations();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [fullWidth, setFullWidth] = useState(1200);
+  const reduceMotion = useReducedMotion();
+  const gutter = fullWidth >= 640 ? 48 : 40;
+  const islandWidth = Math.min(LAYOUT_MAX, fullWidth - gutter);
 
   const onHome = pathname === "/";
+  const morph = reduceMotion
+    ? { duration: 0 }
+    : scrolled
+      ? expandTransition
+      : collapseTransition;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const measure = () => {
+      const width = viewWidth();
+      setFullWidth(width);
+      if (width >= 768) setMobileOpen(false);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
   }, []);
 
   useEffect(() => {
@@ -63,31 +102,48 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  const linkClass =
+    "whitespace-nowrap text-[13px] font-medium text-ink-soft transition-colors hover:text-ink focus-visible:outline-none focus-visible:text-ink";
+
   return (
     <>
-      <div className="fixed inset-x-0 top-3 z-50 px-4 sm:top-4 sm:px-6">
+      <motion.div
+        initial={{ y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1, top: scrolled ? 0 : 14 }}
+        transition={{
+          y: { type: "spring", stiffness: 120, damping: 20 },
+          opacity: { type: "spring", stiffness: 120, damping: 20 },
+          top: morph,
+        }}
+        className="fixed inset-x-0 top-3.5 z-50 flex justify-center"
+      >
         <motion.nav
-          initial={{ y: -24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 120, damping: 20 }}
-          className={`mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 backdrop-blur-md transition-shadow duration-300 ${
-            scrolled ? "shadow-pill" : "shadow-card"
+          initial={false}
+          transition={morph}
+          animate={{
+            width: scrolled ? fullWidth : islandWidth,
+            borderRadius: scrolled ? 0 : ISLAND_RADIUS,
+          }}
+          className={`grid grid-cols-[1fr_auto_1fr] items-center bg-surface/90 py-2 backdrop-blur-md ${
+            scrolled
+              ? "px-5 shadow-[0_1px_0_rgba(21,17,34,0.06)] sm:px-8"
+              : "px-5 shadow-pill"
           }`}
         >
-          <Link
-            href="/"
-            aria-label={t("header.logoAlt")}
-            className="inline-flex min-h-9 shrink-0 items-center"
-          >
-            <Wordmark />
-          </Link>
+          <div className="col-start-1 justify-self-start">
+            <Link
+              href="/"
+              aria-label={t("header.logoAlt")}
+              className="inline-flex min-h-9 items-center"
+            >
+              <Wordmark compact={scrolled} />
+            </Link>
+          </div>
 
-          <div className="hidden items-center gap-7 lg:flex">
+          <div className="col-start-2 hidden items-center gap-7 justify-self-center md:flex">
             <Link
               href="/about"
-              className={`text-[13px] font-medium transition-colors hover:text-ink ${
-                onHome ? "text-ink-soft" : "text-ink"
-              }`}
+              className={`${linkClass} ${onHome ? "" : "text-ink"}`}
             >
               {t("nav.about")}
             </Link>
@@ -97,31 +153,31 @@ export default function Navbar() {
                 key={link.id}
                 onHome={onHome}
                 id={link.id}
-                className="text-[13px] font-medium text-ink-soft transition-colors hover:text-ink"
+                className={linkClass}
               >
                 {t(link.key)}
               </SectionLink>
             ))}
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="col-start-3 flex items-center justify-end gap-1 justify-self-end">
             <LanguageSelector />
             <PrimaryCtaLink
               onHome={onHome}
-              className="hidden min-h-9 items-center rounded-full bg-primary px-5 py-1.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
+              className="hidden min-h-9 shrink-0 items-center whitespace-nowrap rounded-full bg-primary px-5 py-1.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
             >
               {t("nav.cta")}
             </PrimaryCtaLink>
             <button
               onClick={() => setMobileOpen(true)}
               aria-label={t("nav.menu")}
-              className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5 lg:hidden"
+              className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 md:hidden"
             >
               <Menu size={20} />
             </button>
           </div>
         </motion.nav>
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -130,14 +186,14 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[60] flex flex-col bg-background/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[60] flex flex-col bg-background/98 backdrop-blur-xl md:hidden"
           >
             <div className="flex items-center justify-between px-6 py-5">
               <Wordmark />
               <button
                 onClick={() => setMobileOpen(false)}
                 aria-label={t("nav.close")}
-                className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5"
+                className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
                 <X size={22} />
               </button>
@@ -184,7 +240,7 @@ export default function Navbar() {
                 <PrimaryCtaLink
                   onHome={onHome}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
+                  className="flex items-center justify-center rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
                 >
                   {t("nav.cta")}
                 </PrimaryCtaLink>

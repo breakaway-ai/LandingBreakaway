@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HashScroll from "@/components/HashScroll";
 
 const sections = [
   "who",
@@ -24,7 +23,6 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <HashScroll scrollToTop />
       <Navbar />
       <main className="px-5 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-32">
         <div className="mx-auto max-w-3xl">

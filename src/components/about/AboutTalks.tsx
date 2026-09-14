@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const talks = [
   {
-    photo: '/imgs/panel-agentic.webp',
+    photo: '/images/panel-agentic.webp',
     width: 1200,
     height: 900,
     altKey: 'talk1Alt',
@@ -16,9 +16,9 @@ const talks = [
     span: 'lg:col-span-3',
   },
   {
-    photo: '/imgs/summit-descubrete.webp',
-    width: 640,
-    height: 427,
+    photo: '/images/panel-descubrete.webp',
+    width: 1200,
+    height: 900,
     altKey: 'talk2Alt',
     metaKey: 'talk2Meta',
     titleKey: 'talk2Title',

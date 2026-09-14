@@ -6,7 +6,7 @@ import { Mail } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 
-const boothPhoto = '/imgs/stage-booth.webp';
+const boothPhoto = '/images/stage-booth.webp';
 
 export default function AboutCta() {
   const t = useTranslations('aboutPage');

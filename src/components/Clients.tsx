@@ -6,11 +6,11 @@ import { useTranslations } from 'next-intl';
 /** Logos arrive with clashing backgrounds (white, black, full-bleed colour), so each one
  *  sits in a uniform white chip instead of directly on the lavender section. */
 const clients = [
-  { name: 'Grupo GPI', logo: '/logos/gpi.webp', width: 160, height: 52 },
-  { name: 'Seguros Aura', logo: '/logos/aura.webp', width: 160, height: 160 },
-  { name: 'Yonex México', logo: '/logos/yonex.webp', width: 160, height: 160 },
-  { name: 'Orienta PAE', logo: '/logos/orienta.webp', width: 160, height: 160 },
-  { name: 'Corman Sports', logo: '/logos/corman.webp', width: 160, height: 160 },
+  { name: 'Grupo GPI', logo: '/images/logos/gpi.webp', width: 160, height: 52 },
+  { name: 'Seguros Aura', logo: '/images/logos/aura.webp', width: 160, height: 160 },
+  { name: 'Yonex México', logo: '/images/logos/yonex.webp', width: 160, height: 160 },
+  { name: 'Orienta PAE', logo: '/images/logos/orienta.webp', width: 160, height: 160 },
+  { name: 'Corman Sports', logo: '/images/logos/corman.webp', width: 160, height: 160 },
 ];
 
 const half = [...clients, ...clients];

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-const logoImage = '/logos/logo.webp';
+const logoImage = '/images/logos/logo.webp';
 
 interface WordmarkProps {
   tone?: 'light' | 'dark';

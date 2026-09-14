@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 
-const heroPhoto = '/imgs/founders-agentic.webp';
+const heroPhoto = '/images/founders-agentic.webp';
 
 const founders = [
   { roleKey: 'founder1Role', nameKey: 'founder1Name' },

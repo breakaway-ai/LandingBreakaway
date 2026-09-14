@@ -30,7 +30,6 @@ export async function buildPageMetadata({
   const path = PAGE_PATHS[page];
   const t = await getTranslations({ locale, namespace: `seo.${page}` });
   const pageUrl = absoluteUrl(path, locale);
-  const alternateLocale = locale === 'es' ? 'en' : 'es';
 
   const languages = Object.fromEntries(
     SEO_LOCALES.map((lng) => [lng, absoluteUrl(path, lng)]),
@@ -53,7 +52,9 @@ export async function buildPageMetadata({
       title: t('title'),
       description: t('description'),
       locale: OG_LOCALE_MAP[locale],
-      alternateLocale: [OG_LOCALE_MAP[alternateLocale]],
+      alternateLocale: SEO_LOCALES.filter((lng) => lng !== locale).map(
+        (lng) => OG_LOCALE_MAP[lng],
+      ),
     },
     twitter: {
       card: 'summary_large_image',

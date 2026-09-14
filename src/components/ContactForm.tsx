@@ -6,21 +6,50 @@ import { useTranslations } from 'next-intl';
 import { AlertCircle } from 'lucide-react';
 import { Link, useRouter } from '@/i18n/navigation';
 
-const fields = [
+const inputFields = [
   { name: 'name', labelKey: 'contactForm.labelName', type: 'text', required: true },
   { name: 'email', labelKey: 'contactForm.labelEmail', type: 'email', required: true },
-  { name: 'company', labelKey: 'contactForm.labelCompany', type: 'text', required: false },
+  { name: 'company', labelKey: 'contactForm.labelCompany', type: 'text', required: true },
   { name: 'phone', labelKey: 'contactForm.labelPhone', type: 'tel', required: false },
 ] as const;
+
+const roleOptions = [
+  { value: 'owner', labelKey: 'contactForm.roleOwner' },
+  { value: 'ops', labelKey: 'contactForm.roleOps' },
+  { value: 'other', labelKey: 'contactForm.roleOther' },
+] as const;
+
+const painOptions = [
+  { value: 'disconnected', labelKey: 'contactForm.painDisconnected' },
+  { value: 'hired_still_drowning', labelKey: 'contactForm.painHiredStillDrowning' },
+  { value: 'growth', labelKey: 'contactForm.painGrowth' },
+  { value: 'key_person', labelKey: 'contactForm.painKeyPerson' },
+  { value: 'incident', labelKey: 'contactForm.painIncident' },
+  { value: 'other', labelKey: 'contactForm.painOther' },
+] as const;
+
+type FormData = {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  role: string;
+  pain: string;
+  tools: string;
+  message: string;
+};
 
 export default function ContactForm() {
   const t = useTranslations();
   const router = useRouter();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     company: '',
     phone: '',
+    role: '',
+    pain: '',
+    tools: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,7 +62,9 @@ export default function ContactForm() {
     return () => window.removeEventListener('pageshow', resetSubmittingState);
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -94,6 +125,15 @@ export default function ContactForm() {
               {t('contactForm.subtitle')}
             </p>
 
+            <div className="mt-8 space-y-3">
+              <p className="font-mono text-[11px] leading-relaxed text-white/45">
+                {t('contactForm.ownerPrompt')}
+              </p>
+              <p className="font-mono text-[11px] leading-relaxed text-white/45">
+                {t('contactForm.opsPrompt')}
+              </p>
+            </div>
+
             <div className="mt-8 flex flex-col items-start gap-3">
               <a
                 href="mailto:general@breakaway.work"
@@ -113,7 +153,7 @@ export default function ContactForm() {
             transition={{ delay: 0.1 }}
             className="grid grid-cols-1 gap-5 sm:grid-cols-2"
           >
-            {fields.map((field) => (
+            {inputFields.map((field) => (
               <div key={field.name}>
                 <label
                   htmlFor={field.name}
@@ -133,6 +173,70 @@ export default function ContactForm() {
                 />
               </div>
             ))}
+
+            <div>
+              <label htmlFor="role" className="mb-2 block font-mono text-[11px] text-white/50">
+                {t('contactForm.labelRole')}
+              </label>
+              <select
+                id="role"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+                className="field"
+              >
+                <option value="" disabled>
+                  —
+                </option>
+                {roleOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {t(option.labelKey)}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="pain" className="mb-2 block font-mono text-[11px] text-white/50">
+                {t('contactForm.labelPain')}
+              </label>
+              <select
+                id="pain"
+                name="pain"
+                value={formData.pain}
+                onChange={handleChange}
+                required
+                disabled={isSubmitting}
+                className="field"
+              >
+                <option value="" disabled>
+                  —
+                </option>
+                {painOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {t(option.labelKey)}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="tools" className="mb-2 block font-mono text-[11px] text-white/50">
+                {t('contactForm.labelTools')}
+              </label>
+              <input
+                type="text"
+                id="tools"
+                name="tools"
+                value={formData.tools}
+                onChange={handleChange}
+                disabled={isSubmitting}
+                placeholder={t('contactForm.placeholderTools')}
+                className="field"
+              />
+            </div>
 
             <div className="sm:col-span-2">
               <label htmlFor="message" className="mb-2 block font-mono text-[11px] text-white/50">

@@ -14,16 +14,30 @@ interface Service {
 
 const services: Service[] = [
   {
-    titleKey: 'services.aiAgentsTitle',
-    descKey: 'services.aiAgentsDesc',
-    tags: ['NLP', 'RAG', 'Multi-Agent', 'LLM'],
+    titleKey: 'services.apiTitle',
+    descKey: 'services.apiDesc',
+    tags: ['CRM', 'ERP', 'WhatsApp', 'Webhooks'],
     span: 'sm:col-span-2 lg:col-span-3',
   },
   {
-    titleKey: 'services.apiTitle',
-    descKey: 'services.apiDesc',
-    tags: ['REST', 'Webhooks', 'ERP'],
+    titleKey: 'services.aiAgentsTitle',
+    descKey: 'services.aiAgentsDesc',
+    tags: [],
+    tagKeys: ['services.tagCapture', 'services.tagFollowUp', 'services.tagValidation'],
     span: 'sm:col-span-2 lg:col-span-3',
+  },
+  {
+    titleKey: 'services.securityTitle',
+    descKey: 'services.securityDesc',
+    tags: [],
+    tagKeys: ['services.tagPermissions', 'services.tagAudit', 'services.tagIsolation'],
+    span: 'sm:col-span-2 lg:col-span-2',
+  },
+  {
+    titleKey: 'services.backendTitle',
+    descKey: 'services.backendDesc',
+    tags: ['APIs', 'Cloud'],
+    span: 'sm:col-span-2 lg:col-span-2',
   },
   {
     titleKey: 'services.webTitle',
@@ -37,27 +51,13 @@ const services: Service[] = [
     descKey: 'services.mobileDesc',
     tags: ['iOS', 'Android'],
     span: 'lg:col-span-2',
-    lifted: true,
-  },
-  {
-    titleKey: 'services.backendTitle',
-    descKey: 'services.backendDesc',
-    tags: ['APIs', 'Cloud'],
-    span: 'sm:col-span-2 lg:col-span-2',
   },
   {
     titleKey: 'services.devopsTitle',
     descKey: 'services.devopsDesc',
     tags: ['CI/CD'],
     tagKeys: ['services.tagMonitoring'],
-    span: 'sm:col-span-2 lg:col-span-3',
-  },
-  {
-    titleKey: 'services.securityTitle',
-    descKey: 'services.securityDesc',
-    tags: [],
-    tagKeys: ['services.tagPermissions', 'services.tagAudit', 'services.tagIsolation'],
-    span: 'sm:col-span-2 lg:col-span-3',
+    span: 'sm:col-span-2 lg:col-span-2',
   },
 ];
 

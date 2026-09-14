@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import { Link, usePathname } from '@/i18n/navigation';
 import LanguageSelector from './LanguageSelector';
+import PrimaryCtaLink from './PrimaryCtaLink';
 import Wordmark from './Wordmark';
 
 const sectionLinks = [
@@ -103,13 +104,12 @@ export default function Navbar() {
 
           <div className="flex items-center gap-1">
             <LanguageSelector />
-            <SectionLink
+            <PrimaryCtaLink
               onHome={onHome}
-              id="contact"
               className="hidden min-h-9 items-center rounded-full bg-primary px-5 py-1.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
             >
               {t('nav.cta')}
-            </SectionLink>
+            </PrimaryCtaLink>
             <button
               onClick={() => setMobileOpen(true)}
               aria-label={t('nav.menu')}
@@ -176,14 +176,13 @@ export default function Navbar() {
                 transition={{ delay: 0.25 }}
                 className="mt-8"
               >
-                <SectionLink
+                <PrimaryCtaLink
                   onHome={onHome}
-                  id="contact"
                   onClick={() => setMobileOpen(false)}
                   className="block rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
                 >
                   {t('nav.cta')}
-                </SectionLink>
+                </PrimaryCtaLink>
               </motion.div>
             </div>
           </motion.div>

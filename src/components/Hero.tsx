@@ -3,17 +3,14 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
+import { Link } from '@/i18n/navigation';
+import { getPrimaryCtaHref, isExternalBookingUrl } from '@/config/booking';
 import AgentConsole from './AgentConsole';
-
-const stats = [
-  { value: '15+', key: 'hero.stat1' },
-  { value: '100%', key: 'hero.stat2' },
-  { value: '80%', key: 'hero.stat3' },
-  { value: '70%', key: 'hero.stat4' },
-];
 
 export default function Hero() {
   const t = useTranslations();
+  const primaryCtaHref = getPrimaryCtaHref('#contact');
+  const primaryCtaExternal = isExternalBookingUrl(primaryCtaHref);
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
@@ -62,18 +59,21 @@ export default function Hero() {
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <a
-                href="#contact"
+                href={primaryCtaHref}
+                {...(primaryCtaExternal
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
               >
                 {t('hero.cta')}
                 <ArrowRight size={16} />
               </a>
-              <a
-                href="#about"
+              <Link
+                href="/about"
                 className="inline-flex items-center justify-center rounded-full bg-surface px-7 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill"
               >
                 {t('hero.secondary')}
-              </a>
+              </Link>
             </motion.div>
           </div>
 
@@ -86,20 +86,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-14 grid grid-cols-2 gap-y-8 border-t border-ink/10 pt-8 sm:mt-16 sm:grid-cols-4 sm:pt-10"
-        >
-          {stats.map((stat) => (
-            <div key={stat.key} className="text-center">
-              <div className="font-display text-3xl font-bold text-ink sm:text-[2rem]">{stat.value}</div>
-              <div className="mt-1.5 font-mono text-[11px] text-ink-dim">{t(stat.key)}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

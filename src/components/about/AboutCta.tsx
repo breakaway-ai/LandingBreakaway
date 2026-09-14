@@ -4,12 +4,14 @@ import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
-import { Link } from '@/i18n/navigation';
+import { getPrimaryCtaHref, isExternalBookingUrl } from '@/config/booking';
 
 const boothPhoto = '/images/stage-booth.webp';
 
 export default function AboutCta() {
   const t = useTranslations('aboutPage');
+  const primaryCtaHref = getPrimaryCtaHref('/#contact');
+  const primaryCtaExternal = isExternalBookingUrl(primaryCtaHref);
 
   return (
     <section className="relative overflow-hidden bg-night py-20 sm:py-24 lg:py-28">
@@ -31,12 +33,15 @@ export default function AboutCta() {
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="/#contact"
+              <a
+                href={primaryCtaHref}
+                {...(primaryCtaExternal
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
               >
                 {t('ctaButton')}
-              </Link>
+              </a>
 
               <a
                 href="mailto:general@breakaway.work"

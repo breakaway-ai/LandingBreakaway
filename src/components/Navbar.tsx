@@ -71,7 +71,11 @@ export default function Navbar() {
             scrolled ? 'shadow-pill' : 'shadow-card'
           }`}
         >
-          <Link href="/" aria-label={t('header.logoAlt')} className="shrink-0">
+          <Link
+            href="/"
+            aria-label={t('header.logoAlt')}
+            className="inline-flex min-h-9 shrink-0 items-center"
+          >
             <Wordmark />
           </Link>
 
@@ -102,7 +106,7 @@ export default function Navbar() {
             <SectionLink
               onHome={onHome}
               id="contact"
-              className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
+              className="hidden min-h-9 items-center rounded-full bg-primary px-5 py-1.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
             >
               {t('nav.cta')}
             </SectionLink>

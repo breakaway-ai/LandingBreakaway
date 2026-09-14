@@ -1,69 +1,51 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { Globe } from 'lucide-react';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { routing, type AppLocale } from '@/i18n/routing';
 
 const languages = [
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'en', name: 'English', flag: '🇦🇺' },
+  { code: 'es', label: 'ES', name: 'Español' },
+  { code: 'en', label: 'EN', name: 'English' },
 ] as const;
 
 export default function LanguageSelector() {
   const locale = useLocale() as AppLocale;
   const router = useRouter();
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
 
   return (
-    <div ref={containerRef} className="relative">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Change language"
-        aria-expanded={isOpen}
-        className="flex items-center rounded-full p-2 text-ink-soft transition-colors hover:bg-ink/5 hover:text-ink"
-      >
-        <Globe className="h-[18px] w-[18px]" />
-      </button>
+    <div
+      aria-label="Language"
+      className="flex items-center gap-0.5 rounded-full border border-ink/10 bg-ink/[0.025] p-0.5 shadow-inner"
+    >
+      <Globe aria-hidden="true" className="mx-1 h-4 w-4 text-ink-soft" />
+      {languages.map((lang) => {
+        const isActive = lang.code === locale;
 
-      <div
-        className={`absolute right-0 top-full z-50 mt-2 min-w-[150px] overflow-hidden rounded-2xl bg-surface shadow-pill transition-all duration-200 ${
-          isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'
-        }`}
-      >
-        {languages.map((lang) => (
+        return (
           <button
             key={lang.code}
+            type="button"
+            aria-label={`Switch to ${lang.name}`}
+            aria-current={isActive ? 'true' : undefined}
+            disabled={isActive}
             onClick={() => {
               if (routing.locales.includes(lang.code)) {
                 router.replace(pathname, { locale: lang.code });
               }
-              setIsOpen(false);
             }}
-            className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-[13px] transition-colors ${
-              lang.code === locale
-                ? 'bg-primary-wash font-semibold text-primary'
-                : 'text-ink-soft hover:bg-ink/[0.04]'
+            className={`min-w-10 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+              isActive
+                ? 'bg-surface text-ink shadow-pill'
+                : 'text-ink-soft hover:bg-surface/60 hover:text-ink'
             }`}
           >
-            <span className="text-base leading-none">{lang.flag}</span>
-            <span>{lang.name}</span>
+            {lang.label}
           </button>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 }

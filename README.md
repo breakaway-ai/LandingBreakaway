@@ -4,7 +4,7 @@ Marketing site for Breakaway, built with Next.js 16, React 19, TypeScript, Tailw
 
 ## Features
 
-- Locale-prefixed routes for Spanish, English, Italian, and Portuguese (`/es`, `/en`, `/it`, `/pt`)
+- Locale-prefixed routes for Spanish and English (`/es`, `/en`)
 - Server-rendered SEO metadata, sitemap, and robots.txt
 - Contact form backed by a Resend API route
 - Responsive layout with animated sections

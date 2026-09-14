@@ -9,8 +9,6 @@ export type SeoLocale = AppLocale;
 export const OG_LOCALE_MAP: Record<SeoLocale, string> = {
   es: 'es_MX',
   en: 'en_US',
-  it: 'it_IT',
-  pt: 'pt_BR',
 };
 
 export const ORGANIZATION_JSON_LD = {

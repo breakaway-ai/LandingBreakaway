@@ -9,8 +9,6 @@ import { routing, type AppLocale } from '@/i18n/routing';
 const languages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   { code: 'en', name: 'English', flag: '🇦🇺' },
-  { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷' },
 ] as const;
 
 export default function LanguageSelector() {

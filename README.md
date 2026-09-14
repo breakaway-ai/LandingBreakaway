@@ -14,20 +14,20 @@ Marketing site for Breakaway, built with Next.js 16, React 19, TypeScript, Tailw
 ### Prerequisites
 
 - Node.js 20.9 or later
-- npm 9 or later
+- [Bun](https://bun.sh/) 1.4 or later
 
 ### Installation
 
 ```bash
 git clone https://github.com/yourusername/LandingBreakaway.git
 cd LandingBreakaway
-npm install
+bun install
 ```
 
 ### Development
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000). The proxy redirects unlocalized paths to the default locale (`/es`).
@@ -35,8 +35,8 @@ Open [http://localhost:3000](http://localhost:3000). The proxy redirects unlocal
 ### Production build
 
 ```bash
-npm run build
-npm start
+bun run build
+bun run start
 ```
 
 ## Resend Integration

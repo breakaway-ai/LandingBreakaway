@@ -67,7 +67,7 @@ Never expose `RESEND_API_KEY` in client-side code. The `/api/subscribe` route re
 To test locally:
 
 1. Create your `.env.local` file with the variables above
-2. Run `npm run dev`
+2. Run `bun run dev`
 3. Submit the contact form on any locale page
 4. Check the Resend dashboard for the new contact and notification email
 

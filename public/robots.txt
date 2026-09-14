@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /thank-you
-Disallow: /gracias
-
-Sitemap: https://breakaway.work/sitemap.xml

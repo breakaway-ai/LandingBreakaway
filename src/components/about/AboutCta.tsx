@@ -1,11 +1,14 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { Mail } from 'lucide-react';
-import boothPhoto from '../../assets/imgs/stage-booth.webp';
+import Image from 'next/image';
+import { Link } from '@/i18n/navigation';
+import boothPhoto from '@/assets/imgs/stage-booth.webp';
 
 export default function AboutCta() {
-  const { t } = useTranslation();
+  const t = useTranslations('aboutPage');
 
   return (
     <section className="relative overflow-hidden bg-night py-20 sm:py-24 lg:py-28">
@@ -19,19 +22,19 @@ export default function AboutCta() {
             viewport={{ once: true }}
           >
             <h2 className="max-w-md text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
-              {t('aboutPage.ctaHeadline')}
+              {t('ctaHeadline')}
             </h2>
 
             <p className="mt-6 max-w-md font-mono text-xs leading-relaxed text-white/55 sm:text-[12.5px]">
-              {t('aboutPage.ctaText')}
+              {t('ctaText')}
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
-                to="/#contact"
+                href="/#contact"
                 className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90"
               >
-                {t('aboutPage.ctaButton')}
+                {t('ctaButton')}
               </Link>
 
               <a
@@ -51,9 +54,9 @@ export default function AboutCta() {
             transition={{ delay: 0.1 }}
             className="overflow-hidden rounded-[22px] shadow-console"
           >
-            <img
+            <Image
               src={boothPhoto}
-              alt={t('aboutPage.ctaPhotoAlt')}
+              alt={t('ctaPhotoAlt')}
               width={640}
               height={427}
               loading="lazy"

@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { ArrowRight, Check, Clock, Home, Mail, MessageSquare, Sparkles } from 'lucide-react';
-import LanguageSelector from '../components/LanguageSelector';
-import Wordmark from '../components/Wordmark';
-import Footer from '../components/Footer';
-import SeoHead from '../components/SeoHead';
+import LanguageSelector from '@/components/LanguageSelector';
+import Wordmark from '@/components/Wordmark';
+import Footer from '@/components/Footer';
+import { Link } from '@/i18n/navigation';
 
 const steps = [
   { icon: MessageSquare, titleKey: 'step1Title', descKey: 'step1Desc' },
@@ -14,14 +15,14 @@ const steps = [
 ] as const;
 
 export default function SuccessPage() {
-  const { t } = useTranslation();
+  const t = useTranslations('successPage');
+  const tHeader = useTranslations('header');
 
   return (
     <div className="flex min-h-screen flex-col">
-      <SeoHead page="thankYou" path="/thank-you" noindex />
       <header className="px-4 pt-3 sm:px-6 sm:pt-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 shadow-card backdrop-blur-md">
-          <Link to="/" aria-label={t('header.logoAlt')}>
+          <Link href="/" aria-label={tHeader('logoAlt')}>
             <Wordmark />
           </Link>
           <LanguageSelector />
@@ -47,7 +48,7 @@ export default function SuccessPage() {
             transition={{ delay: 0.12 }}
             className="text-3xl text-ink sm:text-4xl lg:text-[2.75rem]"
           >
-            {t('successPage.title')}
+            {t('title')}
           </motion.h1>
 
           <motion.p
@@ -56,7 +57,7 @@ export default function SuccessPage() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-ink-soft"
           >
-            {t('successPage.subtitle')}
+            {t('subtitle')}
           </motion.p>
 
           <div className="mt-12 grid gap-4 text-left sm:grid-cols-3 sm:gap-5">
@@ -71,8 +72,8 @@ export default function SuccessPage() {
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-wash">
                   <Icon className="h-4 w-4 text-primary" />
                 </span>
-                <h3 className="mt-4 text-[15px] text-ink">{t(`successPage.${titleKey}`)}</h3>
-                <p className="prose-mono mt-2.5">{t(`successPage.${descKey}`)}</p>
+                <h3 className="mt-4 text-[15px] text-ink">{t(titleKey)}</h3>
+                <p className="prose-mono mt-2.5">{t(descKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -83,10 +84,10 @@ export default function SuccessPage() {
             transition={{ delay: 0.6 }}
             className="mt-10 flex flex-col items-center gap-2 font-mono text-[11px] text-ink-dim sm:flex-row sm:justify-center sm:gap-3"
           >
-            <span>{t('successPage.responseTime')}</span>
+            <span>{t('responseTime')}</span>
             <span className="hidden text-ink/20 sm:inline">·</span>
             <span className="flex items-center gap-1.5">
-              {t('successPage.emailNote')}
+              {t('emailNote')}
               <a
                 href="mailto:general@breakaway.work"
                 className="inline-flex items-center gap-1 font-medium text-primary transition-colors hover:text-primary-bright"
@@ -104,17 +105,17 @@ export default function SuccessPage() {
             className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Link
-              to="/"
+              href="/"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:w-auto"
             >
               <Home className="h-4 w-4" />
-              {t('successPage.ctaHome')}
+              {t('ctaHome')}
             </Link>
             <Link
-              to="/#services"
+              href="/#services"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface px-6 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill sm:w-auto"
             >
-              {t('successPage.ctaServices')}
+              {t('ctaServices')}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>

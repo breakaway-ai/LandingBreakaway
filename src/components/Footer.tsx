@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import Wordmark from './Wordmark';
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -18,7 +20,7 @@ export default function Footer() {
 
           <div className="order-2 flex items-center gap-4 sm:order-3">
             <Link
-              to="/privacy"
+              href="/privacy"
               className="font-mono text-[11px] text-white/40 transition-colors hover:text-white"
             >
               {t('footer.policy')}

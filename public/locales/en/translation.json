@@ -13,7 +13,7 @@
   },
   "hero": {
     "label": "Next-generation automation",
-    "title": "Transform your business with<1> intelligent agents</1>",
+    "title": "Transform your business with<highlight> intelligent agents</highlight>",
     "subtitle": "Digital agent ecosystems that automate processes, eliminate errors and drive exponential growth.",
     "cta": "Request your consultation",
     "secondary": "See how it works",
@@ -57,7 +57,7 @@
   },
   "about": {
     "label": "Adaptive modular architecture",
-    "headline": "Supervisor agents that orchestrate. Operational agents that<1> execute</1>.",
+    "headline": "Supervisor agents that orchestrate. Operational agents that<highlight> execute</highlight>.",
     "description1": "At Breakaway, we develop advanced digital agent ecosystems that revolutionize any industry through intelligent automation of complex business processes.",
     "description2": "Our supervisor agents orchestrate complex workflows while operational agents execute specific tasks with precision and efficiency superior to human capabilities.",
     "feature1Title": "Interconnected ecosystems",
@@ -140,7 +140,7 @@
     "privacyInfo": "By submitting this form you accept our <policy>privacy policy</policy> and the sending of communications related to your request."
   },
   "footer": {
-    "short": "© {{currentYear}} Breakaway",
+    "short": "© {currentYear} Breakaway",
     "policy": "Privacy"
   },
   "successPage": {
@@ -160,7 +160,7 @@
   "aboutPage": {
     "metaTitle": "About us · Breakaway",
     "heroLabel": "About Breakaway",
-    "heroHeadline": "Three engineers who learned to build this<1> by building it</1>.",
+    "heroHeadline": "Three engineers who learned to build this<highlight> by building it</highlight>.",
     "heroCaption": "Agentic 2026 · Centro de Congresos",
     "heroPhotoAlt": "Breakaway's three founders at the Centro de Congresos in Querétaro",
     "introText": "We studied Computer Science and Technologies at Tec de Monterrey, Querétaro campus, and founded Breakaway before we graduated. Today we have agent ecosystems running in production.",
@@ -203,11 +203,11 @@
     "stanceLabel": "Where we stand",
     "stanceHeadline": "How we think about automation",
     "stance1Title": "Process first, AI second",
-    "stance1Desc": "A misunderstood process<1> doesn't improve just because you put a model on top of it</1>. We start by mapping how your team works today.",
+    "stance1Desc": "A misunderstood process<highlight> doesn't improve just because you put a model on top of it</highlight>. We start by mapping how your team works today.",
     "stance2Title": "With permissions and a paper trail",
-    "stance2Desc": "Every agent declares which systems it enters and what it can write, and leaves an<1> auditable record</1> of every action it runs.",
+    "stance2Desc": "Every agent declares which systems it enters and what it can write, and leaves an<highlight> auditable record</highlight> of every action it runs.",
     "stance3Title": "We'll tell you no when that's the right call",
-    "stance3Desc": "Some processes<1> aren't worth automating yet</1>. We'd rather say so during the assessment than have you find out halfway through the project.",
+    "stance3Desc": "Some processes<highlight> aren't worth automating yet</highlight>. We'd rather say so during the assessment than have you find out halfway through the project.",
     "ctaHeadline": "Which process is weighing you down?",
     "ctaText": "The first conversation is a free assessment. We'll tell you frankly whether an agent solves your problem, or whether it isn't worth it.",
     "ctaButton": "Book an assessment",

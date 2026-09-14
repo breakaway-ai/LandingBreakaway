@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 interface Service {
   titleKey: string;
@@ -60,7 +62,7 @@ const services: Service[] = [
 ];
 
 export default function Services() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <section id="services" className="relative bg-background-alt/60 py-20 sm:py-24 lg:py-32">

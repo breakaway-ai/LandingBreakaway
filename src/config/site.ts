@@ -1,14 +1,18 @@
+import { routing, type AppLocale } from '@/i18n/routing';
+
 export const SITE_URL = 'https://breakaway.work';
 export const SITE_NAME = 'Breakaway';
 export const OG_IMAGE_PATH = '/og-image.png';
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
 
-export const SEO_LOCALES = ['es', 'en'] as const;
-export type SeoLocale = (typeof SEO_LOCALES)[number];
+export const SEO_LOCALES = routing.locales;
+export type SeoLocale = AppLocale;
 
 export const OG_LOCALE_MAP: Record<SeoLocale, string> = {
   es: 'es_MX',
   en: 'en_US',
+  it: 'it_IT',
+  pt: 'pt_BR',
 };
 
 export const ORGANIZATION_JSON_LD = {
@@ -16,19 +20,18 @@ export const ORGANIZATION_JSON_LD = {
   '@type': 'Organization',
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon.png`,
+  logo: `${SITE_URL}/favicon.svg`,
   email: 'general@breakaway.work',
   sameAs: ['https://www.linkedin.com/company/breakawayai'],
 } as const;
 
-export function absoluteUrl(path: string, locale?: SeoLocale): string {
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  const base = `${SITE_URL}${normalizedPath === '/' ? '' : normalizedPath}`;
+export const PUBLIC_PATHS = ['/', '/about', '/privacy'] as const;
+export type PublicPath = (typeof PUBLIC_PATHS)[number];
 
-  if (!locale) {
-    return base || SITE_URL;
-  }
+export function localizedPath(path: PublicPath | '/thank-you', locale: SeoLocale): string {
+  return path === '/' ? `/${locale}` : `/${locale}${path}`;
+}
 
-  const separator = base.includes('?') ? '&' : '?';
-  return `${base || SITE_URL}${separator}lng=${locale}`;
+export function absoluteUrl(path: PublicPath | '/thank-you', locale: SeoLocale): string {
+  return `${SITE_URL}${localizedPath(path, locale)}`;
 }

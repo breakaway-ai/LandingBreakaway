@@ -13,7 +13,7 @@
   },
   "hero": {
     "label": "Automazione di nuova generazione",
-    "title": "Trasforma la tua azienda con<1> agenti intelligenti</1>",
+    "title": "Trasforma la tua azienda con<highlight> agenti intelligenti</highlight>",
     "subtitle": "Ecosistemi di agenti digitali che automatizzano i processi, eliminano gli errori e alimentano una crescita esponenziale.",
     "cta": "Richiedi la consulenza",
     "secondary": "Scopri come",
@@ -57,7 +57,7 @@
   },
   "about": {
     "label": "Architettura modulare adattiva",
-    "headline": "Agenti supervisori che orchestrano. Agenti operativi che<1> eseguono</1>.",
+    "headline": "Agenti supervisori che orchestrano. Agenti operativi che<highlight> eseguono</highlight>.",
     "description1": "In Breakaway sviluppiamo ecosistemi di agenti digitali avanzati che rivoluzionano qualsiasi settore attraverso l'automazione intelligente di processi aziendali complessi.",
     "description2": "I nostri agenti supervisori orchestrano flussi complessi mentre gli agenti operativi eseguono attività specifiche con precisione ed efficienza superiori alle capacità umane.",
     "feature1Title": "Ecosistemi interconnessi",
@@ -140,7 +140,7 @@
     "privacyInfo": "Inviando questo modulo accetti la nostra <policy>politica sulla privacy</policy> e l'invio di comunicazioni relative alla tua richiesta."
   },
   "footer": {
-    "short": "© {{currentYear}} Breakaway",
+    "short": "© {currentYear} Breakaway",
     "policy": "Privacy"
   },
   "successPage": {
@@ -160,7 +160,7 @@
   "aboutPage": {
     "metaTitle": "Chi siamo · Breakaway",
     "heroLabel": "Chi è Breakaway",
-    "heroHeadline": "Tre ingegneri che hanno imparato a costruire tutto questo<1> costruendolo</1>.",
+    "heroHeadline": "Tre ingegneri che hanno imparato a costruire tutto questo<highlight> costruendolo</highlight>.",
     "heroCaption": "Agentic 2026 · Centro de Congresos",
     "heroPhotoAlt": "I tre fondatori di Breakaway al Centro de Congresos di Querétaro",
     "introText": "Abbiamo studiato Ingegneria delle Tecnologie Informatiche al Tec de Monterrey, campus di Querétaro, e abbiamo fondato Breakaway prima di laurearci. Oggi abbiamo ecosistemi di agenti in produzione.",
@@ -203,11 +203,11 @@
     "stanceLabel": "La nostra posizione",
     "stanceHeadline": "Come pensiamo l'automazione",
     "stance1Title": "Prima il processo, poi l'IA",
-    "stance1Desc": "Un processo che nessuno ha capito<1> non migliora perché gli metti sopra un modello</1>. Partiamo dal mappare come lavora il tuo team oggi.",
+    "stance1Desc": "Un processo che nessuno ha capito<highlight> non migliora perché gli metti sopra un modello</highlight>. Partiamo dal mappare come lavora il tuo team oggi.",
     "stance2Title": "Con permessi e con tracciabilità",
-    "stance2Desc": "Ogni agente dichiara a quali sistemi accede e cosa può scrivere, e lascia un<1> registro verificabile</1> di ogni azione che esegue.",
+    "stance2Desc": "Ogni agente dichiara a quali sistemi accede e cosa può scrivere, e lascia un<highlight> registro verificabile</highlight> di ogni azione che esegue.",
     "stance3Title": "Ti diciamo no quando serve",
-    "stance3Desc": "Ci sono processi<1> che non conviene ancora automatizzare</1>. Preferiamo dirlo in fase di analisi piuttosto che scoprirlo a metà del progetto.",
+    "stance3Desc": "Ci sono processi<highlight> che non conviene ancora automatizzare</highlight>. Preferiamo dirlo in fase di analisi piuttosto che scoprirlo a metà del progetto.",
     "ctaHeadline": "Ci racconti quale processo ti sta costando?",
     "ctaText": "La prima conversazione è un'analisi senza costi. Ti diciamo con franchezza se un agente risolve il tuo problema o se non vale la pena.",
     "ctaButton": "Prenota un'analisi",
@@ -242,5 +242,23 @@
     "changesTitle": "Modifiche",
     "changesBody": "Possiamo aggiornare questa informativa. La data in alto indica la versione vigente.",
     "contact": "Contatto privacy:"
+  },
+  "seo": {
+    "home": {
+      "title": "Breakaway | Automazione aziendale con agenti IA",
+      "description": "Sviluppiamo ecosistemi di agenti digitali che automatizzano processi aziendali complessi, eliminano errori e favoriscono la crescita."
+    },
+    "about": {
+      "title": "Chi siamo · Breakaway",
+      "description": "Tre ingegneri del Tec de Monterrey che costruiscono ecosistemi di agenti IA in produzione per le aziende."
+    },
+    "privacy": {
+      "title": "Privacy · Breakaway",
+      "description": "Informativa sulla privacy di Breakaway: come trattiamo i dati su breakaway.work, il modulo di contatto e i nostri assistenti WhatsApp."
+    },
+    "thankYou": {
+      "title": "Grazie · Breakaway",
+      "description": "Abbiamo ricevuto la tua richiesta. Il nostro team ti contatterà presto."
+    }
   }
 }

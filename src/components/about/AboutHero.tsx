@@ -1,17 +1,20 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
-import heroPhoto from '../../assets/imgs/founders-agentic.webp';
+import Image from 'next/image';
+import { Link } from '@/i18n/navigation';
+import heroPhoto from '@/assets/imgs/founders-agentic.webp';
 
 const founders = [
-  { roleKey: 'aboutPage.founder1Role', nameKey: 'aboutPage.founder1Name' },
-  { roleKey: 'aboutPage.founder2Role', nameKey: 'aboutPage.founder2Name' },
-  { roleKey: 'aboutPage.founder3Role', nameKey: 'aboutPage.founder3Name' },
+  { roleKey: 'founder1Role', nameKey: 'founder1Name' },
+  { roleKey: 'founder2Role', nameKey: 'founder2Name' },
+  { roleKey: 'founder3Role', nameKey: 'founder3Name' },
 ];
 
 export default function AboutHero() {
-  const { t } = useTranslation();
+  const t = useTranslations('aboutPage');
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
@@ -24,7 +27,7 @@ export default function AboutHero() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-4 sm:gap-6"
         >
-          <span className="label shrink-0 text-primary">{t('aboutPage.heroLabel')}</span>
+          <span className="label shrink-0 text-primary">{t('heroLabel')}</span>
           <span className="h-px flex-1 bg-ink/10" />
         </motion.div>
 
@@ -34,10 +37,11 @@ export default function AboutHero() {
           transition={{ duration: 0.6, delay: 0.05 }}
           className="mt-9 max-w-4xl text-[2.5rem] leading-[1.03] text-ink sm:text-5xl lg:text-[4.25rem]"
         >
-          <Trans i18nKey="aboutPage.heroHeadline">
-            Tres ingenieros que aprendieron a construir esto
-            <span className="text-primary-bright"> construyéndolo</span>.
-          </Trans>
+          {t.rich('heroHeadline', {
+            highlight: (chunks) => (
+              <span className="text-primary-bright">{chunks}</span>
+            ),
+          })}
         </motion.h1>
 
         <motion.figure
@@ -46,12 +50,13 @@ export default function AboutHero() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="relative mt-12 overflow-hidden rounded-[26px] shadow-console sm:mt-14"
         >
-          <img
+          <Image
             src={heroPhoto}
-            alt={t('aboutPage.heroPhotoAlt')}
+            alt={t('heroPhotoAlt')}
             width={1600}
             height={592}
             className="block w-full object-cover"
+            priority
           />
 
           <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-night via-night/70 to-transparent" />
@@ -68,7 +73,7 @@ export default function AboutHero() {
               ))}
             </div>
 
-            <span className="label hidden text-white/40 sm:block">{t('aboutPage.heroCaption')}</span>
+            <span className="label hidden text-white/40 sm:block">{t('heroCaption')}</span>
           </figcaption>
         </motion.figure>
 
@@ -78,21 +83,21 @@ export default function AboutHero() {
           viewport={{ once: true }}
           className="mt-12 grid gap-8 sm:mt-14 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16"
         >
-          <p className="prose-mono max-w-xl">{t('aboutPage.introText')}</p>
+          <p className="prose-mono max-w-xl">{t('introText')}</p>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              to="/#contact"
+              href="/#contact"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
             >
-              {t('aboutPage.introCtaPrimary')}
+              {t('introCtaPrimary')}
               <ArrowRight size={16} />
             </Link>
             <a
               href="#founders"
               className="inline-flex items-center justify-center rounded-full bg-surface px-7 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill"
             >
-              {t('aboutPage.introCtaSecondary')}
+              {t('introCtaSecondary')}
             </a>
           </div>
         </motion.div>

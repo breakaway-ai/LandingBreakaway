@@ -1,15 +1,18 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import graduationPhoto from '../../assets/imgs/graduation.webp';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import graduationPhoto from '@/assets/imgs/graduation.webp';
 
 const stats = [
-  { valueKey: 'aboutPage.storyStat1Value', labelKey: 'aboutPage.storyStat1Label' },
-  { valueKey: 'aboutPage.storyStat2Value', labelKey: 'aboutPage.storyStat2Label' },
-  { valueKey: 'aboutPage.storyStat3Value', labelKey: 'aboutPage.storyStat3Label' },
+  { valueKey: 'storyStat1Value', labelKey: 'storyStat1Label' },
+  { valueKey: 'storyStat2Value', labelKey: 'storyStat2Label' },
+  { valueKey: 'storyStat3Value', labelKey: 'storyStat3Label' },
 ];
 
 export default function AboutStory() {
-  const { t } = useTranslation();
+  const t = useTranslations('aboutPage');
 
   return (
     <section className="relative mt-20 overflow-hidden bg-night py-20 sm:mt-24 sm:py-24 lg:py-28">
@@ -22,15 +25,15 @@ export default function AboutStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="label text-primary-soft">{t('aboutPage.storyLabel')}</span>
+            <span className="label text-primary-soft">{t('storyLabel')}</span>
 
             <h2 className="mt-5 max-w-md text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
-              {t('aboutPage.storyHeadline')}
+              {t('storyHeadline')}
             </h2>
 
             <div className="mt-7 max-w-lg space-y-5 font-mono text-xs leading-relaxed text-white/55 sm:text-[12.5px]">
-              <p>{t('aboutPage.storyText1')}</p>
-              <p>{t('aboutPage.storyText2')}</p>
+              <p>{t('storyText1')}</p>
+              <p>{t('storyText2')}</p>
             </div>
 
             <dl className="mt-10 grid gap-8 border-t border-white/[0.08] pt-8 sm:grid-cols-3 sm:gap-6">
@@ -54,9 +57,9 @@ export default function AboutStory() {
             transition={{ delay: 0.1 }}
             className="overflow-hidden rounded-[22px] shadow-console"
           >
-            <img
+            <Image
               src={graduationPhoto}
-              alt={t('aboutPage.storyPhotoAlt')}
+              alt={t('storyPhotoAlt')}
               width={900}
               height={1200}
               loading="lazy"

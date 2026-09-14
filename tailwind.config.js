@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -25,9 +24,9 @@ export default {
         'node-accent': '#123F4F',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       letterSpacing: {
         label: '0.18em',

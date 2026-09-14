@@ -1,4 +1,7 @@
-import logoImage from '../assets/logo.webp';
+'use client';
+
+import Image from 'next/image';
+import logoImage from '@/assets/logo.webp';
 
 interface WordmarkProps {
   tone?: 'light' | 'dark';
@@ -10,7 +13,7 @@ export default function Wordmark({ tone = 'light' }: WordmarkProps) {
   return (
     <span className="inline-flex items-center gap-2">
       {/* The logo artwork is cream-colored, so it gets inverted to read on light surfaces. */}
-      <img
+      <Image
         src={logoImage}
         alt=""
         aria-hidden="true"

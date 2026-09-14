@@ -1,8 +1,10 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 export default function AboutStance() {
-  const { t } = useTranslation();
+  const t = useTranslations('aboutPage');
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-28">
@@ -12,9 +14,9 @@ export default function AboutStance() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="label text-primary">{t('aboutPage.stanceLabel')}</span>
+          <span className="label text-primary">{t('stanceLabel')}</span>
           <h2 className="mt-5 max-w-sm text-[1.75rem] leading-[1.15] text-ink sm:text-4xl">
-            {t('aboutPage.stanceHeadline')}
+            {t('stanceHeadline')}
           </h2>
         </motion.div>
 
@@ -28,14 +30,12 @@ export default function AboutStance() {
             <span className="label text-primary">01</span>
             <div>
               <h3 className="max-w-xs font-display text-xl font-bold leading-tight text-ink sm:text-2xl">
-                {t('aboutPage.stance1Title')}
+                {t('stance1Title')}
               </h3>
               <p className="prose-mono mt-4 max-w-md">
-                <Trans i18nKey="aboutPage.stance1Desc">
-                  Un proceso mal entendido
-                  <span className="mark"> no mejora porque le pongas un modelo encima</span>.
-                  Empezamos por mapear cómo trabaja tu equipo hoy.
-                </Trans>
+                {t.rich('stance1Desc', {
+                  highlight: (chunks) => <span className="mark">{chunks}</span>,
+                })}
               </p>
             </div>
           </motion.article>
@@ -49,13 +49,12 @@ export default function AboutStance() {
             <span className="label text-primary">02</span>
             <div>
               <h3 className="max-w-xs font-display text-xl font-bold leading-tight text-ink sm:text-2xl">
-                {t('aboutPage.stance2Title')}
+                {t('stance2Title')}
               </h3>
               <p className="prose-mono mt-4 max-w-md">
-                <Trans i18nKey="aboutPage.stance2Desc">
-                  Cada agente declara a qué sistemas entra y qué puede escribir, y deja
-                  <span className="mark"> registro auditable</span> de cada acción que ejecuta.
-                </Trans>
+                {t.rich('stance2Desc', {
+                  highlight: (chunks) => <span className="mark">{chunks}</span>,
+                })}
               </p>
             </div>
           </motion.article>
@@ -69,14 +68,12 @@ export default function AboutStance() {
             <span className="label text-primary">03</span>
             <div>
               <h3 className="max-w-xs font-display text-xl font-bold leading-tight text-ink sm:text-2xl">
-                {t('aboutPage.stance3Title')}
+                {t('stance3Title')}
               </h3>
               <p className="prose-mono mt-4 max-w-md">
-                <Trans i18nKey="aboutPage.stance3Desc">
-                  Hay procesos que
-                  <span className="mark"> no conviene automatizar todavía</span>. Preferimos
-                  decirlo en el diagnóstico que descubrirlo a mitad del proyecto.
-                </Trans>
+                {t.rich('stance3Desc', {
+                  highlight: (chunks) => <span className="mark">{chunks}</span>,
+                })}
               </p>
             </div>
           </motion.article>

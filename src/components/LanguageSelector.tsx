@@ -1,19 +1,24 @@
+'use client';
+
 import { useState, useRef, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useLocale } from 'next-intl';
 import { Globe } from 'lucide-react';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { routing, type AppLocale } from '@/i18n/routing';
 
 const languages = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
   { code: 'en', name: 'English', flag: '🇦🇺' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
   { code: 'pt', name: 'Português', flag: '🇧🇷' },
-];
+] as const;
 
 export default function LanguageSelector() {
-  const { i18n } = useTranslation();
+  const locale = useLocale() as AppLocale;
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const current = i18n.resolvedLanguage ?? i18n.language;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -45,11 +50,13 @@ export default function LanguageSelector() {
           <button
             key={lang.code}
             onClick={() => {
-              i18n.changeLanguage(lang.code);
+              if (routing.locales.includes(lang.code)) {
+                router.replace(pathname, { locale: lang.code });
+              }
               setIsOpen(false);
             }}
             className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-[13px] transition-colors ${
-              lang.code === current
+              lang.code === locale
                 ? 'bg-primary-wash font-semibold text-primary'
                 : 'text-ink-soft hover:bg-ink/[0.04]'
             }`}

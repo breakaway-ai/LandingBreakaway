@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 const steps = [
   { titleKey: 'howItWorks.step1Title', descKey: 'howItWorks.step1Description' },
@@ -10,7 +12,7 @@ const steps = [
 ];
 
 export default function Process() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <section id="process" className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28">

@@ -1,26 +1,28 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 const founders = [
   {
-    roleKey: 'aboutPage.founder1Role',
-    nameKey: 'aboutPage.founder1Name',
-    descKey: 'aboutPage.founder1Desc',
+    roleKey: 'founder1Role',
+    nameKey: 'founder1Name',
+    descKey: 'founder1Desc',
   },
   {
-    roleKey: 'aboutPage.founder2Role',
-    nameKey: 'aboutPage.founder2Name',
-    descKey: 'aboutPage.founder2Desc',
+    roleKey: 'founder2Role',
+    nameKey: 'founder2Name',
+    descKey: 'founder2Desc',
   },
   {
-    roleKey: 'aboutPage.founder3Role',
-    nameKey: 'aboutPage.founder3Name',
-    descKey: 'aboutPage.founder3Desc',
+    roleKey: 'founder3Role',
+    nameKey: 'founder3Name',
+    descKey: 'founder3Desc',
   },
 ];
 
 export default function AboutFounders() {
-  const { t } = useTranslation();
+  const t = useTranslations('aboutPage');
 
   return (
     <section id="founders" className="relative py-20 sm:py-24 lg:py-28">
@@ -30,11 +32,11 @@ export default function AboutFounders() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="label text-primary">{t('aboutPage.foundersLabel')}</span>
+          <span className="label text-primary">{t('foundersLabel')}</span>
           <h2 className="mt-5 max-w-sm text-[1.75rem] leading-[1.15] text-ink sm:text-4xl">
-            {t('aboutPage.foundersHeadline')}
+            {t('foundersHeadline')}
           </h2>
-          <p className="prose-mono mt-5 max-w-md">{t('aboutPage.foundersIntro')}</p>
+          <p className="prose-mono mt-5 max-w-md">{t('foundersIntro')}</p>
         </motion.div>
 
         <div className="mt-12 border-t border-ink/10 sm:mt-14">
@@ -54,7 +56,7 @@ export default function AboutFounders() {
                   {t(founder.nameKey)}
                 </h3>
                 <p className="mt-2 font-mono text-[10.5px] leading-relaxed text-ink-dim">
-                  {t('aboutPage.foundersDegree')}
+                  {t('foundersDegree')}
                 </p>
               </div>
 

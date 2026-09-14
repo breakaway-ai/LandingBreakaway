@@ -1,4 +1,7 @@
-import { useTranslation } from 'react-i18next';
+'use client';
+
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import auraLogo from '../assets/logos/aura.webp';
 import cormanLogo from '../assets/logos/corman.webp';
 import gpiLogo from '../assets/logos/gpi.webp';
@@ -19,7 +22,7 @@ const half = [...clients, ...clients];
 const track = [...half, ...half];
 
 export default function Clients() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <section className="border-y border-ink/[0.07] py-12 sm:py-14">
@@ -32,7 +35,7 @@ export default function Clients() {
               key={`${client.name}-${i}`}
               className="flex h-16 w-[168px] shrink-0 items-center justify-center rounded-2xl bg-surface px-6 shadow-card sm:h-[68px] sm:w-[184px]"
             >
-              <img
+              <Image
                 src={client.logo}
                 alt={client.name}
                 loading="lazy"

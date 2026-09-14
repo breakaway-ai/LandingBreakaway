@@ -1,8 +1,10 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { AlertCircle } from 'lucide-react';
+import { Link, useRouter } from '@/i18n/navigation';
 
 const fields = [
   { name: 'name', labelKey: 'contactForm.labelName', type: 'text', required: true },
@@ -12,10 +14,14 @@ const fields = [
 ] as const;
 
 export default function ContactForm() {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+  const t = useTranslations();
+  const router = useRouter();
   const [formData, setFormData] = useState({
-    name: '', email: '', company: '', phone: '', message: '',
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +43,7 @@ export default function ContactForm() {
     setError(null);
 
     try {
-      const response = await fetch('/.netlify/functions/subscribe', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -57,7 +63,7 @@ export default function ContactForm() {
       }
 
       setIsSubmitting(false);
-      navigate('/thank-you', { replace: true });
+      router.replace('/thank-you');
       return;
     } catch (err) {
       if (err instanceof DOMException && err.name === 'TimeoutError') {
@@ -166,17 +172,16 @@ export default function ContactForm() {
               )}
 
               <p className="mt-4 font-mono text-[10px] leading-relaxed text-white/35">
-                <Trans
-                  i18nKey="contactForm.privacyInfo"
-                  components={{
-                    policy: (
-                      <Link
-                        to="/privacy"
-                        className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-white/60"
-                      />
-                    ),
-                  }}
-                />
+                {t.rich('contactForm.privacyInfo', {
+                  policy: (chunks) => (
+                    <Link
+                      href="/privacy"
+                      className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-white/60"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                })}
               </p>
             </div>
           </motion.form>

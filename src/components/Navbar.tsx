@@ -1,8 +1,10 @@
+'use client';
+
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
+import { Link, usePathname } from '@/i18n/navigation';
 import LanguageSelector from './LanguageSelector';
 import Wordmark from './Wordmark';
 
@@ -20,7 +22,6 @@ interface SectionLinkProps {
   children: ReactNode;
 }
 
-/** In-page anchor while on the landing, client-side route + hash from any other page. */
 function SectionLink({ onHome, id, className, onClick, children }: SectionLinkProps) {
   if (onHome) {
     return (
@@ -31,15 +32,15 @@ function SectionLink({ onHome, id, className, onClick, children }: SectionLinkPr
   }
 
   return (
-    <Link to={`/#${id}`} className={className} onClick={onClick}>
+    <Link href={`/#${id}`} className={className} onClick={onClick}>
       {children}
     </Link>
   );
 }
 
 export default function Navbar() {
-  const { t } = useTranslation();
-  const { pathname } = useLocation();
+  const t = useTranslations();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -70,13 +71,13 @@ export default function Navbar() {
             scrolled ? 'shadow-pill' : 'shadow-card'
           }`}
         >
-          <Link to="/" aria-label={t('header.logoAlt')} className="shrink-0">
+          <Link href="/" aria-label={t('header.logoAlt')} className="shrink-0">
             <Wordmark />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">
             <Link
-              to="/about"
+              href="/about"
               className={`text-[13px] font-medium transition-colors hover:text-ink ${
                 onHome ? 'text-ink-soft' : 'text-ink'
               }`}
@@ -139,7 +140,7 @@ export default function Navbar() {
             <div className="flex flex-1 flex-col justify-center gap-2 px-6 pb-20">
               <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}>
                 <Link
-                  to="/about"
+                  href="/about"
                   onClick={() => setMobileOpen(false)}
                   className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
                 >

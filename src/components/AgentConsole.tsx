@@ -1,6 +1,8 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 type AgentId = 'nlp' | 'data' | 'ops' | 'api';
 type ActiveAgent = AgentId | 'orchestrator' | 'all';
@@ -256,7 +258,7 @@ function ControlCenterBackdrop({ activeAgent, prefersReducedMotion }: ControlCen
 }
 
 export default function AgentConsole() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const initialStateRef = useRef(createInitialState());
   const [entries, setEntries] = useState(initialStateRef.current.entries);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);

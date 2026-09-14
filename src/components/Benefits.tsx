@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 const benefits = [
   { titleKey: 'benefits.benefit1Title', descKey: 'benefits.benefit1Description' },
@@ -10,7 +12,7 @@ const benefits = [
 ];
 
 export default function Benefits() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <section id="benefits" className="relative py-20 sm:py-24 lg:py-28">

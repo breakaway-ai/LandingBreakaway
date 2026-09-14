@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import AgentConsole from './AgentConsole';
 
@@ -11,7 +13,7 @@ const stats = [
 ];
 
 export default function Hero() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
@@ -37,10 +39,11 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="text-[2.5rem] leading-[1.04] text-ink sm:text-5xl lg:text-[3.6rem]"
             >
-              <Trans i18nKey="hero.title">
-                Transforma tu negocio con
-                <span className="text-primary-bright"> agentes inteligentes</span>
-              </Trans>
+              {t.rich('hero.title', {
+                highlight: (chunks) => (
+                  <span className="text-primary-bright">{chunks}</span>
+                ),
+              })}
             </motion.h1>
 
             <motion.p

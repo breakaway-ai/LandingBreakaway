@@ -13,7 +13,7 @@
   },
   "hero": {
     "label": "Automatización de nueva generación",
-    "title": "Transforma tu negocio con<1> agentes inteligentes</1>",
+    "title": "Transforma tu negocio con<highlight> agentes inteligentes</highlight>",
     "subtitle": "Ecosistemas de agentes digitales que automatizan procesos, eliminan errores e impulsan crecimiento exponencial.",
     "cta": "Solicita tu consultoría",
     "secondary": "Descubre cómo",
@@ -57,7 +57,7 @@
   },
   "about": {
     "label": "Arquitectura modular adaptativa",
-    "headline": "Agentes supervisores que orquestan. Agentes operativos que<1> ejecutan</1>.",
+    "headline": "Agentes supervisores que orquestan. Agentes operativos que<highlight> ejecutan</highlight>.",
     "description1": "En Breakaway, desarrollamos ecosistemas de agentes digitales avanzados que revolucionan cualquier industria mediante la automatización inteligente de procesos empresariales complejos.",
     "description2": "Nuestros agentes supervisores orquestan flujos complejos mientras los agentes operativos ejecutan tareas específicas con precisión y eficiencia superiores a las capacidades humanas.",
     "feature1Title": "Ecosistemas interconectados",
@@ -140,7 +140,7 @@
     "privacyInfo": "Al enviar este formulario aceptas nuestra <policy>política de privacidad</policy> y el envío de comunicaciones relacionadas con tu solicitud."
   },
   "footer": {
-    "short": "© {{currentYear}} Breakaway",
+    "short": "© {currentYear} Breakaway",
     "policy": "Privacidad"
   },
   "successPage": {
@@ -160,7 +160,7 @@
   "aboutPage": {
     "metaTitle": "Nosotros · Breakaway",
     "heroLabel": "Acerca de Breakaway",
-    "heroHeadline": "Tres ingenieros que aprendieron a construir esto<1> construyéndolo</1>.",
+    "heroHeadline": "Tres ingenieros que aprendieron a construir esto<highlight> construyéndolo</highlight>.",
     "heroCaption": "Agentic 2026 · Centro de Congresos",
     "heroPhotoAlt": "Los tres fundadores de Breakaway en el Centro de Congresos de Querétaro",
     "introText": "Estudiamos Ingeniería en Tecnologías Computacionales en el Tec de Monterrey campus Querétaro y fundamos Breakaway antes de graduarnos. Hoy tenemos ecosistemas de agentes corriendo en producción.",
@@ -203,11 +203,11 @@
     "stanceLabel": "Nuestra postura",
     "stanceHeadline": "Cómo pensamos la automatización",
     "stance1Title": "Primero el proceso, después la IA",
-    "stance1Desc": "Un proceso mal entendido<1> no mejora porque le pongas un modelo encima</1>. Empezamos por mapear cómo trabaja tu equipo hoy.",
+    "stance1Desc": "Un proceso mal entendido<highlight> no mejora porque le pongas un modelo encima</highlight>. Empezamos por mapear cómo trabaja tu equipo hoy.",
     "stance2Title": "Con permisos y con rastro",
-    "stance2Desc": "Cada agente declara a qué sistemas entra y qué puede escribir, y deja<1> registro auditable</1> de cada acción que ejecuta.",
+    "stance2Desc": "Cada agente declara a qué sistemas entra y qué puede escribir, y deja<highlight> registro auditable</highlight> de cada acción que ejecuta.",
     "stance3Title": "Te decimos que no cuando toca",
-    "stance3Desc": "Hay procesos que<1> no conviene automatizar todavía</1>. Preferimos decirlo en el diagnóstico que descubrirlo a mitad del proyecto.",
+    "stance3Desc": "Hay procesos que<highlight> no conviene automatizar todavía</highlight>. Preferimos decirlo en el diagnóstico que descubrirlo a mitad del proyecto.",
     "ctaHeadline": "¿Nos cuentas qué proceso te está costando?",
     "ctaText": "La primera conversación es un diagnóstico sin costo. Te decimos con franqueza si un agente resuelve tu problema o si no vale la pena.",
     "ctaButton": "Agendar diagnóstico",

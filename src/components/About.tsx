@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
 const features = [
   { titleKey: 'about.feature1Title', descKey: 'about.feature1Description' },
@@ -8,7 +10,7 @@ const features = [
 ];
 
 export default function About() {
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   return (
     <section id="about" className="relative py-20 sm:py-24 lg:py-32">
@@ -21,10 +23,11 @@ export default function About() {
         >
           <span className="label text-primary">{t('about.label')}</span>
           <h2 className="mx-auto mt-5 max-w-3xl text-[1.75rem] leading-[1.15] text-ink sm:text-4xl lg:text-[2.6rem]">
-            <Trans i18nKey="about.headline">
-              Agentes supervisores que orquestan. Agentes operativos que
-              <span className="text-primary-bright"> ejecutan</span>.
-            </Trans>
+            {t.rich('about.headline', {
+              highlight: (chunks) => (
+                <span className="text-primary-bright">{chunks}</span>
+              ),
+            })}
           </h2>
         </motion.div>
 

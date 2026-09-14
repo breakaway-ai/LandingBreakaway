@@ -1,33 +1,36 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import panelPhoto from '../../assets/imgs/panel-agentic.webp';
-import summitPhoto from '../../assets/imgs/summit-descubrete.webp';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import panelPhoto from '@/assets/imgs/panel-agentic.webp';
+import summitPhoto from '@/assets/imgs/summit-descubrete.webp';
 
 const talks = [
   {
     photo: panelPhoto,
     width: 1200,
     height: 900,
-    altKey: 'aboutPage.talk1Alt',
-    metaKey: 'aboutPage.talk1Meta',
-    titleKey: 'aboutPage.talk1Title',
-    descKey: 'aboutPage.talk1Desc',
+    altKey: 'talk1Alt',
+    metaKey: 'talk1Meta',
+    titleKey: 'talk1Title',
+    descKey: 'talk1Desc',
     span: 'lg:col-span-3',
   },
   {
     photo: summitPhoto,
     width: 640,
     height: 427,
-    altKey: 'aboutPage.talk2Alt',
-    metaKey: 'aboutPage.talk2Meta',
-    titleKey: 'aboutPage.talk2Title',
-    descKey: 'aboutPage.talk2Desc',
+    altKey: 'talk2Alt',
+    metaKey: 'talk2Meta',
+    titleKey: 'talk2Title',
+    descKey: 'talk2Desc',
     span: 'lg:col-span-2',
   },
 ];
 
 export default function AboutTalks() {
-  const { t } = useTranslation();
+  const t = useTranslations('aboutPage');
 
   return (
     <section className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28">
@@ -39,9 +42,9 @@ export default function AboutTalks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="label text-white/60">{t('aboutPage.talksLabel')}</span>
+          <span className="label text-white/60">{t('talksLabel')}</span>
           <h2 className="mt-5 max-w-sm text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
-            {t('aboutPage.talksHeadline')}
+            {t('talksHeadline')}
           </h2>
         </motion.div>
 
@@ -55,7 +58,7 @@ export default function AboutTalks() {
               viewport={{ once: true }}
               className={`overflow-hidden rounded-[22px] bg-night shadow-console ${talk.span}`}
             >
-              <img
+              <Image
                 src={talk.photo}
                 alt={t(talk.altKey)}
                 width={talk.width}

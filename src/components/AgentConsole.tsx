@@ -278,12 +278,10 @@ function createEntry(
 
 function createInitialState(): { entries: LogEntry[]; clock: number } {
   let clock = FIRST_TIMESTAMP;
-  let previousKey: string | undefined;
 
   const entries = Array.from({ length: ROWS }, (_, index) => {
-    const line = pickRandomLine(previousKey);
-    previousKey = line.key;
-    clock += randomGap(line);
+    const line = logPool[index % logPool.length];
+    clock += line.gapMin;
 
     return createEntry(index, line, clock);
   });

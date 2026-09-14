@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -291,6 +291,21 @@ function createInitialState(): { entries: LogEntry[]; clock: number } {
   return { entries, clock };
 }
 
+function subscribeToReducedMotion(onChange: () => void) {
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mediaQuery.addEventListener("change", onChange);
+
+  return () => mediaQuery.removeEventListener("change", onChange);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
 function isNodeActive(nodeId: AgentId, activeAgent: ActiveAgent) {
   return activeAgent === nodeId || activeAgent === "all";
 }
@@ -448,23 +463,17 @@ function ControlCenterBackdrop({
 
 export default function AgentConsole() {
   const t = useTranslations();
-  const initialStateRef = useRef(createInitialState());
-  const [entries, setEntries] = useState(initialStateRef.current.entries);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [initialState] = useState(createInitialState);
+  const [entries, setEntries] = useState(initialState.entries);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot,
+  );
   const nextIdRef = useRef(ROWS);
-  const clockRef = useRef(initialStateRef.current.clock);
+  const clockRef = useRef(initialState.clock);
 
   const activeAgent = entries[entries.length - 1]?.line.agent ?? "data";
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-
-    const onChange = () => setPrefersReducedMotion(mq.matches);
-    mq.addEventListener("change", onChange);
-
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
   useEffect(() => {
     if (prefersReducedMotion) return;

@@ -1,6 +1,7 @@
 {
   "name": "landingbreakaway",
   "private": true,
+  "type": "module",
   "version": "1.0.0",
   "engines": {
     "node": ">=20.9.0"

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { AlertCircle } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
+import PageContainer from "./PageContainer";
 
 const inputFields = [
   {
@@ -143,7 +144,7 @@ export default function ContactForm() {
     >
       <div className="pointer-events-none absolute -left-24 bottom-0 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[130px]" />
 
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
+      <PageContainer className="relative">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -336,7 +337,7 @@ export default function ContactForm() {
             </div>
           </motion.form>
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

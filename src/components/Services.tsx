@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import PageContainer from "./PageContainer";
 
 interface Service {
   titleKey: string;
@@ -77,7 +78,7 @@ export default function Services() {
       id="services"
       className="relative bg-background-alt/60 py-20 sm:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+      <PageContainer>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,7 +140,7 @@ export default function Services() {
             );
           })}
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

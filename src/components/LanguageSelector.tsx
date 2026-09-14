@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { Globe } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { LOCALE_SCROLL_KEY } from "@/lib/navigation-scroll";
 import { routing, type AppLocale } from "@/i18n/routing";
 
 const languages = [
@@ -30,11 +31,12 @@ export default function LanguageSelector() {
             type="button"
             aria-label={`Switch to ${lang.name}`}
             aria-current={isActive ? "true" : undefined}
-            disabled={isActive}
             onClick={() => {
-              if (routing.locales.includes(lang.code)) {
-                router.replace(pathname, { locale: lang.code });
-              }
+              if (lang.code === locale) return;
+              if (!routing.locales.includes(lang.code)) return;
+
+              sessionStorage.setItem(LOCALE_SCROLL_KEY, String(window.scrollY));
+              router.replace(pathname, { locale: lang.code, scroll: false });
             }}
             className={`min-w-10 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
               isActive

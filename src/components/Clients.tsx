@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import PageContainer from "./PageContainer";
 
 /** Logos arrive with clashing backgrounds (white, black, full-bleed colour), so each one
  *  sits in a uniform white chip instead of directly on the lavender section. */
@@ -41,9 +42,11 @@ export default function Clients() {
 
   return (
     <section className="border-y border-ink/[0.07] py-12 sm:py-14">
-      <p className="label mb-8 text-center text-ink-dim">
-        {t("clients.label")}
-      </p>
+      <PageContainer>
+        <p className="label mb-8 text-center text-ink-dim">
+          {t("clients.label")}
+        </p>
+      </PageContainer>
 
       <div className="mask-fade-x overflow-hidden">
         <div className="flex w-max animate-marquee items-center gap-4 sm:gap-5 motion-reduce:animate-none">

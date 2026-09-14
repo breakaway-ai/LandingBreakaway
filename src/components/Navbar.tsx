@@ -6,7 +6,8 @@ import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSelector from "./LanguageSelector";
-import PrimaryCtaLink from "./PrimaryCtaLink";
+import PrimaryCtaButton from "./PrimaryCtaButton";
+import { LAYOUT_MAX } from "@/lib/layout";
 import Wordmark from "./Wordmark";
 
 const sectionLinks = [
@@ -28,8 +29,6 @@ const collapseTransition = {
   ease: collapseEase,
 };
 const ISLAND_RADIUS = 12;
-const LAYOUT_MAX = 1152;
-
 interface SectionLinkProps {
   onHome: boolean;
   id: string;
@@ -126,8 +125,8 @@ export default function Navbar() {
           }}
           className={`grid grid-cols-[1fr_auto_1fr] items-center bg-surface/90 py-2 backdrop-blur-md ${
             scrolled
-              ? "px-5 shadow-[0_1px_0_rgba(21,17,34,0.06)] sm:px-8"
-              : "px-5 shadow-pill"
+              ? "border-b border-ink/10 px-5 sm:px-8"
+              : "border border-ink/10 px-5 shadow-pill"
           }`}
         >
           <div className="col-start-1 justify-self-start">
@@ -141,13 +140,6 @@ export default function Navbar() {
           </div>
 
           <div className="col-start-2 hidden items-center gap-7 justify-self-center md:flex">
-            <Link
-              href="/about"
-              className={`${linkClass} ${onHome ? "" : "text-ink"}`}
-            >
-              {t("nav.about")}
-            </Link>
-
             {sectionLinks.map((link) => (
               <SectionLink
                 key={link.id}
@@ -158,16 +150,18 @@ export default function Navbar() {
                 {t(link.key)}
               </SectionLink>
             ))}
+
+            <Link
+              href="/about"
+              className={`${linkClass} ${onHome ? "" : "text-ink"}`}
+            >
+              {t("nav.about")}
+            </Link>
           </div>
 
           <div className="col-start-3 flex items-center justify-end gap-1 justify-self-end">
             <LanguageSelector />
-            <PrimaryCtaLink
-              onHome={onHome}
-              className="hidden min-h-9 shrink-0 items-center whitespace-nowrap rounded-full bg-primary px-5 py-1.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
-            >
-              {t("nav.cta")}
-            </PrimaryCtaLink>
+            <PrimaryCtaButton variant="nav" />
             <button
               onClick={() => setMobileOpen(true)}
               aria-label={t("nav.menu")}
@@ -200,25 +194,12 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-1 flex-col justify-center gap-2 px-6 pb-20">
-              <motion.div
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-              >
-                <Link
-                  href="/about"
-                  onClick={() => setMobileOpen(false)}
-                  className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
-                >
-                  {t("nav.about")}
-                </Link>
-              </motion.div>
-
               {sectionLinks.map((link, i) => (
                 <motion.div
                   key={link.id}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * (i + 1) }}
+                  transition={{ delay: 0.05 * i }}
                 >
                   <SectionLink
                     onHome={onHome}
@@ -232,18 +213,29 @@ export default function Navbar() {
               ))}
 
               <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 * sectionLinks.length }}
+              >
+                <Link
+                  href="/about"
+                  onClick={() => setMobileOpen(false)}
+                  className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
+                >
+                  {t("nav.about")}
+                </Link>
+              </motion.div>
+
+              <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
                 className="mt-8"
               >
-                <PrimaryCtaLink
-                  onHome={onHome}
+                <PrimaryCtaButton
+                  variant="navMobile"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
-                >
-                  {t("nav.cta")}
-                </PrimaryCtaLink>
+                />
               </motion.div>
             </div>
           </motion.div>

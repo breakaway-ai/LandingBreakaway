@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
+import NavigationScroll from "@/components/NavigationScroll";
 import { SITE_URL } from "@/config/site";
 import { routing } from "@/i18n/routing";
 import "@/index.css";
@@ -58,10 +59,11 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <meta name="theme-color" content="#EDEAF7" />
+        <meta name="theme-color" content="#FFFFFF" />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
+          <NavigationScroll />
           {children}
         </NextIntlClientProvider>
         <Script

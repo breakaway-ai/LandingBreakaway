@@ -4,8 +4,8 @@ const config = {
   theme: {
     extend: {
       colors: {
-        background: "#EDEAF7",
-        "background-alt": "#E5E1F2",
+        background: "#FFFFFF",
+        "background-alt": "#F5F5F5",
         surface: "#FFFFFF",
         ink: "#151122",
         "ink-soft": "#514A63",
@@ -73,6 +73,14 @@ const config = {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(360deg)" },
         },
+        "cta-gradient": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "cta-glow": {
+          "0%, 100%": { opacity: "0.55", transform: "scale(0.96)" },
+          "50%": { opacity: "0.85", transform: "scale(1.04)" },
+        },
       },
       animation: {
         marquee: "marquee 38s linear infinite",
@@ -83,6 +91,8 @@ const config = {
         "data-flow": "data-flow 1.6s linear infinite",
         "spin-slow": "spin-slow 90s linear infinite",
         "spin-slow-reverse": "spin-slow 120s linear infinite reverse",
+        "cta-gradient": "cta-gradient 8s linear infinite",
+        "cta-glow": "cta-glow 4s ease-in-out infinite",
       },
     },
   },

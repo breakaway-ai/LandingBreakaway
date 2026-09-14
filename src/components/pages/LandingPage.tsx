@@ -18,10 +18,10 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
+        <Clients />
         <About />
         <Services />
         <Process />
-        <Clients />
         <Benefits />
         <ContactForm />
       </main>

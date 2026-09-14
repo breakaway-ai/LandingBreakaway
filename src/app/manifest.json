@@ -4,8 +4,8 @@
   "description": "Desarrollamos ecosistemas de agentes digitales que automatizan procesos empresariales complejos, eliminan errores e impulsan el crecimiento.",
   "start_url": "/es",
   "display": "standalone",
-  "background_color": "#EDEAF7",
-  "theme_color": "#EDEAF7",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
   "lang": "es",
   "icons": [
     {

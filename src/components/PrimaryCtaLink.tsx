@@ -7,10 +7,12 @@ import { Link } from "@/i18n/navigation";
 
 const logoSrc = "/images/logos/logo.svg";
 
-const slotVariants = {
-  rest: { width: 0, marginRight: 0 },
-  hover: { width: 18, marginRight: 8 },
-};
+function slotVariants(size: number) {
+  return {
+    rest: { width: 0, marginRight: 0 },
+    hover: { width: size, marginRight: 8 },
+  };
+}
 
 const markEase = [0.22, 1, 0.36, 1] as const;
 
@@ -33,19 +35,27 @@ const slotTransition = {
   ease: markEase,
 };
 
-function CtaHoverMark() {
+function CtaHoverMark({
+  dark = false,
+  size = 18,
+}: {
+  dark?: boolean;
+  size?: number;
+}) {
   return (
     <motion.span
-      variants={slotVariants}
+      variants={slotVariants(size)}
       transition={slotTransition}
-      className="inline-flex h-[18px] shrink-0 overflow-hidden"
+      className="inline-flex shrink-0 overflow-hidden"
+      style={{ height: size }}
     >
       <motion.img
         src={logoSrc}
         alt=""
         aria-hidden="true"
         variants={markVariants}
-        className="h-[18px] w-[18px] max-w-none origin-center"
+        className={`max-w-none origin-center ${dark ? "brightness-0" : ""}`}
+        style={{ height: size, width: size }}
       />
     </motion.span>
   );
@@ -55,6 +65,8 @@ interface PrimaryCtaLinkProps {
   onHome: boolean;
   className: string;
   onClick?: () => void;
+  markDark?: boolean;
+  markSize?: number;
   children: ReactNode;
 }
 
@@ -62,6 +74,8 @@ export default function PrimaryCtaLink({
   onHome,
   className,
   onClick,
+  markDark = false,
+  markSize = 18,
   children,
 }: PrimaryCtaLinkProps) {
   const href = getPrimaryCtaHref("#contact");
@@ -80,7 +94,7 @@ export default function PrimaryCtaLink({
       animate={hovered ? "hover" : "rest"}
       className="inline-flex items-center"
     >
-      <CtaHoverMark />
+      <CtaHoverMark dark={markDark} size={markSize} />
       {children}
     </motion.span>
   );

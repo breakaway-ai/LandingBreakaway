@@ -12,11 +12,9 @@
     "close": "Cerrar menú"
   },
   "hero": {
-    "label": "Integración operativa para firmas de servicios",
-    "title": "Tus procesos corren solos —<highlight> sin que el equipo sea el pegamento</highlight>",
-    "subtitle": "Para agencias, consultorías y despachos en México (20–100 personas): conectamos hojas de cálculo, correo, WhatsApp, CRM y facturación para que dejen de perder horas no facturables en captura, seguimiento y conocimiento tribal.",
+    "title": "Tus procesos operativos,<br></br><highlight>automatizados con agentes de IA.</highlight>",
+    "subtitle": "Para firmas que crecieron más rápido que sus procesos. Conectamos tus herramientas, automatizamos lo repetitivo y recuperas horas para facturar.",
     "cta": "Contáctanos",
-    "secondary": "Cómo trabajamos",
     "nodeMain": "Orquestador",
     "nodeAgent1": "NLP",
     "nodeAgent2": "Datos",

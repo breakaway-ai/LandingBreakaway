@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { ArrowRight } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
-import { getPrimaryCtaHref, isExternalBookingUrl } from '@/config/booking';
-import AgentConsole from './AgentConsole';
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { getPrimaryCtaHref, isExternalBookingUrl } from "@/config/booking";
+import AgentConsole from "./AgentConsole";
 
 export default function Hero() {
   const t = useTranslations();
-  const primaryCtaHref = getPrimaryCtaHref('#contact');
+  const primaryCtaHref = getPrimaryCtaHref("#contact");
   const primaryCtaExternal = isExternalBookingUrl(primaryCtaHref);
 
   return (
@@ -27,7 +27,7 @@ export default function Hero() {
               className="mb-6 flex items-center gap-2"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-primary-bright" />
-              <span className="label text-primary">{t('hero.label')}</span>
+              <span className="label text-primary">{t("hero.label")}</span>
             </motion.div>
 
             <motion.h1
@@ -36,7 +36,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.05 }}
               className="text-[2.5rem] leading-[1.04] text-ink sm:text-5xl lg:text-[3.6rem]"
             >
-              {t.rich('hero.title', {
+              {t.rich("hero.title", {
                 highlight: (chunks) => (
                   <span className="text-primary-bright">{chunks}</span>
                 ),
@@ -49,7 +49,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="mt-6 max-w-md text-[15px] leading-relaxed text-ink-soft"
             >
-              {t('hero.subtitle')}
+              {t("hero.subtitle")}
             </motion.p>
 
             <motion.div
@@ -61,18 +61,18 @@ export default function Hero() {
               <a
                 href={primaryCtaHref}
                 {...(primaryCtaExternal
-                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright"
               >
-                {t('hero.cta')}
+                {t("hero.cta")}
                 <ArrowRight size={16} />
               </a>
               <Link
                 href="/about"
                 className="inline-flex items-center justify-center rounded-full bg-surface px-7 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill"
               >
-                {t('hero.secondary')}
+                {t("hero.secondary")}
               </Link>
             </motion.div>
           </div>
@@ -85,7 +85,6 @@ export default function Hero() {
             <AgentConsole />
           </motion.div>
         </div>
-
       </div>
     </section>
   );

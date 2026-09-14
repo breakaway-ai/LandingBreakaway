@@ -45,12 +45,12 @@ CONTACT_NOTIFICATION_EMAIL=general@breakaway.work
 RESEND_SEGMENT_ID=your_audience_id_here
 ```
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `RESEND_API_KEY` | Yes | Your Resend API key |
-| `RESEND_FROM_EMAIL` | No | Sender address (defaults to `Breakaway <onboarding@resend.dev>`) |
-| `CONTACT_NOTIFICATION_EMAIL` | No | Where form notifications are sent (defaults to `general@breakaway.work`) |
-| `RESEND_SEGMENT_ID` | No | Audience ID used when creating contacts |
+| Variable                     | Required | Description                                                              |
+| ---------------------------- | -------- | ------------------------------------------------------------------------ |
+| `RESEND_API_KEY`             | Yes      | Your Resend API key                                                      |
+| `RESEND_FROM_EMAIL`          | No       | Sender address (defaults to `Breakaway <onboarding@resend.dev>`)         |
+| `CONTACT_NOTIFICATION_EMAIL` | No       | Where form notifications are sent (defaults to `general@breakaway.work`) |
+| `RESEND_SEGMENT_ID`          | No       | Audience ID used when creating contacts                                  |
 
 ## 6. Deploy to Vercel
 

@@ -1,31 +1,54 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { AlertCircle } from 'lucide-react';
-import { Link, useRouter } from '@/i18n/navigation';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { AlertCircle } from "lucide-react";
+import { Link, useRouter } from "@/i18n/navigation";
 
 const inputFields = [
-  { name: 'name', labelKey: 'contactForm.labelName', type: 'text', required: true },
-  { name: 'email', labelKey: 'contactForm.labelEmail', type: 'email', required: true },
-  { name: 'company', labelKey: 'contactForm.labelCompany', type: 'text', required: true },
-  { name: 'phone', labelKey: 'contactForm.labelPhone', type: 'tel', required: false },
+  {
+    name: "name",
+    labelKey: "contactForm.labelName",
+    type: "text",
+    required: true,
+  },
+  {
+    name: "email",
+    labelKey: "contactForm.labelEmail",
+    type: "email",
+    required: true,
+  },
+  {
+    name: "company",
+    labelKey: "contactForm.labelCompany",
+    type: "text",
+    required: true,
+  },
+  {
+    name: "phone",
+    labelKey: "contactForm.labelPhone",
+    type: "tel",
+    required: false,
+  },
 ] as const;
 
 const roleOptions = [
-  { value: 'owner', labelKey: 'contactForm.roleOwner' },
-  { value: 'ops', labelKey: 'contactForm.roleOps' },
-  { value: 'other', labelKey: 'contactForm.roleOther' },
+  { value: "owner", labelKey: "contactForm.roleOwner" },
+  { value: "ops", labelKey: "contactForm.roleOps" },
+  { value: "other", labelKey: "contactForm.roleOther" },
 ] as const;
 
 const painOptions = [
-  { value: 'disconnected', labelKey: 'contactForm.painDisconnected' },
-  { value: 'hired_still_drowning', labelKey: 'contactForm.painHiredStillDrowning' },
-  { value: 'growth', labelKey: 'contactForm.painGrowth' },
-  { value: 'key_person', labelKey: 'contactForm.painKeyPerson' },
-  { value: 'incident', labelKey: 'contactForm.painIncident' },
-  { value: 'other', labelKey: 'contactForm.painOther' },
+  { value: "disconnected", labelKey: "contactForm.painDisconnected" },
+  {
+    value: "hired_still_drowning",
+    labelKey: "contactForm.painHiredStillDrowning",
+  },
+  { value: "growth", labelKey: "contactForm.painGrowth" },
+  { value: "key_person", labelKey: "contactForm.painKeyPerson" },
+  { value: "incident", labelKey: "contactForm.painIncident" },
+  { value: "other", labelKey: "contactForm.painOther" },
 ] as const;
 
 type FormData = {
@@ -43,14 +66,14 @@ export default function ContactForm() {
   const t = useTranslations();
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    role: '',
-    pain: '',
-    tools: '',
-    message: '',
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    role: "",
+    pain: "",
+    tools: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -58,12 +81,14 @@ export default function ContactForm() {
   useEffect(() => {
     const resetSubmittingState = () => setIsSubmitting(false);
     resetSubmittingState();
-    window.addEventListener('pageshow', resetSubmittingState);
-    return () => window.removeEventListener('pageshow', resetSubmittingState);
+    window.addEventListener("pageshow", resetSubmittingState);
+    return () => window.removeEventListener("pageshow", resetSubmittingState);
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -74,9 +99,9 @@ export default function ContactForm() {
     setError(null);
 
     try {
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
         signal: AbortSignal.timeout(30_000),
       });
@@ -86,21 +111,25 @@ export default function ContactForm() {
       try {
         data = text ? JSON.parse(text) : {};
       } catch {
-        throw new Error(t('contactForm.errorParse'));
+        throw new Error(t("contactForm.errorParse"));
       }
 
       if (!response.ok) {
-        throw new Error(data.message || t('contactForm.errorSubmitFallback'));
+        throw new Error(data.message || t("contactForm.errorSubmitFallback"));
       }
 
       setIsSubmitting(false);
-      router.replace('/thank-you');
+      router.replace("/thank-you");
       return;
     } catch (err) {
-      if (err instanceof DOMException && err.name === 'TimeoutError') {
-        setError(t('contactForm.errorSubmitFallback'));
+      if (err instanceof DOMException && err.name === "TimeoutError") {
+        setError(t("contactForm.errorSubmitFallback"));
       } else {
-        setError(err instanceof Error ? err.message : t('contactForm.errorSubmitFallback'));
+        setError(
+          err instanceof Error
+            ? err.message
+            : t("contactForm.errorSubmitFallback"),
+        );
       }
     } finally {
       setIsSubmitting(false);
@@ -108,7 +137,10 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-night py-20 sm:py-24 lg:py-28">
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-night py-20 sm:py-24 lg:py-28"
+    >
       <div className="pointer-events-none absolute -left-24 bottom-0 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[130px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
@@ -119,18 +151,18 @@ export default function ContactForm() {
             viewport={{ once: true }}
           >
             <h2 className="max-w-sm text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
-              {t('contactForm.title')}
+              {t("contactForm.title")}
             </h2>
             <p className="mt-5 max-w-md font-mono text-xs leading-relaxed text-white/50 sm:text-[12.5px]">
-              {t('contactForm.subtitle')}
+              {t("contactForm.subtitle")}
             </p>
 
             <div className="mt-8 space-y-3">
               <p className="font-mono text-[11px] leading-relaxed text-white/45">
-                {t('contactForm.ownerPrompt')}
+                {t("contactForm.ownerPrompt")}
               </p>
               <p className="font-mono text-[11px] leading-relaxed text-white/45">
-                {t('contactForm.opsPrompt')}
+                {t("contactForm.opsPrompt")}
               </p>
             </div>
 
@@ -175,8 +207,11 @@ export default function ContactForm() {
             ))}
 
             <div>
-              <label htmlFor="role" className="mb-2 block font-mono text-[11px] text-white/50">
-                {t('contactForm.labelRole')}
+              <label
+                htmlFor="role"
+                className="mb-2 block font-mono text-[11px] text-white/50"
+              >
+                {t("contactForm.labelRole")}
               </label>
               <select
                 id="role"
@@ -199,8 +234,11 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label htmlFor="pain" className="mb-2 block font-mono text-[11px] text-white/50">
-                {t('contactForm.labelPain')}
+              <label
+                htmlFor="pain"
+                className="mb-2 block font-mono text-[11px] text-white/50"
+              >
+                {t("contactForm.labelPain")}
               </label>
               <select
                 id="pain"
@@ -223,8 +261,11 @@ export default function ContactForm() {
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="tools" className="mb-2 block font-mono text-[11px] text-white/50">
-                {t('contactForm.labelTools')}
+              <label
+                htmlFor="tools"
+                className="mb-2 block font-mono text-[11px] text-white/50"
+              >
+                {t("contactForm.labelTools")}
               </label>
               <input
                 type="text"
@@ -233,14 +274,17 @@ export default function ContactForm() {
                 value={formData.tools}
                 onChange={handleChange}
                 disabled={isSubmitting}
-                placeholder={t('contactForm.placeholderTools')}
+                placeholder={t("contactForm.placeholderTools")}
                 className="field"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="message" className="mb-2 block font-mono text-[11px] text-white/50">
-                {t('contactForm.labelMessage')}
+              <label
+                htmlFor="message"
+                className="mb-2 block font-mono text-[11px] text-white/50"
+              >
+                {t("contactForm.labelMessage")}
               </label>
               <textarea
                 id="message"
@@ -250,7 +294,7 @@ export default function ContactForm() {
                 onChange={handleChange}
                 required
                 disabled={isSubmitting}
-                placeholder={t('contactForm.placeholderMessage')}
+                placeholder={t("contactForm.placeholderMessage")}
                 className="field resize-y"
               />
             </div>
@@ -261,7 +305,9 @@ export default function ContactForm() {
                 disabled={isSubmitting}
                 className="w-full rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSubmitting ? t('contactForm.buttonSubmitting') : t('contactForm.buttonSubmit')}
+                {isSubmitting
+                  ? t("contactForm.buttonSubmitting")
+                  : t("contactForm.buttonSubmit")}
               </button>
 
               {error && (
@@ -276,7 +322,7 @@ export default function ContactForm() {
               )}
 
               <p className="mt-4 font-mono text-[10px] leading-relaxed text-white/35">
-                {t.rich('contactForm.privacyInfo', {
+                {t.rich("contactForm.privacyInfo", {
                   policy: (chunks) => (
                     <Link
                       href="/privacy"

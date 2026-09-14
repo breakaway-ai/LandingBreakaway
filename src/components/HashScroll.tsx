@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 type HashScrollProps = {
   scrollToTop?: boolean;
@@ -18,7 +18,7 @@ export default function HashScroll({ scrollToTop = false }: HashScrollProps) {
     }
 
     const timer = window.setTimeout(() => {
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
     }, 100);
 
     return () => window.clearTimeout(timer);

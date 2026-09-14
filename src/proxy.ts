@@ -1,13 +1,13 @@
-import createMiddleware from 'next-intl/middleware';
-import { type NextRequest, NextResponse } from 'next/server';
-import { routing } from './i18n/routing';
+import createMiddleware from "next-intl/middleware";
+import { type NextRequest, NextResponse } from "next/server";
+import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
 function stripLocalePrefix(pathname: string): string {
   for (const locale of routing.locales) {
     if (pathname === `/${locale}`) {
-      return '/';
+      return "/";
     }
 
     if (pathname.startsWith(`/${locale}/`)) {
@@ -20,17 +20,20 @@ function stripLocalePrefix(pathname: string): string {
 
 export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
-  const lng = searchParams.get('lng');
+  const lng = searchParams.get("lng");
 
-  if (lng && routing.locales.includes(lng as (typeof routing.locales)[number])) {
+  if (
+    lng &&
+    routing.locales.includes(lng as (typeof routing.locales)[number])
+  ) {
     const basePath = stripLocalePrefix(pathname);
     const destination = new URL(
-      basePath === '/' ? `/${lng}` : `/${lng}${basePath}`,
+      basePath === "/" ? `/${lng}` : `/${lng}${basePath}`,
       request.url,
     );
 
     searchParams.forEach((value, key) => {
-      if (key !== 'lng') {
+      if (key !== "lng") {
         destination.searchParams.set(key, value);
       }
     });
@@ -38,9 +41,10 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(destination, 301);
   }
 
-  if (searchParams.get('lead') === 'success') {
+  if (searchParams.get("lead") === "success") {
     const localeFromPath = routing.locales.find(
-      (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
+      (locale) =>
+        pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
     );
     const locale = localeFromPath ?? routing.defaultLocale;
 
@@ -52,13 +56,13 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/',
-    '/(es|en|it|pt)/:path*',
-    '/about',
-    '/privacy',
-    '/thank-you',
-    '/nosotros',
-    '/privacidad',
-    '/gracias',
+    "/",
+    "/(es|en|it|pt)/:path*",
+    "/about",
+    "/privacy",
+    "/thank-you",
+    "/nosotros",
+    "/privacidad",
+    "/gracias",
   ],
 };

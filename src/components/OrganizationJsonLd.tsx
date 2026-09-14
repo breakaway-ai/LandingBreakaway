@@ -1,4 +1,4 @@
-import { ORGANIZATION_JSON_LD } from '@/config/site';
+import { ORGANIZATION_JSON_LD } from "@/config/site";
 
 export default function OrganizationJsonLd() {
   return (

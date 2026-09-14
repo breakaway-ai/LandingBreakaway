@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-const logoImage = '/images/logos/logo.webp';
+const logoImage = "/images/logos/logo.webp";
 
 interface WordmarkProps {
-  tone?: 'light' | 'dark';
+  tone?: "light" | "dark";
 }
 
-export default function Wordmark({ tone = 'light' }: WordmarkProps) {
-  const isDark = tone === 'dark';
+export default function Wordmark({ tone = "light" }: WordmarkProps) {
+  const isDark = tone === "dark";
 
   return (
     <span className="inline-flex items-center gap-2">
@@ -20,12 +20,15 @@ export default function Wordmark({ tone = 'light' }: WordmarkProps) {
         aria-hidden="true"
         width={127}
         height={128}
-        className={`h-6 w-auto shrink-0 ${isDark ? '' : 'invert'}`}
+        className={`h-6 w-auto shrink-0 ${isDark ? "" : "invert"}`}
       />
       <span
-        className={`font-display text-sm font-bold tracking-[0.14em] ${isDark ? 'text-white' : 'text-ink'}`}
+        className={`font-display text-sm font-bold tracking-[0.14em] ${isDark ? "text-white" : "text-ink"}`}
       >
-        BREAK<span className={isDark ? 'text-primary-soft' : 'text-primary'}>AWAY</span>
+        BREAK
+        <span className={isDark ? "text-primary-soft" : "text-primary"}>
+          AWAY
+        </span>
       </span>
     </span>
   );

@@ -1,28 +1,36 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { ArrowRight, Check, Clock, Home, Mail, MessageSquare, Sparkles } from 'lucide-react';
-import LanguageSelector from '@/components/LanguageSelector';
-import Wordmark from '@/components/Wordmark';
-import Footer from '@/components/Footer';
-import { Link } from '@/i18n/navigation';
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import {
+  ArrowRight,
+  Check,
+  Clock,
+  Home,
+  Mail,
+  MessageSquare,
+  Sparkles,
+} from "lucide-react";
+import LanguageSelector from "@/components/LanguageSelector";
+import Wordmark from "@/components/Wordmark";
+import Footer from "@/components/Footer";
+import { Link } from "@/i18n/navigation";
 
 const steps = [
-  { icon: MessageSquare, titleKey: 'step1Title', descKey: 'step1Desc' },
-  { icon: Clock, titleKey: 'step2Title', descKey: 'step2Desc' },
-  { icon: Sparkles, titleKey: 'step3Title', descKey: 'step3Desc' },
+  { icon: MessageSquare, titleKey: "step1Title", descKey: "step1Desc" },
+  { icon: Clock, titleKey: "step2Title", descKey: "step2Desc" },
+  { icon: Sparkles, titleKey: "step3Title", descKey: "step3Desc" },
 ] as const;
 
 export default function SuccessPage() {
-  const t = useTranslations('successPage');
-  const tHeader = useTranslations('header');
+  const t = useTranslations("successPage");
+  const tHeader = useTranslations("header");
 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="px-4 pt-3 sm:px-6 sm:pt-4">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 shadow-card backdrop-blur-md">
-          <Link href="/" aria-label={tHeader('logoAlt')}>
+          <Link href="/" aria-label={tHeader("logoAlt")}>
             <Wordmark />
           </Link>
           <LanguageSelector />
@@ -36,10 +44,13 @@ export default function SuccessPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+            transition={{ type: "spring", stiffness: 200, damping: 18 }}
             className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 ring-1 ring-emerald-500/25 sm:h-20 sm:w-20"
           >
-            <Check className="h-7 w-7 text-emerald-500 sm:h-9 sm:w-9" strokeWidth={2.5} />
+            <Check
+              className="h-7 w-7 text-emerald-500 sm:h-9 sm:w-9"
+              strokeWidth={2.5}
+            />
           </motion.div>
 
           <motion.h1
@@ -48,7 +59,7 @@ export default function SuccessPage() {
             transition={{ delay: 0.12 }}
             className="text-3xl text-ink sm:text-4xl lg:text-[2.75rem]"
           >
-            {t('title')}
+            {t("title")}
           </motion.h1>
 
           <motion.p
@@ -57,7 +68,7 @@ export default function SuccessPage() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-ink-soft"
           >
-            {t('subtitle')}
+            {t("subtitle")}
           </motion.p>
 
           <div className="mt-12 grid gap-4 text-left sm:grid-cols-3 sm:gap-5">
@@ -84,10 +95,10 @@ export default function SuccessPage() {
             transition={{ delay: 0.6 }}
             className="mt-10 flex flex-col items-center gap-2 font-mono text-[11px] text-ink-dim sm:flex-row sm:justify-center sm:gap-3"
           >
-            <span>{t('responseTime')}</span>
+            <span>{t("responseTime")}</span>
             <span className="hidden text-ink/20 sm:inline">·</span>
             <span className="flex items-center gap-1.5">
-              {t('emailNote')}
+              {t("emailNote")}
               <a
                 href="mailto:general@breakaway.work"
                 className="inline-flex items-center gap-1 font-medium text-primary transition-colors hover:text-primary-bright"
@@ -109,13 +120,13 @@ export default function SuccessPage() {
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:w-auto"
             >
               <Home className="h-4 w-4" />
-              {t('ctaHome')}
+              {t("ctaHome")}
             </Link>
             <Link
               href="/#services"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface px-6 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill sm:w-auto"
             >
-              {t('ctaServices')}
+              {t("ctaServices")}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>

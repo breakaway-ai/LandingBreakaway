@@ -1,21 +1,24 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const steps = [
-  { titleKey: 'howItWorks.step1Title', descKey: 'howItWorks.step1Description' },
-  { titleKey: 'howItWorks.step2Title', descKey: 'howItWorks.step2Description' },
-  { titleKey: 'howItWorks.step3Title', descKey: 'howItWorks.step3Description' },
-  { titleKey: 'howItWorks.step4Title', descKey: 'howItWorks.step4Description' },
-  { titleKey: 'howItWorks.step5Title', descKey: 'howItWorks.step5Description' },
+  { titleKey: "howItWorks.step1Title", descKey: "howItWorks.step1Description" },
+  { titleKey: "howItWorks.step2Title", descKey: "howItWorks.step2Description" },
+  { titleKey: "howItWorks.step3Title", descKey: "howItWorks.step3Description" },
+  { titleKey: "howItWorks.step4Title", descKey: "howItWorks.step4Description" },
+  { titleKey: "howItWorks.step5Title", descKey: "howItWorks.step5Description" },
 ];
 
 export default function Process() {
   const t = useTranslations();
 
   return (
-    <section id="process" className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28">
+    <section
+      id="process"
+      className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28"
+    >
       <div className="pointer-events-none absolute -right-20 top-0 h-[400px] w-[400px] rounded-full bg-white/[0.06] blur-[120px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
@@ -25,9 +28,9 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <span className="label text-white/60">{t('process.label')}</span>
+          <span className="label text-white/60">{t("process.label")}</span>
           <h2 className="mx-auto mt-5 max-w-2xl text-[1.75rem] leading-[1.15] text-white sm:text-4xl lg:text-[2.6rem]">
-            {t('howItWorks.sectionTitle')}
+            {t("howItWorks.sectionTitle")}
           </h2>
         </motion.div>
 
@@ -52,9 +55,11 @@ export default function Process() {
                 <span className="mb-6 hidden h-3.5 w-3.5 rounded-full bg-white ring-4 ring-white/25 lg:block" />
 
                 <div className="font-display text-2xl font-bold text-primary-soft sm:text-[1.75rem]">
-                  {String(i + 1).padStart(2, '0')}
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-                <h3 className="mt-2 text-sm text-white sm:text-[15px]">{t(step.titleKey)}</h3>
+                <h3 className="mt-2 text-sm text-white sm:text-[15px]">
+                  {t(step.titleKey)}
+                </h3>
                 <p className="mt-2.5 font-mono text-[11px] leading-relaxed text-white/60">
                   {t(step.descKey)}
                 </p>

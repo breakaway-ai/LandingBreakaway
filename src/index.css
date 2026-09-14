@@ -15,7 +15,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-display font-bold leading-tight tracking-tight;
   }
 
@@ -110,12 +113,29 @@
 
 @layer utilities {
   .mask-fade-x {
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
   }
 
   .mask-fade-top {
-    -webkit-mask-image: linear-gradient(180deg, transparent, #000 34%, #000 100%);
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent,
+      #000 34%,
+      #000 100%
+    );
     mask-image: linear-gradient(180deg, transparent, #000 34%, #000 100%);
   }
 }

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import type { ReactNode } from 'react';
-import { getPrimaryCtaHref, isExternalBookingUrl } from '@/config/booking';
-import { Link } from '@/i18n/navigation';
+import type { ReactNode } from "react";
+import { getPrimaryCtaHref, isExternalBookingUrl } from "@/config/booking";
+import { Link } from "@/i18n/navigation";
 
 interface PrimaryCtaLinkProps {
   onHome: boolean;
@@ -17,7 +17,7 @@ export default function PrimaryCtaLink({
   onClick,
   children,
 }: PrimaryCtaLinkProps) {
-  const href = getPrimaryCtaHref('#contact');
+  const href = getPrimaryCtaHref("#contact");
   const external = isExternalBookingUrl(href);
 
   if (external) {

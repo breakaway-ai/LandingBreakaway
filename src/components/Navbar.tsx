@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect, type ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { Menu, X } from 'lucide-react';
-import { Link, usePathname } from '@/i18n/navigation';
-import LanguageSelector from './LanguageSelector';
-import PrimaryCtaLink from './PrimaryCtaLink';
-import Wordmark from './Wordmark';
+import { useState, useEffect, type ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Menu, X } from "lucide-react";
+import { Link, usePathname } from "@/i18n/navigation";
+import LanguageSelector from "./LanguageSelector";
+import PrimaryCtaLink from "./PrimaryCtaLink";
+import Wordmark from "./Wordmark";
 
 const sectionLinks = [
-  { key: 'nav.services', id: 'services' },
-  { key: 'nav.process', id: 'process' },
-  { key: 'nav.benefits', id: 'benefits' },
+  { key: "nav.services", id: "services" },
+  { key: "nav.process", id: "process" },
+  { key: "nav.benefits", id: "benefits" },
 ];
 
 interface SectionLinkProps {
@@ -23,7 +23,13 @@ interface SectionLinkProps {
   children: ReactNode;
 }
 
-function SectionLink({ onHome, id, className, onClick, children }: SectionLinkProps) {
+function SectionLink({
+  onHome,
+  id,
+  className,
+  onClick,
+  children,
+}: SectionLinkProps) {
   if (onHome) {
     return (
       <a href={`#${id}`} className={className} onClick={onClick}>
@@ -45,19 +51,19 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const onHome = pathname === '/';
+  const onHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
@@ -67,14 +73,14 @@ export default function Navbar() {
         <motion.nav
           initial={{ y: -24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
           className={`mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full bg-surface/90 py-2 pl-5 pr-2 backdrop-blur-md transition-shadow duration-300 ${
-            scrolled ? 'shadow-pill' : 'shadow-card'
+            scrolled ? "shadow-pill" : "shadow-card"
           }`}
         >
           <Link
             href="/"
-            aria-label={t('header.logoAlt')}
+            aria-label={t("header.logoAlt")}
             className="inline-flex min-h-9 shrink-0 items-center"
           >
             <Wordmark />
@@ -84,10 +90,10 @@ export default function Navbar() {
             <Link
               href="/about"
               className={`text-[13px] font-medium transition-colors hover:text-ink ${
-                onHome ? 'text-ink-soft' : 'text-ink'
+                onHome ? "text-ink-soft" : "text-ink"
               }`}
             >
-              {t('nav.about')}
+              {t("nav.about")}
             </Link>
 
             {sectionLinks.map((link) => (
@@ -108,11 +114,11 @@ export default function Navbar() {
               onHome={onHome}
               className="hidden min-h-9 items-center rounded-full bg-primary px-5 py-1.5 text-[13px] font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright sm:inline-flex"
             >
-              {t('nav.cta')}
+              {t("nav.cta")}
             </PrimaryCtaLink>
             <button
               onClick={() => setMobileOpen(true)}
-              aria-label={t('nav.menu')}
+              aria-label={t("nav.menu")}
               className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5 lg:hidden"
             >
               <Menu size={20} />
@@ -134,7 +140,7 @@ export default function Navbar() {
               <Wordmark />
               <button
                 onClick={() => setMobileOpen(false)}
-                aria-label={t('nav.close')}
+                aria-label={t("nav.close")}
                 className="rounded-full p-2 text-ink transition-colors hover:bg-ink/5"
               >
                 <X size={22} />
@@ -142,13 +148,16 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-1 flex-col justify-center gap-2 px-6 pb-20">
-              <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}>
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
                 <Link
                   href="/about"
                   onClick={() => setMobileOpen(false)}
                   className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
                 >
-                  {t('nav.about')}
+                  {t("nav.about")}
                 </Link>
               </motion.div>
 
@@ -181,7 +190,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="block rounded-full bg-primary px-6 py-4 text-center text-sm font-semibold text-white shadow-glow-primary"
                 >
-                  {t('nav.cta')}
+                  {t("nav.cta")}
                 </PrimaryCtaLink>
               </motion.div>
             </div>

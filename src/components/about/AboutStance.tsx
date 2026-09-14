@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function AboutStance() {
-  const t = useTranslations('aboutPage');
+  const t = useTranslations("aboutPage");
 
   return (
     <section className="relative py-20 sm:py-24 lg:py-28">
@@ -14,9 +14,9 @@ export default function AboutStance() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="label text-primary">{t('stanceLabel')}</span>
+          <span className="label text-primary">{t("stanceLabel")}</span>
           <h2 className="mt-5 max-w-sm text-[1.75rem] leading-[1.15] text-ink sm:text-4xl">
-            {t('stanceHeadline')}
+            {t("stanceHeadline")}
           </h2>
         </motion.div>
 
@@ -30,10 +30,10 @@ export default function AboutStance() {
             <span className="label text-primary">01</span>
             <div>
               <h3 className="max-w-xs font-display text-xl font-bold leading-tight text-ink sm:text-2xl">
-                {t('stance1Title')}
+                {t("stance1Title")}
               </h3>
               <p className="prose-mono mt-4 max-w-md">
-                {t.rich('stance1Desc', {
+                {t.rich("stance1Desc", {
                   highlight: (chunks) => <span className="mark">{chunks}</span>,
                 })}
               </p>
@@ -49,10 +49,10 @@ export default function AboutStance() {
             <span className="label text-primary">02</span>
             <div>
               <h3 className="max-w-xs font-display text-xl font-bold leading-tight text-ink sm:text-2xl">
-                {t('stance2Title')}
+                {t("stance2Title")}
               </h3>
               <p className="prose-mono mt-4 max-w-md">
-                {t.rich('stance2Desc', {
+                {t.rich("stance2Desc", {
                   highlight: (chunks) => <span className="mark">{chunks}</span>,
                 })}
               </p>
@@ -68,10 +68,10 @@ export default function AboutStance() {
             <span className="label text-primary">03</span>
             <div>
               <h3 className="max-w-xs font-display text-xl font-bold leading-tight text-ink sm:text-2xl">
-                {t('stance3Title')}
+                {t("stance3Title")}
               </h3>
               <p className="prose-mono mt-4 max-w-md">
-                {t.rich('stance3Desc', {
+                {t.rich("stance3Desc", {
                   highlight: (chunks) => <span className="mark">{chunks}</span>,
                 })}
               </p>

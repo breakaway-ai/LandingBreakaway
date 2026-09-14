@@ -1,4 +1,4 @@
-import Wordmark from './Wordmark';
+import Wordmark from "./Wordmark";
 
 export default function PageLoader() {
   return (

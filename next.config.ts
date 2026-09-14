@@ -1,33 +1,33 @@
-import type { NextConfig } from 'next';
-import createNextIntlPlugin from 'next-intl/plugin';
+import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const obsoleteMarketingPaths = [
-  { segment: 'blog', localizedSuffix: '' },
-  { segment: 'pricing', localizedSuffix: '' },
-  { segment: 'precios', localizedSuffix: '' },
-  { segment: 'casos', localizedSuffix: '/about' },
-  { segment: 'services', localizedSuffix: '' },
-  { segment: 'contact', localizedSuffix: '' },
+  { segment: "blog", localizedSuffix: "" },
+  { segment: "pricing", localizedSuffix: "" },
+  { segment: "precios", localizedSuffix: "" },
+  { segment: "casos", localizedSuffix: "/about" },
+  { segment: "services", localizedSuffix: "" },
+  { segment: "contact", localizedSuffix: "" },
 ] as const;
 
 const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/nosotros',
-        destination: '/es/about',
+        source: "/nosotros",
+        destination: "/es/about",
         permanent: true,
       },
       {
-        source: '/privacidad',
-        destination: '/es/privacy',
+        source: "/privacidad",
+        destination: "/es/privacy",
         permanent: true,
       },
       {
-        source: '/gracias',
-        destination: '/es/thank-you',
+        source: "/gracias",
+        destination: "/es/thank-you",
         permanent: true,
       },
       ...obsoleteMarketingPaths.flatMap(({ segment, localizedSuffix }) => [

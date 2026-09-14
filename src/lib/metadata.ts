@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import {
   OG_LOCALE_MAP,
   SEO_LOCALES,
@@ -7,15 +7,15 @@ import {
   absoluteUrl,
   type PublicPath,
   type SeoLocale,
-} from '@/config/site';
+} from "@/config/site";
 
-type SeoPage = 'home' | 'about' | 'privacy' | 'thankYou';
+type SeoPage = "home" | "about" | "privacy" | "thankYou";
 
-const PAGE_PATHS: Record<SeoPage, PublicPath | '/thank-you'> = {
-  home: '/',
-  about: '/about',
-  privacy: '/privacy',
-  thankYou: '/thank-you',
+const PAGE_PATHS: Record<SeoPage, PublicPath | "/thank-you"> = {
+  home: "/",
+  about: "/about",
+  privacy: "/privacy",
+  thankYou: "/thank-you",
 };
 
 export async function buildPageMetadata({
@@ -34,11 +34,11 @@ export async function buildPageMetadata({
   const languages = Object.fromEntries(
     SEO_LOCALES.map((lng) => [lng, absoluteUrl(path, lng)]),
   );
-  languages['x-default'] = absoluteUrl(path, routingDefaultLocale());
+  languages["x-default"] = absoluteUrl(path, routingDefaultLocale());
 
   const metadata: Metadata = {
-    title: t('title'),
-    description: t('description'),
+    title: t("title"),
+    description: t("description"),
     alternates: noindex
       ? undefined
       : {
@@ -46,20 +46,20 @@ export async function buildPageMetadata({
           languages,
         },
     openGraph: {
-      type: 'website',
+      type: "website",
       url: pageUrl,
       siteName: SITE_NAME,
-      title: t('title'),
-      description: t('description'),
+      title: t("title"),
+      description: t("description"),
       locale: OG_LOCALE_MAP[locale],
       alternateLocale: SEO_LOCALES.filter((lng) => lng !== locale).map(
         (lng) => OG_LOCALE_MAP[lng],
       ),
     },
     twitter: {
-      card: 'summary_large_image',
-      title: t('title'),
-      description: t('description'),
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
     },
     robots: noindex ? { index: false, follow: false } : undefined,
   };
@@ -68,5 +68,5 @@ export async function buildPageMetadata({
 }
 
 function routingDefaultLocale(): SeoLocale {
-  return 'es';
+  return "es";
 }

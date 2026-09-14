@@ -1,28 +1,28 @@
-import type { ReactNode } from 'react';
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
-import { notFound } from 'next/navigation';
-import Script from 'next/script';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
-import { routing } from '@/i18n/routing';
-import '@/index.css';
+import type { ReactNode } from "react";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { notFound } from "next/navigation";
+import Script from "next/script";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import "@/index.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 type LocaleLayoutProps = {
@@ -34,7 +34,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+export default async function LocaleLayout({
+  children,
+  params,
+}: LocaleLayoutProps) {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -53,7 +56,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <meta name="theme-color" content="#EDEAF7" />
       </head>
       <body>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18407437332"
           strategy="afterInteractive"

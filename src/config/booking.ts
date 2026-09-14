@@ -3,7 +3,7 @@ const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL;
 function isValidBookingUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
-    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
   } catch {
     return false;
   }
@@ -16,7 +16,7 @@ export function getBookingUrl(): string | null {
   return BOOKING_URL;
 }
 
-export function getPrimaryCtaHref(contactAnchor = '#contact'): string {
+export function getPrimaryCtaHref(contactAnchor = "#contact"): string {
   return getBookingUrl() ?? contactAnchor;
 }
 

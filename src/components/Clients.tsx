@@ -1,16 +1,36 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 /** Logos arrive with clashing backgrounds (white, black, full-bleed colour), so each one
  *  sits in a uniform white chip instead of directly on the lavender section. */
 const clients = [
-  { name: 'Grupo GPI', logo: '/images/logos/gpi.webp', width: 160, height: 52 },
-  { name: 'Seguros Aura', logo: '/images/logos/aura.webp', width: 160, height: 160 },
-  { name: 'Yonex México', logo: '/images/logos/yonex.webp', width: 160, height: 160 },
-  { name: 'Orienta PAE', logo: '/images/logos/orienta.webp', width: 160, height: 160 },
-  { name: 'Corman Sports', logo: '/images/logos/corman.webp', width: 160, height: 160 },
+  { name: "Grupo GPI", logo: "/images/logos/gpi.webp", width: 160, height: 52 },
+  {
+    name: "Seguros Aura",
+    logo: "/images/logos/aura.webp",
+    width: 160,
+    height: 160,
+  },
+  {
+    name: "Yonex México",
+    logo: "/images/logos/yonex.webp",
+    width: 160,
+    height: 160,
+  },
+  {
+    name: "Orienta PAE",
+    logo: "/images/logos/orienta.webp",
+    width: 160,
+    height: 160,
+  },
+  {
+    name: "Corman Sports",
+    logo: "/images/logos/corman.webp",
+    width: 160,
+    height: 160,
+  },
 ];
 
 const half = [...clients, ...clients];
@@ -21,7 +41,9 @@ export default function Clients() {
 
   return (
     <section className="border-y border-ink/[0.07] py-12 sm:py-14">
-      <p className="label mb-8 text-center text-ink-dim">{t('clients.label')}</p>
+      <p className="label mb-8 text-center text-ink-dim">
+        {t("clients.label")}
+      </p>
 
       <div className="mask-fade-x overflow-hidden">
         <div className="flex w-max animate-marquee items-center gap-4 sm:gap-5 motion-reduce:animate-none">

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import {
-  OG_IMAGE_URL,
   OG_LOCALE_MAP,
   SEO_LOCALES,
   SITE_NAME,
@@ -53,7 +52,6 @@ export async function buildPageMetadata({
       siteName: SITE_NAME,
       title: t('title'),
       description: t('description'),
-      images: [{ url: OG_IMAGE_URL }],
       locale: OG_LOCALE_MAP[locale],
       alternateLocale: [OG_LOCALE_MAP[alternateLocale]],
     },
@@ -61,7 +59,6 @@ export async function buildPageMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: [OG_IMAGE_URL],
     },
     robots: noindex ? { index: false, follow: false } : undefined,
   };

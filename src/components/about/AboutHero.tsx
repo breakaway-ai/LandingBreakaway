@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import heroPhoto from '@/assets/imgs/founders-agentic.webp';
+
+const heroPhoto = '/imgs/founders-agentic.webp';
 
 const founders = [
   { roleKey: 'founder1Role', nameKey: 'founder1Name' },

@@ -3,12 +3,10 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import panelPhoto from '@/assets/imgs/panel-agentic.webp';
-import summitPhoto from '@/assets/imgs/summit-descubrete.webp';
 
 const talks = [
   {
-    photo: panelPhoto,
+    photo: '/imgs/panel-agentic.webp',
     width: 1200,
     height: 900,
     altKey: 'talk1Alt',
@@ -18,7 +16,7 @@ const talks = [
     span: 'lg:col-span-3',
   },
   {
-    photo: summitPhoto,
+    photo: '/imgs/summit-descubrete.webp',
     width: 640,
     height: 427,
     altKey: 'talk2Alt',

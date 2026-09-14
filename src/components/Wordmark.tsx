@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import logoImage from '@/assets/logo.webp';
+
+const logoImage = '/logos/logo.webp';
 
 interface WordmarkProps {
   tone?: 'light' | 'dark';
@@ -17,6 +18,8 @@ export default function Wordmark({ tone = 'light' }: WordmarkProps) {
         src={logoImage}
         alt=""
         aria-hidden="true"
+        width={127}
+        height={128}
         className={`h-6 w-auto shrink-0 ${isDark ? '' : 'invert'}`}
       />
       <span

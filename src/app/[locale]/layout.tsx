@@ -50,7 +50,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="theme-color" content="#EDEAF7" />
       </head>
       <body>

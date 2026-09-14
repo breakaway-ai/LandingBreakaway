@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl';
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import boothPhoto from '@/assets/imgs/stage-booth.webp';
+
+const boothPhoto = '/imgs/stage-booth.webp';
 
 export default function AboutCta() {
   const t = useTranslations('aboutPage');

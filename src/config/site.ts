@@ -2,8 +2,6 @@ import { routing, type AppLocale } from '@/i18n/routing';
 
 export const SITE_URL = 'https://breakaway.work';
 export const SITE_NAME = 'Breakaway';
-export const OG_IMAGE_PATH = '/og-image.png';
-export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
 
 export const SEO_LOCALES = routing.locales;
 export type SeoLocale = AppLocale;
@@ -20,7 +18,7 @@ export const ORGANIZATION_JSON_LD = {
   '@type': 'Organization',
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon.svg`,
+  logo: `${SITE_URL}/icon`,
   email: 'general@breakaway.work',
   sameAs: ['https://www.linkedin.com/company/breakawayai'],
 } as const;

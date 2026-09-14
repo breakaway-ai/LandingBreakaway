@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import graduationPhoto from '@/assets/imgs/graduation.webp';
+
+const graduationPhoto = '/imgs/graduation.webp';
 
 const stats = [
   { valueKey: 'storyStat1Value', labelKey: 'storyStat1Label' },

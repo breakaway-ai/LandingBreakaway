@@ -54,7 +54,7 @@ export default function About() {
       </motion.div>
 
       <div className="px-6 md:px-10 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-sm overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-200 rounded-sm overflow-hidden">
           {features.map((feature, i) => (
             <div
               key={feature.titleKey}

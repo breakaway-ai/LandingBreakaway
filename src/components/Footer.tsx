@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import PageContainer from "./PageContainer";
 import Wordmark from "./Wordmark";
 
 export default function Footer() {
@@ -11,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-night">
-      <PageContainer className="border-t border-white/[0.08] py-7">
+      <div className="px-6 md:px-10 max-w-[1400px] mx-auto border-t border-white/[0.08] py-7">
         <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between sm:gap-6">
           <Wordmark tone="dark" />
 
@@ -46,7 +45,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      </PageContainer>
+      </div>
     </footer>
   );
 }

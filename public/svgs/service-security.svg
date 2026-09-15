@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="60" y="55" width="440" height="205" stroke-dasharray="1 4"/>
+  <path d="M 280 82 L 340 108 L 340 158 Q 340 210 280 228 Q 220 210 220 158 L 220 108 Z"/>
+  <rect x="262" y="138" width="36" height="28" rx="2"/>
+  <path d="M 268 138 L 268 128 Q 268 118 280 118 Q 292 118 292 128 L 292 138"/>
+  <line x1="60" y1="228" x2="500" y2="228" stroke-dasharray="1 4"/>
+  <line x1="120" y1="228" x2="120" y2="248"/>
+  <line x1="200" y1="228" x2="200" y2="248"/>
+  <line x1="280" y1="228" x2="280" y2="248"/>
+  <line x1="360" y1="228" x2="360" y2="248"/>
+  <line x1="440" y1="228" x2="440" y2="248"/>
+  <circle cx="120" cy="228" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="200" cy="228" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="280" cy="228" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="360" cy="228" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="440" cy="228" r="4" fill="#0a0a0a" stroke="none"/>
+  <rect x="98" y="98" width="64" height="36" stroke-dasharray="1 4"/>
+  <rect x="398" y="98" width="64" height="36" stroke-dasharray="1 4"/>
+  <path d="M 162 116 L 220 116"/>
+  <path d="M 340 116 L 398 116"/>
+  <circle cx="162" cy="116" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="398" cy="116" r="4" fill="#0a0a0a" stroke="none"/>
+</svg>

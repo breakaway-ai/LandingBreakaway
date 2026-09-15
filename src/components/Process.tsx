@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import PageContainer from "./PageContainer";
 
 const steps = [
   { titleKey: "howItWorks.step1Title", descKey: "howItWorks.step1Description" },
@@ -22,7 +21,7 @@ export default function Process() {
     >
       <div className="pointer-events-none absolute -right-20 top-0 h-[400px] w-[400px] rounded-full bg-white/[0.06] blur-[120px]" />
 
-      <PageContainer className="relative">
+      <div className="relative px-6 md:px-10 max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +67,7 @@ export default function Process() {
             ))}
           </div>
         </div>
-      </PageContainer>
+      </div>
     </section>
   );
 }

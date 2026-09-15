@@ -1,146 +1,174 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
-import PageContainer from "./PageContainer";
 
-interface Service {
-  titleKey: string;
-  descKey: string;
-  tags: string[];
-  tagKeys?: string[];
-  span: string;
-  lifted?: boolean;
-}
-
-const services: Service[] = [
+const services = [
   {
-    titleKey: "services.apiTitle",
-    descKey: "services.apiDesc",
-    tags: ["CRM", "ERP", "WhatsApp", "Webhooks"],
-    span: "sm:col-span-2 lg:col-span-3",
+    titleKey: "services.agentsTitle",
+    descKey: "services.agentsDesc",
+    footerKey: "services.agentsFooter",
+    svg: "/svgs/service-automation.svg",
   },
   {
-    titleKey: "services.aiAgentsTitle",
-    descKey: "services.aiAgentsDesc",
-    tags: [],
-    tagKeys: [
-      "services.tagCapture",
-      "services.tagFollowUp",
-      "services.tagValidation",
-    ],
-    span: "sm:col-span-2 lg:col-span-3",
+    titleKey: "services.automationsTitle",
+    descKey: "services.automationsDesc",
+    footerKey: "services.automationsFooter",
+    svg: "/svgs/service-devops.svg",
   },
   {
-    titleKey: "services.securityTitle",
-    descKey: "services.securityDesc",
-    tags: [],
-    tagKeys: [
-      "services.tagPermissions",
-      "services.tagAudit",
-      "services.tagIsolation",
-    ],
-    span: "sm:col-span-2 lg:col-span-2",
-  },
-  {
-    titleKey: "services.backendTitle",
-    descKey: "services.backendDesc",
-    tags: ["APIs", "Cloud"],
-    span: "sm:col-span-2 lg:col-span-2",
+    titleKey: "services.integrationsTitle",
+    descKey: "services.integrationsDesc",
+    footerKey: "services.integrationsFooter",
+    svg: "/svgs/service-integration.svg",
   },
   {
     titleKey: "services.webTitle",
     descKey: "services.webDesc",
-    tags: [],
-    tagKeys: ["services.tagWeb"],
-    span: "lg:col-span-2",
+    footerKey: "services.webFooter",
+    svg: "/svgs/service-web.svg",
   },
   {
-    titleKey: "services.mobileTitle",
-    descKey: "services.mobileDesc",
-    tags: ["iOS", "Android"],
-    span: "lg:col-span-2",
+    titleKey: "services.appsTitle",
+    descKey: "services.appsDesc",
+    footerKey: "services.appsFooter",
+    svg: "/svgs/service-mobile.svg",
   },
   {
-    titleKey: "services.devopsTitle",
-    descKey: "services.devopsDesc",
-    tags: ["CI/CD"],
-    tagKeys: ["services.tagMonitoring"],
-    span: "sm:col-span-2 lg:col-span-2",
+    titleKey: "services.consultingTitle",
+    descKey: "services.consultingDesc",
+    footerKey: "services.consultingFooter",
+    svg: "/svgs/service-consulting.svg",
+  },
+  {
+    titleKey: "services.trainingTitle",
+    descKey: "services.trainingDesc",
+    footerKey: "services.trainingFooter",
+    svg: "/svgs/service-training.svg",
   },
 ];
 
+const track = [...services, ...services];
+
+/** px per ~60fps frame — ~90s per full loop at 7 cards × 340px */
+const SCROLL_SPEED = 0.55;
+
+type Service = (typeof services)[number];
+
+function ServiceCard({ service, t }: { service: Service; t: ReturnType<typeof useTranslations> }) {
+  return (
+    <article className="flex w-[min(340px,calc(100vw-3rem))] shrink-0 flex-col overflow-hidden rounded-2xl border border-ink/10 bg-background shadow-card">
+      <div className="flex aspect-[4/3] items-center justify-center bg-background-alt p-6 md:p-8">
+        <div className="relative h-full w-full rounded-lg border border-dashed border-ink/15 p-4">
+          <Image
+            src={service.svg}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="340px"
+            className="object-contain p-2"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col gap-3 p-6 md:p-7">
+        <h3 className="font-sans text-base font-semibold leading-snug text-ink">
+          {t(service.titleKey)}
+        </h3>
+        <p className="flex-1 font-sans text-sm leading-relaxed text-muted">
+          {t(service.descKey)}
+        </p>
+        <p className="font-sans text-xs leading-relaxed text-ink/45">
+          {t(service.footerKey)}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export default function Services() {
   const t = useTranslations();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches) return;
+
+    let rafId = 0;
+    let lastTime = 0;
+
+    const tick = (time: number) => {
+      if (!pausedRef.current) {
+        if (lastTime) {
+          const delta = time - lastTime;
+          el.scrollLeft += (delta / 16) * SCROLL_SPEED;
+
+          const half = el.scrollWidth / 2;
+          if (half > 0 && el.scrollLeft >= half) {
+            el.scrollLeft -= half;
+          }
+        }
+        lastTime = time;
+      } else {
+        lastTime = 0;
+      }
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  const pause = () => setPaused(true);
+  const resume = () => setPaused(false);
 
   return (
-    <section
-      id="services"
-      className="relative bg-background-alt/60 py-20 sm:py-24 lg:py-32"
-    >
-      <PageContainer>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
+    <section id="services" className="bg-background-alt/60 py-16 md:py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="px-6 md:px-10 max-w-[1400px] mx-auto mb-10 md:mb-12"
+      >
+        <span className="font-sans text-[10px] uppercase tracking-[0.14em] text-ink/55 sm:text-[11px]">
+          {t("services.label")}
+        </span>
+        <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.25rem)] tracking-[-0.02em] leading-[1.1] mb-4 max-w-[920px]">
+          {t("services.headline")}
+        </h2>
+        <p className="font-sans text-muted text-base leading-relaxed max-w-[680px]">
+          {t("services.sectionSubtitle")}
+        </p>
+      </motion.div>
+
+      <div className="relative mask-fade-x">
+        <div
+          ref={scrollRef}
+          onMouseEnter={pause}
+          onMouseLeave={resume}
+          onTouchStart={pause}
+          onTouchEnd={resume}
+          className="overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          <span className="label text-primary">{t("services.label")}</span>
-          <h2 className="mx-auto mt-5 max-w-2xl text-[1.75rem] leading-[1.15] text-ink sm:text-4xl lg:text-[2.6rem]">
-            {t("services.headline")}
-          </h2>
-          <p className="prose-mono mx-auto mt-5 max-w-xl">
-            {t("services.sectionSubtitle")}
-          </p>
-        </motion.div>
-
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-6">
-          {services.map((service, i) => {
-            const tags = [
-              ...service.tags,
-              ...(service.tagKeys ?? []).map((key) => t(key)),
-            ];
-
-            return (
-              <motion.div
-                key={service.titleKey}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: (i % 3) * 0.08 },
-                }}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.28, ease: "easeOut" },
-                }}
-                viewport={{ once: true }}
-                className={`card card-float flex flex-col p-6 sm:p-7 ${service.span} ${
-                  service.lifted ? "lg:-my-4 lg:shadow-card-lift" : ""
-                }`}
-              >
-                <span className="font-mono text-[11px] text-primary">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-[17px] text-ink">
-                  {t(service.titleKey)}
-                </h3>
-                <p className="prose-mono mt-3 flex-1">{t(service.descKey)}</p>
-
-                {tags.length > 0 && (
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {tags.map((tag) => (
-                      <span key={tag} className="tag">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-            );
-          })}
+          <div className="flex w-max items-stretch gap-4 px-6 md:gap-5 md:px-10">
+            {track.map((service, i) => (
+              <ServiceCard key={`${service.titleKey}-${i}`} service={service} t={t} />
+            ))}
+          </div>
         </div>
-      </PageContainer>
+      </div>
     </section>
   );
 }

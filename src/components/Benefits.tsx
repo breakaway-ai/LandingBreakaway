@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import PageContainer from "./PageContainer";
 
 const benefits = [
   {
@@ -32,7 +31,7 @@ export default function Benefits() {
 
   return (
     <section id="benefits" className="relative py-20 sm:py-24 lg:py-28">
-      <PageContainer>
+      <div className="px-6 md:px-10 max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +71,7 @@ export default function Benefits() {
             </motion.div>
           ))}
         </div>
-      </PageContainer>
+      </div>
     </section>
   );
 }

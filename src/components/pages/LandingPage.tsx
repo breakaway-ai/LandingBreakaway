@@ -5,7 +5,8 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
-import Benefits from "@/components/Benefits";
+import Testimonials from "@/components/Testimonials";
+import CtaSection from "@/components/CtaSection";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
@@ -20,7 +21,8 @@ export default function LandingPage() {
         <About />
         <Services />
         <Process />
-        <Benefits />
+        <Testimonials />
+        <CtaSection />
         <ContactForm />
       </main>
       <Footer />

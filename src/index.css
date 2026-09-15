@@ -75,8 +75,22 @@
   }
 
   .field {
-    @apply w-full rounded-xl bg-night-soft px-4 py-3 text-sm text-white ring-1 ring-white/[0.06] transition
-           placeholder:text-white/25 focus:outline-none focus:ring-2 focus:ring-primary-soft/50
+    @apply w-full rounded-xl bg-white px-4 py-3 text-sm text-ink shadow-sm ring-1 ring-ink/[0.08] transition
+           placeholder:text-ink-dim/60 focus:outline-none focus:ring-2 focus:ring-primary/25
+           disabled:opacity-50;
+  }
+
+  .contact-grid-bg {
+    background-color: #ffffff;
+    background-image:
+      linear-gradient(to right, rgba(21, 17, 34, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(21, 17, 34, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .field-minimal {
+    @apply w-full border-0 border-b border-ink/10 bg-transparent px-0 py-2.5 text-base text-ink transition
+           placeholder:text-ink-dim/45 focus:border-primary focus:outline-none focus:ring-0
            disabled:opacity-50;
   }
 

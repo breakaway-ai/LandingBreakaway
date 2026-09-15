@@ -16,6 +16,14 @@ export function getBookingUrl(): string | null {
   return BOOKING_URL;
 }
 
+export function getScheduleHref(): string | null {
+  return getBookingUrl();
+}
+
+export function hasScheduleUrl(): boolean {
+  return getScheduleHref() !== null;
+}
+
 export function getPrimaryCtaHref(contactAnchor = "#contact"): string {
   return getBookingUrl() ?? contactAnchor;
 }

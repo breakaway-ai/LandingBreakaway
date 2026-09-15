@@ -82,6 +82,11 @@ const config = {
           "0%, 100%": { opacity: "0.55", transform: "scale(0.96)" },
           "50%": { opacity: "0.85", transform: "scale(1.04)" },
         },
+        "whatsapp-ring": {
+          "0%": { transform: "scale(1)", opacity: "0.42" },
+          "70%": { transform: "scale(1.55)", opacity: "0" },
+          "100%": { transform: "scale(1.55)", opacity: "0" },
+        },
       },
       animation: {
         marquee: "marquee 70s linear infinite",
@@ -94,6 +99,7 @@ const config = {
         "spin-slow-reverse": "spin-slow 120s linear infinite reverse",
         "cta-gradient": "cta-gradient 8s linear infinite",
         "cta-glow": "cta-glow 4s ease-in-out infinite",
+        "whatsapp-ring": "whatsapp-ring 2.8s ease-out infinite",
       },
     },
   },

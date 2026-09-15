@@ -1,49 +1,141 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
+import {
+  CONTACT_ADDRESS,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_DISPLAY,
+  LINKEDIN_URL,
+} from "@/config/site";
 import Wordmark from "./Wordmark";
+
+type NavLink = { key: string; id: string } | { key: string; href: "/about" };
+
+const navLinks: NavLink[] = [
+  { key: "nav.services", id: "services" },
+  { key: "nav.process", id: "process" },
+  { key: "nav.testimonials", id: "testimonials" },
+  { key: "nav.about", href: "/about" },
+];
+
+const serviceLinks = [
+  { key: "services.agentsTitle", id: "services" },
+  { key: "services.automationsTitle", id: "services" },
+  { key: "services.integrationsTitle", id: "services" },
+  { key: "services.consultingTitle", id: "services" },
+];
+
+const linkClass =
+  "font-mono text-[11px] text-ink-dim transition-colors hover:text-ink focus-visible:outline-none focus-visible:text-ink";
+
+const headingClass = "label mb-4 text-ink/45";
 
 export default function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+  const onHome = pathname === "/";
+
+  const sectionHref = (id: string) => (onHome ? `#${id}` : `/#${id}`);
 
   return (
-    <footer className="bg-night">
-      <div className="px-6 md:px-10 max-w-[1400px] mx-auto border-t border-white/[0.08] py-7">
-        <div className="flex flex-col items-center gap-5 sm:flex-row sm:justify-between sm:gap-6">
-          <Wordmark tone="dark" />
-
-          <p className="order-3 font-mono text-[11px] text-white/40 sm:order-2">
-            general@breakaway.work
-          </p>
-
-          <div className="order-2 flex items-center gap-4 sm:order-3">
-            <Link
-              href="/privacy"
-              className="font-mono text-[11px] text-white/40 transition-colors hover:text-white"
-            >
-              {t("footer.policy")}
-            </Link>
-            <a
-              href="https://www.linkedin.com/company/breakawayai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/40 transition-colors hover:text-white"
-              aria-label="LinkedIn"
-            >
-              <svg
-                className="h-[18px] w-[18px]"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
-              </svg>
-            </a>
-            <p className="font-mono text-[11px] text-white/40">
-              {t("footer.short", { currentYear })}
+    <footer>
+      <div className="mx-auto max-w-[1400px]  px-6 py-12 md:px-10 md:py-14">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
+          {/* Col 1 — Brand */}
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
+            <Wordmark />
+            <p className="mt-4 max-w-[200px] font-display text-sm font-medium leading-snug text-ink-soft">
+              {t("footer.slogan")}
             </p>
           </div>
+
+          {/* Col 2 — Navigation */}
+          <div>
+            <p className={headingClass}>{t("footer.navTitle")}</p>
+            <ul className="flex flex-col gap-2.5">
+              {navLinks.map((link) => (
+                <li key={link.key}>
+                  <Link
+                    href={"href" in link ? link.href : sectionHref(link.id)}
+                    className={linkClass}
+                  >
+                    {t(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3 — Services */}
+          <div>
+            <p className={headingClass}>{t("footer.servicesTitle")}</p>
+            <ul className="flex flex-col gap-2.5">
+              {serviceLinks.map((link) => (
+                <li key={link.key}>
+                  <Link href={sectionHref(link.id)} className={linkClass}>
+                    {t(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4 — Contact */}
+          <div>
+            <p className={headingClass}>{t("footer.contactTitle")}</p>
+            <ul className="flex flex-col gap-2.5">
+              <li>
+                <a href={`tel:+${CONTACT_PHONE}`} className={linkClass}>
+                  {CONTACT_PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass}>
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  {t("footer.linkedin")}
+                </a>
+              </li>
+              <li>
+                <address className="not-italic font-mono text-[11px] leading-relaxed text-ink-dim">
+                  {CONTACT_ADDRESS.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </address>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 5 — Legal */}
+          <div>
+            <p className={headingClass}>{t("footer.legalTitle")}</p>
+            <ul className="flex flex-col gap-2.5">
+              <li>
+                <Link href="/privacy" className={linkClass}>
+                  {t("footer.policy")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-ink/10 pt-6">
+          <p className="font-mono text-[11px] text-ink/40">
+            {t("footer.copyright", { currentYear })}
+          </p>
         </div>
       </div>
     </footer>

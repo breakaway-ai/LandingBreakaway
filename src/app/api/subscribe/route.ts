@@ -1,31 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const VALID_ROLES = ["owner", "ops", "other"] as const;
-const VALID_PAINS = [
-  "disconnected",
-  "hired_still_drowning",
-  "growth",
-  "key_person",
-  "incident",
-  "other",
-] as const;
-
-const ROLE_LABELS: Record<(typeof VALID_ROLES)[number], string> = {
-  owner: "Dueño / Socio",
-  ops: "Ops / Admin",
-  other: "Otro",
-};
-
-const PAIN_LABELS: Record<(typeof VALID_PAINS)[number], string> = {
-  disconnected: "Herramientas que no hablan entre sí",
-  hired_still_drowning: "Contraté ops y seguimos ahogados",
-  growth: "Crecimos y los procesos no aguantaron",
-  key_person: "Alguien clave se fue y todo se detuvo",
-  incident: "Incidente por proceso manual",
-  other: "Otro",
-};
-
 function escapeHtml(text: unknown): string {
   return String(text ?? "")
     .replace(/&/g, "&amp;")
@@ -36,40 +11,19 @@ function escapeHtml(text: unknown): string {
 
 function buildNotificationHtml({
   name,
-  email,
   company,
-  phone,
-  role,
-  pain,
-  tools,
+  whatsapp,
   message,
 }: {
-  name?: string;
-  email: string;
+  name: string;
   company?: string;
-  phone?: string;
-  role?: string;
-  pain?: string;
-  tools?: string;
-  message?: string;
+  whatsapp: string;
+  message: string;
 }) {
-  const roleLabel =
-    role && VALID_ROLES.includes(role as (typeof VALID_ROLES)[number])
-      ? ROLE_LABELS[role as (typeof VALID_ROLES)[number]]
-      : role;
-  const painLabel =
-    pain && VALID_PAINS.includes(pain as (typeof VALID_PAINS)[number])
-      ? PAIN_LABELS[pain as (typeof VALID_PAINS)[number]]
-      : pain;
-
   const rows = [
     ["Nombre", name],
-    ["Email", email],
     ["Empresa", company],
-    ["Teléfono", phone],
-    ["Rol", roleLabel],
-    ["Motivo", painLabel],
-    ["Herramientas", tools],
+    ["WhatsApp", whatsapp],
     ["Mensaje", message],
   ]
     .filter(([, value]) => value)
@@ -91,33 +45,18 @@ function buildNotificationHtml({
 
 export async function POST(request: Request) {
   try {
-    const { name, email, company, phone, role, pain, tools, message } =
-      await request.json();
+    const { name, company, whatsapp, message } = await request.json();
 
-    if (!email) {
+    if (!name?.trim()) {
       return NextResponse.json(
-        { message: "Email is required" },
+        { message: "Name is required" },
         { status: 400 },
       );
     }
 
-    if (!company?.trim()) {
+    if (!whatsapp?.trim()) {
       return NextResponse.json(
-        { message: "Company is required" },
-        { status: 400 },
-      );
-    }
-
-    if (!role || !VALID_ROLES.includes(role)) {
-      return NextResponse.json(
-        { message: "Valid role is required" },
-        { status: 400 },
-      );
-    }
-
-    if (!pain || !VALID_PAINS.includes(pain)) {
-      return NextResponse.json(
-        { message: "Valid pain/trigger is required" },
+        { message: "WhatsApp is required" },
         { status: 400 },
       );
     }
@@ -138,41 +77,21 @@ export async function POST(request: Request) {
     }
 
     const resend = new Resend(apiKey);
-    const firstName = name?.split(" ")[0] || "";
-    const lastName = name?.split(" ").slice(1).join(" ") || "";
     const fromEmail =
       process.env.RESEND_FROM_EMAIL || "Breakaway <onboarding@resend.dev>";
     const notificationEmail =
       process.env.CONTACT_NOTIFICATION_EMAIL || "general@breakaway.work";
 
-    if (process.env.RESEND_SEGMENT_ID) {
-      const { error: contactError } = await resend.contacts.create({
-        audienceId: process.env.RESEND_SEGMENT_ID,
-        email,
-        firstName,
-        lastName,
-        unsubscribed: false,
-      });
-
-      if (contactError) {
-        console.warn("Resend contact warning:", contactError);
-      }
-    }
-
+    const subjectCompany = company?.trim() || "Sin empresa";
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: fromEmail,
       to: [notificationEmail],
-      replyTo: email,
-      subject: `Nuevo contacto: ${name || email} (${company})`,
+      subject: `Nuevo contacto: ${name.trim()} (${subjectCompany})`,
       html: buildNotificationHtml({
-        name,
-        email,
-        company,
-        phone,
-        role,
-        pain,
-        tools,
-        message,
+        name: name.trim(),
+        company: company?.trim(),
+        whatsapp: whatsapp.trim(),
+        message: message.trim(),
       }),
     });
 

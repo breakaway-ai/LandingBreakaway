@@ -1,78 +1,35 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Check } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
 
-const inputFields = [
-  {
-    name: "name",
-    labelKey: "contactForm.labelName",
-    type: "text",
-    required: true,
-  },
-  {
-    name: "email",
-    labelKey: "contactForm.labelEmail",
-    type: "email",
-    required: true,
-  },
-  {
-    name: "company",
-    labelKey: "contactForm.labelCompany",
-    type: "text",
-    required: true,
-  },
-  {
-    name: "phone",
-    labelKey: "contactForm.labelPhone",
-    type: "tel",
-    required: false,
-  },
-] as const;
-
-const roleOptions = [
-  { value: "owner", labelKey: "contactForm.roleOwner" },
-  { value: "ops", labelKey: "contactForm.roleOps" },
-  { value: "other", labelKey: "contactForm.roleOther" },
-] as const;
-
-const painOptions = [
-  { value: "disconnected", labelKey: "contactForm.painDisconnected" },
-  {
-    value: "hired_still_drowning",
-    labelKey: "contactForm.painHiredStillDrowning",
-  },
-  { value: "growth", labelKey: "contactForm.painGrowth" },
-  { value: "key_person", labelKey: "contactForm.painKeyPerson" },
-  { value: "incident", labelKey: "contactForm.painIncident" },
-  { value: "other", labelKey: "contactForm.painOther" },
+const benefits = [
+  "contactForm.benefit1",
+  "contactForm.benefit2",
+  "contactForm.benefit3",
 ] as const;
 
 type FormData = {
   name: string;
-  email: string;
   company: string;
-  phone: string;
-  role: string;
-  pain: string;
-  tools: string;
+  whatsapp: string;
   message: string;
 };
+
+const labelClassName =
+  "mb-1.5 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-dim/80";
 
 export default function ContactForm() {
   const t = useTranslations();
   const router = useRouter();
+  const prefersReducedMotion = useReducedMotion();
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    email: "",
     company: "",
-    phone: "",
-    role: "",
-    pain: "",
-    tools: "",
+    whatsapp: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -86,9 +43,7 @@ export default function ContactForm() {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -139,202 +94,201 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-night py-20 sm:py-24 lg:py-28"
+      className="contact-grid-bg relative overflow-hidden py-20 sm:py-24 lg:py-28"
     >
-      <div className="pointer-events-none absolute -left-24 bottom-0 h-[420px] w-[420px] rounded-full bg-primary/20 blur-[130px]" />
+      <div className="pointer-events-none absolute -left-32 top-1/4 h-[480px] w-[480px] rounded-full bg-primary/[0.07] blur-[100px]" />
 
-      <div className="relative px-6 md:px-10 max-w-[1400px] mx-auto">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
+      <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="max-w-sm text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
-              {t("contactForm.title")}
+            <h2 className="max-w-lg text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.02em] text-ink">
+              {t("contactForm.titleLead")}{" "}
+              <span className="text-primary">{t("contactForm.titleAccent")}</span>
             </h2>
-            <p className="mt-5 max-w-md font-mono text-xs leading-relaxed text-white/50 sm:text-[12.5px]">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft">
               {t("contactForm.subtitle")}
             </p>
 
-            <div className="mt-8 space-y-3">
-              <p className="font-mono text-[11px] leading-relaxed text-white/45">
-                {t("contactForm.ownerPrompt")}
-              </p>
-              <p className="font-mono text-[11px] leading-relaxed text-white/45">
-                {t("contactForm.opsPrompt")}
-              </p>
-            </div>
-
-            <div className="mt-8 flex flex-col items-start gap-3">
-              <a
-                href="mailto:general@breakaway.work"
-                className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-2.5 font-mono text-[11px] text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-primary-soft" />
-                general@breakaway.work
-              </a>
-            </div>
+            <ul className="mt-8 space-y-3.5">
+              {benefits.map((key) => (
+                <li key={key} className="flex items-center gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-wash">
+                    <Check
+                      size={13}
+                      strokeWidth={2.5}
+                      className="text-primary"
+                      aria-hidden
+                    />
+                  </span>
+                  <span className="text-sm text-ink-soft">{t(key)}</span>
+                </li>
+              ))}
+            </ul>
           </motion.div>
 
-          <motion.form
-            onSubmit={handleSubmit}
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="grid grid-cols-1 gap-5 sm:grid-cols-2"
+            transition={{ delay: 0.08 }}
           >
-            {inputFields.map((field) => (
-              <div key={field.name}>
-                <label
-                  htmlFor={field.name}
-                  className="mb-2 block font-mono text-[11px] text-white/50"
-                >
-                  {t(field.labelKey)}
-                </label>
-                <input
-                  type={field.type}
-                  id={field.name}
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  required={field.required}
-                  disabled={isSubmitting}
-                  className="field"
-                />
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-[28px] bg-white px-6 py-8 shadow-card-lift ring-1 ring-ink/[0.06] sm:px-8 sm:py-9"
+            >
+              <div className="mb-7 text-center">
+                <p className="text-lg font-semibold text-ink">
+                  {t("contactForm.formCardTitle")}
+                </p>
+                <p className="mt-1 text-sm text-ink-dim">
+                  {t("contactForm.formCardSubtitle")}
+                </p>
               </div>
-            ))}
 
-            <div>
-              <label
-                htmlFor="role"
-                className="mb-2 block font-mono text-[11px] text-white/50"
-              >
-                {t("contactForm.labelRole")}
-              </label>
-              <select
-                id="role"
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                className="field"
-              >
-                <option value="" disabled>
-                  —
-                </option>
-                {roleOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {t(option.labelKey)}
-                  </option>
-                ))}
-              </select>
-            </div>
+              <div className="space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className={labelClassName}>
+                      {t("contactForm.labelName")}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      autoComplete="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      disabled={isSubmitting}
+                      placeholder={t("contactForm.placeholderName")}
+                      className="field-minimal"
+                    />
+                  </div>
 
-            <div>
-              <label
-                htmlFor="pain"
-                className="mb-2 block font-mono text-[11px] text-white/50"
-              >
-                {t("contactForm.labelPain")}
-              </label>
-              <select
-                id="pain"
-                name="pain"
-                value={formData.pain}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                className="field"
-              >
-                <option value="" disabled>
-                  —
-                </option>
-                {painOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {t(option.labelKey)}
-                  </option>
-                ))}
-              </select>
-            </div>
+                  <div>
+                    <label htmlFor="whatsapp" className={labelClassName}>
+                      {t("contactForm.labelWhatsapp")}
+                    </label>
+                    <input
+                      type="tel"
+                      id="whatsapp"
+                      name="whatsapp"
+                      autoComplete="tel"
+                      value={formData.whatsapp}
+                      onChange={handleChange}
+                      required
+                      disabled={isSubmitting}
+                      placeholder={t("contactForm.placeholderWhatsapp")}
+                      className="field-minimal"
+                    />
+                  </div>
+                </div>
 
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="tools"
-                className="mb-2 block font-mono text-[11px] text-white/50"
-              >
-                {t("contactForm.labelTools")}
-              </label>
-              <input
-                type="text"
-                id="tools"
-                name="tools"
-                value={formData.tools}
-                onChange={handleChange}
-                disabled={isSubmitting}
-                placeholder={t("contactForm.placeholderTools")}
-                className="field"
-              />
-            </div>
+                <div>
+                  <label htmlFor="company" className={labelClassName}>
+                    {t("contactForm.labelCompany")}
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    autoComplete="organization"
+                    value={formData.company}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                    placeholder={t("contactForm.placeholderCompany")}
+                    className="field-minimal"
+                  />
+                </div>
 
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="message"
-                className="mb-2 block font-mono text-[11px] text-white/50"
-              >
-                {t("contactForm.labelMessage")}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                value={formData.message}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                placeholder={t("contactForm.placeholderMessage")}
-                className="field resize-y"
-              />
-            </div>
+                <div>
+                  <label htmlFor="message" className={labelClassName}>
+                    {t("contactForm.labelMessage")}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={3}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    placeholder={t("contactForm.placeholderMessage")}
+                    className="field-minimal resize-none"
+                  />
+                </div>
+              </div>
 
-            <div className="sm:col-span-2">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {isSubmitting
-                  ? t("contactForm.buttonSubmitting")
-                  : t("contactForm.buttonSubmit")}
-              </button>
+              <div className="mt-7">
+                <div className="relative">
+                  {!isSubmitting && !prefersReducedMotion && (
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 rounded-2xl bg-primary/35 blur-lg animate-cta-glow"
+                    />
+                  )}
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    whileHover={
+                      !isSubmitting && !prefersReducedMotion
+                        ? { y: -2, scale: 1.01 }
+                        : undefined
+                    }
+                    whileTap={
+                      !isSubmitting && !prefersReducedMotion
+                        ? { y: 0, scale: 0.98 }
+                        : undefined
+                    }
+                    animate={
+                      isSubmitting && !prefersReducedMotion
+                        ? { opacity: [1, 0.72, 1] }
+                        : { opacity: 1 }
+                    }
+                    transition={
+                      isSubmitting
+                        ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
+                        : { type: "spring", stiffness: 420, damping: 28 }
+                    }
+                    className="relative w-full rounded-2xl bg-primary px-6 py-4 text-base font-semibold text-white shadow-glow-primary transition-colors hover:bg-primary-bright disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {isSubmitting
+                      ? t("contactForm.buttonSubmitting")
+                      : t("contactForm.buttonSubmit")}
+                  </motion.button>
+                </div>
 
-              {error && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 flex items-center gap-3 rounded-xl bg-red-500/10 p-3.5 text-xs text-red-300 ring-1 ring-red-500/20"
-                >
-                  <AlertCircle size={16} className="shrink-0" />
-                  {error}
-                </motion.div>
-              )}
+                {error && (
+                  <motion.div
+                    role="alert"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 flex items-center gap-3 rounded-xl bg-red-50 p-3.5 text-xs text-red-700 ring-1 ring-red-200"
+                  >
+                    <AlertCircle size={16} className="shrink-0" />
+                    {error}
+                  </motion.div>
+                )}
 
-              <p className="mt-4 font-mono text-[10px] leading-relaxed text-white/35">
-                {t.rich("contactForm.privacyInfo", {
-                  policy: (chunks) => (
-                    <Link
-                      href="/privacy"
-                      className="underline decoration-white/25 underline-offset-2 transition-colors hover:text-white/60"
-                    >
-                      {chunks}
-                    </Link>
-                  ),
-                })}
-              </p>
-            </div>
-          </motion.form>
+                <p className="mt-4 text-center font-mono text-[10px] leading-relaxed text-ink-dim/70">
+                  {t.rich("contactForm.privacyInfo", {
+                    policy: (chunks) => (
+                      <Link
+                        href="/privacy"
+                        className="underline decoration-ink/20 underline-offset-2 transition-colors hover:text-ink"
+                      >
+                        {chunks}
+                      </Link>
+                    ),
+                  })}
+                </p>
+              </div>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

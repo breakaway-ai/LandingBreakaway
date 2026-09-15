@@ -13,7 +13,7 @@ import Wordmark from "./Wordmark";
 const sectionLinks = [
   { key: "nav.services", id: "services" },
   { key: "nav.process", id: "process" },
-  { key: "nav.benefits", id: "benefits" },
+  { key: "nav.testimonials", id: "testimonials" },
 ];
 
 const expandEase = [0.22, 1, 0.36, 1] as const;

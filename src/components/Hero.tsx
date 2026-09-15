@@ -10,7 +10,7 @@ export default function Hero() {
   const t = useTranslations();
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden py-28 sm:py-28">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-24">
       <PageContainer className="relative">
         <div className="flex flex-col items-center text-center">
           <motion.h1
@@ -49,7 +49,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="mt-10 w-full"
+            className="my-10 w-full"
           >
             <AgentConsole />
           </motion.div>

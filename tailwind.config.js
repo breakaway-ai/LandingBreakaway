@@ -10,6 +10,7 @@ const config = {
         ink: "#151122",
         "ink-soft": "#514A63",
         "ink-dim": "#837C96",
+        muted: "#837C96",
         primary: "#6D28D9",
         "primary-bright": "#7C3AED",
         "primary-soft": "#A78BFA",
@@ -83,7 +84,7 @@ const config = {
         },
       },
       animation: {
-        marquee: "marquee 38s linear infinite",
+        marquee: "marquee 70s linear infinite",
         blink: "blink 1.1s steps(1) infinite",
         "orbit-pulse": "orbit-pulse 5s ease-in-out infinite",
         "node-active-pulse": "node-active-pulse 1.4s ease-in-out infinite",

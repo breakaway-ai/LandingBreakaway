@@ -509,7 +509,7 @@ export default function AgentConsole() {
   const orchestratorActive = isOrchestratorActive(activeAgent);
 
   return (
-    <div className="rounded-[22px] bg-night p-5 shadow-console sm:p-6">
+    <div className="rounded-[22px] bg-night p-5 sm:p-6">
       {/* Live control map */}
       <div className="relative h-[190px] overflow-hidden sm:h-[220px]">
         <ControlCenterBackdrop

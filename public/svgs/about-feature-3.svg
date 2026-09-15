@@ -7,14 +7,14 @@
   <line x1="348" y1="205" x2="348" y2="235" stroke-dasharray="1 4"/>
   <line x1="420" y1="205" x2="420" y2="235" stroke-dasharray="1 4"/>
   <line x1="472" y1="205" x2="472" y2="235" stroke-dasharray="1 4"/>
-  <path d="M 96 220 L 384 220"/>
+  <path d="M 96 220 L 384 220" stroke="#7C3AED"/>
   <circle cx="96" cy="220" r="4" fill="#0a0a0a" stroke="none"/>
   <circle cx="204" cy="220" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="276" cy="220" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="276" cy="220" r="4" fill="#7C3AED" stroke="none"/>
   <circle cx="348" cy="220" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="384" cy="220" r="4" fill="#0a0a0a" stroke="none"/>
-  <rect x="330" y="95" width="130" height="72"/>
-  <path d="M 362 131 L 382 151 L 428 105"/>
+  <circle cx="384" cy="220" r="4" fill="#7C3AED" stroke="none"/>
+  <rect x="330" y="95" width="130" height="72" stroke="#7C3AED"/>
+  <path d="M 362 131 L 382 151 L 428 105" stroke="#7C3AED"/>
   <line x1="96" y1="220" x2="96" y2="145" stroke-dasharray="1 4"/>
   <line x1="384" y1="220" x2="395" y2="167" stroke-dasharray="1 4"/>
   <path d="M 110 118 Q 220 95 330 118" stroke-dasharray="1 4"/>

@@ -123,7 +123,7 @@ export default function SuccessPage() {
               {t("ctaHome")}
             </Link>
             <Link
-              href="/#services"
+              href="/services"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-surface px-6 py-3.5 text-sm font-semibold text-ink shadow-card transition-shadow hover:shadow-pill sm:w-auto"
             >
               {t("ctaServices")}

@@ -8,12 +8,12 @@
   <path d="M 140 162 L 235 162"/>
   <path d="M 325 162 L 375 162"/>
   <circle cx="140" cy="162" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="280" cy="162" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="280" cy="162" r="4" fill="#7C3AED" stroke="none"/>
   <circle cx="420" cy="162" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="280" cy="162" r="42"/>
-  <line x1="311" y1="193" x2="338" y2="220"/>
+  <circle cx="280" cy="162" r="42" stroke="#7C3AED"/>
+  <line x1="311" y1="193" x2="338" y2="220" stroke="#7C3AED"/>
   <path d="M 120 95 Q 200 88 280 100 T 440 92"/>
   <circle cx="120" cy="95" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="280" cy="100" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="280" cy="100" r="4" fill="#7C3AED" stroke="none"/>
   <circle cx="440" cy="92" r="4" fill="#0a0a0a" stroke="none"/>
 </svg>

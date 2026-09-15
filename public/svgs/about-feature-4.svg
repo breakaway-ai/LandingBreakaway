@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
   <rect x="60" y="55" width="440" height="205" stroke-dasharray="1 4"/>
   <line x1="60" y1="192" x2="500" y2="192" stroke-dasharray="1 4"/>
-  <rect x="95" y="118" width="88" height="58"/>
+  <rect x="95" y="118" width="88" height="58" stroke="#7C3AED"/>
   <rect x="215" y="108" width="88" height="58" stroke-dasharray="1 4"/>
   <rect x="335" y="98" width="88" height="58" stroke-dasharray="1 4"/>
   <rect x="455" y="88" width="45" height="58" stroke-dasharray="1 4"/>
   <path d="M 183 147 L 215 137"/>
   <path d="M 303 137 L 335 127"/>
   <path d="M 423 127 L 455 117"/>
-  <circle cx="139" cy="147" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="139" cy="147" r="4" fill="#7C3AED" stroke="none"/>
   <circle cx="259" cy="137" r="4" fill="#0a0a0a" stroke="none"/>
   <circle cx="379" cy="127" r="4" fill="#0a0a0a" stroke="none"/>
   <circle cx="477" cy="117" r="4" fill="#0a0a0a" stroke="none"/>
-  <path d="M 139 210 Q 259 185 379 165 T 477 145"/>
-  <circle cx="139" cy="210" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="379" cy="165" r="4" fill="#0a0a0a" stroke="none"/>
+  <path d="M 139 210 Q 259 185 379 165 T 477 145" stroke="#7C3AED"/>
+  <circle cx="139" cy="210" r="4" fill="#7C3AED" stroke="none"/>
+  <circle cx="379" cy="165" r="4" fill="#7C3AED" stroke="none"/>
 </svg>

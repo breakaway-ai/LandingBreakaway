@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
   <rect x="60" y="55" width="440" height="205" stroke-dasharray="1 4"/>
   <rect x="95" y="128" width="78" height="44" stroke-dasharray="1 4"/>
-  <rect x="241" y="118" width="78" height="64"/>
+  <rect x="241" y="118" width="78" height="64" stroke="#7C3AED"/>
   <rect x="387" y="128" width="78" height="44" stroke-dasharray="1 4"/>
   <path d="M 173 150 L 241 150"/>
   <path d="M 319 150 L 387 150"/>
   <circle cx="173" cy="150" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="280" cy="150" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="280" cy="150" r="4" fill="#7C3AED" stroke="none"/>
   <circle cx="387" cy="150" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="280" cy="150" r="18"/>
-  <line x1="292" y1="162" x2="304" y2="174"/>
+  <circle cx="280" cy="150" r="18" stroke="#7C3AED"/>
+  <line x1="292" y1="162" x2="304" y2="174" stroke="#7C3AED"/>
   <rect x="115" y="88" width="48" height="28" stroke-dasharray="1 4"/>
   <rect x="397" y="88" width="48" height="28" stroke-dasharray="1 4"/>
   <path d="M 139 116 L 139 128"/>

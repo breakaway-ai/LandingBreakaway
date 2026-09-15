@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
   <rect x="60" y="55" width="440" height="205" stroke-dasharray="1 4"/>
   <path d="M 200 108 Q 280 78 360 108 Q 380 118 380 138 Q 380 158 360 168 Q 280 198 200 168 Q 180 158 180 138 Q 180 118 200 108 Z" stroke-dasharray="1 4"/>
-  <rect x="130" y="178" width="300" height="14"/>
+  <rect x="130" y="178" width="300" height="14" stroke="#7C3AED"/>
   <rect x="130" y="198" width="300" height="14" stroke-dasharray="1 4"/>
   <rect x="130" y="218" width="300" height="14" stroke-dasharray="1 4"/>
   <line x1="160" y1="185" x2="190" y2="185"/>
   <line x1="160" y1="205" x2="190" y2="205"/>
   <line x1="160" y1="225" x2="190" y2="225"/>
-  <circle cx="280" cy="138" r="4" fill="#0a0a0a" stroke="none"/>
-  <circle cx="280" cy="185" r="4" fill="#0a0a0a" stroke="none"/>
+  <circle cx="280" cy="138" r="4" fill="#7C3AED" stroke="none"/>
+  <circle cx="280" cy="185" r="4" fill="#7C3AED" stroke="none"/>
   <circle cx="280" cy="205" r="4" fill="#0a0a0a" stroke="none"/>
   <circle cx="280" cy="225" r="4" fill="#0a0a0a" stroke="none"/>
-  <path d="M 280 168 L 280 178"/>
+  <path d="M 280 168 L 280 178" stroke="#7C3AED"/>
   <rect x="390" y="118" width="56" height="32" stroke-dasharray="1 4"/>
   <rect x="390" y="168" width="56" height="32" stroke-dasharray="1 4"/>
   <path d="M 360 134 L 390 134"/>

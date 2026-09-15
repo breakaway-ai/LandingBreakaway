@@ -60,12 +60,7 @@ RESEND_SEGMENT_ID=your_audience_id_here
 4. Add the Resend environment variables in **Project Settings → Environment Variables**.
 5. Deploy.
 
-Legacy redirects are handled in `next.config.ts` and `src/proxy.ts`:
-
-- `/nosotros` → `/es/about`
-- `/privacidad` → `/es/privacy`
-- `/gracias` → `/es/thank-you`
-- `?lead=success` → `/[locale]/thank-you`
+The `?lead=success` query redirect is handled in `src/proxy.ts` → `/[locale]/thank-you`.
 
 ## Built With
 

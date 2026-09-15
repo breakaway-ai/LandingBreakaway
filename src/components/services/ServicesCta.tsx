@@ -11,14 +11,11 @@ const primaryButtonClassName =
 const secondaryButtonClassName =
   "inline-flex min-h-14 w-full items-center justify-center rounded-full border border-white/25 bg-white/10 px-10 py-4 text-base font-semibold text-white transition-colors hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-primary sm:w-auto sm:min-h-[3.75rem] sm:px-12 sm:text-lg";
 
-export default function CtaSection() {
+export default function ServicesCta() {
   const t = useTranslations();
 
   return (
-    <section
-      id="cta"
-      className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28"
-    >
+    <section className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28">
       <div className="pointer-events-none absolute -right-20 top-0 h-[400px] w-[400px] rounded-full bg-white/[0.06] blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-24 -left-16 h-[320px] w-[320px] rounded-full bg-primary-soft/20 blur-[100px]" />
 
@@ -38,7 +35,7 @@ export default function CtaSection() {
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-12 sm:flex-row sm:items-center sm:gap-4">
-            <Link href="#contact" className={primaryButtonClassName}>
+            <Link href="/#contact" className={primaryButtonClassName}>
               {t("ctaSection.contactButton")}
             </Link>
             <ScheduleLink className={secondaryButtonClassName}>

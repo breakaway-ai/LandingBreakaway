@@ -12,7 +12,7 @@
     "close": "Cerrar menú"
   },
   "hero": {
-    "title": "Tus procesos operativos,<br></br><highlight>automatizados con agentes de IA.</highlight>",
+    "title": "Tus procesos operativos,<br></br><accent>automatizados con agentes de IA.</accent>",
     "subtitle": "Para firmas que crecieron más rápido que sus procesos. Conectamos tus herramientas, automatizamos lo repetitivo y recuperas horas para facturar.",
     "cta": "Contáctanos",
     "nodeMain": "Orquestador",
@@ -52,14 +52,15 @@
   "about": {
     "label": "Primero el proceso",
     "headline": "El problema no es que falten herramientas —<highlight> es que no hablan entre sí</highlight>",
-    "description1": "En firmas de servicios profesionales, el equipo termina siendo el conector entre hojas de cálculo, correo, WhatsApp, CRM y facturación. Horas no facturables se van en captura manual, seguimiento y conocimiento que vive en la cabeza de una persona.",
-    "description2": "Mapeamos cómo trabaja tu equipo hoy y construimos la integración y automatización que hace que el proceso corra sin que alguien tenga que empujarlo.",
+    "description": "Tu equipo termina siendo el pegamento entre sistemas. Integramos lo que ya usas y automatizamos lo repetitivo.",
     "feature1Title": "Diagnóstico antes de construir",
     "feature1Description": "Empezamos entendiendo el flujo real — no vendemos software genérico ni agentes por moda.",
     "feature2Title": "Integración sin migraciones forzadas",
     "feature2Description": "Conectamos lo que ya usas. Si el proceso necesita una pieza nueva, la construimos — no al revés.",
     "feature3Title": "Entrega útil en semanas",
-    "feature3Description": "El primer resultado llega en 4–6 semanas: un proceso concreto funcionando, no un proyecto interminable."
+    "feature3Description": "El primer resultado llega en 4–6 semanas: un proceso concreto funcionando, no un proyecto interminable.",
+    "feature4Title": "Un proceso abre el siguiente",
+    "feature4Description": "No vendemos reemplazar todo. Automatizamos un flujo, medimos las horas recuperadas y seguimos con el siguiente — misma base, sin empezar de cero."
   },
   "services": {
     "label": "Servicios",

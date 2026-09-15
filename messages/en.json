@@ -12,7 +12,7 @@
     "close": "Close menu"
   },
   "hero": {
-    "title": "Your operational processes,<br></br><highlight>automated with AI agents.</highlight>",
+    "title": "Your operational processes,<br></br><highlight>automated with AI agents.</highlight><accent>automated with AI agents.</accent>",
     "subtitle": "For firms that grew faster than their processes. We connect your tools, automate the repetitive work, and you recover hours to bill.",
     "cta": "Process assessment",
     "nodeMain": "Orchestrator",
@@ -52,14 +52,15 @@
   "about": {
     "label": "Process first",
     "headline": "The problem isn't missing tools —<highlight> it's that they don't talk to each other</highlight>",
-    "description1": "In professional services firms, the team becomes the connector between spreadsheets, email, WhatsApp, CRM, and billing. Non-billable hours go to manual capture, follow-up, and knowledge that lives in one person's head.",
-    "description2": "We map how your team works today and build the integration and automation that makes the process run without someone having to push it.",
+    "description": "Your team becomes the glue between systems. We integrate what you already use and automate the repetitive work.",
     "feature1Title": "Diagnosis before building",
     "feature1Description": "We start by understanding the real workflow — we don't sell generic software or agents for the sake of it.",
     "feature2Title": "Integration without forced migrations",
     "feature2Description": "We connect what you already use. If the process needs a new piece, we build it — not the other way around.",
     "feature3Title": "Useful delivery in weeks",
-    "feature3Description": "The first result arrives in 4–6 weeks: one concrete process running, not an endless project."
+    "feature3Description": "The first result arrives in 4–6 weeks: one concrete process running, not an endless project.",
+    "feature4Title": "One process opens the next",
+    "feature4Description": "We don't sell a platform overhaul. Automate one workflow, measure the hours back, then tackle the next — same stack, no reset."
   },
   "services": {
     "label": "Services",

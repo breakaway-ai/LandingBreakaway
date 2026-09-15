@@ -1,29 +1,7 @@
 "use client";
 
-import { useCallback, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import PageContainer from "./PageContainer";
-
-const MARQUEE_MS = { normal: 70_000, slow: 140_000 };
-
-function setMarqueeSpeed(track: HTMLDivElement | null, slow: boolean) {
-  if (!track) return;
-
-  const anim = track.getAnimations()[0];
-  if (!anim?.effect) return;
-
-  const currentDuration = anim.effect.getTiming().duration as number;
-  const targetDuration = slow ? MARQUEE_MS.slow : MARQUEE_MS.normal;
-  if (currentDuration === targetDuration) return;
-
-  const progress = currentDuration
-    ? Number(anim.currentTime ?? 0) / currentDuration
-    : 0;
-
-  anim.effect.updateTiming({ duration: targetDuration });
-  anim.currentTime = progress * targetDuration;
-}
 
 const clients = [
   {
@@ -77,55 +55,26 @@ const clients = [
 ];
 
 const track = [...clients, ...clients];
-const logoClass =
-  "max-h-full max-w-full object-contain grayscale transition-[filter] duration-300 group-hover/logo:grayscale-0";
 
 export default function Clients() {
   const t = useTranslations();
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const handleMarqueeEnter = useCallback(() => {
-    setMarqueeSpeed(trackRef.current, true);
-  }, []);
-
-  const handleMarqueeLeave = useCallback(() => {
-    setMarqueeSpeed(trackRef.current, false);
-  }, []);
 
   return (
-    <section className="py-4">
-      <PageContainer>
-        <p className="label mb-8 text-center text-muted">
-          {t("clients.label")}
-        </p>
-      </PageContainer>
-
-      <div
-        className="mask-fade-x overflow-hidden"
-        onMouseEnter={handleMarqueeEnter}
-        onMouseLeave={handleMarqueeLeave}
-      >
-        <div
-          ref={trackRef}
-          className="flex w-max animate-marquee items-center gap-12 motion-reduce:animate-none"
-        >
-          {track.map((client, i) => (
-            <span
-              key={`${client.name}-${i}`}
-              className="group/logo flex h-10 w-40 shrink-0 items-center justify-center"
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={client.width}
-                height={client.height}
-                className={logoClass}
-                sizes="160px"
-              />
-            </span>
-          ))}
-        </div>
+    <div className="relative w-full overflow-hidden mb-14">
+      <p className="label mb-8 text-center text-muted">{t("clients.label")}</p>
+      <div className="flex items-center w-max animate-marquee">
+        {track.map((client, i) => (
+          <Image
+            key={`${client.name}-${i}`}
+            src={client.logo}
+            alt={client.name}
+            width={client.width}
+            height={client.height}
+            sizes="160px"
+            className="h-8 w-auto shrink-0 mx-6 opacity-30 grayscale transition-[filter,opacity] duration-300 hover:opacity-100 hover:grayscale-0"
+          />
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

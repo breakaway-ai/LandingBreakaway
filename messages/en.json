@@ -224,12 +224,100 @@
     "subtitle": "From agents and automations to integrations, products, and training — we build around how your business actually works."
   },
   "productPage": {
-    "label": "Product"
+    "label": "Product",
+    "allProducts": "All products"
+  },
+  "productsPage": {
+    "heroLabel": "Products",
+    "headline": "Ready-made products for <highlight>tax and insurance operations</highlight>",
+    "subtitle": "Tools already running in production — appraisals, tax refunds, and insurance quoting automated for firms that can't afford bottlenecks."
   },
   "products": {
-    "example": {
-      "title": "Example product",
-      "description": "Scaffold page for a Breakaway product. Replace with real product content."
+    "avaluosHacendariosTitle": "Property Tax Appraisals",
+    "avaluosHacendariosDesc": "End-to-end platform for property tax appraisals — data capture, calculation, review, and delivery without chasing files in email.",
+    "avaluosHacendariosMenuDesc": "Manage property tax appraisals from capture to delivery without chasing files.",
+    "avaluosHacendariosFooter": "Capture · Calculation · Delivery",
+    "devolucionImpuestosTitle": "Tax Refunds",
+    "devolucionImpuestosDesc": "Automated workflow to identify, prepare, and track tax refunds — with document validation and status visible to the client.",
+    "devolucionImpuestosMenuDesc": "Identify, prepare, and track refunds with visible status.",
+    "devolucionImpuestosFooter": "Validation · SAT · Tracking",
+    "multicotizadorSegurosTitle": "Insurance Multi-Quoter",
+    "multicotizadorSegurosDesc": "Quote across multiple insurers from a single form — side-by-side comparison, proposal PDF, and close tracking in one place.",
+    "multicotizadorSegurosMenuDesc": "Quote multiple insurers from one form with instant comparison.",
+    "multicotizadorSegurosFooter": "Multi-carrier · Comparison · Proposal"
+  },
+  "productDetail": {
+    "avaluosHacendarios": {
+      "metaDescription": "Property Tax Appraisals: end-to-end platform for managing cadastral appraisals from capture to delivery for professional services firms in Mexico.",
+      "heroHeadline": "Property tax appraisals <highlight>without files lost in email</highlight>",
+      "heroSubtitle": "Capture property data, run the calculation, pass review, and deliver the report — with traceability at every step and no single-person bottleneck.",
+      "infoLabel": "What it does",
+      "infoHeadline": "The full file in one workflow",
+      "infoIntro": "Centralizes data capture, calculations, reviews, and delivery — connected to how your team already works, not as a parallel system.",
+      "feature1Title": "Structured capture",
+      "feature1Desc": "Forms by property type and use — cadastral data, comparables, photos, and documents in one file, <highlight>no loose spreadsheets</highlight>.",
+      "feature2Title": "Calculation and review",
+      "feature2Desc": "The system runs calculations per your rules. Reviewers see the full file, leave comments, and approve — <highlight>with change history</highlight>.",
+      "feature3Title": "Delivery and archive",
+      "feature3Desc": "Generates the report in the format you need, notifies the client, and archives the file — <highlight>audit-ready</highlight> if requested.",
+      "deliverablesTitle": "What's included",
+      "deliverable1": "Capture portal for field and office",
+      "deliverable2": "Calculation engine configurable to your methodology",
+      "deliverable3": "Review workflow with comments and approval",
+      "deliverable4": "Report generation and file archive",
+      "idealForTitle": "Ideal when",
+      "idealForDesc": "Every appraisal passes through three people, lives in email and shared folders, and nobody knows the status without asking.",
+      "timelineNote": "First appraisal workflow in production: typically 4–6 weeks.",
+      "ctaHeadline": "How many appraisals get lost in email?",
+      "ctaText": "Tell us how you manage appraisals today. We'll tell you what to automate first."
+    },
+    "devolucionImpuestos": {
+      "metaDescription": "Tax Refunds: automated workflow to identify, prepare, and track tax refunds with document validation for firms in Mexico.",
+      "heroHeadline": "Tax refunds <highlight>with status the client can see</highlight>",
+      "heroSubtitle": "Identify eligible cases, validate documentation, prepare the filing, and track progress — without someone chasing papers or updating spreadsheets by hand.",
+      "infoLabel": "What it does",
+      "infoHeadline": "From diagnosis to acknowledgment, one flow",
+      "infoIntro": "Connects tax review, document collection, filing preparation, and SAT tracking — with visibility for your team and your client.",
+      "feature1Title": "Case detection",
+      "feature1Desc": "Cross-references tax data to identify possible refunds — credits, withholdings, overpayments — and <highlight>prioritizes by amount and impact</highlight>.",
+      "feature2Title": "Document validation",
+      "feature2Desc": "Checklist per refund type. The system validates completeness before preparing the filing — <highlight>fewer rejections for incomplete docs</highlight>.",
+      "feature3Title": "Tracking and notification",
+      "feature3Desc": "Status at every stage: in preparation, filed, under review, paid. Client and team see the same thing — <highlight>no more 'how's mine going?' messages</highlight>.",
+      "deliverablesTitle": "What's included",
+      "deliverable1": "Automated diagnosis of eligible cases",
+      "deliverable2": "Client document upload portal",
+      "deliverable3": "Filing preparation and submission",
+      "deliverable4": "Status dashboard for team and client",
+      "idealForTitle": "Ideal when",
+      "idealForDesc": "Your team prepares refunds manually, the client asks for status every week, and documents arrive incomplete via WhatsApp.",
+      "timelineNote": "First refund workflow in production: typically 4–6 weeks.",
+      "ctaHeadline": "How many refunds are in process without clear status?",
+      "ctaText": "Tell us how you handle refunds today. We'll map the flow and tell you what to automate first."
+    },
+    "multicotizadorSeguros": {
+      "metaDescription": "Insurance Multi-Quoter: quote across multiple carriers from one form with side-by-side comparison and proposal PDF for agents and firms in Mexico.",
+      "heroHeadline": "Multiple insurers, <highlight>one quote</highlight>",
+      "heroSubtitle": "The client fills one form, the system quotes in parallel across insurers, and delivers a side-by-side comparison with a proposal ready to close.",
+      "infoLabel": "What it does",
+      "infoHeadline": "Quoting stopped being copy-paste",
+      "infoIntro": "One form captures what every insurer needs. The multi-quoter queries in parallel, normalizes responses, and presents the comparison — without opening five different portals.",
+      "feature1Title": "Single form",
+      "feature1Desc": "Capture client and risk data once — auto, home, health, whatever you quote — and <highlight>feed every insurer</highlight>.",
+      "feature2Title": "Parallel quoting",
+      "feature2Desc": "Query insurer APIs and portals at the same time. Normalize coverage and premiums so comparison is <highlight>apples to apples</highlight>.",
+      "feature3Title": "Proposal and close",
+      "feature3Desc": "Generate a proposal PDF with the chosen quote, log follow-up, and connect to issuance — <highlight>without re-entering data</highlight> in another system.",
+      "deliverablesTitle": "What's included",
+      "deliverable1": "Configurable form by insurance line",
+      "deliverable2": "Integration with your insurers",
+      "deliverable3": "Side-by-side coverage and premium comparison",
+      "deliverable4": "Proposal PDF generation and close tracking",
+      "idealForTitle": "Ideal when",
+      "idealForDesc": "Your team opens five insurer portals per quote, copies data by hand, and spends hours building a presentable comparison.",
+      "timelineNote": "Multi-quoter with your insurers: typically 5–8 weeks depending on integrations.",
+      "ctaHeadline": "How long does your team take to build a comparison?",
+      "ctaText": "Tell us which insurers you use and how you quote today. We'll propose the minimum multi-quoter that removes the most friction."
     }
   },
   "services": {
@@ -453,6 +541,10 @@
     "services": {
       "title": "Services · Breakaway",
       "description": "AI agents, automations, integrations, web pages, apps, consulting, and training for professional services firms in Mexico."
+    },
+    "products": {
+      "title": "Products · Breakaway",
+      "description": "Property Tax Appraisals, Tax Refunds, and Insurance Multi-Quoter — ready-made products for tax and insurance operations in Mexico."
     },
     "privacy": {
       "title": "Privacy · Breakaway",

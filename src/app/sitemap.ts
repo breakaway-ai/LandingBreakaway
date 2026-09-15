@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { PRODUCTS } from "@/config/products";
 import { SERVICES } from "@/config/services";
 import {
   PUBLIC_PATHS,
@@ -9,12 +10,14 @@ import {
   type SeoLocale,
 } from "@/config/site";
 
-const SERVICE_PATHS = [
+const LOCALIZED_PATHS = [
   "/services",
   ...SERVICES.map((service) => `/services/${service.slug}`),
+  "/products",
+  ...PRODUCTS.map((product) => `/products/${product.slug}`),
 ] as const;
 
-function localizedServiceUrl(path: string, locale: SeoLocale): string {
+function localizedPathUrl(path: string, locale: SeoLocale): string {
   return `${SITE_URL}/${locale}${path}`;
 }
 
@@ -34,8 +37,8 @@ function sitemapEntry({
       languages: Object.fromEntries(
         SEO_LOCALES.map((lng) => [
           lng,
-          path.startsWith("/services")
-            ? localizedServiceUrl(path, lng)
+          LOCALIZED_PATHS.includes(path as (typeof LOCALIZED_PATHS)[number])
+            ? localizedPathUrl(path, lng)
             : absoluteUrl(path as PublicPath, lng),
         ]),
       ),
@@ -57,12 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  for (const path of SERVICE_PATHS) {
+  for (const path of LOCALIZED_PATHS) {
     for (const locale of SEO_LOCALES) {
       entries.push(
         sitemapEntry({
           path,
-          url: localizedServiceUrl(path, locale),
+          url: localizedPathUrl(path, locale),
         }),
       );
     }

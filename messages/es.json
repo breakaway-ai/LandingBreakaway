@@ -224,12 +224,100 @@
     "subtitle": "Desde agentes y automatizaciones hasta integraciones, productos y capacitación — construimos alrededor de cómo funciona tu negocio."
   },
   "productPage": {
-    "label": "Producto"
+    "label": "Producto",
+    "allProducts": "Todos los productos"
+  },
+  "productsPage": {
+    "heroLabel": "Productos",
+    "headline": "Productos listos para <highlight>operaciones fiscales y de seguros</highlight>",
+    "subtitle": "Herramientas que ya corren en producción — avalúos, devoluciones y cotización de seguros automatizados para firmas que no pueden permitirse cuellos de botella."
   },
   "products": {
-    "example": {
-      "title": "Producto de ejemplo",
-      "description": "Página scaffold para un producto de Breakaway. Reemplazar con contenido real del producto."
+    "avaluosHacendariosTitle": "Avalúos Hacendarios",
+    "avaluosHacendariosDesc": "Plataforma para gestionar avalúos hacendarios de punta a punta — captura de datos, cálculo, revisión y entrega sin perseguir expedientes en correo.",
+    "avaluosHacendariosMenuDesc": "Gestiona avalúos hacendarios de captura a entrega sin perseguir expedientes.",
+    "avaluosHacendariosFooter": "Captura · Cálculo · Entrega",
+    "devolucionImpuestosTitle": "Devolución de Impuestos",
+    "devolucionImpuestosDesc": "Flujo automatizado para identificar, preparar y dar seguimiento a devoluciones de impuestos — con validación de documentos y estatus visible para el cliente.",
+    "devolucionImpuestosMenuDesc": "Identifica, prepara y da seguimiento a devoluciones con estatus visible.",
+    "devolucionImpuestosFooter": "Validación · SAT · Seguimiento",
+    "multicotizadorSegurosTitle": "Multicotizador Seguros",
+    "multicotizadorSegurosDesc": "Cotiza en múltiples aseguradoras desde un solo formulario — comparación side-by-side, PDF de propuesta y seguimiento del cierre en un solo lugar.",
+    "multicotizadorSegurosMenuDesc": "Cotiza varias aseguradoras desde un formulario con comparación al instante.",
+    "multicotizadorSegurosFooter": "Multi-aseguradora · Comparación · Propuesta"
+  },
+  "productDetail": {
+    "avaluosHacendarios": {
+      "metaDescription": "Avalúos Hacendarios: plataforma para gestionar avalúos hacendarios de captura a entrega para despachos y firmas de servicios profesionales en México.",
+      "heroHeadline": "Avalúos hacendarios <highlight>sin expedientes en correo</highlight>",
+      "heroSubtitle": "Captura datos del inmueble, corre el cálculo, pasa por revisión y entrega el dictamen — con trazabilidad de cada paso y sin depender de una sola persona.",
+      "infoLabel": "Qué hace",
+      "infoHeadline": "El expediente completo en un flujo",
+      "infoIntro": "Centraliza la captura de información, los cálculos, las revisiones y la entrega del avalúo — conectado a cómo tu equipo ya trabaja, no como un sistema paralelo.",
+      "feature1Title": "Captura estructurada",
+      "feature1Desc": "Formularios por tipo de inmueble y uso — datos catastrales, comparables, fotos y documentos en un solo expediente, <highlight>sin hojas sueltas</highlight>.",
+      "feature2Title": "Cálculo y revisión",
+      "feature2Desc": "El sistema corre el cálculo según tus reglas. El revisor ve el expediente completo, deja comentarios y aprueba — <highlight>con historial de cambios</highlight>.",
+      "feature3Title": "Entrega y archivo",
+      "feature3Desc": "Genera el dictamen en el formato que necesitas, notifica al cliente y archiva el expediente — <highlight>listo para auditoría</highlight> si lo piden.",
+      "deliverablesTitle": "Qué incluye",
+      "deliverable1": "Portal de captura para campo y oficina",
+      "deliverable2": "Motor de cálculo configurable a tu metodología",
+      "deliverable3": "Flujo de revisión con comentarios y aprobación",
+      "deliverable4": "Generación de dictamen y archivo del expediente",
+      "idealForTitle": "Ideal cuando",
+      "idealForDesc": "Cada avalúo pasa por tres personas, vive en correo y carpetas compartidas, y nadie sabe en qué estatus está sin preguntar.",
+      "timelineNote": "Primer flujo de avalúo en producción: típicamente 4–6 semanas.",
+      "ctaHeadline": "¿Cuántos avalúos se pierden en el correo?",
+      "ctaText": "Cuéntanos cómo gestionas avalúos hoy. Te decimos qué se puede automatizar primero."
+    },
+    "devolucionImpuestos": {
+      "metaDescription": "Devolución de Impuestos: flujo automatizado para identificar, preparar y dar seguimiento a devoluciones fiscales con validación de documentos para firmas en México.",
+      "heroHeadline": "Devoluciones de impuestos <highlight>con estatus que el cliente ve</highlight>",
+      "heroSubtitle": "Identifica casos elegibles, valida documentación, prepara el trámite y da seguimiento — sin que alguien persiga papeles ni actualice hojas de cálculo a mano.",
+      "infoLabel": "Qué hace",
+      "infoHeadline": "Del diagnóstico al acuse, en un solo flujo",
+      "infoIntro": "Conecta la revisión fiscal, la recopilación de documentos, la preparación del trámite y el seguimiento ante el SAT — con visibilidad para tu equipo y para el cliente.",
+      "feature1Title": "Detección de casos",
+      "feature1Desc": "Cruza información fiscal para identificar devoluciones posibles — saldos a favor, retenciones, pagos de más — y <highlight>prioriza por monto e impacto</highlight>.",
+      "feature2Title": "Validación documental",
+      "feature2Desc": "Checklist por tipo de devolución. El sistema valida que esté completo antes de preparar el trámite — <highlight>menos rechazos por documentación incompleta</highlight>.",
+      "feature3Title": "Seguimiento y notificación",
+      "feature3Desc": "Estatus en cada etapa: en preparación, presentado, en revisión, pagado. Cliente y equipo ven lo mismo — <highlight>sin mensajes de '¿cómo va lo mío?'</highlight>",
+      "deliverablesTitle": "Qué incluye",
+      "deliverable1": "Diagnóstico automatizado de casos elegibles",
+      "deliverable2": "Portal de carga de documentos para el cliente",
+      "deliverable3": "Preparación y presentación del trámite",
+      "deliverable4": "Dashboard de estatus para equipo y cliente",
+      "idealForTitle": "Ideal cuando",
+      "idealForDesc": "Tu equipo prepara devoluciones a mano, el cliente pregunta cada semana por el estatus, y los documentos llegan incompletos por WhatsApp.",
+      "timelineNote": "Primer flujo de devolución en producción: típicamente 4–6 semanas.",
+      "ctaHeadline": "¿Cuántas devoluciones tienes en trámite sin estatus claro?",
+      "ctaText": "Cuéntanos cómo manejas devoluciones hoy. Mapeamos el flujo y te decimos qué automatizar primero."
+    },
+    "multicotizadorSeguros": {
+      "metaDescription": "Multicotizador Seguros: cotiza en múltiples aseguradoras desde un formulario con comparación side-by-side y propuesta PDF para agentes y firmas en México.",
+      "heroHeadline": "Varias aseguradoras, <highlight>una sola cotización</highlight>",
+      "heroSubtitle": "El cliente llena un formulario, el sistema cotiza en paralelo en múltiples aseguradoras y entrega comparación side-by-side con propuesta lista para cerrar.",
+      "infoLabel": "Qué hace",
+      "infoHeadline": "Cotizar dejó de ser copiar y pegar",
+      "infoIntro": "Un formulario captura lo que necesitan todas las aseguradoras. El multicotizador consulta en paralelo, normaliza las respuestas y presenta la comparación — sin abrir cinco portales distintos.",
+      "feature1Title": "Formulario único",
+      "feature1Desc": "Captura datos del cliente y del riesgo una sola vez — auto, hogar, gastos médicos, lo que cotices — y <highlight>alimenta todas las aseguradoras</highlight>.",
+      "feature2Title": "Cotización en paralelo",
+      "feature2Desc": "Consulta APIs y portales de aseguradoras al mismo tiempo. Normaliza coberturas y primas para que la comparación sea <highlight>manzanas con manzanas</highlight>.",
+      "feature3Title": "Propuesta y cierre",
+      "feature3Desc": "Genera PDF de propuesta con la cotización elegida, registra el seguimiento y conecta al flujo de emisión — <highlight>sin reescribir datos</highlight> en otro sistema.",
+      "deliverablesTitle": "Qué incluye",
+      "deliverable1": "Formulario configurable por ramo de seguro",
+      "deliverable2": "Integración con aseguradoras que uses",
+      "deliverable3": "Comparador side-by-side de coberturas y primas",
+      "deliverable4": "Generación de propuesta PDF y seguimiento de cierre",
+      "idealForTitle": "Ideal cuando",
+      "idealForDesc": "Tu equipo abre cinco portales de aseguradoras por cotización, copia datos a mano y tarda horas en armar una comparación presentable.",
+      "timelineNote": "Multicotizador con tus aseguradoras: típicamente 5–8 semanas según integraciones.",
+      "ctaHeadline": "¿Cuánto tarda tu equipo en armar una comparación?",
+      "ctaText": "Cuéntanos qué aseguradoras usas y cómo cotizas hoy. Te proponemos el multicotizador mínimo que quite más fricción."
     }
   },
   "services": {
@@ -453,6 +541,10 @@
     "services": {
       "title": "Servicios · Breakaway",
       "description": "Agentes IA, automatizaciones, integraciones, páginas web, apps, consultoría y capacitación para firmas de servicios profesionales en México."
+    },
+    "products": {
+      "title": "Productos · Breakaway",
+      "description": "Avalúos Hacendarios, Devolución de Impuestos y Multicotizador Seguros — productos listos para operaciones fiscales y de seguros en México."
     },
     "privacy": {
       "title": "Privacidad · Breakaway",

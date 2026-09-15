@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { motion, type Variants } from "framer-motion";
+import { createProjection, type Box } from "@/lib/iso";
 
 type ProcessAssemblyProps = {
   activeStep: number;
@@ -14,68 +15,13 @@ type ProcessAssemblyProps = {
 /* Projection                                                          */
 /* ------------------------------------------------------------------ */
 
-/** Pixels per board unit. */
-const U = 22;
-const COS = Math.cos(Math.PI / 6);
-/** Flattened dimetric: 0.5 would be true isometric; 0.36 keeps an 18x10
- *  board wide instead of tall. */
-const KY = 0.36;
-const ORIGIN = { x: 374, y: 50 };
+/** 22px per board unit; 0.36 keeps an 18x10 board wide instead of tall. */
+const P = createProjection({ unit: 22, ky: 0.36, origin: { x: 374, y: 50 } });
+const { iso, poly, line, boxFaces, groundEllipse, ellipsePath } = P;
+const U = P.unit;
+const COS = P.cos;
+const KY = P.ky;
 const BOARD = { w: 18, d: 10, t: 0.6 };
-
-type Pt = { X: number; Y: number };
-
-function iso(x: number, y: number, z = 0): Pt {
-  return {
-    X: ORIGIN.x + (x - y) * COS * U,
-    Y: ORIGIN.y + (x + y) * KY * U - z * U,
-  };
-}
-
-const pt = (p: Pt) => `${p.X.toFixed(2)} ${p.Y.toFixed(2)}`;
-const poly = (...pts: Pt[]) => `M${pts.map(pt).join("L")}Z`;
-const line = (...pts: Pt[]) => `M${pts.map(pt).join("L")}`;
-
-type Box = { x: number; y: number; w: number; d: number; h: number; z?: number };
-
-function boxFaces({ x, y, w, d, h, z = 0 }: Box) {
-  return {
-    top: poly(
-      iso(x, y, z + h),
-      iso(x + w, y, z + h),
-      iso(x + w, y + d, z + h),
-      iso(x, y + d, z + h),
-    ),
-    left: poly(
-      iso(x, y + d, z + h),
-      iso(x + w, y + d, z + h),
-      iso(x + w, y + d, z),
-      iso(x, y + d, z),
-    ),
-    right: poly(
-      iso(x + w, y, z + h),
-      iso(x + w, y + d, z + h),
-      iso(x + w, y + d, z),
-      iso(x + w, y, z),
-    ),
-  };
-}
-
-/** A circle of radius r lying on the ground plane projects to an
- *  axis-aligned ellipse. */
-function groundEllipse(x: number, y: number, z: number, r: number) {
-  const c = iso(x, y, z);
-  return {
-    cx: c.X,
-    cy: c.Y,
-    rx: r * Math.SQRT2 * COS * U,
-    ry: r * Math.SQRT2 * KY * U,
-  };
-}
-
-function ellipsePath(cx: number, cy: number, rx: number, ry: number) {
-  return `M${(cx - rx).toFixed(2)} ${cy.toFixed(2)}A${rx} ${ry} 0 1 0 ${(cx + rx).toFixed(2)} ${cy.toFixed(2)}A${rx} ${ry} 0 1 0 ${(cx - rx).toFixed(2)} ${cy.toFixed(2)}Z`;
-}
 
 /* ------------------------------------------------------------------ */
 /* Scene data                                                          */
@@ -95,14 +41,101 @@ type Piece = Box & {
 };
 
 const PIECES: Piece[] = [
-  { id: "hub", kind: "hub", step: 1, order: 0, x: 7.5, y: 3.5, w: 3, d: 3, h: 2.6 },
-  { id: "w1", kind: "worker", step: 2, order: 0, x: 3, y: 2, w: 2, d: 2, h: 1.4, labelIndex: 0 },
-  { id: "w2", kind: "worker", step: 2, order: 1, x: 13, y: 2, w: 2, d: 2, h: 1.4, labelIndex: 1 },
-  { id: "w3", kind: "worker", step: 2, order: 2, x: 3, y: 6, w: 2, d: 2, h: 1.4, labelIndex: 2 },
-  { id: "w4", kind: "worker", step: 2, order: 3, x: 13, y: 6, w: 2, d: 2, h: 1.4, labelIndex: 3 },
-  { id: "crm", kind: "port", step: 3, order: 0, x: 16, y: 4.3, w: 1.6, d: 1.4, h: 0.35, label: "CRM" },
-  { id: "wa", kind: "port", step: 3, order: 1, x: 9.6, y: 8.3, w: 1.6, d: 1.4, h: 0.35, label: "WhatsApp" },
-  { id: "erp", kind: "port", step: 3, order: 2, x: 0.6, y: 8.3, w: 1.6, d: 1.4, h: 0.35, label: "ERP" },
+  {
+    id: "hub",
+    kind: "hub",
+    step: 1,
+    order: 0,
+    x: 7.5,
+    y: 3.5,
+    w: 3,
+    d: 3,
+    h: 2.6,
+  },
+  {
+    id: "w1",
+    kind: "worker",
+    step: 2,
+    order: 0,
+    x: 3,
+    y: 2,
+    w: 2,
+    d: 2,
+    h: 1.4,
+    labelIndex: 0,
+  },
+  {
+    id: "w2",
+    kind: "worker",
+    step: 2,
+    order: 1,
+    x: 13,
+    y: 2,
+    w: 2,
+    d: 2,
+    h: 1.4,
+    labelIndex: 1,
+  },
+  {
+    id: "w3",
+    kind: "worker",
+    step: 2,
+    order: 2,
+    x: 3,
+    y: 6,
+    w: 2,
+    d: 2,
+    h: 1.4,
+    labelIndex: 2,
+  },
+  {
+    id: "w4",
+    kind: "worker",
+    step: 2,
+    order: 3,
+    x: 13,
+    y: 6,
+    w: 2,
+    d: 2,
+    h: 1.4,
+    labelIndex: 3,
+  },
+  {
+    id: "crm",
+    kind: "port",
+    step: 3,
+    order: 0,
+    x: 16,
+    y: 4.3,
+    w: 1.6,
+    d: 1.4,
+    h: 0.35,
+    label: "CRM",
+  },
+  {
+    id: "wa",
+    kind: "port",
+    step: 3,
+    order: 1,
+    x: 9.6,
+    y: 8.3,
+    w: 1.6,
+    d: 1.4,
+    h: 0.35,
+    label: "WhatsApp",
+  },
+  {
+    id: "erp",
+    kind: "port",
+    step: 3,
+    order: 2,
+    x: 0.6,
+    y: 8.3,
+    w: 1.6,
+    d: 1.4,
+    h: 0.35,
+    label: "ERP",
+  },
 ];
 
 /** Painter's algorithm: pieces further back (smaller x + y) draw first. */
@@ -117,14 +150,44 @@ const TRACES = [
   { id: "erp", d: line(iso(8.2, 6.5), iso(8.2, 9), iso(2.2, 9)), order: 2 },
 ];
 
-const FACE_COLORS: Record<Kind | "board", { top: string; left: string; right: string; stroke: string }> = {
-  board: { top: "rgba(255,255,255,0.10)", left: "rgba(91,33,182,0.6)", right: "rgba(46,16,101,0.75)", stroke: "rgba(255,255,255,0.4)" },
-  hub: { top: "#A78BFA", left: "#7C3AED", right: "#4C1D95", stroke: "rgba(255,255,255,0.55)" },
-  worker: { top: "#EDE9FE", left: "#C4B5FD", right: "#A78BFA", stroke: "rgba(255,255,255,0.65)" },
-  port: { top: "#22D3EE", left: "#0891B2", right: "#0E7490", stroke: "rgba(255,255,255,0.5)" },
+const FACE_COLORS: Record<
+  Kind | "board",
+  { top: string; left: string; right: string; stroke: string }
+> = {
+  board: {
+    top: "rgba(255,255,255,0.10)",
+    left: "rgba(91,33,182,0.6)",
+    right: "rgba(46,16,101,0.75)",
+    stroke: "rgba(255,255,255,0.4)",
+  },
+  hub: {
+    top: "#A78BFA",
+    left: "#7C3AED",
+    right: "#4C1D95",
+    stroke: "rgba(255,255,255,0.55)",
+  },
+  worker: {
+    top: "#EDE9FE",
+    left: "#C4B5FD",
+    right: "#A78BFA",
+    stroke: "rgba(255,255,255,0.65)",
+  },
+  port: {
+    top: "#22D3EE",
+    left: "#0891B2",
+    right: "#0E7490",
+    stroke: "rgba(255,255,255,0.5)",
+  },
 };
 
-const BOARD_FACES = boxFaces({ x: 0, y: 0, w: BOARD.w, d: BOARD.d, h: BOARD.t, z: -BOARD.t });
+const BOARD_FACES = boxFaces({
+  x: 0,
+  y: 0,
+  w: BOARD.w,
+  d: BOARD.d,
+  h: BOARD.t,
+  z: -BOARD.t,
+});
 
 const STUDS = Array.from({ length: BOARD.w * BOARD.d }, (_, i) => {
   const x = (i % BOARD.w) + 0.5;
@@ -139,7 +202,12 @@ const RING_PATH = ellipsePath(RING.cx, RING.cy, RING.rx, RING.ry);
 
 /** Scan band sweeps 20 board units along the x axis. */
 const SCAN_TRAVEL = { x: 20 * COS * U, y: 20 * KY * U };
-const SCAN_BAND = poly(iso(-1, 0), iso(-0.2, 0), iso(-0.2, BOARD.d), iso(-1, BOARD.d));
+const SCAN_BAND = poly(
+  iso(-1, 0),
+  iso(-0.2, 0),
+  iso(-0.2, BOARD.d),
+  iso(-1, BOARD.d),
+);
 const SCAN_EDGE = line(iso(-0.2, 0), iso(-0.2, BOARD.d));
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
@@ -216,7 +284,13 @@ function PieceBlock({
             ? { duration: 0 }
             : visible
               ? {
-                  y: { type: "spring", stiffness: 300, damping: 26, mass: 1, delay },
+                  y: {
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 26,
+                    mass: 1,
+                    delay,
+                  },
                   opacity: { duration: 0.2, delay },
                 }
               : {
@@ -225,9 +299,27 @@ function PieceBlock({
                 }
         }
       >
-        <path d={faces.left} fill={colors.left} stroke={colors.stroke} strokeWidth={0.6} strokeLinejoin="round" />
-        <path d={faces.right} fill={colors.right} stroke={colors.stroke} strokeWidth={0.6} strokeLinejoin="round" />
-        <path d={faces.top} fill={colors.top} stroke={colors.stroke} strokeWidth={0.8} strokeLinejoin="round" />
+        <path
+          d={faces.left}
+          fill={colors.left}
+          stroke={colors.stroke}
+          strokeWidth={0.6}
+          strokeLinejoin="round"
+        />
+        <path
+          d={faces.right}
+          fill={colors.right}
+          stroke={colors.stroke}
+          strokeWidth={0.6}
+          strokeLinejoin="round"
+        />
+        <path
+          d={faces.top}
+          fill={colors.top}
+          stroke={colors.stroke}
+          strokeWidth={0.8}
+          strokeLinejoin="round"
+        />
 
         {piece.kind === "hub" && (
           <>
@@ -357,7 +449,10 @@ function Trace({
             pathLength={100}
             strokeDasharray="14 86"
             className="animate-data-flow"
-            style={{ animationDuration: "2.2s", animationDelay: `${order * 0.5}s` }}
+            style={{
+              animationDuration: "2.2s",
+              animationDelay: `${order * 0.5}s`,
+            }}
             fill="none"
             stroke="#fff"
             strokeWidth={2.6}
@@ -373,10 +468,17 @@ function Trace({
 /* Scene                                                               */
 /* ------------------------------------------------------------------ */
 
-const blueprint: Record<"outline" | "faces" | "studs" | "footprints", Variants> = {
+const blueprint: Record<
+  "outline" | "faces" | "studs" | "footprints",
+  Variants
+> = {
   outline: {
     hidden: { pathLength: 0, opacity: 1 },
-    shown: { pathLength: 1, opacity: 1, transition: { duration: 1.1, ease: "easeInOut" } },
+    shown: {
+      pathLength: 1,
+      opacity: 1,
+      transition: { duration: 1.1, ease: "easeInOut" },
+    },
   },
   faces: {
     hidden: { opacity: 0 },
@@ -401,7 +503,11 @@ export default function ProcessAssembly({
   const loop = !staticMode && activeStep >= 4;
   const scanning = !staticMode && activeStep === 0;
   const isVisible = (step: number) => staticMode || activeStep >= step;
-  const narrow = useSyncExternalStore(subscribeNarrow, getNarrow, getNarrowServer);
+  const narrow = useSyncExternalStore(
+    subscribeNarrow,
+    getNarrow,
+    getNarrowServer,
+  );
   const vb = narrow ? VIEWBOX.narrow : VIEWBOX.wide;
 
   return (
@@ -495,7 +601,12 @@ export default function ProcessAssembly({
                 }}
               >
                 <path d={SCAN_BAND} fill="#fff" fillOpacity={0.14} />
-                <path d={SCAN_EDGE} stroke="#fff" strokeOpacity={0.8} strokeWidth={1.4} />
+                <path
+                  d={SCAN_EDGE}
+                  stroke="#fff"
+                  strokeOpacity={0.8}
+                  strokeWidth={1.4}
+                />
               </motion.g>
             </g>
           )}

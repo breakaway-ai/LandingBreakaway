@@ -22,40 +22,10 @@
     "nodeAgent4": "API"
   },
   "console": {
-    "title": "agent.log",
-    "agents": "15 agents",
-    "live": "live",
-    "inbound": "Incoming",
-    "processing": "Agents",
-    "outbound": "Delivered",
     "ports": {
       "email": "Email",
       "billing": "Invoicing",
       "reports": "Reports"
-    },
-    "pool": {
-      "data1": "data-agent · extracts 38 documents",
-      "data2": "data-agent · normalizes 142 records",
-      "data3": "data-agent · validates invoice batch · 98% confidence",
-      "data4": "data-agent · ingests 2.4k rows from ERP",
-      "api1": "api-agent · sync CRM → warehouse",
-      "api2": "api-agent · webhook delivery · 200 OK × 47",
-      "api3": "api-agent · rate limit bypass · queue cleared",
-      "api4": "api-agent · REST bridge · SAP ↔ Shopify",
-      "nlp1": "nlp-agent · classifies 91 tickets",
-      "nlp2": "nlp-agent · sentiment scan · 847 reviews",
-      "nlp3": "nlp-agent · intent routing · 12 queues",
-      "nlp4": "nlp-agent · extracts entities · contract draft",
-      "ops1": "ml-agent · retrains demand model",
-      "ops2": "ops-agent · deploys v2.4 to staging",
-      "ops3": "ops-agent · scales cluster · 3 → 8 nodes",
-      "ops4": "ops-agent · health check · all green",
-      "orch1": "2 exceptions → human review",
-      "orch2": "orchestrator · escalates priority ticket",
-      "orch3": "orchestrator · reassigns workflow · bottleneck cleared",
-      "all1": "cycle complete — 4 m 12 s saved",
-      "all2": "pipeline OK · 6 agents synced",
-      "all3": "SLA met · throughput +23%"
     }
   },
   "about": {
@@ -70,6 +40,18 @@
     "feature3Description": "The first result arrives in 4–6 weeks: one concrete process running, not an endless project.",
     "feature4Title": "One process opens the next",
     "feature4Description": "We don't sell a platform overhaul. Automate one workflow, measure the hours back, then tackle the next — same stack, no reset."
+  },
+  "servicePage": {
+    "label": "Service"
+  },
+  "productPage": {
+    "label": "Product"
+  },
+  "products": {
+    "example": {
+      "title": "Example product",
+      "description": "Scaffold page for a Breakaway product. Replace with real product content."
+    }
   },
   "services": {
     "label": "Services",

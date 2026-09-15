@@ -6,7 +6,7 @@ export const PRODUCTS = [
     descKey: "products.avaluosHacendariosDesc",
     menuDescKey: "products.avaluosHacendariosMenuDesc",
     footerKey: "products.avaluosHacendariosFooter",
-    svg: "/svgs/service-consulting.svg",
+    svg: "/svgs/products/product-avaluos-hacendarios.svg",
   },
   {
     slug: "devolucion-impuestos",
@@ -15,7 +15,7 @@ export const PRODUCTS = [
     descKey: "products.devolucionImpuestosDesc",
     menuDescKey: "products.devolucionImpuestosMenuDesc",
     footerKey: "products.devolucionImpuestosFooter",
-    svg: "/svgs/service-backend.svg",
+    svg: "/svgs/products/product-devolucion-impuestos.svg",
   },
   {
     slug: "multicotizador-seguros",
@@ -24,7 +24,7 @@ export const PRODUCTS = [
     descKey: "products.multicotizadorSegurosDesc",
     menuDescKey: "products.multicotizadorSegurosMenuDesc",
     footerKey: "products.multicotizadorSegurosFooter",
-    svg: "/svgs/service-integration.svg",
+    svg: "/svgs/products/product-multicotizador-seguros.svg",
   },
 ] as const;
 

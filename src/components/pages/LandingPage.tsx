@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Products from "@/components/Products";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import CtaSection from "@/components/CtaSection";
@@ -20,6 +21,7 @@ export default function LandingPage() {
         <Hero />
         <About />
         <Services />
+        <Products />
         <Process />
         <Testimonials />
         <CtaSection />

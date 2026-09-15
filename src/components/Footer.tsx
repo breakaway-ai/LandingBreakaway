@@ -9,12 +9,16 @@ import {
   CONTACT_PHONE_DISPLAY,
   LINKEDIN_URL,
 } from "@/config/site";
+import { PRODUCTS } from "@/config/products";
 import Wordmark from "./Wordmark";
 
-type NavLink = { key: string; id: string } | { key: string; href: "/about" };
+type NavLink =
+  | { key: string; id: string }
+  | { key: string; href: "/about" | "/products" };
 
 const navLinks: NavLink[] = [
   { key: "nav.services", id: "services" },
+  { key: "nav.products", href: "/products" },
   { key: "nav.process", id: "process" },
   { key: "nav.testimonials", id: "testimonials" },
   { key: "nav.about", href: "/about" },
@@ -43,7 +47,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="mx-auto max-w-[1400px]  px-6 py-12 md:px-10 md:py-14">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-6 lg:gap-x-8">
           {/* Col 1 — Brand */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Wordmark />
@@ -83,7 +87,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4 — Contact */}
+          {/* Col 4 — Products */}
+          <div>
+            <p className={headingClass}>{t("footer.productsTitle")}</p>
+            <ul className="flex flex-col gap-2.5">
+              <li>
+                <Link href="/products" className={linkClass}>
+                  {t("nav.allProducts")}
+                </Link>
+              </li>
+              {PRODUCTS.map((product) => (
+                <li key={product.slug}>
+                  <Link href={`/products/${product.slug}`} className={linkClass}>
+                    {t(product.titleKey)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5 — Contact */}
           <div>
             <p className={headingClass}>{t("footer.contactTitle")}</p>
             <ul className="flex flex-col gap-2.5">
@@ -119,7 +142,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 5 — Legal */}
+          {/* Col 6 — Legal */}
           <div>
             <p className={headingClass}>{t("footer.legalTitle")}</p>
             <ul className="flex flex-col gap-2.5">

@@ -6,6 +6,7 @@ import Script from "next/script";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import NavigationScroll from "@/components/NavigationScroll";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import { SITE_URL } from "@/config/site";
@@ -70,6 +71,7 @@ export default async function LocaleLayout({
           <WhatsAppWidget />
         </NextIntlClientProvider>
         <Analytics />
+        <SpeedInsights />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18407437332"
           strategy="afterInteractive"

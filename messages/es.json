@@ -6,6 +6,8 @@
     "about": "Nosotros",
     "services": "Servicios",
     "allServices": "Todos los servicios",
+    "products": "Productos",
+    "allProducts": "Todos los productos",
     "process": "Proceso",
     "testimonials": "Testimonios",
     "cta": "Contáctanos",
@@ -232,6 +234,19 @@
     "headline": "Productos listos para <highlight>operaciones fiscales y de seguros</highlight>",
     "subtitle": "Herramientas que ya corren en producción — avalúos, devoluciones y cotización de seguros automatizados para firmas que no pueden permitirse cuellos de botella."
   },
+  "productsSection": {
+    "label": "Productos",
+    "headline": "Herramientas listas para operaciones fiscales y de seguros",
+    "sectionSubtitle": "Software en producción para avalúos, devoluciones y cotización de seguros — no diapositivas, no prototipos.",
+    "viewAll": "Ver todos los productos"
+  },
+  "productsCta": {
+    "label": "Siguiente paso",
+    "title": "¿Qué producto encaja con tu operación?",
+    "subtitle": "Estas herramientas ya corren en producción. Cuéntanos qué proceso resolver primero — o cómo adaptar un producto a tu firma.",
+    "contactButton": "Contáctanos",
+    "scheduleButton": "Agendar en calendario"
+  },
   "products": {
     "avaluosHacendariosTitle": "Avalúos Hacendarios",
     "avaluosHacendariosDesc": "Plataforma para gestionar avalúos hacendarios de punta a punta — captura de datos, cálculo, revisión y entrega sin perseguir expedientes en correo.",
@@ -283,7 +298,7 @@
       "feature2Title": "Validación documental",
       "feature2Desc": "Checklist por tipo de devolución. El sistema valida que esté completo antes de preparar el trámite — <highlight>menos rechazos por documentación incompleta</highlight>.",
       "feature3Title": "Seguimiento y notificación",
-      "feature3Desc": "Estatus en cada etapa: en preparación, presentado, en revisión, pagado. Cliente y equipo ven lo mismo — <highlight>sin mensajes de '¿cómo va lo mío?'</highlight>",
+      "feature3Desc": "Estatus en cada etapa: en preparación, presentado, en revisión, pagado. Cliente y equipo ven lo mismo — <highlight>sin mensajes de ''¿cómo va lo mío?''</highlight>",
       "deliverablesTitle": "Qué incluye",
       "deliverable1": "Diagnóstico automatizado de casos elegibles",
       "deliverable2": "Portal de carga de documentos para el cliente",
@@ -419,6 +434,7 @@
     "slogan": "Tus procesos, sin que nadie los persiga.",
     "navTitle": "Navegación",
     "servicesTitle": "Servicios",
+    "productsTitle": "Productos",
     "contactTitle": "Contacto",
     "linkedin": "LinkedIn",
     "legalTitle": "Legal",

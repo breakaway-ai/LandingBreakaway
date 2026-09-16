@@ -6,6 +6,8 @@
     "about": "About",
     "services": "Services",
     "allServices": "All services",
+    "products": "Products",
+    "allProducts": "All products",
     "process": "Process",
     "testimonials": "Testimonials",
     "cta": "Contact us",
@@ -232,6 +234,19 @@
     "headline": "Ready-made products for <highlight>tax and insurance operations</highlight>",
     "subtitle": "Tools already running in production — appraisals, tax refunds, and insurance quoting automated for firms that can't afford bottlenecks."
   },
+  "productsSection": {
+    "label": "Products",
+    "headline": "Ready-made tools for tax and insurance operations",
+    "sectionSubtitle": "Production software for appraisals, tax refunds, and insurance quoting — not slides, not prototypes.",
+    "viewAll": "View all products"
+  },
+  "productsCta": {
+    "label": "Next step",
+    "title": "Which product fits your operation?",
+    "subtitle": "These tools already run in production. Tell us which process to solve first — or how to adapt a product to your firm.",
+    "contactButton": "Contact us",
+    "scheduleButton": "Schedule on calendar"
+  },
   "products": {
     "avaluosHacendariosTitle": "Property Tax Appraisals",
     "avaluosHacendariosDesc": "End-to-end platform for property tax appraisals — data capture, calculation, review, and delivery without chasing files in email.",
@@ -283,7 +298,7 @@
       "feature2Title": "Document validation",
       "feature2Desc": "Checklist per refund type. The system validates completeness before preparing the filing — <highlight>fewer rejections for incomplete docs</highlight>.",
       "feature3Title": "Tracking and notification",
-      "feature3Desc": "Status at every stage: in preparation, filed, under review, paid. Client and team see the same thing — <highlight>no more 'how's mine going?' messages</highlight>.",
+      "feature3Desc": "Status at every stage: in preparation, filed, under review, paid. Client and team see the same thing — <highlight>no more ''how''s mine going?'' messages</highlight>.",
       "deliverablesTitle": "What's included",
       "deliverable1": "Automated diagnosis of eligible cases",
       "deliverable2": "Client document upload portal",
@@ -419,6 +434,7 @@
     "slogan": "Your processes, without anyone chasing them.",
     "navTitle": "Navigation",
     "servicesTitle": "Services",
+    "productsTitle": "Products",
     "contactTitle": "Contact",
     "linkedin": "LinkedIn",
     "legalTitle": "Legal",

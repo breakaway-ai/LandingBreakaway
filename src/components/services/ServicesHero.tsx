@@ -13,8 +13,6 @@ export default function ServicesHero() {
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
-      <div className="pointer-events-none absolute -left-40 top-6 h-[440px] w-[440px] rounded-full bg-primary/10 blur-[130px]" />
-
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
         <div className="flex items-center gap-4 sm:gap-6">
           <span className="label shrink-0 text-primary">

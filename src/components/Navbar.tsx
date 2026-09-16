@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSelector from "./LanguageSelector";
 import PrimaryCtaButton from "./PrimaryCtaButton";
@@ -110,14 +110,29 @@ function ServicesNavMenu({
   if (mobile) {
     return (
       <div className="border-b border-ink/10">
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          className="flex w-full py-4 font-display text-2xl font-bold text-ink"
-        >
-          {t("nav.services")}
-        </button>
+        <div className="flex items-center">
+          <Link
+            href="/services"
+            onClick={() => close()}
+            className={`flex flex-1 py-4 font-display text-2xl font-bold ${
+              isActive ? "text-primary" : "text-ink"
+            }`}
+          >
+            {t("nav.services")}
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            aria-label={t("nav.allServices")}
+            className="rounded-full p-3 text-ink transition-colors hover:bg-ink/5"
+          >
+            <ChevronDown
+              size={20}
+              className={`transition-transform ${open ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
         <AnimatePresence initial={false}>
           {open && (
             <motion.div
@@ -235,12 +250,13 @@ function ServicesNavMenu({
         onMouseEnter={openMenu}
         onMouseLeave={scheduleClose}
       >
-        <span
+        <Link
+          href="/services"
           className={`${linkClass} ${isActive ? "text-ink" : ""}`}
           aria-haspopup="true"
         >
           {t("nav.services")}
-        </span>
+        </Link>
       </div>
       {desktopMenu}
     </>
@@ -327,14 +343,29 @@ function ProductsNavMenu({
   if (mobile) {
     return (
       <div className="border-b border-ink/10">
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          className="flex w-full py-4 font-display text-2xl font-bold text-ink"
-        >
-          {t("nav.products")}
-        </button>
+        <div className="flex items-center">
+          <Link
+            href="/products"
+            onClick={() => close()}
+            className={`flex flex-1 py-4 font-display text-2xl font-bold ${
+              isActive ? "text-primary" : "text-ink"
+            }`}
+          >
+            {t("nav.products")}
+          </Link>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            aria-label={t("nav.allProducts")}
+            className="rounded-full p-3 text-ink transition-colors hover:bg-ink/5"
+          >
+            <ChevronDown
+              size={20}
+              className={`transition-transform ${open ? "rotate-180" : ""}`}
+            />
+          </button>
+        </div>
         <AnimatePresence initial={false}>
           {open && (
             <motion.div
@@ -452,12 +483,13 @@ function ProductsNavMenu({
         onMouseEnter={openMenu}
         onMouseLeave={scheduleClose}
       >
-        <span
+        <Link
+          href="/products"
           className={`${linkClass} ${isActive ? "text-ink" : ""}`}
           aria-haspopup="true"
         >
           {t("nav.products")}
-        </span>
+        </Link>
       </div>
       {desktopMenu}
     </>

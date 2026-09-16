@@ -69,7 +69,6 @@ export default function Hero() {
         >
           <AgentConsole />
         </motion.div>
-
         <Clients />
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -13,71 +14,116 @@ const talks = [
     metaKey: "talk1Meta",
     titleKey: "talk1Title",
     descKey: "talk1Desc",
-    span: "lg:col-span-3",
+    href: "https://www.youtube.com/watch?v=N1CC_4Uba9A",
+    linkLabelKey: "talk1LinkLabel",
   },
   {
-    photo: "/images/panel-descubrete.webp",
-    width: 1200,
-    height: 900,
+    photo: "/images/stage-booth.webp",
+    width: 640,
+    height: 427,
     altKey: "talk2Alt",
     metaKey: "talk2Meta",
     titleKey: "talk2Title",
     descKey: "talk2Desc",
-    span: "lg:col-span-2",
+    href: "https://youtu.be/l7K2LU9Pk-s?si=V62t0kJAeAB_DFcw",
+    linkLabelKey: "talk2LinkLabel",
   },
 ];
+
+function TalkCard({
+  talk,
+  index,
+  t,
+}: {
+  talk: (typeof talks)[number];
+  index: number;
+  t: ReturnType<typeof useTranslations<"aboutPage">>;
+}) {
+  const content = (
+    <>
+      <Image
+        src={talk.photo}
+        alt={t(talk.altKey)}
+        width={talk.width}
+        height={talk.height}
+        loading="lazy"
+        className="aspect-[3/2] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+      />
+
+      <div className="flex flex-1 flex-col gap-3 p-6 md:p-7">
+        <span className="font-sans text-[10px] uppercase tracking-[0.14em] text-ink/45 sm:text-[11px]">
+          {t(talk.metaKey)}
+        </span>
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="font-sans text-base font-semibold leading-snug text-ink transition-colors group-hover:text-primary">
+            {t(talk.titleKey)}
+          </h3>
+          {"href" in talk && talk.href ? (
+            <ArrowUpRight
+              size={18}
+              className="mt-0.5 shrink-0 text-ink/25 transition-colors group-hover:text-primary"
+              aria-hidden="true"
+            />
+          ) : null}
+        </div>
+        <p className="flex-1 font-sans text-sm leading-relaxed text-muted">
+          {t(talk.descKey)}
+        </p>
+      </div>
+    </>
+  );
+
+  const cardClassName =
+    "group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-background shadow-card transition-colors hover:border-primary/20 hover:bg-primary-wash/30";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.05 }}
+      className="h-full"
+    >
+      {"href" in talk && talk.href ? (
+        <a
+          href={talk.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t(talk.linkLabelKey!)}
+          className={cardClassName}
+        >
+          {content}
+        </a>
+      ) : (
+        <article className={cardClassName}>{content}</article>
+      )}
+    </motion.div>
+  );
+}
 
 export default function AboutTalks() {
   const t = useTranslations("aboutPage");
 
   return (
-    <section className="relative overflow-hidden bg-primary py-20 sm:py-24 lg:py-28">
-      <div className="pointer-events-none absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-white/[0.06] blur-[120px]" />
+    <section className="bg-background-alt/60 py-16 md:py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="px-6 md:px-10 max-w-[1400px] mx-auto mb-10 md:mb-12"
+      >
+        <span className="font-sans text-[10px] uppercase tracking-[0.14em] text-ink/55 sm:text-[11px]">
+          {t("talksLabel")}
+        </span>
+        <h2 className="font-serif font-light text-[clamp(2rem,4vw,3.25rem)] tracking-[-0.02em] leading-[1.1] mb-4 max-w-[920px]">
+          {t("talksHeadline")}
+        </h2>
+      </motion.div>
 
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <span className="label text-white/60">{t("talksLabel")}</span>
-          <h2 className="mt-5 max-w-sm text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
-            {t("talksHeadline")}
-          </h2>
-        </motion.div>
-
-        <div className="mt-12 grid gap-5 sm:mt-14 lg:grid-cols-5">
+      <div className="px-6 md:px-10 max-w-[1400px] mx-auto">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-5">
           {talks.map((talk, i) => (
-            <motion.article
-              key={talk.titleKey}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0, transition: { delay: i * 0.1 } }}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.28, ease: "easeOut" },
-              }}
-              viewport={{ once: true }}
-              className={`overflow-hidden rounded-[22px] bg-night shadow-console ${talk.span}`}
-            >
-              <Image
-                src={talk.photo}
-                alt={t(talk.altKey)}
-                width={talk.width}
-                height={talk.height}
-                loading="lazy"
-                className="aspect-[3/2] w-full object-cover"
-              />
-
-              <div className="p-6 sm:p-7">
-                <span className="label text-white/35">{t(talk.metaKey)}</span>
-                <h3 className="mt-4 text-[15px] text-white sm:text-base">
-                  {t(talk.titleKey)}
-                </h3>
-                <p className="mt-3 font-mono text-[11px] leading-relaxed text-white/50">
-                  {t(talk.descKey)}
-                </p>
-              </div>
-            </motion.article>
+            <TalkCard key={talk.titleKey} talk={talk} index={i} t={t} />
           ))}
         </div>
       </div>

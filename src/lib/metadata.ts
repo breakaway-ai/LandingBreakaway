@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { getProductBySlug } from "@/config/products";
 import {
   OG_LOCALE_MAP,
   SEO_LOCALES,
   SITE_NAME,
+  absoluteDynamicUrl,
   absoluteUrl,
   type PublicPath,
   type SeoLocale,
 } from "@/config/site";
 
-type SeoPage = "home" | "about" | "contact" | "privacy" | "thankYou";
+type SeoPage =
+  | "home"
+  | "about"
+  | "contact"
+  | "privacy"
+  | "thankYou"
+  | "products";
 
 const PAGE_PATHS: Record<SeoPage, PublicPath | "/thank-you"> = {
   home: "/",
@@ -17,6 +25,7 @@ const PAGE_PATHS: Record<SeoPage, PublicPath | "/thank-you"> = {
   contact: "/contact",
   privacy: "/privacy",
   thankYou: "/thank-you",
+  products: "/products",
 };
 
 export async function buildPageMetadata({
@@ -66,6 +75,57 @@ export async function buildPageMetadata({
   };
 
   return metadata;
+}
+
+export async function buildProductMetadata({
+  locale,
+  slug,
+}: {
+  locale: SeoLocale;
+  slug: string;
+}): Promise<Metadata> {
+  const product = getProductBySlug(slug);
+
+  if (!product) {
+    return {};
+  }
+
+  const path = `/products/${slug}`;
+  const t = await getTranslations({
+    locale,
+    namespace: `seo.products.${slug}`,
+  });
+  const pageUrl = absoluteDynamicUrl(path, locale);
+
+  const languages = Object.fromEntries(
+    SEO_LOCALES.map((lng) => [lng, absoluteDynamicUrl(path, lng)]),
+  );
+  languages["x-default"] = absoluteDynamicUrl(path, routingDefaultLocale());
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: pageUrl,
+      languages,
+    },
+    openGraph: {
+      type: "website",
+      url: pageUrl,
+      siteName: SITE_NAME,
+      title: t("title"),
+      description: t("description"),
+      locale: OG_LOCALE_MAP[locale],
+      alternateLocale: SEO_LOCALES.filter((lng) => lng !== locale).map(
+        (lng) => OG_LOCALE_MAP[lng],
+      ),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
+  };
 }
 
 function routingDefaultLocale(): SeoLocale {

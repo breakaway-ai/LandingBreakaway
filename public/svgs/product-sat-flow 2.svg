@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="20" y="45" width="120" height="90" stroke-dasharray="1 4"/>
+  <line x1="40" y1="75" x2="120" y2="75" stroke-dasharray="1 4"/>
+  <line x1="40" y1="95" x2="100" y2="95" stroke-dasharray="1 4"/>
+  <text x="80" y="68" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">01 PDF</text>
+  <path d="M 140 90 L 195 90"/>
+  <polygon points="195,90 187,85 187,95" fill="#0a0a0a" stroke="none"/>
+  <rect x="205" y="45" width="120" height="90" stroke-dasharray="1 4"/>
+  <line x1="225" y1="72" x2="305" y2="72" stroke-dasharray="1 4"/>
+  <line x1="235" y1="90" x2="285" y2="90" stroke-dasharray="1 4"/>
+  <line x1="245" y1="108" x2="295" y2="108" stroke-dasharray="1 4"/>
+  <text x="265" y="68" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">02 Expediente</text>
+  <path d="M 325 90 L 380 90"/>
+  <polygon points="380,90 372,85 372,95" fill="#0a0a0a" stroke="none"/>
+  <rect x="390" y="45" width="150" height="90" stroke-dasharray="1 4"/>
+  <line x1="410" y1="75" x2="520" y2="75" stroke-dasharray="1 4"/>
+  <line x1="410" y1="95" x2="500" y2="95" stroke-dasharray="1 4"/>
+  <line x1="410" y1="115" x2="480" y2="115" stroke-dasharray="1 4"/>
+  <text x="465" y="68" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">03 Borrador</text>
+</svg>

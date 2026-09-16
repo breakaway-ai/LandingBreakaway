@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="30" y="50" width="130" height="80" stroke-dasharray="1 4"/>
+  <text x="95" y="42" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">01 Catalogo</text>
+  <path d="M 160 90 L 215 90"/>
+  <polygon points="215,90 207,85 207,95" fill="#0a0a0a" stroke="none"/>
+  <rect x="225" y="50" width="130" height="80" stroke-dasharray="1 4"/>
+  <text x="290" y="42" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">02 Checkout</text>
+  <path d="M 355 90 L 410 90"/>
+  <polygon points="410,90 402,85 402,95" fill="#0a0a0a" stroke="none"/>
+  <rect x="420" y="50" width="110" height="80" stroke-dasharray="1 4"/>
+  <text x="475" y="42" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">03 Envio</text>
+</svg>

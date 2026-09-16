@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="60" y="55" width="130" height="90" stroke-dasharray="1 4"/>
+  <rect x="210" y="55" width="130" height="90" stroke-dasharray="1 4"/>
+  <rect x="360" y="55" width="130" height="90" stroke-dasharray="1 4"/>
+  <rect x="60" y="165" width="130" height="90" stroke-dasharray="1 4"/>
+  <rect x="210" y="165" width="130" height="90" stroke-dasharray="1 4"/>
+  <rect x="360" y="165" width="130" height="90" stroke-dasharray="1 4"/>
+  <line x1="75" y1="120" x2="175" y2="120" stroke-dasharray="1 4"/>
+  <line x1="225" y1="120" x2="325" y2="120" stroke-dasharray="1 4"/>
+  <line x1="375" y1="120" x2="475" y2="120" stroke-dasharray="1 4"/>
+  <rect x="85" y="95" width="50" height="14" rx="2"/>
+  <rect x="235" y="95" width="50" height="14" rx="2"/>
+  <rect x="385" y="95" width="50" height="14" rx="2"/>
+  <path d="M 280 270 Q 280 285 295 285"/>
+  <text x="280" y="305" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">RSMA</text>
+</svg>

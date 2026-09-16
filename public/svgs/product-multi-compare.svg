@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="80" y="45" width="400" height="225" stroke-dasharray="1 4"/>
+  <line x1="80" y1="95" x2="480" y2="95"/>
+  <line x1="200" y1="45" x2="200" y2="270"/>
+  <line x1="340" y1="45" x2="340" y2="270"/>
+  <line x1="80" y1="135" x2="480" y2="135" stroke-dasharray="1 4"/>
+  <line x1="80" y1="175" x2="480" y2="175" stroke-dasharray="1 4"/>
+  <line x1="80" y1="215" x2="480" y2="215" stroke-dasharray="1 4"/>
+  <line x1="80" y1="255" x2="480" y2="255" stroke-dasharray="1 4"/>
+  <text x="140" y="78" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">A</text>
+  <text x="270" y="78" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">B</text>
+  <text x="410" y="78" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">C</text>
+  <rect x="105" y="150" width="70" height="18" rx="2"/>
+  <rect x="235" y="150" width="70" height="18" rx="2"/>
+  <rect x="365" y="150" width="70" height="18" rx="2"/>
+</svg>

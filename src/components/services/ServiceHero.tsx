@@ -13,6 +13,7 @@ type ServiceHeroProps = {
 export default function ServiceHero({ service }: ServiceHeroProps) {
   const t = useTranslations();
   const detail = useTranslations(`serviceDetail.${service.detailKey}`);
+  const illustrations = useTranslations("serviceIllustrations");
 
   return (
     <section className="relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
@@ -51,6 +52,7 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
 
           <ServiceIllustration
             src={service.svg}
+            alt={illustrations(service.detailKey)}
             className="aspect-[4/3] lg:order-2 lg:aspect-square"
           />
         </div>

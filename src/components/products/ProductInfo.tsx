@@ -2,17 +2,15 @@
 
 import { Check } from "lucide-react";
 import { useTranslations } from "next-intl";
-import type { Product } from "@/config/products";
-
 type ProductInfoProps = {
-  product: Product;
+  detailKey: string;
 };
 
 const FEATURES = ["feature1", "feature2", "feature3"] as const;
 const DELIVERABLES = ["deliverable1", "deliverable2", "deliverable3", "deliverable4"] as const;
 
-export default function ProductInfo({ product }: ProductInfoProps) {
-  const detail = useTranslations(`productDetail.${product.detailKey}`);
+export default function ProductInfo({ detailKey }: ProductInfoProps) {
+  const detail = useTranslations(`productDetail.${detailKey}`);
 
   return (
     <section className="relative border-t border-ink/10 bg-background-alt/50 py-16 sm:py-20 lg:py-24">

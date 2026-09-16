@@ -48,9 +48,18 @@
     "label": "Servicio",
     "allServices": "Todos los servicios"
   },
+  "serviceIllustrations": {
+    "aiAgents": "Ilustración de agentes de IA conectando CRM, correo y facturación para firmas profesionales",
+    "automations": "Ilustración de automatización de procesos con triggers, reglas y monitoreo de flujos",
+    "integrations": "Ilustración de integraciones CRM, ERP, WhatsApp y facturación entre sistemas",
+    "webPages": "Ilustración de páginas web y portales conectados a procesos de negocio",
+    "apps": "Ilustración de aplicaciones web y móviles integradas al stack operativo",
+    "consulting": "Ilustración de consultoría en mapeo de procesos y automatización",
+    "training": "Ilustración de capacitación en agentes de IA y flujos automatizados"
+  },
   "serviceDetail": {
     "aiAgents": {
-      "metaDescription": "Agentes IA que entienden tu contexto, ejecutan tareas entre CRM, correo y facturación, y mantienen los flujos de servicios profesionales sin seguimientos manuales.",
+      "metaDescription": "Agentes de IA que ejecutan tareas entre CRM, correo y facturación para firmas profesionales en México — sin seguimientos manuales ni copiar y pegar. | Breakaway",
       "heroHeadline": "Agentes que <highlight>ejecutan entre tus sistemas</highlight>",
       "heroSubtitle": "No chatbots por moda — agentes que leen contexto, actúan en las herramientas que ya usas y dejan un registro auditable de cada paso.",
       "infoLabel": "Qué construimos",
@@ -74,7 +83,7 @@
       "ctaText": "Cuéntanos el flujo que nadie quiere heredar. Te decimos si un agente es la solución — o si algo más simple funciona mejor."
     },
     "automations": {
-      "metaDescription": "Automatizaciones de flujo que eliminan copiar y pegar, seguimientos manuales y revisiones repetitivas para firmas de servicios profesionales en México.",
+      "metaDescription": "Automatización de procesos en México: flujos que eliminan copiar y pegar, seguimientos manuales y revisiones repetitivas para firmas profesionales. | Breakaway",
       "heroHeadline": "Flujos que corren <highlight>sin copiar y pegar</highlight>",
       "heroSubtitle": "Triggers, reglas y monitoreo que manejan el trabajo repetitivo — para que tu equipo se enfoque en decisiones de cliente, no en perseguir estatus.",
       "infoLabel": "Qué construimos",
@@ -98,7 +107,7 @@
       "ctaText": "Describe el proceso repetitivo. Mapeamos qué se puede automatizar primero y qué sigue necesitando un humano en el loop."
     },
     "integrations": {
-      "metaDescription": "Conectamos CRM, ERP, hojas de cálculo, correo, WhatsApp y facturación para que la información fluya sin fricción entre las herramientas que tu firma ya usa.",
+      "metaDescription": "Integraciones CRM, ERP, WhatsApp, correo y facturación para firmas profesionales en México — datos sincronizados entre las herramientas que ya usas. | Breakaway",
       "heroHeadline": "Tus herramientas, <highlight>por fin conectadas</highlight>",
       "heroSubtitle": "Conectamos lo que ya usas — CRM, ERP, correo, WhatsApp, hojas de cálculo, facturación — para que los datos se muevan una vez y todos trabajen de la misma fuente.",
       "infoLabel": "Qué construimos",
@@ -122,7 +131,7 @@
       "ctaText": "Cuéntanos dónde se atora la información entre herramientas. Proponemos la integración más pequeña que quite más fricción."
     },
     "webPages": {
-      "metaDescription": "Landing pages, portales internos y sitios para clientes pensados para sostener procesos reales de negocio — no solo para existir.",
+      "metaDescription": "Páginas web y portales conectados a CRM y automatizaciones para firmas profesionales en México — captura leads y dispara flujos reales. | Breakaway",
       "heroHeadline": "Sitios que <highlight>sostienen procesos reales</highlight>",
       "heroSubtitle": "Landing pages, portales para clientes y herramientas internas diseñadas para capturar datos, disparar flujos y conectarse a los sistemas que tu operación ya usa.",
       "infoLabel": "Qué construimos",
@@ -146,7 +155,7 @@
       "ctaText": "Cuéntanos el trabajo que el sitio necesita cumplir. Te proponemos algo útil — no un brochure que nadie visita."
     },
     "apps": {
-      "metaDescription": "Aplicaciones web y móviles custom cuando tu flujo necesita su propia interfaz — diseñadas para conectarse a tu stack y datos existentes.",
+      "metaDescription": "Apps web y móviles conectadas a CRM, ERP y agentes de IA cuando tu flujo necesita su propia interfaz — para firmas en México. | Breakaway",
       "heroHeadline": "Apps propias cuando <highlight>las hojas no alcanzan</highlight>",
       "heroSubtitle": "Aplicaciones web y móviles construidas para flujos que necesitan su propia interfaz — conectadas a tus datos, permisos y las herramientas que ya usas.",
       "infoLabel": "Qué construimos",
@@ -170,7 +179,7 @@
       "ctaText": "Describe qué le cuesta trabajo a tu equipo o clientes hoy. Te decimos si una app vale la pena — o si un arreglo más simple te lleva más rápido."
     },
     "consulting": {
-      "metaDescription": "Mapeo de procesos, priorización de automatización y roadmap práctico que entrega valor en semanas — no un deck de estrategia de seis meses.",
+      "metaDescription": "Consultoría en automatización de procesos: mapeo, priorización y roadmap práctico que entrega valor en semanas para firmas en México. | Breakaway",
       "heroHeadline": "Diagnóstico antes de <highlight>construir cualquier cosa</highlight>",
       "heroSubtitle": "Mapeamos cómo funciona tu operación en la realidad, identificamos qué automatizar primero y definimos un roadmap ejecutable — con respuestas honestas sobre qué aún no vale la pena.",
       "infoLabel": "Qué entregamos",
@@ -194,7 +203,7 @@
       "ctaText": "Agenda una evaluación gratis. Mapeamos un proceso contigo y te decimos con franqueza qué vale construir — y qué no."
     },
     "training": {
-      "metaDescription": "Capacitación práctica para que tu equipo entienda nuevos flujos, herramientas y agentes IA — y pueda operarlos con confianza desde el día uno.",
+      "metaDescription": "Capacitación práctica en agentes de IA, automatizaciones e integraciones para que tu equipo opere nuevos flujos con confianza desde el día uno. | Breakaway",
       "heroHeadline": "Tu equipo, <highlight>operando desde el día uno</highlight>",
       "heroSubtitle": "Talleres prácticos y documentación para que quienes corren tus procesos entiendan las nuevas herramientas, agentes y flujos — no solo quienes los construyeron.",
       "infoLabel": "Qué entregamos",
@@ -231,8 +240,10 @@
   },
   "productsPage": {
     "heroLabel": "Productos",
-    "headline": "Productos listos para <highlight>operaciones fiscales y de seguros</highlight>",
-    "subtitle": "Herramientas que ya corren en producción — avalúos, devoluciones y cotización de seguros automatizados para firmas que no pueden permitirse cuellos de botella."
+    "headline": "Software que construimos para operaciones reales",
+    "subtitle": "Productos propios y plataformas a medida para industrias donde los procesos son complejos, regulados y no toleran errores.",
+    "label": "Productos",
+    "cardLink": "Ver producto"
   },
   "productsSection": {
     "label": "Productos",
@@ -248,18 +259,205 @@
     "scheduleButton": "Agendar en calendario"
   },
   "products": {
-    "avaluosHacendariosTitle": "Avalúos Hacendarios",
-    "avaluosHacendariosDesc": "Plataforma para gestionar avalúos hacendarios de punta a punta — captura de datos, cálculo, revisión y entrega sin perseguir expedientes en correo.",
-    "avaluosHacendariosMenuDesc": "Gestiona avalúos hacendarios de captura a entrega sin perseguir expedientes.",
-    "avaluosHacendariosFooter": "Captura · Cálculo · Entrega",
-    "devolucionImpuestosTitle": "Devolución de Impuestos",
-    "devolucionImpuestosDesc": "Flujo automatizado para identificar, preparar y dar seguimiento a devoluciones de impuestos — con validación de documentos y estatus visible para el cliente.",
-    "devolucionImpuestosMenuDesc": "Identifica, prepara y da seguimiento a devoluciones con estatus visible.",
-    "devolucionImpuestosFooter": "Validación · SAT · Seguimiento",
-    "multicotizadorSegurosTitle": "Multicotizador Seguros",
-    "multicotizadorSegurosDesc": "Cotiza en múltiples aseguradoras desde un solo formulario — comparación side-by-side, PDF de propuesta y seguimiento del cierre en un solo lugar.",
-    "multicotizadorSegurosMenuDesc": "Cotiza varias aseguradoras desde un formulario con comparación al instante.",
-    "multicotizadorSegurosFooter": "Multi-aseguradora · Comparación · Propuesta"
+    "escritos-sat": {
+      "title": "Escritos SAT",
+      "description": "Plataforma de generación de escritos fiscales para despachos contables y legales en México.",
+      "heroSubtitle": "Plataforma de generación de escritos fiscales para despachos",
+      "heroLabel": "Producto",
+      "heroHeadline": "Generación de escritos fiscales,<highlight> sin perseguir carpetas</highlight>",
+      "heroDescription": "Centraliza la operación del despacho: organiza expedientes en OneDrive, responde requerimientos del SAT y redacta borradores de escritos con IA jurídico-fiscal — sin inventar información.",
+      "heroCta": "Solicitar demo",
+      "heroAudience": "Desarrollado para despachos fiscales en México",
+      "problemLabel": "El problema",
+      "problemHeadline": "La información vive en tres lugares y los plazos no esperan",
+      "problemDescription": "OneDrive, Excel y correo se convierten en la fuente de verdad por default. Cuando llega un requerimiento del SAT o hay que presentar un escrito espontáneo de devolución de IVA, el equipo pierde días armando carpetas, rastreando numerales y redactando respuestas a mano.",
+      "featuresLabel": "Capacidades",
+      "featuresHeadline": "Todo el flujo fiscal en una sola plataforma",
+      "feature1Title": "Respuesta a requerimientos",
+      "feature1Description": "Sube el PDF del SAT, extrae numerales automáticamente y genera checklists por anexo — con la estructura de carpetas normativa ya creada.",
+      "feature2Title": "Escritos espontáneos",
+      "feature2Description": "Plantillas alineadas a devoluciones de IVA: actividades gravadas, tasas 16% y 0%, IVA acreditable y documentación de soporte.",
+      "feature3Title": "Sincronización Microsoft 365",
+      "feature3Description": "Integración nativa con OneDrive for Business. El expediente digital en la nube y el estado del trámite siempre coinciden.",
+      "feature4Title": "Borradores con IA fiscal",
+      "feature4Description": "Redacción asistida con tono jurídico-fiscal mexicano. Analiza PDFs de soporte y genera borradores citando evidencia real — sin inventar datos.",
+      "stepsLabel": "Cómo funciona",
+      "stepsHeadline": "De requerimiento a borrador en tres pasos",
+      "step1Title": "Sube el PDF",
+      "step1Description": "Carga el requerimiento del SAT o inicia un escrito espontáneo. La plataforma identifica numerales y tipo de trámite.",
+      "step2Title": "Organiza el expediente",
+      "step2Description": "Se crea la estructura de carpetas en OneDrive y los checklists por numeral — sin trabajo manual de nombrar archivos.",
+      "step3Title": "Genera el borrador",
+      "step3Description": "La IA redacta el escrito citando la documentación de soporte. Revisas, ajustas y guardas directo en el expediente.",
+      "flowPhaseUpload": "PDF",
+      "flowPhaseExpediente": "Expediente",
+      "flowPhaseBorrador": "Borrador",
+      "flowExpediente": "Expediente #1042",
+      "flowRequerimiento": "Requerimiento SAT",
+      "flowNumerales": "Numerales",
+      "flowOneDrive": "OneDrive / Devolución IVA",
+      "flowBorrador": "Borrador IA",
+      "flowListo": "Listo",
+      "flowNumeral1": "Art. 22",
+      "flowNumeral2": "Anexo A",
+      "flowNumeral3": "Anexo B",
+      "ctaLabel": "Siguiente paso",
+      "ctaHeadline": "¿Tu despacho maneja devoluciones de IVA?",
+      "ctaDescription": "Agenda una demo y vemos si Escritos SAT encaja con tu operación — sin compromiso.",
+      "ctaButton": "Solicitar demo"
+    },
+    "multicotizador": {
+      "title": "MultiCotizador",
+      "description": "Plataforma white-label para cotizar, comparar y emitir seguros de auto con múltiples aseguradoras en México.",
+      "heroSubtitle": "Cotizador multi-aseguradora para seguros de auto",
+      "heroLabel": "Producto",
+      "heroHeadline": "Cotiza, compara y emite,<highlight> sin abrir ocho portales</highlight>",
+      "heroDescription": "Un solo formulario consulta las principales aseguradoras de México en paralelo. Tu cliente compara precios lado a lado, descarga el PDF comparativo y emite la póliza en línea — todo desde una plataforma con tu marca.",
+      "heroCta": "Solicitar demo",
+      "heroAudience": "Desarrollado para brokers y agencias de seguros en México",
+      "problemLabel": "El problema",
+      "problemHeadline": "Cotizar auto sigue siendo manual y fragmentado",
+      "problemDescription": "Cada aseguradora tiene su portal, su catálogo de vehículos y su flujo de emisión. El asesor pierde tiempo repitiendo datos, el cliente no compara en igualdad de condiciones y el seguimiento queda repartido entre Excel, correo y WhatsApp.",
+      "featuresLabel": "Capacidades",
+      "featuresHeadline": "Del cotizador a la emisión en una sola plataforma",
+      "feature1Title": "Cotización multi-aseguradora",
+      "feature1Description": "Consulta en paralelo a AXA, GNP, HDI, MAPFRE, Quálitas, Chubb, Zurich, TuMomento y más — con un solo formulario de datos personales, ubicación y vehículo.",
+      "feature2Title": "Comparación lado a lado",
+      "feature2Description": "Grid de cotizaciones con precio, paquete de cobertura y descuentos. Detalle por aseguradora: vigencia, deducibles, suma asegurada y homologación de vehículo cuando los catálogos no coinciden.",
+      "feature3Title": "PDF comparativo y email",
+      "feature3Description": "Genera y descarga el PDF comparativo de todas las cotizaciones. Envío automático por correo con tu branding — listo para compartir con el cliente.",
+      "feature4Title": "White-label y panel admin",
+      "feature4Description": "Logo, colores, copy y hero personalizables. Panel de administración para cotizaciones, emisiones, usuarios, paquetes custom, descuentos y credenciales por aseguradora.",
+      "stepsLabel": "Cómo funciona",
+      "stepsHeadline": "De datos del vehículo a póliza emitida",
+      "step1Title": "Captura los datos",
+      "step1Description": "El cliente o asesor ingresa datos personales, ubicación fiscal, vehículo y plan de cobertura en un flujo guiado de cuatro pasos.",
+      "step2Title": "Compara aseguradoras",
+      "step2Description": "La plataforma consulta todas las aseguradoras conectadas y muestra los resultados en un grid comparativo con precios y coberturas.",
+      "step3Title": "Emite y da seguimiento",
+      "step3Description": "Descarga el PDF, envía por email o inicia la emisión en línea. El panel admin centraliza cotizaciones, emisiones y seguimiento operativo.",
+      "flowFormLabel": "DATOS",
+      "flowPolicyLabel": "POLIZA",
+      "flowQuotes": [
+        "$14,200",
+        "$12,850",
+        "$11,400",
+        "$13,100",
+        "$10,900",
+        "$15,300"
+      ],
+      "flowPhaseDatos": "Datos",
+      "flowPhaseComparar": "Comparar",
+      "flowPhaseEmitir": "Emitir",
+      "flowCotizacion": "Cotización #4821",
+      "flowVehiculo": "Vehículo",
+      "flowPlaca": "Placa",
+      "flowEmitida": "Emitida",
+      "flowPdfLabel": "PDF comparativo",
+      "ctaLabel": "Siguiente paso",
+      "ctaHeadline": "¿Tu agencia cotiza auto con varias aseguradoras?",
+      "ctaDescription": "Agenda una demo y vemos cómo MultiCotizador encaja con tu operación — sin compromiso.",
+      "ctaButton": "Solicitar demo"
+    },
+    "avaluos": {
+      "title": "Avalúos",
+      "description": "Plataforma integral para gestionar avalúos inmobiliarios en México: catastro con IA, comparables, homologación y documentos oficiales en Google Drive.",
+      "heroSubtitle": "Gestión de avalúos inmobiliarios para peritos valuadores",
+      "heroLabel": "Producto",
+      "heroHeadline": "Del catastro al avalúo oficial,<highlight> sin perseguir expedientes</highlight>",
+      "heroDescription": "Centraliza cada trámite: extrae datos catastrales con IA, busca comparables en portales inmobiliarios, homologa valores y genera pre-avalúo, avalúo individual y entrega final — con carpeta y spreadsheet en Google Drive.",
+      "heroCta": "Solicitar demo",
+      "heroAudience": "Desarrollado para despachos y peritos valuadores inmobiliarios en México",
+      "problemLabel": "El problema",
+      "problemHeadline": "El avalúo vive en cinco lugares y el plazo no espera",
+      "problemDescription": "Catastro en capturas, comparables en Inmuebles24 a mano, homologación en Excel, fotos en Drive y el informe en Google Docs. Cada trámite pasa por siete fases sin una sola fuente de verdad ni visibilidad de quién debe actuar en cada paso.",
+      "featuresLabel": "Capacidades",
+      "featuresHeadline": "Todo el flujo de valuación en una sola plataforma",
+      "feature1Title": "Extracción catastral con IA",
+      "feature1Description": "Sube capturas del catastro o Excel; la IA extrae clave catastral, superficies, propietarios y ubicación. Revisas, confirmas y exportas a Google Sheets.",
+      "feature2Title": "Comparables automáticos (RSMA)",
+      "feature2Description": "Búsqueda con IA en Inmuebles24 y Propiedades.com. Un comparable por etiqueta de inmueble, con URL, precio y superficie verificables.",
+      "feature3Title": "Homologación y lista de valores",
+      "feature3Description": "La IA calcula factores de ajuste por área, ubicación, condición y antigüedad. Ajustes manuales individuales o masivos; generación de lista de valores en Drive.",
+      "feature4Title": "Documentos oficiales en Google Docs",
+      "feature4Description": "Pre-avalúo, avalúo individual, folios hacendarios y avalúo final desde plantillas. Carpeta Drive y spreadsheet colaborativo por trámite.",
+      "stepsLabel": "Cómo funciona",
+      "stepsHeadline": "De trámite nuevo a avalúo entregado",
+      "step1Title": "Crea el trámite y extrae catastro",
+      "step1Description": "Registra cliente, prioridad e inmuebles. Sube Excel o capturas; la IA completa datos catastrales y se crea carpeta + spreadsheet en Drive.",
+      "step2Title": "Genera comparables y homologación",
+      "step2Description": "La IA busca comparables de mercado, tú validas, lanza homologación y apruebas la lista de valores preliminar.",
+      "step3Title": "Visita, avalúo y entrega",
+      "step3Description": "Agenda visita de campo, captura valores físicos, fotos y croquis. Genera avalúo individual, folios hacendarios, avalúo final y marca entregado.",
+      "flowPhaseCatastro": "Catastro",
+      "flowPhaseComparables": "Comparables",
+      "flowPhaseEntrega": "Entrega",
+      "flowClaveCatastral": "Clave catastral",
+      "flowTerreno": "Terreno",
+      "flowConstruccion": "Construcción",
+      "flowHomologacion": "Homologación",
+      "flowAvaluoFinal": "Avalúo final",
+      "flowEntregado": "Entregado",
+      "flowTramite": "Trámite #2847",
+      "flowOferta1": "$4.2M",
+      "flowOferta2": "$3.8M",
+      "flowOferta3": "$4.5M",
+      "ctaLabel": "Siguiente paso",
+      "ctaHeadline": "¿Tu despacho gestiona avalúos con comparables manuales?",
+      "ctaDescription": "Agenda una demo y vemos cómo Avalúos encaja con tu operación — sin compromiso.",
+      "ctaButton": "Solicitar demo"
+    },
+    "ecommerce": {
+      "title": "Comercio electrónico",
+      "description": "Plataforma de comercio electrónico con compra, renta y suscripciones: catálogo, carrito mixto, pagos con Stripe, envíos y panel admin completo.",
+      "heroSubtitle": "E-commerce con compra, renta y suscripciones",
+      "heroLabel": "Producto",
+      "heroHeadline": "Vende, renta o suscribe,<highlight> con pagos y envíos integrados</highlight>",
+      "heroDescription": "Catálogo en línea con tres modalidades en un solo carrito. Checkout con Stripe — pagos únicos y suscripciones recurrentes —, dirección de envío, rastreo de entregas mensuales y panel admin para operar ventas, rentas y suscripciones.",
+      "heroCta": "Solicitar demo",
+      "heroAudience": "Desarrollado para negocios con catálogo físico, rentas y consumibles recurrentes",
+      "problemLabel": "El problema",
+      "problemHeadline": "Vender en línea con rentas y suscripciones no debería requerir cinco sistemas",
+      "problemDescription": "WooCommerce no entiende rentas con depósito. Shopify no gestiona envíos mensuales de suscripción. Terminas con catálogo en un lado, pagos en otro, envíos en Excel y rentas en correo — sin una sola fuente de verdad del pedido.",
+      "featuresLabel": "Capacidades",
+      "featuresHeadline": "Del catálogo a la entrega en una sola plataforma",
+      "feature1Title": "Tres modalidades, un carrito",
+      "feature1Description": "Compra directa, renta con depósito y suscripciones mensuales conviven en la misma experiencia — el cliente elige por producto sin salir del flujo.",
+      "feature2Title": "Pagos con Stripe",
+      "feature2Description": "Checkout Sessions con Stripe, suscripciones recurrentes, webhooks automáticos y sincronización de precios con el catálogo — sin reconstruir la lógica de cobro.",
+      "feature3Title": "Envíos y suscripciones",
+      "feature3Description": "Dirección de entrega en checkout, seguimiento por pedido y gestión de envíos mensuales de suscripción con carrier, número de rastreo y estados.",
+      "feature4Title": "Panel admin completo",
+      "feature4Description": "Catálogo, categorías, ventas, rentas con devoluciones, suscripciones, clientes, reportes con gráficas y exportación CSV — todo desde un solo panel.",
+      "stepsLabel": "Cómo funciona",
+      "stepsHeadline": "Del catálogo al pedido entregado",
+      "step1Title": "Explora el catálogo",
+      "step1Description": "El cliente filtra por categoría y elige compra, renta o suscripción por producto. Agrega al carrito — modalidades mixtas en una sola orden.",
+      "step2Title": "Paga con Stripe",
+      "step2Description": "Checkout guiado: datos personales, dirección de envío, documentos de renta si aplica y pago seguro vía Stripe — único o recurrente.",
+      "step3Title": "Gestiona pedidos y envíos",
+      "step3Description": "El cliente sigue pedidos, rentas y envíos de suscripción desde su perfil. El admin opera catálogo, fulfillment y reportes desde el panel.",
+      "flowPhaseCatalogo": "Catálogo",
+      "flowPhaseCheckout": "Checkout",
+      "flowPhaseGestion": "Gestión",
+      "flowPedido": "Pedido #4821",
+      "flowCompra": "Compra",
+      "flowRenta": "Renta",
+      "flowSuscripcion": "Suscripción",
+      "flowStripe": "Pago Stripe",
+      "flowEnvio": "Envío a domicilio",
+      "flowTracking": "Rastreo",
+      "flowEntregado": "Entregado",
+      "flowTotal": "Total",
+      "flowAmount": "$2,450",
+      "flowTrackingNumber": "TRK-4829173",
+      "flowStripeHint": "multi-moneda · suscripciones · webhooks",
+      "flowAdmin": "Panel admin",
+      "ctaLabel": "Siguiente paso",
+      "ctaHeadline": "¿Tu negocio vende, renta o suscribe productos físicos?",
+      "ctaDescription": "Agenda una demo y vemos cómo encaja con tu operación — sin compromiso.",
+      "ctaButton": "Solicitar demo"
+    }
   },
   "productDetail": {
     "avaluosHacendarios": {
@@ -547,8 +745,8 @@
   },
   "seo": {
     "home": {
-      "title": "Breakaway | Integración operativa para firmas de servicios en México",
-      "description": "Conectamos hojas de cálculo, correo, WhatsApp, CRM y facturación para firmas de servicios profesionales en México. Diagnóstico de un proceso sin costo."
+      "title": "Agentes IA para firmas profesionales | Breakaway",
+      "description": "Agentes de IA, automatización de procesos e integraciones CRM, ERP y WhatsApp para firmas profesionales en México. Evaluación sin costo. | Breakaway"
     },
     "about": {
       "title": "Nosotros · Breakaway",
@@ -559,12 +757,28 @@
       "description": "Cuéntanos sobre tu proceso. Te respondemos en menos de 24 horas con los siguientes pasos para integrar tu operación."
     },
     "services": {
-      "title": "Servicios · Breakaway",
-      "description": "Agentes IA, automatizaciones, integraciones, páginas web, apps, consultoría y capacitación para firmas de servicios profesionales en México."
+      "title": "Servicios IA y automatización | Breakaway",
+      "description": "Agentes de IA, automatización de procesos, integraciones CRM/ERP/WhatsApp, apps y consultoría para firmas profesionales en México. | Breakaway"
     },
     "products": {
       "title": "Productos · Breakaway",
-      "description": "Avalúos Hacendarios, Devolución de Impuestos y Multicotizador Seguros — productos listos para operaciones fiscales y de seguros en México."
+      "description": "Software que construimos para operaciones reales: plataformas propias para industrias reguladas y procesos complejos en México.",
+      "escritos-sat": {
+        "title": "Escritos SAT · Generación de escritos fiscales · Breakaway",
+        "description": "Plataforma para despachos contables y legales: respuesta a requerimientos SAT, escritos de devolución de IVA, OneDrive y borradores con IA fiscal."
+      },
+      "multicotizador": {
+        "title": "MultiCotizador · Seguros de auto multi-aseguradora · Breakaway",
+        "description": "Plataforma white-label para brokers: cotización paralela, comparación de precios, PDF comparativo y emisión en línea con las principales aseguradoras de México."
+      },
+      "avaluos": {
+        "title": "Avalúos · Valuación inmobiliaria · Breakaway",
+        "description": "Plataforma para peritos valuadores: catastro con IA, comparables RSMA, homologación, visita de campo y generación de avalúos oficiales en Google Drive."
+      },
+      "ecommerce": {
+        "title": "Comercio electrónico · E-commerce con Stripe · Breakaway",
+        "description": "Plataforma de comercio electrónico: compra, renta y suscripciones, pagos Stripe, envíos a domicilio, rastreo y panel admin para tu negocio."
+      }
     },
     "privacy": {
       "title": "Privacidad · Breakaway",

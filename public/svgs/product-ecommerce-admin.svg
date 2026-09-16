@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="100" y="45" width="360" height="90" stroke-dasharray="1 4"/>
+  <rect x="120" y="65" width="70" height="50" stroke-dasharray="1 4"/>
+  <rect x="210" y="65" width="70" height="50" stroke-dasharray="1 4"/>
+  <rect x="300" y="65" width="70" height="50" stroke-dasharray="1 4"/>
+  <rect x="390" y="65" width="50" height="50" stroke-dasharray="1 4"/>
+  <text x="280" y="38" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">Admin</text>
+</svg>

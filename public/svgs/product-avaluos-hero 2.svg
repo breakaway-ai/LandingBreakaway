@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="50" y="90" width="90" height="120" stroke-dasharray="1 4"/>
+  <line x1="68" y1="115" x2="122" y2="115" stroke-dasharray="1 4"/>
+  <line x1="68" y1="135" x2="122" y2="135" stroke-dasharray="1 4"/>
+  <line x1="68" y1="155" x2="110" y2="155" stroke-dasharray="1 4"/>
+  <rect x="68" y="170" width="50" height="28" rx="2"/>
+  <text x="95" y="108" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">Catastro</text>
+  <path d="M 140 150 L 185 150"/>
+  <polygon points="185,150 177,145 177,155" fill="#0a0a0a" stroke="none"/>
+  <rect x="195" y="70" width="55" height="45" stroke-dasharray="1 4"/>
+  <rect x="260" y="70" width="55" height="45" stroke-dasharray="1 4"/>
+  <rect x="325" y="70" width="55" height="45" stroke-dasharray="1 4"/>
+  <rect x="195" y="125" width="55" height="45" stroke-dasharray="1 4"/>
+  <rect x="260" y="125" width="55" height="45" stroke-dasharray="1 4"/>
+  <rect x="325" y="125" width="55" height="45" stroke-dasharray="1 4"/>
+  <text x="280" y="62" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">Comparables</text>
+  <path d="M 380 150 L 425 150"/>
+  <polygon points="425,150 417,145 417,155" fill="#0a0a0a" stroke="none"/>
+  <rect x="435" y="85" width="75" height="130" stroke-dasharray="1 4"/>
+  <line x1="452" y1="110" x2="493" y2="110" stroke-dasharray="1 4"/>
+  <line x1="452" y1="130" x2="493" y2="130" stroke-dasharray="1 4"/>
+  <line x1="452" y1="150" x2="493" y2="150" stroke-dasharray="1 4"/>
+  <line x1="452" y1="170" x2="493" y2="170" stroke-dasharray="1 4"/>
+  <line x1="452" y1="190" x2="480" y2="190" stroke-dasharray="1 4"/>
+  <text x="472" y="78" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">Avaluo</text>
+</svg>

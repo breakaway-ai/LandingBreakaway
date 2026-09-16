@@ -48,9 +48,18 @@
     "label": "Service",
     "allServices": "All services"
   },
+  "serviceIllustrations": {
+    "aiAgents": "Illustration of AI agents connecting CRM, email, and billing for professional firms",
+    "automations": "Illustration of process automation with triggers, rules, and workflow monitoring",
+    "integrations": "Illustration of CRM, ERP, WhatsApp, and billing integrations between systems",
+    "webPages": "Illustration of web pages and portals connected to business processes",
+    "apps": "Illustration of web and mobile apps integrated with the operational stack",
+    "consulting": "Illustration of process mapping and automation consulting",
+    "training": "Illustration of training on AI agents and automated workflows"
+  },
   "serviceDetail": {
     "aiAgents": {
-      "metaDescription": "AI agents that understand your context, execute tasks across CRM, email, and billing, and keep professional services workflows moving without manual follow-ups.",
+      "metaDescription": "AI agents that execute tasks across CRM, email, and billing for professional services firms in Mexico — no manual follow-ups or copy-paste. | Breakaway",
       "heroHeadline": "Agents that <highlight>execute across your systems</highlight>",
       "heroSubtitle": "Not chatbots for the sake of it — agents that read context, take action in the tools you already use, and leave an auditable trail of every step.",
       "infoLabel": "What we build",
@@ -74,7 +83,7 @@
       "ctaText": "Tell us the workflow nobody wants to inherit. We'll tell you if an agent is the right fit — or if something simpler works better."
     },
     "automations": {
-      "metaDescription": "Workflow automations that eliminate copy-paste, manual follow-ups, and repetitive checks for professional services firms in Mexico.",
+      "metaDescription": "Process automation in Mexico: workflows that eliminate copy-paste, manual follow-ups, and repetitive checks for professional firms. | Breakaway",
       "heroHeadline": "Workflows that run <highlight>without copy-paste</highlight>",
       "heroSubtitle": "Triggers, rules, and monitoring that handle the repetitive work — so your team focuses on client decisions, not chasing status updates.",
       "infoLabel": "What we build",
@@ -98,7 +107,7 @@
       "ctaText": "Describe the repetitive process. We'll map what can be automated first and what still needs a human in the loop."
     },
     "integrations": {
-      "metaDescription": "Connect CRM, ERP, spreadsheets, email, WhatsApp, and billing so information flows without friction between the tools your firm already uses.",
+      "metaDescription": "CRM, ERP, WhatsApp, email, and billing integrations for professional firms in Mexico — data synced across the tools you already use. | Breakaway",
       "heroHeadline": "Your tools, <highlight>finally talking</highlight>",
       "heroSubtitle": "We connect what you already use — CRM, ERP, email, WhatsApp, spreadsheets, billing — so data moves once and everyone works from the same source.",
       "infoLabel": "What we build",
@@ -122,7 +131,7 @@
       "ctaText": "Tell us where data gets stuck between tools. We'll propose the smallest integration that removes the most friction."
     },
     "webPages": {
-      "metaDescription": "Landing pages, internal portals, and client-facing sites built to support real business processes — not just to exist on their own.",
+      "metaDescription": "Web pages and portals connected to CRM and automations for professional firms in Mexico — capture leads and trigger real workflows. | Breakaway",
       "heroHeadline": "Sites that <highlight>support real processes</highlight>",
       "heroSubtitle": "Landing pages, client portals, and internal tools designed to capture data, trigger workflows, and connect to the systems your operation already runs on.",
       "infoLabel": "What we build",
@@ -146,7 +155,7 @@
       "ctaText": "Tell us the job the site needs to perform. We'll scope something useful — not a brochure nobody visits."
     },
     "apps": {
-      "metaDescription": "Custom web and mobile applications when your workflow needs its own interface — designed to plug into your existing stack and data.",
+      "metaDescription": "Web and mobile apps connected to CRM, ERP, and AI agents when your workflow needs its own interface — for firms in Mexico. | Breakaway",
       "heroHeadline": "Custom apps when <highlight>spreadsheets aren't enough</highlight>",
       "heroSubtitle": "Web and mobile applications built for workflows that need their own interface — connected to your data, your permissions, and the tools you already use.",
       "infoLabel": "What we build",
@@ -170,7 +179,7 @@
       "ctaText": "Describe what your team or clients struggle to do today. We'll tell you if an app is warranted — or if a simpler fix gets you there faster."
     },
     "consulting": {
-      "metaDescription": "Process mapping, automation prioritization, and a practical roadmap that delivers value in weeks — not a six-month strategy deck.",
+      "metaDescription": "Process automation consulting: mapping, prioritization, and a practical roadmap that delivers value in weeks for firms in Mexico. | Breakaway",
       "heroHeadline": "Diagnosis before <highlight>building anything</highlight>",
       "heroSubtitle": "We map how your operation actually works, identify what to automate first, and define a roadmap you can execute — with honest answers about what isn't worth it yet.",
       "infoLabel": "What we deliver",
@@ -194,7 +203,7 @@
       "ctaText": "Book a free assessment. We'll map one process with you and tell you frankly what's worth building — and what isn't."
     },
     "training": {
-      "metaDescription": "Hands-on training so your team understands new workflows, tools, and AI agents — and can operate them confidently from day one.",
+      "metaDescription": "Hands-on training on AI agents, automations, and integrations so your team operates new workflows confidently from day one. | Breakaway",
       "heroHeadline": "Your team, <highlight>operating from day one</highlight>",
       "heroSubtitle": "Practical workshops and documentation so the people who run your processes understand the new tools, agents, and workflows — not just the engineers who built them.",
       "infoLabel": "What we deliver",
@@ -231,8 +240,10 @@
   },
   "productsPage": {
     "heroLabel": "Products",
-    "headline": "Ready-made products for <highlight>tax and insurance operations</highlight>",
-    "subtitle": "Tools already running in production — appraisals, tax refunds, and insurance quoting automated for firms that can't afford bottlenecks."
+    "headline": "Software we build for real operations",
+    "subtitle": "Owned products and custom platforms for industries where processes are complex, regulated, and unforgiving of errors.",
+    "label": "Products",
+    "cardLink": "View product"
   },
   "productsSection": {
     "label": "Products",
@@ -248,18 +259,205 @@
     "scheduleButton": "Schedule on calendar"
   },
   "products": {
-    "avaluosHacendariosTitle": "Property Tax Appraisals",
-    "avaluosHacendariosDesc": "End-to-end platform for property tax appraisals — data capture, calculation, review, and delivery without chasing files in email.",
-    "avaluosHacendariosMenuDesc": "Manage property tax appraisals from capture to delivery without chasing files.",
-    "avaluosHacendariosFooter": "Capture · Calculation · Delivery",
-    "devolucionImpuestosTitle": "Tax Refunds",
-    "devolucionImpuestosDesc": "Automated workflow to identify, prepare, and track tax refunds — with document validation and status visible to the client.",
-    "devolucionImpuestosMenuDesc": "Identify, prepare, and track refunds with visible status.",
-    "devolucionImpuestosFooter": "Validation · SAT · Tracking",
-    "multicotizadorSegurosTitle": "Insurance Multi-Quoter",
-    "multicotizadorSegurosDesc": "Quote across multiple insurers from a single form — side-by-side comparison, proposal PDF, and close tracking in one place.",
-    "multicotizadorSegurosMenuDesc": "Quote multiple insurers from one form with instant comparison.",
-    "multicotizadorSegurosFooter": "Multi-carrier · Comparison · Proposal"
+    "escritos-sat": {
+      "title": "Escritos SAT",
+      "description": "Fiscal document generation platform for accounting and legal firms in Mexico.",
+      "heroSubtitle": "Fiscal document generation platform for firms",
+      "heroLabel": "Product",
+      "heroHeadline": "Fiscal document generation,<highlight> without chasing folders</highlight>",
+      "heroDescription": "Centralizes firm operations: organizes case files in OneDrive, responds to SAT requirements, and drafts legal filings with fiscal AI — without inventing information.",
+      "heroCta": "Request a demo",
+      "heroAudience": "Built for fiscal firms in Mexico",
+      "problemLabel": "The problem",
+      "problemHeadline": "Information lives in three places and deadlines don't wait",
+      "problemDescription": "OneDrive, Excel, and email become the default source of truth. When a SAT requirement arrives or a spontaneous IVA refund filing is due, teams lose days building folders, tracking numerales, and drafting responses by hand.",
+      "featuresLabel": "Capabilities",
+      "featuresHeadline": "The full fiscal workflow in one platform",
+      "feature1Title": "Requirement responses",
+      "feature1Description": "Upload the SAT PDF, extract numerales automatically, and generate per-annex checklists — with the compliant folder structure already created.",
+      "feature2Title": "Spontaneous filings",
+      "feature2Description": "Templates aligned to IVA refunds: taxable activities, 16% and 0% rates, creditable IVA, and supporting documentation.",
+      "feature3Title": "Microsoft 365 sync",
+      "feature3Description": "Native OneDrive for Business integration. The digital case file in the cloud and the filing status always match.",
+      "feature4Title": "Fiscal AI drafts",
+      "feature4Description": "Assisted drafting in Mexican fiscal-legal tone. Analyzes supporting PDFs and generates drafts citing real evidence — no invented data.",
+      "stepsLabel": "How it works",
+      "stepsHeadline": "From requirement to draft in three steps",
+      "step1Title": "Upload the PDF",
+      "step1Description": "Load the SAT requirement or start a spontaneous filing. The platform identifies numerales and filing type.",
+      "step2Title": "Organize the case file",
+      "step2Description": "OneDrive folder structure and per-numeral checklists are created — no manual file naming.",
+      "step3Title": "Generate the draft",
+      "step3Description": "AI drafts the filing citing supporting documentation. You review, adjust, and save directly to the case file.",
+      "flowPhaseUpload": "PDF",
+      "flowPhaseExpediente": "Case file",
+      "flowPhaseBorrador": "Draft",
+      "flowExpediente": "Case #1042",
+      "flowRequerimiento": "SAT requirement",
+      "flowNumerales": "Numerales",
+      "flowOneDrive": "OneDrive / IVA refund",
+      "flowBorrador": "AI draft",
+      "flowListo": "Ready",
+      "flowNumeral1": "Art. 22",
+      "flowNumeral2": "Annex A",
+      "flowNumeral3": "Annex B",
+      "ctaLabel": "Next step",
+      "ctaHeadline": "Does your firm handle IVA refunds?",
+      "ctaDescription": "Book a demo and we'll see if Escritos SAT fits your operation — no commitment.",
+      "ctaButton": "Request a demo"
+    },
+    "multicotizador": {
+      "title": "MultiCotizador",
+      "description": "White-label platform to quote, compare, and issue auto insurance across multiple carriers in Mexico.",
+      "heroSubtitle": "Multi-carrier auto insurance quoter",
+      "heroLabel": "Product",
+      "heroHeadline": "Quote, compare, and issue,<highlight> without opening eight portals</highlight>",
+      "heroDescription": "One form queries Mexico's major insurers in parallel. Your client compares prices side by side, downloads the comparative PDF, and issues the policy online — all from a platform with your branding.",
+      "heroCta": "Request a demo",
+      "heroAudience": "Built for insurance brokers and agencies in Mexico",
+      "problemLabel": "The problem",
+      "problemHeadline": "Auto quoting is still manual and fragmented",
+      "problemDescription": "Every carrier has its own portal, vehicle catalog, and issuance flow. Advisors waste time re-entering data, clients can't compare apples to apples, and follow-up lives across Excel, email, and WhatsApp.",
+      "featuresLabel": "Capabilities",
+      "featuresHeadline": "From quoter to issuance in one platform",
+      "feature1Title": "Multi-carrier quoting",
+      "feature1Description": "Query AXA, GNP, HDI, MAPFRE, Quálitas, Chubb, Zurich, TuMomento, and more in parallel — with a single form for personal data, location, and vehicle.",
+      "feature2Title": "Side-by-side comparison",
+      "feature2Description": "Quotation grid with price, coverage package, and discounts. Per-carrier detail: term, deductibles, insured amount, and vehicle homologation when catalogs don't match.",
+      "feature3Title": "Comparative PDF and email",
+      "feature3Description": "Generate and download a comparative PDF of all quotes. Automatic branded email delivery — ready to share with the client.",
+      "feature4Title": "White-label and admin panel",
+      "feature4Description": "Custom logo, colors, copy, and hero. Admin dashboard for quotes, issuances, users, custom packages, discounts, and per-carrier credentials.",
+      "stepsLabel": "How it works",
+      "stepsHeadline": "From vehicle data to issued policy",
+      "step1Title": "Capture the data",
+      "step1Description": "The client or advisor enters personal data, fiscal location, vehicle, and coverage plan in a guided four-step flow.",
+      "step2Title": "Compare carriers",
+      "step2Description": "The platform queries all connected insurers and displays results in a comparative grid with prices and coverages.",
+      "step3Title": "Issue and track",
+      "step3Description": "Download the PDF, send by email, or start online issuance. The admin panel centralizes quotes, issuances, and operational follow-up.",
+      "flowFormLabel": "FORM",
+      "flowPolicyLabel": "POLICY",
+      "flowQuotes": [
+        "$14,200",
+        "$12,850",
+        "$11,400",
+        "$13,100",
+        "$10,900",
+        "$15,300"
+      ],
+      "flowPhaseDatos": "Data",
+      "flowPhaseComparar": "Compare",
+      "flowPhaseEmitir": "Issue",
+      "flowCotizacion": "Quote #4821",
+      "flowVehiculo": "Vehicle",
+      "flowPlaca": "Plate",
+      "flowEmitida": "Issued",
+      "flowPdfLabel": "Comparative PDF",
+      "ctaLabel": "Next step",
+      "ctaHeadline": "Does your agency quote auto across multiple carriers?",
+      "ctaDescription": "Book a demo and we'll see how MultiCotizador fits your operation — no commitment.",
+      "ctaButton": "Request a demo"
+    },
+    "avaluos": {
+      "title": "Avalúos",
+      "description": "End-to-end platform for real estate appraisals in Mexico: AI catastro extraction, comparables, homologation, and official documents in Google Drive.",
+      "heroSubtitle": "Real estate appraisal management for certified appraisers",
+      "heroLabel": "Product",
+      "heroHeadline": "From catastro screenshots to official appraisal,<highlight> without chasing folders</highlight>",
+      "heroDescription": "Centralize every expediente: extract catastro data with AI, search comparables on property portals, homologate values, and generate pre-appraisal, individual appraisal, and final delivery — with a Drive folder and spreadsheet per case.",
+      "heroCta": "Request a demo",
+      "heroAudience": "Built for appraisal firms and certified valuators in Mexico",
+      "problemLabel": "The problem",
+      "problemHeadline": "The appraisal lives in five places and deadlines don't wait",
+      "problemDescription": "Catastro in screenshots, comparables manually pulled from Inmuebles24, homologation in Excel, photos in Drive, and the report in Google Docs. Each case goes through seven phases with no single source of truth and no clear ownership per step.",
+      "featuresLabel": "Capabilities",
+      "featuresHeadline": "The full valuation workflow in one platform",
+      "feature1Title": "AI catastro extraction",
+      "feature1Description": "Upload catastro screenshots or Excel; AI extracts cadastral key, surfaces, owners, and location. You review, confirm, and export to Google Sheets.",
+      "feature2Title": "Automatic comparables (RSMA)",
+      "feature2Description": "AI search on Inmuebles24 and Propiedades.com. One comparable per property label, with verifiable URL, price, and surface area.",
+      "feature3Title": "Homologation and value list",
+      "feature3Description": "AI calculates adjustment factors for area, location, condition, and age. Individual or bulk manual adjustments; value list generation in Drive.",
+      "feature4Title": "Official documents in Google Docs",
+      "feature4Description": "Pre-appraisal, individual appraisal, tax folios, and final appraisal from templates. Drive folder and collaborative spreadsheet per expediente.",
+      "stepsLabel": "How it works",
+      "stepsHeadline": "From new expediente to delivered appraisal",
+      "step1Title": "Create the case and extract catastro",
+      "step1Description": "Register client, priority, and properties. Upload Excel or screenshots; AI completes catastro data and creates folder + spreadsheet in Drive.",
+      "step2Title": "Generate comparables and homologation",
+      "step2Description": "AI searches market comparables, you validate, run homologation, and approve the preliminary value list.",
+      "step3Title": "Field visit, appraisal, and delivery",
+      "step3Description": "Schedule field visit, capture physical values, photos, and sketches. Generate individual appraisal, tax folios, final report, and mark as delivered.",
+      "flowPhaseCatastro": "Catastro",
+      "flowPhaseComparables": "Comparables",
+      "flowPhaseEntrega": "Delivery",
+      "flowClaveCatastral": "Cadastral key",
+      "flowTerreno": "Land area",
+      "flowConstruccion": "Built area",
+      "flowHomologacion": "Homologation",
+      "flowAvaluoFinal": "Final appraisal",
+      "flowEntregado": "Delivered",
+      "flowTramite": "Case #2847",
+      "flowOferta1": "$4.2M",
+      "flowOferta2": "$3.8M",
+      "flowOferta3": "$4.5M",
+      "ctaLabel": "Next step",
+      "ctaHeadline": "Does your firm manage appraisals with manual comparables?",
+      "ctaDescription": "Book a demo and we'll see how Avalúos fits your operation — no commitment.",
+      "ctaButton": "Request a demo"
+    },
+    "ecommerce": {
+      "title": "E-commerce Platform",
+      "description": "E-commerce platform with purchase, rental, and subscriptions: catalog, mixed cart, Stripe payments, shipping, and full admin panel.",
+      "heroSubtitle": "E-commerce with purchase, rental, and subscriptions",
+      "heroLabel": "Product",
+      "heroHeadline": "Sell, rent, or subscribe,<highlight> with payments and shipping built in</highlight>",
+      "heroDescription": "Online catalog with three modalities in one cart. Stripe checkout — one-time and recurring payments — shipping address, monthly subscription delivery tracking, and admin panel for sales, rentals, and subscriptions.",
+      "heroCta": "Request a demo",
+      "heroAudience": "Built for businesses with physical catalogs, rentals, and recurring consumables",
+      "problemLabel": "The problem",
+      "problemHeadline": "Selling online with rentals and subscriptions shouldn't require five systems",
+      "problemDescription": "WooCommerce doesn't handle deposit-based rentals. Shopify doesn't manage monthly subscription shipments. You end up with catalog on one side, payments on another, shipping in Excel, and rentals in email — no single source of truth for the order.",
+      "featuresLabel": "Capabilities",
+      "featuresHeadline": "From catalog to delivered order in one platform",
+      "feature1Title": "Three modalities, one cart",
+      "feature1Description": "Direct purchase, deposit-based rental, and monthly subscriptions coexist in the same experience — the customer chooses per product without leaving the flow.",
+      "feature2Title": "Stripe payments",
+      "feature2Description": "Stripe Checkout Sessions, recurring subscriptions, automatic webhooks, and price sync with the catalog — without rebuilding billing logic.",
+      "feature3Title": "Shipping and subscriptions",
+      "feature3Description": "Shipping address at checkout, per-order tracking, and monthly subscription shipment management with carrier, tracking number, and status pipeline.",
+      "feature4Title": "Full admin panel",
+      "feature4Description": "Catalog, categories, sales, rentals with returns, subscriptions, customers, charts, and CSV export — all from one dashboard.",
+      "stepsLabel": "How it works",
+      "stepsHeadline": "From catalog to delivered order",
+      "step1Title": "Browse the catalog",
+      "step1Description": "The customer filters by category and chooses purchase, rental, or subscription per product. Adds to cart — mixed modalities in one order.",
+      "step2Title": "Pay with Stripe",
+      "step2Description": "Guided checkout: personal data, shipping address, rental documents if applicable, and secure Stripe payment — one-time or recurring.",
+      "step3Title": "Manage orders and shipping",
+      "step3Description": "The customer tracks orders, rentals, and subscription shipments from their profile. Admin operates catalog, fulfillment, and reports from the panel.",
+      "flowPhaseCatalogo": "Catalog",
+      "flowPhaseCheckout": "Checkout",
+      "flowPhaseGestion": "Management",
+      "flowPedido": "Order #4821",
+      "flowCompra": "Purchase",
+      "flowRenta": "Rental",
+      "flowSuscripcion": "Subscription",
+      "flowStripe": "Stripe payment",
+      "flowEnvio": "Home delivery",
+      "flowTracking": "Tracking",
+      "flowEntregado": "Delivered",
+      "flowTotal": "Total",
+      "flowAmount": "$2,450",
+      "flowTrackingNumber": "TRK-4829173",
+      "flowStripeHint": "multi-currency · subscriptions · webhooks",
+      "flowAdmin": "Admin panel",
+      "ctaLabel": "Next step",
+      "ctaHeadline": "Does your business sell, rent, or subscribe physical products?",
+      "ctaDescription": "Book a demo and we'll see how it fits your operation — no commitment.",
+      "ctaButton": "Request a demo"
+    }
   },
   "productDetail": {
     "avaluosHacendarios": {
@@ -547,8 +745,8 @@
   },
   "seo": {
     "home": {
-      "title": "Breakaway | Operational integration for professional services firms in Mexico",
-      "description": "We connect spreadsheets, email, WhatsApp, CRM, and billing for professional services firms in Mexico. Free process assessment."
+      "title": "AI agents for professional firms | Breakaway",
+      "description": "AI agents, process automation, and CRM, ERP, and WhatsApp integrations for professional services firms in Mexico. Free assessment. | Breakaway"
     },
     "about": {
       "title": "About us · Breakaway",
@@ -559,12 +757,28 @@
       "description": "Tell us about your process. We reply within 24 hours with next steps for integrating your operations."
     },
     "services": {
-      "title": "Services · Breakaway",
-      "description": "AI agents, automations, integrations, web pages, apps, consulting, and training for professional services firms in Mexico."
+      "title": "AI services and automation | Breakaway",
+      "description": "AI agents, process automation, CRM/ERP/WhatsApp integrations, apps, and consulting for professional services firms in Mexico. | Breakaway"
     },
     "products": {
       "title": "Products · Breakaway",
-      "description": "Property Tax Appraisals, Tax Refunds, and Insurance Multi-Quoter — ready-made products for tax and insurance operations in Mexico."
+      "description": "Software we build for real operations: owned platforms for regulated industries and complex processes in Mexico.",
+      "escritos-sat": {
+        "title": "Escritos SAT · Fiscal document generation · Breakaway",
+        "description": "Platform for accounting and legal firms: SAT requirement responses, IVA refund filings, OneDrive sync, and fiscal AI drafts."
+      },
+      "multicotizador": {
+        "title": "MultiCotizador · Multi-carrier auto insurance · Breakaway",
+        "description": "White-label platform for brokers: parallel quoting, price comparison, comparative PDF, and online issuance with Mexico's major insurers."
+      },
+      "avaluos": {
+        "title": "Avalúos · Real estate appraisal · Breakaway",
+        "description": "Platform for certified appraisers: AI catastro extraction, RSMA comparables, homologation, field visits, and official appraisal documents in Google Drive."
+      },
+      "ecommerce": {
+        "title": "E-commerce Platform · Stripe Payments · Breakaway",
+        "description": "Online commerce platform: purchase, rental, and subscriptions, Stripe checkout, home delivery, shipment tracking, and admin dashboard."
+      }
     },
     "privacy": {
       "title": "Privacy · Breakaway",

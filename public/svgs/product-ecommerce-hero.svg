@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="50" y="80" width="70" height="55" stroke-dasharray="1 4"/>
+  <rect x="130" y="80" width="70" height="55" stroke-dasharray="1 4"/>
+  <rect x="210" y="80" width="70" height="55" stroke-dasharray="1 4"/>
+  <text x="155" y="72" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">Catalogo</text>
+  <path d="M 280 107 L 325 107"/>
+  <polygon points="325,107 317,102 317,112" fill="#0a0a0a" stroke="none"/>
+  <rect x="335" y="85" width="90" height="45" stroke-dasharray="1 4"/>
+  <text x="380" y="78" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">Stripe</text>
+  <path d="M 425 107 L 470 107"/>
+  <polygon points="470,107 462,102 462,112" fill="#0a0a0a" stroke="none"/>
+  <rect x="480" y="75" width="60" height="65" stroke-dasharray="1 4"/>
+  <line x1="492" y1="95" x2="528" y2="95" stroke-dasharray="1 4"/>
+  <line x1="492" y1="115" x2="520" y2="115" stroke-dasharray="1 4"/>
+  <text x="510" y="68" font-family="monospace" font-size="9" fill="#0a0a0a" stroke="none" text-anchor="middle">Envio</text>
+</svg>

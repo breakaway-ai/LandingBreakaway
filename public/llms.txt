@@ -1,0 +1,33 @@
+# Breakaway
+
+> AI agents, process automation, and CRM/ERP/WhatsApp integrations for professional services firms in Mexico.
+
+Breakaway (https://breakaway.work) helps professional services firms in Mexico connect their operational tools, automate repetitive workflows, and deploy production AI agents. Services are delivered in Spanish and English.
+
+## Services
+
+- AI Agents: https://breakaway.work/es/services/ai-agents | https://breakaway.work/en/services/ai-agents
+- Process Automations: https://breakaway.work/es/services/automations | https://breakaway.work/en/services/automations
+- Integrations (CRM, ERP, WhatsApp): https://breakaway.work/es/services/integrations | https://breakaway.work/en/services/integrations
+- Web Pages: https://breakaway.work/es/services/web-pages | https://breakaway.work/en/services/web-pages
+- Apps: https://breakaway.work/es/services/apps | https://breakaway.work/en/services/apps
+- Consulting: https://breakaway.work/es/services/consulting | https://breakaway.work/en/services/consulting
+- Training: https://breakaway.work/es/services/training | https://breakaway.work/en/services/training
+
+## Contact
+
+- Website: https://breakaway.work
+- Email: general@breakaway.work
+- Phone / WhatsApp: +52 442 204 1843
+- Location: Querétaro, México
+- LinkedIn: https://www.linkedin.com/company/breakawayai
+
+## Languages
+
+- Spanish (es): https://breakaway.work/es
+- English (en): https://breakaway.work/en
+
+## Optional
+
+- Full details: https://breakaway.work/llms-full.txt
+- Sitemap: https://breakaway.work/sitemap.xml

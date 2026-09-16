@@ -11,8 +11,8 @@ export const CONTACT_PHONE = WHATSAPP_PHONE;
 export const CONTACT_PHONE_DISPLAY = "+52 442 204 1843";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/breakawayai";
 export const CONTACT_ADDRESS = [
-  "Paseo del Cantil 125",
-  "Real de Juriquilla, C.P. 76226",
+  "",
+  "Juriquilla, C.P. 76226",
   "Querétaro, México",
 ] as const;
 

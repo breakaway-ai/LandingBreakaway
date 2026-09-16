@@ -37,7 +37,9 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
           slug={product.slug}
           stepsSvg={product.stepsSvg}
           flowAnimation={product.flowAnimation}
-          flowAnimationLayout={product.flowAnimationLayout}
+          flowAnimationLayout={
+            "flowAnimationLayout" in product ? product.flowAnimationLayout : undefined
+          }
         />
         <ProductCta slug={product.slug} />
       </main>

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import JsonLd from "@/components/JsonLd";
 import ServiceDetailPage from "@/components/pages/ServiceDetailPage";
 import { SERVICES, getServiceBySlug } from "@/config/services";
 import {
@@ -11,6 +12,7 @@ import {
   type SeoLocale,
 } from "@/config/site";
 import { routing } from "@/i18n/routing";
+import { breadcrumbListJsonLd, serviceJsonLd } from "@/lib/json-ld";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -74,12 +76,38 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const service = getServiceBySlug(slug);
 
   if (!service) {
     notFound();
   }
 
-  return <ServiceDetailPage service={service} />;
+  const t = await getTranslations({ locale });
+  const detail = await getTranslations({
+    locale,
+    namespace: `serviceDetail.${service.detailKey}`,
+  });
+  const pageUrl = serviceUrl(locale as SeoLocale, slug);
+  const servicesIndexUrl = `${SITE_URL}/${locale}/services`;
+
+  return (
+    <>
+      <JsonLd
+        data={serviceJsonLd({
+          name: t(service.titleKey),
+          description: detail("metaDescription"),
+          url: pageUrl,
+        })}
+      />
+      <JsonLd
+        data={breadcrumbListJsonLd([
+          { name: SITE_NAME, url: `${SITE_URL}/${locale}` },
+          { name: t("nav.services"), url: servicesIndexUrl },
+          { name: t(service.titleKey), url: pageUrl },
+        ])}
+      />
+      <ServiceDetailPage service={service} />
+    </>
+  );
 }

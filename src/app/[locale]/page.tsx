@@ -1,4 +1,5 @@
 import LandingPage from "@/components/pages/LandingPage";
+import WebSiteJsonLd from "@/components/WebSiteJsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -15,6 +16,11 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function Page({ params }: PageProps) {
-  await params;
-  return <LandingPage />;
+  const { locale } = await params;
+  return (
+    <>
+      <WebSiteJsonLd locale={locale} />
+      <LandingPage />
+    </>
+  );
 }

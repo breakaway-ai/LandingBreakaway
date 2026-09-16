@@ -26,11 +26,41 @@ export const OG_LOCALE_MAP: Record<SeoLocale, string> = {
 
 export const ORGANIZATION_JSON_LD = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/icon`,
+  logo: `${SITE_URL}/icon.svg`,
+  description:
+    "Agentes de IA, automatización de procesos e integraciones CRM, ERP y WhatsApp para firmas de servicios profesionales en México.",
   email: CONTACT_EMAIL,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CONTACT_ADDRESS[0],
+    addressLocality: "Querétaro",
+    addressRegion: "Querétaro",
+    postalCode: "76226",
+    addressCountry: "MX",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Mexico",
+  },
+  knowsAbout: [
+    "AI agents",
+    "Process automation",
+    "CRM integrations",
+    "ERP integrations",
+    "WhatsApp business automation",
+    "Professional services operations",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: CONTACT_PHONE_DISPLAY,
+    email: CONTACT_EMAIL,
+    contactType: "customer service",
+    areaServed: "MX",
+    availableLanguage: ["Spanish", "English"],
+  },
   sameAs: [LINKEDIN_URL],
 } as const;
 

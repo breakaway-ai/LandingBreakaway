@@ -7,42 +7,49 @@ import { useTranslations } from "next-intl";
 
 const services = [
   {
+    detailKey: "aiAgents",
     titleKey: "services.agentsTitle",
     descKey: "services.agentsDesc",
     footerKey: "services.agentsFooter",
     svg: "/svgs/service-automation.svg",
   },
   {
+    detailKey: "automations",
     titleKey: "services.automationsTitle",
     descKey: "services.automationsDesc",
     footerKey: "services.automationsFooter",
     svg: "/svgs/service-devops.svg",
   },
   {
+    detailKey: "integrations",
     titleKey: "services.integrationsTitle",
     descKey: "services.integrationsDesc",
     footerKey: "services.integrationsFooter",
     svg: "/svgs/service-integration.svg",
   },
   {
+    detailKey: "webPages",
     titleKey: "services.webTitle",
     descKey: "services.webDesc",
     footerKey: "services.webFooter",
     svg: "/svgs/service-web.svg",
   },
   {
+    detailKey: "apps",
     titleKey: "services.appsTitle",
     descKey: "services.appsDesc",
     footerKey: "services.appsFooter",
     svg: "/svgs/service-mobile.svg",
   },
   {
+    detailKey: "consulting",
     titleKey: "services.consultingTitle",
     descKey: "services.consultingDesc",
     footerKey: "services.consultingFooter",
     svg: "/svgs/service-consulting.svg",
   },
   {
+    detailKey: "training",
     titleKey: "services.trainingTitle",
     descKey: "services.trainingDesc",
     footerKey: "services.trainingFooter",
@@ -57,15 +64,22 @@ const SCROLL_SPEED = 0.55;
 
 type Service = (typeof services)[number];
 
-function ServiceCard({ service, t }: { service: Service; t: ReturnType<typeof useTranslations> }) {
+function ServiceCard({
+  service,
+  t,
+  illustrations,
+}: {
+  service: Service;
+  t: ReturnType<typeof useTranslations>;
+  illustrations: ReturnType<typeof useTranslations<"serviceIllustrations">>;
+}) {
   return (
     <article className="flex w-[min(340px,calc(100vw-3rem))] shrink-0 flex-col overflow-hidden rounded-2xl border border-ink/10 bg-background shadow-card">
       <div className="flex aspect-[4/3] items-center justify-center bg-background-alt p-6 md:p-8">
         <div className="relative h-full w-full rounded-lg border border-dashed border-ink/15 p-4">
           <Image
             src={service.svg}
-            alt=""
-            aria-hidden="true"
+            alt={illustrations(service.detailKey)}
             fill
             sizes="340px"
             className="object-contain p-2"
@@ -90,6 +104,7 @@ function ServiceCard({ service, t }: { service: Service; t: ReturnType<typeof us
 
 export default function Services() {
   const t = useTranslations();
+  const illustrations = useTranslations("serviceIllustrations");
   const scrollRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const [paused, setPaused] = useState(false);
@@ -164,7 +179,12 @@ export default function Services() {
         >
           <div className="flex w-max items-stretch gap-4 px-6 md:gap-5 md:px-10">
             {track.map((service, i) => (
-              <ServiceCard key={`${service.titleKey}-${i}`} service={service} t={t} />
+              <ServiceCard
+                key={`${service.titleKey}-${i}`}
+                service={service}
+                t={t}
+                illustrations={illustrations}
+              />
             ))}
           </div>
         </div>

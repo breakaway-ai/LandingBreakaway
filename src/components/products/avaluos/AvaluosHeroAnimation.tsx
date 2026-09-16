@@ -71,7 +71,11 @@ export default function AvaluosHeroAnimation({
           <div className="mt-3">
             <PhaseStepper
               activeIndex={activeScene}
-              labels={[labels.phaseCatastro, labels.phaseComparables, labels.phaseEntrega]}
+              labels={[
+                labels.phaseCatastro,
+                labels.phaseComparables,
+                labels.phaseEntrega,
+              ]}
               compact
             />
           </div>
@@ -95,7 +99,12 @@ export default function AvaluosHeroAnimation({
                       value="09-015-012-34-56-7890"
                       visible
                     />
-                    <MockField label={labels.terreno} value="420 m²" visible accent="emerald" />
+                    <MockField
+                      label={labels.terreno}
+                      value="420 m²"
+                      visible
+                      accent="emerald"
+                    />
                   </div>
                   <div className="space-y-2">
                     <div className="flex h-full flex-col rounded border border-dashed border-stone-300 bg-stone-50/80 p-2">
@@ -125,7 +134,12 @@ export default function AvaluosHeroAnimation({
               {activeScene === 1 && (
                 <div className="flex h-full flex-col gap-2">
                   <div className="grid grid-cols-3 gap-1.5">
-                    <ComparableCard price={labels.oferta1} index={0} visible highlight />
+                    <ComparableCard
+                      price={labels.oferta1}
+                      index={0}
+                      visible
+                      highlight
+                    />
                     <ComparableCard price={labels.oferta2} index={1} visible />
                     <ComparableCard price={labels.oferta3} index={2} visible />
                   </div>
@@ -135,7 +149,11 @@ export default function AvaluosHeroAnimation({
 
               {activeScene === 2 && (
                 <div className="flex h-full flex-col justify-center">
-                  <DocStack visible title={labels.avaluoFinal} deliveredLabel={labels.entregado} />
+                  <DocStack
+                    visible
+                    title={labels.avaluoFinal}
+                    deliveredLabel={labels.entregado}
+                  />
                   <motion.div
                     initial={false}
                     animate={{ opacity: isStatic ? 1 : [0.4, 1, 0.4] }}

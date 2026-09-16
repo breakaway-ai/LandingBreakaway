@@ -116,7 +116,9 @@ export default function ContactForm({ standalone = false }: ContactFormProps) {
           >
             <h2 className="max-w-lg text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.02em] text-ink">
               {t("contactForm.titleLead")}{" "}
-              <span className="text-primary">{t("contactForm.titleAccent")}</span>
+              <span className="text-primary">
+                {t("contactForm.titleAccent")}
+              </span>
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft">
               {t("contactForm.subtitle")}

@@ -30,11 +30,17 @@ export default function ProductHeroVisual({
   }
 
   if (heroAnimation === "multicotizador") {
-    return <MultiCotizadorHeroAnimation labels={getMultiCotizadorAnimationLabels(t)} />;
+    return (
+      <MultiCotizadorHeroAnimation
+        labels={getMultiCotizadorAnimationLabels(t)}
+      />
+    );
   }
 
   if (heroAnimation === "escritos-sat") {
-    return <EscritosSatHeroAnimation labels={getEscritosSatAnimationLabels(t)} />;
+    return (
+      <EscritosSatHeroAnimation labels={getEscritosSatAnimationLabels(t)} />
+    );
   }
 
   if (heroAnimation === "ecommerce") {

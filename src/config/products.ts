@@ -1,8 +1,5 @@
 export type ProductAnimationId =
-  | "escritos-sat"
-  | "multicotizador"
-  | "avaluos"
-  | "ecommerce";
+  "escritos-sat" | "multicotizador" | "avaluos" | "ecommerce";
 
 export type FlowAnimationLayout = "mock" | "pipeline";
 
@@ -103,6 +100,8 @@ export function isLandingProduct(product: Product): product is LandingProduct {
   return product.template === "landing";
 }
 
-export function productDetailPath(slug: ProductSlug): `/products/${ProductSlug}` {
+export function productDetailPath(
+  slug: ProductSlug,
+): `/products/${ProductSlug}` {
   return `/products/${slug}`;
 }

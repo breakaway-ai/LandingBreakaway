@@ -76,7 +76,11 @@ export default function AvaluosFlowAnimation({
           <div className="mt-3">
             <PhaseStepper
               activeIndex={step}
-              labels={[labels.phaseCatastro, labels.phaseComparables, labels.phaseEntrega]}
+              labels={[
+                labels.phaseCatastro,
+                labels.phaseComparables,
+                labels.phaseEntrega,
+              ]}
             />
           </div>
 
@@ -125,7 +129,10 @@ export default function AvaluosFlowAnimation({
                   />
                 </div>
 
-                <HomologacionRow visible={showComparables} label={labels.homologacion} />
+                <HomologacionRow
+                  visible={showComparables}
+                  label={labels.homologacion}
+                />
 
                 <DocStack
                   visible={showDelivery}

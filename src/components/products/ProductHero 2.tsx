@@ -14,7 +14,11 @@ type ProductHeroProps = {
   heroAnimation?: ProductAnimationId;
 };
 
-export default function ProductHero({ slug, heroSvg, heroAnimation }: ProductHeroProps) {
+export default function ProductHero({
+  slug,
+  heroSvg,
+  heroAnimation,
+}: ProductHeroProps) {
   const t = useTranslations(`products.${slug}`);
   const primaryCtaHref = getPrimaryCtaHref("/#contact");
   const primaryCtaExternal = isExternalBookingUrl(primaryCtaHref);

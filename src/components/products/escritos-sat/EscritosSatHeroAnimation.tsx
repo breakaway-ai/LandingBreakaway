@@ -70,7 +70,11 @@ export default function EscritosSatHeroAnimation({
           <div className="mt-3">
             <PhaseStepper
               activeIndex={activeScene}
-              labels={[labels.phaseUpload, labels.phaseExpediente, labels.phaseBorrador]}
+              labels={[
+                labels.phaseUpload,
+                labels.phaseExpediente,
+                labels.phaseBorrador,
+              ]}
               compact
             />
           </div>
@@ -113,7 +117,11 @@ export default function EscritosSatHeroAnimation({
               )}
 
               {activeScene === 2 && (
-                <DraftPreview visible title={labels.borrador} statusLabel={labels.listo} />
+                <DraftPreview
+                  visible
+                  title={labels.borrador}
+                  statusLabel={labels.listo}
+                />
               )}
             </motion.div>
           </div>

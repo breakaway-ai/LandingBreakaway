@@ -31,7 +31,9 @@ export default function ProductCta({ slug }: ProductCtaProps) {
           <h2 className="mt-5 text-[1.75rem] leading-[1.15] text-white sm:text-4xl">
             {t("ctaHeadline")}
           </h2>
-          <p className="prose-mono mx-auto mt-5 max-w-xl text-white/75">{t("ctaDescription")}</p>
+          <p className="prose-mono mx-auto mt-5 max-w-xl text-white/75">
+            {t("ctaDescription")}
+          </p>
 
           {primaryCtaExternal ? (
             <a

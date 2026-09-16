@@ -10,7 +10,8 @@ import {
   type EcommerceFlowLabels,
 } from "./EcommerceMockUi";
 
-export type EcommerceFeatureVariant = "modalidades" | "stripe" | "envios" | "admin";
+export type EcommerceFeatureVariant =
+  "modalidades" | "stripe" | "envios" | "admin";
 
 type EcommerceFeatureAnimationProps = {
   variant: EcommerceFeatureVariant;
@@ -53,11 +54,25 @@ export default function EcommerceFeatureAnimation({
           <div className="grid grid-cols-3 gap-1.5">
             <ProductCard visible={active} index={0} badge={labels.compra} />
             <ProductCard visible={active} index={1} badge={labels.renta} />
-            <ProductCard visible={active} index={2} badge={labels.suscripcion} />
+            <ProductCard
+              visible={active}
+              index={2}
+              badge={labels.suscripcion}
+            />
           </div>
           <div className="grid grid-cols-3 gap-1">
-            <ModalityBadge label={labels.compra} variant="compra" visible={active} index={0} />
-            <ModalityBadge label={labels.renta} variant="renta" visible={active} index={1} />
+            <ModalityBadge
+              label={labels.compra}
+              variant="compra"
+              visible={active}
+              index={0}
+            />
+            <ModalityBadge
+              label={labels.renta}
+              variant="renta"
+              visible={active}
+              index={1}
+            />
             <ModalityBadge
               label={labels.suscripcion}
               variant="suscripcion"

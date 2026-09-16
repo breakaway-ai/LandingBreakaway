@@ -12,12 +12,7 @@ import {
 } from "@/config/site";
 
 type SeoPage =
-  | "home"
-  | "about"
-  | "contact"
-  | "privacy"
-  | "thankYou"
-  | "products";
+  "home" | "about" | "contact" | "privacy" | "thankYou" | "products";
 
 const PAGE_PATHS: Record<SeoPage, PublicPath | "/thank-you"> = {
   home: "/",

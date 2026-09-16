@@ -14,7 +14,13 @@ const NODE_COLORS = ["#4C7BB3", "#6366F1", "#059669"] as const;
 function PipelineIcon({ step }: { step: number }) {
   if (step === 0) {
     return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
         <rect x="3" y="5" width="7" height="9" rx="1" />
         <rect x="14" y="5" width="7" height="9" rx="1" />
         <rect x="8" y="16" width="8" height="3" rx="0.5" />
@@ -23,14 +29,26 @@ function PipelineIcon({ step }: { step: number }) {
   }
   if (step === 1) {
     return (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
         <rect x="4" y="6" width="16" height="12" rx="2" />
         <line x1="4" y1="10" x2="20" y2="10" />
       </svg>
     );
   }
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
       <rect x="1" y="8" width="13" height="8" rx="1" />
       <path d="M14 12h4l3 3v-2l-3-3" />
       <circle cx="6" cy="18" r="2" />
@@ -143,8 +161,15 @@ export default function EcommercePipelineAnimation({
                     className="absolute inset-y-0 left-0 h-full origin-left bg-gradient-to-r from-[#4C7BB3] to-[#6366F1]"
                     initial={false}
                     animate={{
-                      scaleX: isDone ? 1 : isActive && index === step - 1 ? 1 : 0,
-                      opacity: isDone || (isActive && index === 0 && step >= 1) ? 1 : 0.3,
+                      scaleX: isDone
+                        ? 1
+                        : isActive && index === step - 1
+                          ? 1
+                          : 0,
+                      opacity:
+                        isDone || (isActive && index === 0 && step >= 1)
+                          ? 1
+                          : 0.3,
                     }}
                     style={{ width: "100%" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -153,7 +178,11 @@ export default function EcommercePipelineAnimation({
                     <motion.div
                       className="absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#4C7BB3]"
                       animate={{ left: ["0%", "100%"] }}
-                      transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
+                      transition={{
+                        duration: 1.4,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                     />
                   )}
                 </div>
@@ -163,10 +192,16 @@ export default function EcommercePipelineAnimation({
                 className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border-2 sm:h-16 sm:w-16"
                 style={{
                   borderColor: isActive || isDone ? color : "#E7E5E4",
-                  backgroundColor: isActive ? `${color}12` : isDone ? color : "white",
+                  backgroundColor: isActive
+                    ? `${color}12`
+                    : isDone
+                      ? color
+                      : "white",
                   color: isDone ? "white" : isActive ? color : "#A8A29E",
                 }}
-                animate={isActive && !isStatic ? { scale: [1, 1.06, 1] } : { scale: 1 }}
+                animate={
+                  isActive && !isStatic ? { scale: [1, 1.06, 1] } : { scale: 1 }
+                }
                 transition={
                   isActive && !isStatic
                     ? { duration: 1.8, repeat: Infinity, ease: "easeInOut" }
@@ -182,7 +217,9 @@ export default function EcommercePipelineAnimation({
 
               <span
                 className="mt-3 max-w-[7rem] text-center font-mono text-[9px] uppercase tracking-wider sm:text-[10px]"
-                style={{ color: isActive ? color : isDone ? "#57534E" : "#A8A29E" }}
+                style={{
+                  color: isActive ? color : isDone ? "#57534E" : "#A8A29E",
+                }}
               >
                 {phaseLabels[index]}
               </span>

@@ -2,20 +2,31 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import { PdfBadge, PulseRing, QuoteGrid, type MultiCotizadorFlowLabels } from "./MultiCotizadorMockUi";
+import {
+  PdfBadge,
+  PulseRing,
+  QuoteGrid,
+  type MultiCotizadorFlowLabels,
+} from "./MultiCotizadorMockUi";
 
 export type MultiCotizadorFeatureVariant =
-  | "insurers"
-  | "compare"
-  | "pdf"
-  | "whitelabel";
+  "insurers" | "compare" | "pdf" | "whitelabel";
 
 type MultiCotizadorFeatureAnimationProps = {
   variant: MultiCotizadorFeatureVariant;
   labels: Pick<MultiCotizadorFlowLabels, "quotes" | "pdfLabel" | "policyLabel">;
 };
 
-const INSURERS = ["AXA", "GNP", "HDI", "MAPFRE", "Quálitas", "Chubb", "Zurich", "TuMomento"];
+const INSURERS = [
+  "AXA",
+  "GNP",
+  "HDI",
+  "MAPFRE",
+  "Quálitas",
+  "Chubb",
+  "Zurich",
+  "TuMomento",
+];
 
 export default function MultiCotizadorFeatureAnimation({
   variant,
@@ -76,19 +87,25 @@ export default function MultiCotizadorFeatureAnimation({
           <motion.div
             initial={false}
             animate={{
-              borderColor: active ? ["#DDD6FE", "#6D28D9", "#DDD6FE"] : "#DDD6FE",
+              borderColor: active
+                ? ["#DDD6FE", "#6D28D9", "#DDD6FE"]
+                : "#DDD6FE",
             }}
             transition={{ duration: 2.4, repeat: Infinity }}
             className="rounded border-2 border-dashed bg-white px-3 py-4 text-center"
           >
             <motion.div
-              animate={active && !reduceMotion ? { scale: [1, 1.05, 1] } : undefined}
+              animate={
+                active && !reduceMotion ? { scale: [1, 1.05, 1] } : undefined
+              }
               transition={{ duration: 2, repeat: Infinity }}
               className="font-display text-sm font-bold text-primary"
             >
               TU MARCA
             </motion.div>
-            <div className="mt-1 font-mono text-[7px] text-stone-400">logo · colores · copy</div>
+            <div className="mt-1 font-mono text-[7px] text-stone-400">
+              logo · colores · copy
+            </div>
           </motion.div>
           <motion.div
             initial={false}

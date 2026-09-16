@@ -87,8 +87,18 @@ export default function EcommerceHeroAnimation({
                   <ProductCard visible index={2} badge={labels.suscripcion} />
                 </div>
                 <div className="grid grid-cols-3 gap-1">
-                  <ModalityBadge label={labels.compra} variant="compra" visible index={0} />
-                  <ModalityBadge label={labels.renta} variant="renta" visible index={1} />
+                  <ModalityBadge
+                    label={labels.compra}
+                    variant="compra"
+                    visible
+                    index={0}
+                  />
+                  <ModalityBadge
+                    label={labels.renta}
+                    variant="renta"
+                    visible
+                    index={1}
+                  />
                   <ModalityBadge
                     label={labels.suscripcion}
                     variant="suscripcion"

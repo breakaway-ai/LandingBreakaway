@@ -5,7 +5,9 @@ type AvaluosAnimationTranslator = {
   raw: (key: string) => unknown;
 };
 
-export function getAvaluosAnimationLabels(t: AvaluosAnimationTranslator): AvaluosFlowLabels {
+export function getAvaluosAnimationLabels(
+  t: AvaluosAnimationTranslator,
+): AvaluosFlowLabels {
   return {
     phaseCatastro: t("flowPhaseCatastro"),
     phaseComparables: t("flowPhaseComparables"),

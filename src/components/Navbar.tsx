@@ -79,7 +79,8 @@ function ServicesNavMenu({
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
-  const isActive = pathname === "/services" || pathname.startsWith("/services/");
+  const isActive =
+    pathname === "/services" || pathname.startsWith("/services/");
 
   useEffect(() => {
     setMounted(true);
@@ -166,7 +167,9 @@ function ServicesNavMenu({
                 >
                   <span
                     className={`block text-[15px] font-semibold leading-snug transition-colors group-hover:text-primary ${
-                      isServiceActive(service.slug) ? "text-primary" : "text-ink"
+                      isServiceActive(service.slug)
+                        ? "text-primary"
+                        : "text-ink"
                     }`}
                   >
                     {t(service.titleKey)}
@@ -222,7 +225,9 @@ function ServicesNavMenu({
                   >
                     <span
                       className={`text-[13px] font-semibold leading-snug transition-colors group-hover:text-primary ${
-                        isServiceActive(service.slug) ? "text-primary" : "text-ink"
+                        isServiceActive(service.slug)
+                          ? "text-primary"
+                          : "text-ink"
                       }`}
                     >
                       {t(service.titleKey)}
@@ -379,7 +384,9 @@ function ProductsNavMenu({
                 >
                   <span
                     className={`block text-[15px] font-semibold leading-snug transition-colors group-hover:text-primary ${
-                      isProductActive(product.slug) ? "text-primary" : "text-ink"
+                      isProductActive(product.slug)
+                        ? "text-primary"
+                        : "text-ink"
                     }`}
                   >
                     {t(product.titleKey)}
@@ -435,7 +442,9 @@ function ProductsNavMenu({
                   >
                     <span
                       className={`text-[13px] font-semibold leading-snug transition-colors group-hover:text-primary ${
-                        isProductActive(product.slug) ? "text-primary" : "text-ink"
+                        isProductActive(product.slug)
+                          ? "text-primary"
+                          : "text-ink"
                       }`}
                     >
                       {t(product.titleKey)}

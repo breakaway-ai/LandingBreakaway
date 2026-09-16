@@ -58,7 +58,9 @@ export default function PrimaryCtaButton({
     <PrimaryCtaLink
       onHome={onHome}
       onClick={onClick}
-      className={className ? `${variantClassName} ${className}` : variantClassName}
+      className={
+        className ? `${variantClassName} ${className}` : variantClassName
+      }
     >
       {t("nav.cta")}
     </PrimaryCtaLink>

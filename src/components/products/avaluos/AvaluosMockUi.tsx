@@ -77,7 +77,11 @@ export function PhaseStepper({
                 className="flex h-5 w-5 items-center justify-center rounded-full border text-[8px] font-semibold"
                 style={{
                   borderColor: isActive || isDone ? phase.color : "#D6D3D1",
-                  backgroundColor: isDone ? phase.color : isActive ? `${phase.color}18` : "white",
+                  backgroundColor: isDone
+                    ? phase.color
+                    : isActive
+                      ? `${phase.color}18`
+                      : "white",
                   color: isDone ? "white" : isActive ? phase.color : "#A8A29E",
                 }}
                 animate={isActive ? { scale: [1, 1.08, 1] } : { scale: 1 }}
@@ -140,8 +144,12 @@ export function MockField({
       transition={{ duration: 0.35, ease: "easeOut" }}
       className={`rounded border px-2 py-1.5 ${accentClass}`}
     >
-      <div className="font-mono text-[7px] uppercase tracking-wider opacity-70">{label}</div>
-      <div className="mt-0.5 font-mono text-[10px] font-semibold tabular-nums">{value}</div>
+      <div className="font-mono text-[7px] uppercase tracking-wider opacity-70">
+        {label}
+      </div>
+      <div className="mt-0.5 font-mono text-[10px] font-semibold tabular-nums">
+        {value}
+      </div>
     </motion.div>
   );
 }
@@ -171,7 +179,10 @@ export function ComparableCard({
           ? "border-emerald-300/80 bg-emerald-50/90 shadow-sm"
           : "border-stone-200 bg-white"
       }`}
-      style={{ borderLeftWidth: highlight ? 3 : 1, borderLeftColor: highlight ? "#10B981" : undefined }}
+      style={{
+        borderLeftWidth: highlight ? 3 : 1,
+        borderLeftColor: highlight ? "#10B981" : undefined,
+      }}
     >
       <div className="font-mono text-[7px] uppercase tracking-wider text-stone-500">
         #{index + 1}
@@ -179,12 +190,20 @@ export function ComparableCard({
       <div className="mt-0.5 font-mono text-[10px] font-semibold tabular-nums text-stone-800">
         {price}
       </div>
-      <div className="mt-0.5 font-mono text-[7px] text-stone-400">m² · RSMA</div>
+      <div className="mt-0.5 font-mono text-[7px] text-stone-400">
+        m² · RSMA
+      </div>
     </motion.div>
   );
 }
 
-export function HomologacionRow({ visible, label }: { visible: boolean; label: string }) {
+export function HomologacionRow({
+  visible,
+  label,
+}: {
+  visible: boolean;
+  label: string;
+}) {
   const factors = ["NEG", "UZ", "FA", "F.R."];
 
   return (
@@ -194,7 +213,9 @@ export function HomologacionRow({ visible, label }: { visible: boolean; label: s
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="rounded border border-violet-200/70 bg-violet-50/50 p-2"
     >
-      <div className="font-mono text-[7px] uppercase tracking-wider text-violet-700">{label}</div>
+      <div className="font-mono text-[7px] uppercase tracking-wider text-violet-700">
+        {label}
+      </div>
       <div className="mt-1.5 grid grid-cols-4 gap-1">
         {factors.map((factor, i) => (
           <motion.div
@@ -202,9 +223,16 @@ export function HomologacionRow({ visible, label }: { visible: boolean; label: s
             initial={false}
             animate={{
               opacity: visible ? 1 : 0,
-              backgroundColor: visible ? (i === 3 ? "#EDE9FE" : "#FFFFFF") : "#FFFFFF",
+              backgroundColor: visible
+                ? i === 3
+                  ? "#EDE9FE"
+                  : "#FFFFFF"
+                : "#FFFFFF",
             }}
-            transition={{ delay: visible ? 0.15 + i * 0.07 : 0, duration: 0.25 }}
+            transition={{
+              delay: visible ? 0.15 + i * 0.07 : 0,
+              duration: 0.25,
+            }}
             className="rounded border border-violet-100 px-1 py-1 text-center font-mono text-[7px] text-violet-800"
           >
             {factor}
@@ -248,13 +276,19 @@ export function DocStack({
           />
         ))}
         <div className="relative z-10 flex h-[34px] w-7 items-center justify-center rounded border border-indigo-200 bg-indigo-50">
-          <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 text-indigo-600" fill="currentColor">
+          <svg
+            viewBox="0 0 16 16"
+            className="h-3.5 w-3.5 text-indigo-600"
+            fill="currentColor"
+          >
             <path d="M4 1h5l3 3v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm4 0v3h3" />
           </svg>
         </div>
       </div>
       <div>
-        <div className="font-mono text-[9px] font-semibold text-stone-800">{title}</div>
+        <div className="font-mono text-[9px] font-semibold text-stone-800">
+          {title}
+        </div>
         <motion.span
           initial={false}
           animate={{ opacity: visible ? 1 : 0 }}
@@ -292,7 +326,12 @@ export function SearchRing({ active }: { active: boolean }) {
           className="pointer-events-none absolute left-1/2 top-1/2 rounded-full border border-emerald-400/50"
           style={{ width: 40, height: 40, marginLeft: -20, marginTop: -20 }}
           animate={{ scale: [0.4, 1.3], opacity: [0.5, 0] }}
-          transition={{ duration: 2, repeat: Infinity, delay: i * 0.8, ease: "easeOut" }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            delay: i * 0.8,
+            ease: "easeOut",
+          }}
         />
       ))}
     </>

@@ -17,7 +17,9 @@ export default function ServicesHero() {
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
         <div className="flex items-center gap-4 sm:gap-6">
-          <span className="label shrink-0 text-primary">{page("heroLabel")}</span>
+          <span className="label shrink-0 text-primary">
+            {page("heroLabel")}
+          </span>
           <span className="h-px flex-1 bg-ink/10" />
         </div>
 

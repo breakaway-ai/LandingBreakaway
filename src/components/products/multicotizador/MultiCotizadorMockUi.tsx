@@ -64,7 +64,11 @@ export function PhaseStepper({
                 className="flex h-5 w-5 items-center justify-center rounded-full border text-[8px] font-semibold"
                 style={{
                   borderColor: isActive || isDone ? color : "#DDD6FE",
-                  backgroundColor: isDone ? color : isActive ? `${color}18` : "white",
+                  backgroundColor: isDone
+                    ? color
+                    : isActive
+                      ? `${color}18`
+                      : "white",
                   color: isDone ? "white" : isActive ? color : "#A78BFA",
                 }}
                 animate={isActive ? { scale: [1, 1.08, 1] } : { scale: 1 }}
@@ -118,7 +122,9 @@ export function MockField({
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="rounded border border-violet-200/70 bg-white px-2 py-1.5"
     >
-      <div className="font-mono text-[7px] uppercase tracking-wider text-violet-500">{label}</div>
+      <div className="font-mono text-[7px] uppercase tracking-wider text-violet-500">
+        {label}
+      </div>
       <div className="mt-0.5 font-mono text-[10px] font-semibold tabular-nums text-stone-800">
         {value}
       </div>
@@ -210,7 +216,9 @@ export function PolicyCard({
       className="rounded border border-emerald-200/80 bg-emerald-50/80 p-2.5"
     >
       <div className="flex items-center justify-between gap-2">
-        <div className="font-mono text-[9px] font-semibold text-stone-800">{title}</div>
+        <div className="font-mono text-[9px] font-semibold text-stone-800">
+          {title}
+        </div>
         <span className="rounded-full bg-emerald-600 px-1.5 py-0.5 font-mono text-[7px] font-semibold uppercase tracking-wider text-white">
           {statusLabel}
         </span>
@@ -227,7 +235,13 @@ export function PolicyCard({
   );
 }
 
-export function PdfBadge({ visible, label }: { visible: boolean; label: string }) {
+export function PdfBadge({
+  visible,
+  label,
+}: {
+  visible: boolean;
+  label: string;
+}) {
   return (
     <motion.div
       initial={false}
@@ -235,10 +249,16 @@ export function PdfBadge({ visible, label }: { visible: boolean; label: string }
       transition={{ duration: 0.35, delay: 0.15 }}
       className="inline-flex items-center gap-1.5 rounded border border-violet-200 bg-white px-2 py-1"
     >
-      <svg viewBox="0 0 16 16" className="h-3 w-3 text-red-500" fill="currentColor">
+      <svg
+        viewBox="0 0 16 16"
+        className="h-3 w-3 text-red-500"
+        fill="currentColor"
+      >
         <path d="M4 1h5l3 3v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
       </svg>
-      <span className="font-mono text-[8px] font-medium text-stone-700">{label}</span>
+      <span className="font-mono text-[8px] font-medium text-stone-700">
+        {label}
+      </span>
     </motion.div>
   );
 }

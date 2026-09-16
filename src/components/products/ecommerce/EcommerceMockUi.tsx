@@ -45,7 +45,9 @@ export function ModalityBadge({
       transition={{ delay: index * 0.08, duration: 0.35 }}
       className={`rounded border px-2 py-1.5 text-center ${styles[variant]}`}
     >
-      <div className="font-mono text-[7px] uppercase tracking-wider">{label}</div>
+      <div className="font-mono text-[7px] uppercase tracking-wider">
+        {label}
+      </div>
     </motion.div>
   );
 }
@@ -96,7 +98,9 @@ export function StripeCheckout({
       className="rounded border border-indigo-200/80 bg-indigo-50/50 p-2"
     >
       <div className="flex items-center justify-between">
-        <div className="font-mono text-[8px] font-semibold text-indigo-800">{label}</div>
+        <div className="font-mono text-[8px] font-semibold text-indigo-800">
+          {label}
+        </div>
         <div className="rounded bg-indigo-600 px-1.5 py-0.5 font-mono text-[7px] font-bold text-white">
           Stripe
         </div>
@@ -137,10 +141,16 @@ export function ShipmentTracker({
       className="rounded border border-emerald-200/80 bg-emerald-50/60 p-2"
     >
       <div className="flex items-center gap-1.5">
-        <svg viewBox="0 0 16 16" className="h-3 w-3 text-emerald-600" fill="currentColor">
+        <svg
+          viewBox="0 0 16 16"
+          className="h-3 w-3 text-emerald-600"
+          fill="currentColor"
+        >
           <path d="M1 3h2v8H1V3zm3 0h8l2 2v6H4V3zm1 1v5h8V5H5zm9 7H2v1h12v-1z" />
         </svg>
-        <span className="font-mono text-[8px] font-semibold text-emerald-800">{envioLabel}</span>
+        <span className="font-mono text-[8px] font-semibold text-emerald-800">
+          {envioLabel}
+        </span>
       </div>
       <div className="mt-1.5 font-mono text-[7px] text-stone-600">
         {trackingLabel}: {tracking}

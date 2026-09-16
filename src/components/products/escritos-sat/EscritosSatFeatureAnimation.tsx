@@ -11,10 +11,7 @@ import {
 } from "./EscritosSatMockUi";
 
 export type EscritosSatFeatureVariant =
-  | "requerimiento"
-  | "escrito"
-  | "onedrive"
-  | "ia";
+  "requerimiento" | "escrito" | "onedrive" | "ia";
 
 type EscritosSatFeatureAnimationProps = {
   variant: EscritosSatFeatureVariant;
@@ -49,10 +46,19 @@ export default function EscritosSatFeatureAnimation({
     >
       {variant === "requerimiento" && (
         <div className="w-full max-w-[220px] space-y-2">
-          <PdfUpload visible={active} label={labels.requerimiento} active={active && !reduceMotion} />
+          <PdfUpload
+            visible={active}
+            label={labels.requerimiento}
+            active={active && !reduceMotion}
+          />
           <div className="flex flex-wrap gap-1">
             {numeralLabels.map((numeral, index) => (
-              <NumeralChip key={numeral} label={numeral} index={index} visible={active} />
+              <NumeralChip
+                key={numeral}
+                label={numeral}
+                index={index}
+                visible={active}
+              />
             ))}
           </div>
         </div>
@@ -101,7 +107,11 @@ export default function EscritosSatFeatureAnimation({
 
       {variant === "ia" && (
         <div className="w-full max-w-[220px]">
-          <DraftPreview visible={active} title={labels.borrador} statusLabel={labels.listo} />
+          <DraftPreview
+            visible={active}
+            title={labels.borrador}
+            statusLabel={labels.listo}
+          />
           <motion.div
             initial={false}
             animate={{ opacity: active ? 1 : 0 }}

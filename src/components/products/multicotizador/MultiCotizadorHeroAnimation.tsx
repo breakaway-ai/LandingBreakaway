@@ -70,7 +70,11 @@ export default function MultiCotizadorHeroAnimation({
           <div className="mt-3">
             <PhaseStepper
               activeIndex={activeScene}
-              labels={[labels.phaseDatos, labels.phaseComparar, labels.phaseEmitir]}
+              labels={[
+                labels.phaseDatos,
+                labels.phaseComparar,
+                labels.phaseEmitir,
+              ]}
               compact
             />
           </div>
@@ -87,11 +91,19 @@ export default function MultiCotizadorHeroAnimation({
             >
               {activeScene === 0 && (
                 <div className="grid h-full grid-cols-2 gap-2">
-                  <MockField label={labels.vehiculo} value="VW Jetta 2022" visible />
+                  <MockField
+                    label={labels.vehiculo}
+                    value="VW Jetta 2022"
+                    visible
+                  />
                   <MockField label={labels.placa} value="ABC-123-D" visible />
                   <motion.div
                     className="col-span-2 rounded border border-dashed border-violet-300 bg-violet-50/50 px-2 py-3"
-                    animate={isStatic ? undefined : { borderColor: ["#DDD6FE", "#A78BFA", "#DDD6FE"] }}
+                    animate={
+                      isStatic
+                        ? undefined
+                        : { borderColor: ["#DDD6FE", "#A78BFA", "#DDD6FE"] }
+                    }
                     transition={{ duration: 2.4, repeat: Infinity }}
                   >
                     <div className="font-mono text-[7px] uppercase tracking-wider text-violet-500">
@@ -121,7 +133,11 @@ export default function MultiCotizadorHeroAnimation({
 
               {activeScene === 2 && (
                 <div className="flex h-full flex-col justify-center gap-2">
-                  <PolicyCard visible title={labels.policyLabel} statusLabel={labels.emitida} />
+                  <PolicyCard
+                    visible
+                    title={labels.policyLabel}
+                    statusLabel={labels.emitida}
+                  />
                   <PdfBadge visible label={labels.pdfLabel} />
                 </div>
               )}

@@ -12,7 +12,8 @@ import {
   type AvaluosFlowLabels,
 } from "./AvaluosMockUi";
 
-export type AvaluosFeatureVariant = "catastro" | "comparables" | "homologacion" | "docs";
+export type AvaluosFeatureVariant =
+  "catastro" | "comparables" | "homologacion" | "docs";
 
 type AvaluosFeatureAnimationProps = {
   variant: AvaluosFeatureVariant;
@@ -54,10 +55,19 @@ export default function AvaluosFeatureAnimation({
               value="09-015-012…"
               visible={active}
             />
-            <MockField label={labels.terreno} value="420 m²" visible={active} accent="emerald" />
+            <MockField
+              label={labels.terreno}
+              value="420 m²"
+              visible={active}
+              accent="emerald"
+            />
             <motion.div
               className="col-span-2 rounded border border-dashed border-stone-300 bg-white/80 px-2 py-3 text-center font-mono text-[8px] text-stone-500"
-              animate={active && !reduceMotion ? { borderColor: ["#D6D3D1", "#A78BFA", "#D6D3D1"] } : undefined}
+              animate={
+                active && !reduceMotion
+                  ? { borderColor: ["#D6D3D1", "#A78BFA", "#D6D3D1"] }
+                  : undefined
+              }
               transition={{ duration: 2.4, repeat: Infinity }}
             >
               catastro.png → IA
@@ -77,9 +87,22 @@ export default function AvaluosFeatureAnimation({
           <SearchRing active={active && !reduceMotion} />
           <div className="relative z-10 w-full max-w-[240px] space-y-2">
             <div className="grid grid-cols-3 gap-1.5">
-              <ComparableCard price={labels.oferta1} index={0} visible={active} highlight />
-              <ComparableCard price={labels.oferta2} index={1} visible={active} />
-              <ComparableCard price={labels.oferta3} index={2} visible={active} />
+              <ComparableCard
+                price={labels.oferta1}
+                index={0}
+                visible={active}
+                highlight
+              />
+              <ComparableCard
+                price={labels.oferta2}
+                index={1}
+                visible={active}
+              />
+              <ComparableCard
+                price={labels.oferta3}
+                index={2}
+                visible={active}
+              />
             </div>
             <motion.div
               initial={false}
@@ -108,7 +131,11 @@ export default function AvaluosFeatureAnimation({
 
       {variant === "docs" && (
         <div className="flex w-full max-w-[220px] flex-col items-center gap-2">
-          <DocStack visible={active} title={labels.avaluoFinal} deliveredLabel={labels.entregado} />
+          <DocStack
+            visible={active}
+            title={labels.avaluoFinal}
+            deliveredLabel={labels.entregado}
+          />
           <motion.div
             initial={false}
             animate={{ opacity: active ? 1 : 0 }}

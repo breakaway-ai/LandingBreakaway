@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import ProductDetailPage from "@/components/pages/ProductDetailPage";
 import ProductSoftwareJsonLd from "@/components/products/ProductSoftwareJsonLd";
-import { PRODUCTS, getProductBySlug, isLandingProduct } from "@/config/products";
+import {
+  PRODUCTS,
+  getProductBySlug,
+  isLandingProduct,
+} from "@/config/products";
 import { buildProductMetadata } from "@/lib/metadata";
 import { routing, type AppLocale } from "@/i18n/routing";
 

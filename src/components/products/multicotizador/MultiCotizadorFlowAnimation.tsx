@@ -75,7 +75,11 @@ export default function MultiCotizadorFlowAnimation({
           <div className="mt-3">
             <PhaseStepper
               activeIndex={step}
-              labels={[labels.phaseDatos, labels.phaseComparar, labels.phaseEmitir]}
+              labels={[
+                labels.phaseDatos,
+                labels.phaseComparar,
+                labels.phaseEmitir,
+              ]}
             />
           </div>
 
@@ -84,8 +88,16 @@ export default function MultiCotizadorFlowAnimation({
 
             <div className="relative z-10 grid h-full gap-3 md:grid-cols-[0.9fr_1.1fr]">
               <div className="space-y-2">
-                <MockField label={labels.vehiculo} value="VW Jetta 2022" visible={showForm} />
-                <MockField label={labels.placa} value="ABC-123-D" visible={showForm} />
+                <MockField
+                  label={labels.vehiculo}
+                  value="VW Jetta 2022"
+                  visible={showForm}
+                />
+                <MockField
+                  label={labels.placa}
+                  value="ABC-123-D"
+                  visible={showForm}
+                />
                 <motion.div
                   initial={false}
                   animate={{ opacity: showForm ? 1 : 0 }}

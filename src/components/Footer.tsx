@@ -13,8 +13,7 @@ import { PRODUCTS } from "@/config/products";
 import Wordmark from "./Wordmark";
 
 type NavLink =
-  | { key: string; id: string }
-  | { key: string; href: "/about" | "/products" };
+  { key: string; id: string } | { key: string; href: "/about" | "/products" };
 
 const navLinks: NavLink[] = [
   { key: "nav.services", id: "services" },
@@ -98,7 +97,10 @@ export default function Footer() {
               </li>
               {PRODUCTS.map((product) => (
                 <li key={product.slug}>
-                  <Link href={`/products/${product.slug}`} className={linkClass}>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className={linkClass}
+                  >
                     {t(product.titleKey)}
                   </Link>
                 </li>

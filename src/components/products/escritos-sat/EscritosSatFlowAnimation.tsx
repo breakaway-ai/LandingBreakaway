@@ -75,7 +75,11 @@ export default function EscritosSatFlowAnimation({
           <div className="mt-3">
             <PhaseStepper
               activeIndex={step}
-              labels={[labels.phaseUpload, labels.phaseExpediente, labels.phaseBorrador]}
+              labels={[
+                labels.phaseUpload,
+                labels.phaseExpediente,
+                labels.phaseBorrador,
+              ]}
             />
           </div>
 

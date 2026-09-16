@@ -63,7 +63,11 @@ export function PhaseStepper({
                 className="flex h-5 w-5 items-center justify-center rounded-full border text-[8px] font-semibold"
                 style={{
                   borderColor: isActive || isDone ? color : "#BAE6FD",
-                  backgroundColor: isDone ? color : isActive ? `${color}18` : "white",
+                  backgroundColor: isDone
+                    ? color
+                    : isActive
+                      ? `${color}18`
+                      : "white",
                   color: isDone ? "white" : isActive ? color : "#7DD3FC",
                 }}
                 animate={isActive ? { scale: [1, 1.08, 1] } : { scale: 1 }}
@@ -125,12 +129,20 @@ export function PdfUpload({
         />
       )}
       <div className="relative z-10 flex items-center gap-2">
-        <svg viewBox="0 0 16 16" className="h-4 w-4 text-red-500" fill="currentColor">
+        <svg
+          viewBox="0 0 16 16"
+          className="h-4 w-4 text-red-500"
+          fill="currentColor"
+        >
           <path d="M4 1h5l3 3v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
         </svg>
         <div>
-          <div className="font-mono text-[8px] font-semibold text-stone-800">{label}</div>
-          <div className="font-mono text-[7px] text-sky-600">requerimiento.pdf</div>
+          <div className="font-mono text-[8px] font-semibold text-stone-800">
+            {label}
+          </div>
+          <div className="font-mono text-[7px] text-sky-600">
+            requerimiento.pdf
+          </div>
         </div>
       </div>
     </motion.div>
@@ -158,7 +170,13 @@ export function NumeralChip({
   );
 }
 
-export function FolderTree({ visible, rootLabel }: { visible: boolean; rootLabel: string }) {
+export function FolderTree({
+  visible,
+  rootLabel,
+}: {
+  visible: boolean;
+  rootLabel: string;
+}) {
   const folders = ["Anexo A", "Anexo B", "Soporte"];
 
   return (
@@ -209,7 +227,9 @@ export function DraftPreview({
       className="rounded border border-emerald-200/80 bg-emerald-50/60 p-2"
     >
       <div className="flex items-center justify-between gap-2">
-        <div className="font-mono text-[8px] font-semibold text-stone-800">{title}</div>
+        <div className="font-mono text-[8px] font-semibold text-stone-800">
+          {title}
+        </div>
         <span className="rounded-full bg-emerald-600 px-1.5 py-0.5 font-mono text-[7px] font-semibold uppercase tracking-wider text-white">
           {statusLabel}
         </span>

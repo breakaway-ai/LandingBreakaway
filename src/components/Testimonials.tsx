@@ -33,9 +33,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <span className="label text-primary">
-            {t("testimonials.label")}
-          </span>
+          <span className="label text-primary">{t("testimonials.label")}</span>
           <h2 className="mx-auto mt-5 max-w-2xl text-[1.75rem] leading-[1.15] text-ink sm:text-4xl lg:text-[2.6rem]">
             {t("testimonials.headline")}
           </h2>

@@ -11,11 +11,13 @@ import {
   type SeoLocale,
 } from "@/config/site";
 
-type SeoPage = "home" | "about" | "privacy" | "thankYou" | "products";
+type SeoPage =
+  "home" | "about" | "contact" | "privacy" | "thankYou" | "products";
 
 const PAGE_PATHS: Record<SeoPage, PublicPath | "/thank-you"> = {
   home: "/",
   about: "/about",
+  contact: "/contact",
   privacy: "/privacy",
   thankYou: "/thank-you",
   products: "/products",

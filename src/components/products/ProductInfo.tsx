@@ -7,7 +7,12 @@ type ProductInfoProps = {
 };
 
 const FEATURES = ["feature1", "feature2", "feature3"] as const;
-const DELIVERABLES = ["deliverable1", "deliverable2", "deliverable3", "deliverable4"] as const;
+const DELIVERABLES = [
+  "deliverable1",
+  "deliverable2",
+  "deliverable3",
+  "deliverable4",
+] as const;
 
 export default function ProductInfo({ detailKey }: ProductInfoProps) {
   const detail = useTranslations(`productDetail.${detailKey}`);
@@ -38,7 +43,9 @@ export default function ProductInfo({ detailKey }: ProductInfoProps) {
                 </h3>
                 <p className="prose-mono mt-4 max-w-lg">
                   {detail.rich(`${feature}Desc`, {
-                    highlight: (chunks) => <span className="mark">{chunks}</span>,
+                    highlight: (chunks) => (
+                      <span className="mark">{chunks}</span>
+                    ),
                   })}
                 </p>
               </div>
@@ -53,7 +60,10 @@ export default function ProductInfo({ detailKey }: ProductInfoProps) {
             </h3>
             <ul className="mt-5 space-y-3">
               {DELIVERABLES.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-relaxed text-ink/80">
+                <li
+                  key={item}
+                  className="flex gap-3 text-sm leading-relaxed text-ink/80"
+                >
                   <Check
                     size={16}
                     className="mt-0.5 shrink-0 text-primary"

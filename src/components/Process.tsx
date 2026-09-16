@@ -87,7 +87,11 @@ function ProcessPanel({
           const isPast = i < activeStep;
 
           return (
-            <motion.li key={item.titleKey} layout className="flex min-w-0 flex-col">
+            <motion.li
+              key={item.titleKey}
+              layout
+              className="flex min-w-0 flex-col"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 28 }}
                 animate={{
@@ -114,7 +118,6 @@ function ProcessPanel({
                   {t(item.descKey)}
                 </p>
               </motion.div>
-
             </motion.li>
           );
         })}
@@ -130,7 +133,10 @@ function ProcessPanel({
           const isRevealed = i <= maxRevealedStep;
 
           return (
-            <div key={`${item.titleKey}-mobile-point`} className="relative flex justify-center">
+            <div
+              key={`${item.titleKey}-mobile-point`}
+              className="relative flex justify-center"
+            >
               <motion.span
                 className="relative z-10 h-3.5 w-3.5 rounded-full"
                 animate={{

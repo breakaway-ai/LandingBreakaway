@@ -22,7 +22,12 @@ type FormData = {
 const labelClassName =
   "mb-1.5 block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-dim/80";
 
-export default function ContactForm() {
+type ContactFormProps = {
+  /** Extra top padding when the form is the first content below the fixed navbar. */
+  standalone?: boolean;
+};
+
+export default function ContactForm({ standalone = false }: ContactFormProps) {
   const t = useTranslations();
   const router = useRouter();
   const prefersReducedMotion = useReducedMotion();
@@ -94,7 +99,11 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="contact-grid-bg relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      className={
+        standalone
+          ? "contact-grid-bg relative overflow-hidden pb-20 pt-28 sm:pb-24 sm:pt-32 lg:pb-28 lg:pt-36"
+          : "contact-grid-bg relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      }
     >
       <div className="pointer-events-none absolute -left-32 top-1/4 h-[480px] w-[480px] rounded-full bg-primary/[0.07] blur-[100px]" />
 
@@ -107,7 +116,9 @@ export default function ContactForm() {
           >
             <h2 className="max-w-lg text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.08] tracking-[-0.02em] text-ink">
               {t("contactForm.titleLead")}{" "}
-              <span className="text-primary">{t("contactForm.titleAccent")}</span>
+              <span className="text-primary">
+                {t("contactForm.titleAccent")}
+              </span>
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-ink-soft">
               {t("contactForm.subtitle")}

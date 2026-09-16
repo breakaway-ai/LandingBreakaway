@@ -17,7 +17,9 @@ function servicesUrl(locale: SeoLocale): string {
   return `${SITE_URL}/${locale}/services`;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo.services" });
   const pageUrl = servicesUrl(locale as SeoLocale);

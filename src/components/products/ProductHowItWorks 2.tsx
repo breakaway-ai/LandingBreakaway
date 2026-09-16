@@ -11,7 +11,11 @@ import EscritosSatFlowAnimation from "@/components/products/escritos-sat/Escrito
 import { getEscritosSatAnimationLabels } from "@/components/products/escritos-sat/escritosSatAnimationLabels";
 import MultiCotizadorFlowAnimation from "@/components/products/multicotizador/MultiCotizadorFlowAnimation";
 import { getMultiCotizadorAnimationLabels } from "@/components/products/multicotizador/multicotizadorAnimationLabels";
-import type { FlowAnimationLayout, ProductAnimationId, ProductSlug } from "@/config/products";
+import type {
+  FlowAnimationLayout,
+  ProductAnimationId,
+  ProductSlug,
+} from "@/config/products";
 
 const STEP_KEYS = ["step1", "step2", "step3"] as const;
 const STEP_CYCLE_MS = 2800;
@@ -148,7 +152,9 @@ export default function ProductHowItWorks({
         <ol className="mt-12 grid gap-8 md:grid-cols-3">
           {STEP_KEYS.map((key, index) => {
             const isActive =
-              showFlowAnimation && !prefersReducedMotion && animationStep === index;
+              showFlowAnimation &&
+              !prefersReducedMotion &&
+              animationStep === index;
 
             return (
               <motion.li

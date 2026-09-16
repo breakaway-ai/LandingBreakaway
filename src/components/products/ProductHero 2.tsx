@@ -93,7 +93,9 @@ export default function ProductHero({ slug, heroSvg, heroAnimation }: ProductHer
                 </Link>
               )}
 
-              <p className="font-mono text-[11px] text-ink-dim">{t("heroAudience")}</p>
+              <p className="font-mono text-[11px] text-ink-dim">
+                {t("heroAudience")}
+              </p>
             </motion.div>
           </div>
 

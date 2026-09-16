@@ -34,7 +34,7 @@ export const ORGANIZATION_JSON_LD = {
   sameAs: [LINKEDIN_URL],
 } as const;
 
-export const PUBLIC_PATHS = ["/", "/about", "/privacy"] as const;
+export const PUBLIC_PATHS = ["/", "/about", "/privacy", "/products"] as const;
 export type PublicPath = (typeof PUBLIC_PATHS)[number];
 
 export function localizedPath(
@@ -44,9 +44,17 @@ export function localizedPath(
   return path === "/" ? `/${locale}` : `/${locale}${path}`;
 }
 
+export function localizedDynamicPath(path: string, locale: SeoLocale): string {
+  return `/${locale}${path}`;
+}
+
 export function absoluteUrl(
   path: PublicPath | "/thank-you",
   locale: SeoLocale,
 ): string {
   return `${SITE_URL}${localizedPath(path, locale)}`;
+}
+
+export function absoluteDynamicUrl(path: string, locale: SeoLocale): string {
+  return `${SITE_URL}${localizedDynamicPath(path, locale)}`;
 }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="180" y="40" width="200" height="100" stroke-dasharray="1 4"/>
+  <line x1="210" y1="70" x2="350" y2="70" stroke-dasharray="1 4"/>
+  <line x1="210" y1="90" x2="320" y2="90" stroke-dasharray="1 4"/>
+  <rect x="210" y="105" width="80" height="22" rx="2"/>
+  <text x="280" y="32" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">Checkout</text>
+</svg>

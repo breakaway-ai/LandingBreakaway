@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 315" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="80" y="50" width="160" height="200" stroke-dasharray="1 4"/>
+  <rect x="100" y="70" width="120" height="70" stroke-dasharray="1 4"/>
+  <line x1="110" y1="160" x2="210" y2="160" stroke-dasharray="1 4"/>
+  <line x1="110" y1="180" x2="190" y2="180" stroke-dasharray="1 4"/>
+  <line x1="110" y1="200" x2="210" y2="200" stroke-dasharray="1 4"/>
+  <line x1="110" y1="220" x2="170" y2="220" stroke-dasharray="1 4"/>
+  <path d="M 250 150 L 300 150"/>
+  <polygon points="300,150 292,145 292,155" fill="#0a0a0a" stroke="none"/>
+  <rect x="310" y="80" width="170" height="155" stroke-dasharray="1 4"/>
+  <line x1="330" y1="110" x2="460" y2="110" stroke-dasharray="1 4"/>
+  <line x1="330" y1="130" x2="440" y2="130" stroke-dasharray="1 4"/>
+  <line x1="330" y1="150" x2="460" y2="150" stroke-dasharray="1 4"/>
+  <line x1="330" y1="170" x2="420" y2="170" stroke-dasharray="1 4"/>
+  <line x1="330" y1="190" x2="450" y2="190" stroke-dasharray="1 4"/>
+  <circle cx="395" cy="215" r="14"/>
+  <line x1="388" y1="215" x2="402" y2="215"/>
+  <line x1="395" y1="208" x2="395" y2="222"/>
+</svg>

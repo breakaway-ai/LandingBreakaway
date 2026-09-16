@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" fill="none" stroke="#0a0a0a" stroke-width="1" shape-rendering="geometricPrecision" vector-effect="non-scaling-stroke">
+  <rect x="120" y="70" width="120" height="60" stroke-dasharray="1 4"/>
+  <path d="M 240 100 L 320 100"/>
+  <polygon points="320,100 312,95 312,105" fill="#0a0a0a" stroke="none"/>
+  <rect x="330" y="55" width="110" height="90" stroke-dasharray="1 4"/>
+  <line x1="350" y1="80" x2="420" y2="80" stroke-dasharray="1 4"/>
+  <line x1="350" y1="100" x2="400" y2="100" stroke-dasharray="1 4"/>
+  <text x="385" y="48" font-family="monospace" font-size="10" fill="#0a0a0a" stroke="none" text-anchor="middle">Rastreo</text>
+</svg>

@@ -1,10 +1,6 @@
-import { ORGANIZATION_JSON_LD } from "@/config/site";
+import JsonLd from "@/components/JsonLd";
+import { organizationJsonLd } from "@/lib/json-ld";
 
 export default function OrganizationJsonLd() {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD) }}
-    />
-  );
+  return <JsonLd data={organizationJsonLd()} />;
 }

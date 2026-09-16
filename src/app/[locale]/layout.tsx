@@ -44,6 +44,16 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Optional analytics env vars:
+// NEXT_PUBLIC_GA_MEASUREMENT_ID — GA4 property (e.g. G-XXXXXXXXXX)
+// NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION — Search Console verification token
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const GOOGLE_ADS_ID = "AW-18407437332";
+const GTAG_SCRIPT_ID =
+  GA_MEASUREMENT_ID ?? GOOGLE_ADS_ID;
+
 export default async function LocaleLayout({
   children,
   params,
@@ -63,6 +73,12 @@ export default async function LocaleLayout({
     >
       <head>
         <meta name="theme-color" content="#FFFFFF" />
+        {GOOGLE_SITE_VERIFICATION ? (
+          <meta
+            name="google-site-verification"
+            content={GOOGLE_SITE_VERIFICATION}
+          />
+        ) : null}
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
@@ -73,15 +89,19 @@ export default async function LocaleLayout({
         <Analytics />
         <SpeedInsights />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18407437332"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_SCRIPT_ID}`}
           strategy="afterInteractive"
         />
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="google-tags" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-18407437332');
+            gtag('config', '${GOOGLE_ADS_ID}');${
+              GA_MEASUREMENT_ID
+                ? `\n            gtag('config', '${GA_MEASUREMENT_ID}');`
+                : ""
+            }
           `}
         </Script>
       </body>

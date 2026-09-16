@@ -2,11 +2,13 @@ import Image from "next/image";
 
 type ServiceIllustrationProps = {
   src: string;
+  alt: string;
   className?: string;
 };
 
 export default function ServiceIllustration({
   src,
+  alt,
   className = "aspect-[16/9] sm:aspect-[2/1]",
 }: ServiceIllustrationProps) {
   return (
@@ -16,8 +18,7 @@ export default function ServiceIllustration({
       <div className="absolute inset-4 rounded-xl border border-dashed border-ink/15 sm:inset-6 md:inset-8">
         <Image
           src={src}
-          alt=""
-          aria-hidden="true"
+          alt={alt}
           fill
           sizes="(max-width: 768px) 100vw, 560px"
           className="object-contain p-3 sm:p-5 md:p-6"

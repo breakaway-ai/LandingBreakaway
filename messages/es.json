@@ -48,9 +48,18 @@
     "label": "Servicio",
     "allServices": "Todos los servicios"
   },
+  "serviceIllustrations": {
+    "aiAgents": "Ilustración de agentes de IA conectando CRM, correo y facturación para firmas profesionales",
+    "automations": "Ilustración de automatización de procesos con triggers, reglas y monitoreo de flujos",
+    "integrations": "Ilustración de integraciones CRM, ERP, WhatsApp y facturación entre sistemas",
+    "webPages": "Ilustración de páginas web y portales conectados a procesos de negocio",
+    "apps": "Ilustración de aplicaciones web y móviles integradas al stack operativo",
+    "consulting": "Ilustración de consultoría en mapeo de procesos y automatización",
+    "training": "Ilustración de capacitación en agentes de IA y flujos automatizados"
+  },
   "serviceDetail": {
     "aiAgents": {
-      "metaDescription": "Agentes IA que entienden tu contexto, ejecutan tareas entre CRM, correo y facturación, y mantienen los flujos de servicios profesionales sin seguimientos manuales.",
+      "metaDescription": "Agentes de IA que ejecutan tareas entre CRM, correo y facturación para firmas profesionales en México — sin seguimientos manuales ni copiar y pegar. | Breakaway",
       "heroHeadline": "Agentes que <highlight>ejecutan entre tus sistemas</highlight>",
       "heroSubtitle": "No chatbots por moda — agentes que leen contexto, actúan en las herramientas que ya usas y dejan un registro auditable de cada paso.",
       "infoLabel": "Qué construimos",
@@ -74,7 +83,7 @@
       "ctaText": "Cuéntanos el flujo que nadie quiere heredar. Te decimos si un agente es la solución — o si algo más simple funciona mejor."
     },
     "automations": {
-      "metaDescription": "Automatizaciones de flujo que eliminan copiar y pegar, seguimientos manuales y revisiones repetitivas para firmas de servicios profesionales en México.",
+      "metaDescription": "Automatización de procesos en México: flujos que eliminan copiar y pegar, seguimientos manuales y revisiones repetitivas para firmas profesionales. | Breakaway",
       "heroHeadline": "Flujos que corren <highlight>sin copiar y pegar</highlight>",
       "heroSubtitle": "Triggers, reglas y monitoreo que manejan el trabajo repetitivo — para que tu equipo se enfoque en decisiones de cliente, no en perseguir estatus.",
       "infoLabel": "Qué construimos",
@@ -98,7 +107,7 @@
       "ctaText": "Describe el proceso repetitivo. Mapeamos qué se puede automatizar primero y qué sigue necesitando un humano en el loop."
     },
     "integrations": {
-      "metaDescription": "Conectamos CRM, ERP, hojas de cálculo, correo, WhatsApp y facturación para que la información fluya sin fricción entre las herramientas que tu firma ya usa.",
+      "metaDescription": "Integraciones CRM, ERP, WhatsApp, correo y facturación para firmas profesionales en México — datos sincronizados entre las herramientas que ya usas. | Breakaway",
       "heroHeadline": "Tus herramientas, <highlight>por fin conectadas</highlight>",
       "heroSubtitle": "Conectamos lo que ya usas — CRM, ERP, correo, WhatsApp, hojas de cálculo, facturación — para que los datos se muevan una vez y todos trabajen de la misma fuente.",
       "infoLabel": "Qué construimos",
@@ -122,7 +131,7 @@
       "ctaText": "Cuéntanos dónde se atora la información entre herramientas. Proponemos la integración más pequeña que quite más fricción."
     },
     "webPages": {
-      "metaDescription": "Landing pages, portales internos y sitios para clientes pensados para sostener procesos reales de negocio — no solo para existir.",
+      "metaDescription": "Páginas web y portales conectados a CRM y automatizaciones para firmas profesionales en México — captura leads y dispara flujos reales. | Breakaway",
       "heroHeadline": "Sitios que <highlight>sostienen procesos reales</highlight>",
       "heroSubtitle": "Landing pages, portales para clientes y herramientas internas diseñadas para capturar datos, disparar flujos y conectarse a los sistemas que tu operación ya usa.",
       "infoLabel": "Qué construimos",
@@ -146,7 +155,7 @@
       "ctaText": "Cuéntanos el trabajo que el sitio necesita cumplir. Te proponemos algo útil — no un brochure que nadie visita."
     },
     "apps": {
-      "metaDescription": "Aplicaciones web y móviles custom cuando tu flujo necesita su propia interfaz — diseñadas para conectarse a tu stack y datos existentes.",
+      "metaDescription": "Apps web y móviles conectadas a CRM, ERP y agentes de IA cuando tu flujo necesita su propia interfaz — para firmas en México. | Breakaway",
       "heroHeadline": "Apps propias cuando <highlight>las hojas no alcanzan</highlight>",
       "heroSubtitle": "Aplicaciones web y móviles construidas para flujos que necesitan su propia interfaz — conectadas a tus datos, permisos y las herramientas que ya usas.",
       "infoLabel": "Qué construimos",
@@ -170,7 +179,7 @@
       "ctaText": "Describe qué le cuesta trabajo a tu equipo o clientes hoy. Te decimos si una app vale la pena — o si un arreglo más simple te lleva más rápido."
     },
     "consulting": {
-      "metaDescription": "Mapeo de procesos, priorización de automatización y roadmap práctico que entrega valor en semanas — no un deck de estrategia de seis meses.",
+      "metaDescription": "Consultoría en automatización de procesos: mapeo, priorización y roadmap práctico que entrega valor en semanas para firmas en México. | Breakaway",
       "heroHeadline": "Diagnóstico antes de <highlight>construir cualquier cosa</highlight>",
       "heroSubtitle": "Mapeamos cómo funciona tu operación en la realidad, identificamos qué automatizar primero y definimos un roadmap ejecutable — con respuestas honestas sobre qué aún no vale la pena.",
       "infoLabel": "Qué entregamos",
@@ -194,7 +203,7 @@
       "ctaText": "Agenda una evaluación gratis. Mapeamos un proceso contigo y te decimos con franqueza qué vale construir — y qué no."
     },
     "training": {
-      "metaDescription": "Capacitación práctica para que tu equipo entienda nuevos flujos, herramientas y agentes IA — y pueda operarlos con confianza desde el día uno.",
+      "metaDescription": "Capacitación práctica en agentes de IA, automatizaciones e integraciones para que tu equipo opere nuevos flujos con confianza desde el día uno. | Breakaway",
       "heroHeadline": "Tu equipo, <highlight>operando desde el día uno</highlight>",
       "heroSubtitle": "Talleres prácticos y documentación para que quienes corren tus procesos entiendan las nuevas herramientas, agentes y flujos — no solo quienes los construyeron.",
       "infoLabel": "Qué entregamos",
@@ -736,16 +745,16 @@
   },
   "seo": {
     "home": {
-      "title": "Breakaway | Integración operativa para firmas de servicios en México",
-      "description": "Conectamos hojas de cálculo, correo, WhatsApp, CRM y facturación para firmas de servicios profesionales en México. Diagnóstico de un proceso sin costo."
+      "title": "Agentes IA para firmas profesionales | Breakaway",
+      "description": "Agentes de IA, automatización de procesos e integraciones CRM, ERP y WhatsApp para firmas profesionales en México. Evaluación sin costo. | Breakaway"
     },
     "about": {
       "title": "Nosotros · Breakaway",
       "description": "Tres ingenieros del Tec de Monterrey que construyen ecosistemas de agentes de IA en producción para empresas."
     },
     "services": {
-      "title": "Servicios · Breakaway",
-      "description": "Agentes IA, automatizaciones, integraciones, páginas web, apps, consultoría y capacitación para firmas de servicios profesionales en México."
+      "title": "Servicios IA y automatización | Breakaway",
+      "description": "Agentes de IA, automatización de procesos, integraciones CRM/ERP/WhatsApp, apps y consultoría para firmas profesionales en México. | Breakaway"
     },
     "products": {
       "title": "Productos · Breakaway",

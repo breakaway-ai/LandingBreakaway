@@ -48,9 +48,18 @@
     "label": "Service",
     "allServices": "All services"
   },
+  "serviceIllustrations": {
+    "aiAgents": "Illustration of AI agents connecting CRM, email, and billing for professional firms",
+    "automations": "Illustration of process automation with triggers, rules, and workflow monitoring",
+    "integrations": "Illustration of CRM, ERP, WhatsApp, and billing integrations between systems",
+    "webPages": "Illustration of web pages and portals connected to business processes",
+    "apps": "Illustration of web and mobile apps integrated with the operational stack",
+    "consulting": "Illustration of process mapping and automation consulting",
+    "training": "Illustration of training on AI agents and automated workflows"
+  },
   "serviceDetail": {
     "aiAgents": {
-      "metaDescription": "AI agents that understand your context, execute tasks across CRM, email, and billing, and keep professional services workflows moving without manual follow-ups.",
+      "metaDescription": "AI agents that execute tasks across CRM, email, and billing for professional services firms in Mexico — no manual follow-ups or copy-paste. | Breakaway",
       "heroHeadline": "Agents that <highlight>execute across your systems</highlight>",
       "heroSubtitle": "Not chatbots for the sake of it — agents that read context, take action in the tools you already use, and leave an auditable trail of every step.",
       "infoLabel": "What we build",
@@ -74,7 +83,7 @@
       "ctaText": "Tell us the workflow nobody wants to inherit. We'll tell you if an agent is the right fit — or if something simpler works better."
     },
     "automations": {
-      "metaDescription": "Workflow automations that eliminate copy-paste, manual follow-ups, and repetitive checks for professional services firms in Mexico.",
+      "metaDescription": "Process automation in Mexico: workflows that eliminate copy-paste, manual follow-ups, and repetitive checks for professional firms. | Breakaway",
       "heroHeadline": "Workflows that run <highlight>without copy-paste</highlight>",
       "heroSubtitle": "Triggers, rules, and monitoring that handle the repetitive work — so your team focuses on client decisions, not chasing status updates.",
       "infoLabel": "What we build",
@@ -98,7 +107,7 @@
       "ctaText": "Describe the repetitive process. We'll map what can be automated first and what still needs a human in the loop."
     },
     "integrations": {
-      "metaDescription": "Connect CRM, ERP, spreadsheets, email, WhatsApp, and billing so information flows without friction between the tools your firm already uses.",
+      "metaDescription": "CRM, ERP, WhatsApp, email, and billing integrations for professional firms in Mexico — data synced across the tools you already use. | Breakaway",
       "heroHeadline": "Your tools, <highlight>finally talking</highlight>",
       "heroSubtitle": "We connect what you already use — CRM, ERP, email, WhatsApp, spreadsheets, billing — so data moves once and everyone works from the same source.",
       "infoLabel": "What we build",
@@ -122,7 +131,7 @@
       "ctaText": "Tell us where data gets stuck between tools. We'll propose the smallest integration that removes the most friction."
     },
     "webPages": {
-      "metaDescription": "Landing pages, internal portals, and client-facing sites built to support real business processes — not just to exist on their own.",
+      "metaDescription": "Web pages and portals connected to CRM and automations for professional firms in Mexico — capture leads and trigger real workflows. | Breakaway",
       "heroHeadline": "Sites that <highlight>support real processes</highlight>",
       "heroSubtitle": "Landing pages, client portals, and internal tools designed to capture data, trigger workflows, and connect to the systems your operation already runs on.",
       "infoLabel": "What we build",
@@ -146,7 +155,7 @@
       "ctaText": "Tell us the job the site needs to perform. We'll scope something useful — not a brochure nobody visits."
     },
     "apps": {
-      "metaDescription": "Custom web and mobile applications when your workflow needs its own interface — designed to plug into your existing stack and data.",
+      "metaDescription": "Web and mobile apps connected to CRM, ERP, and AI agents when your workflow needs its own interface — for firms in Mexico. | Breakaway",
       "heroHeadline": "Custom apps when <highlight>spreadsheets aren't enough</highlight>",
       "heroSubtitle": "Web and mobile applications built for workflows that need their own interface — connected to your data, your permissions, and the tools you already use.",
       "infoLabel": "What we build",
@@ -170,7 +179,7 @@
       "ctaText": "Describe what your team or clients struggle to do today. We'll tell you if an app is warranted — or if a simpler fix gets you there faster."
     },
     "consulting": {
-      "metaDescription": "Process mapping, automation prioritization, and a practical roadmap that delivers value in weeks — not a six-month strategy deck.",
+      "metaDescription": "Process automation consulting: mapping, prioritization, and a practical roadmap that delivers value in weeks for firms in Mexico. | Breakaway",
       "heroHeadline": "Diagnosis before <highlight>building anything</highlight>",
       "heroSubtitle": "We map how your operation actually works, identify what to automate first, and define a roadmap you can execute — with honest answers about what isn't worth it yet.",
       "infoLabel": "What we deliver",
@@ -194,7 +203,7 @@
       "ctaText": "Book a free assessment. We'll map one process with you and tell you frankly what's worth building — and what isn't."
     },
     "training": {
-      "metaDescription": "Hands-on training so your team understands new workflows, tools, and AI agents — and can operate them confidently from day one.",
+      "metaDescription": "Hands-on training on AI agents, automations, and integrations so your team operates new workflows confidently from day one. | Breakaway",
       "heroHeadline": "Your team, <highlight>operating from day one</highlight>",
       "heroSubtitle": "Practical workshops and documentation so the people who run your processes understand the new tools, agents, and workflows — not just the engineers who built them.",
       "infoLabel": "What we deliver",
@@ -736,16 +745,16 @@
   },
   "seo": {
     "home": {
-      "title": "Breakaway | Operational integration for professional services firms in Mexico",
-      "description": "We connect spreadsheets, email, WhatsApp, CRM, and billing for professional services firms in Mexico. Free process assessment."
+      "title": "AI agents for professional firms | Breakaway",
+      "description": "AI agents, process automation, and CRM, ERP, and WhatsApp integrations for professional services firms in Mexico. Free assessment. | Breakaway"
     },
     "about": {
       "title": "About us · Breakaway",
       "description": "Three Tec de Monterrey engineers building production AI agent ecosystems for companies."
     },
     "services": {
-      "title": "Services · Breakaway",
-      "description": "AI agents, automations, integrations, web pages, apps, consulting, and training for professional services firms in Mexico."
+      "title": "AI services and automation | Breakaway",
+      "description": "AI agents, process automation, CRM/ERP/WhatsApp integrations, apps, and consulting for professional services firms in Mexico. | Breakaway"
     },
     "products": {
       "title": "Products · Breakaway",

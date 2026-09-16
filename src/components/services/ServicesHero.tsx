@@ -9,6 +9,7 @@ import { SERVICES } from "@/config/services";
 export default function ServicesHero() {
   const t = useTranslations();
   const page = useTranslations("servicesPage");
+  const illustrations = useTranslations("serviceIllustrations");
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
@@ -42,8 +43,7 @@ export default function ServicesHero() {
               <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-dashed border-ink/15 bg-background-alt sm:h-24 sm:w-24">
                 <Image
                   src={service.svg}
-                  alt=""
-                  aria-hidden="true"
+                  alt={illustrations(service.detailKey)}
                   fill
                   sizes="96px"
                   className="object-contain p-2.5 sm:p-3"

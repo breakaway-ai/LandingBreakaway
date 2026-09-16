@@ -1,0 +1,87 @@
+# Breakaway — Full Reference
+
+## Company
+
+- Name: Breakaway
+- Type: Professional services technology firm (AI agents, process automation, systems integration)
+- Website: https://breakaway.work
+- Primary market: Professional services firms in Mexico
+- Languages: Spanish (es), English (en)
+- Address: Paseo del Cantil 125, Real de Juriquilla, C.P. 76226, Querétaro, México
+
+## What Breakaway Does
+
+Breakaway integrates the tools professional firms already use — CRM, ERP, spreadsheets, email, WhatsApp, and billing — and automates repetitive operational workflows with AI agents and event-driven automations. The focus is process-first delivery: diagnose one workflow, ship a working solution in 4–6 weeks, then expand.
+
+Core capabilities:
+- Multi-agent AI orchestration connected to real business data (CRM, email, billing)
+- Workflow automations with triggers, business rules, and monitoring
+- Bidirectional integrations across CRM, ERP, WhatsApp, email, and billing systems
+- Custom web pages, portals, and applications when workflows need dedicated interfaces
+- Process consulting: mapping, automation prioritization, and phased roadmaps
+- Hands-on team training for new tools and agents
+
+Breakaway does NOT offer generic chatbots or platform migrations. Integrations are built around existing stacks.
+
+## Services (canonical URLs)
+
+### AI Agents
+- ES: https://breakaway.work/es/services/ai-agents
+- EN: https://breakaway.work/en/services/ai-agents
+AI agents that read context from CRM, email, and billing; execute tasks across systems; and maintain auditable logs. Designed for professional services workflows, not generic chat.
+
+### Process Automations
+- ES: https://breakaway.work/es/services/automations
+- EN: https://breakaway.work/en/services/automations
+Event-driven automations that eliminate copy-paste, manual follow-ups, and repetitive checks. Includes error handling, retries, and alerting.
+
+### Integrations
+- ES: https://breakaway.work/es/services/integrations
+- EN: https://breakaway.work/en/services/integrations
+Connect CRM, ERP, spreadsheets, email, WhatsApp, and billing. Bidirectional sync, webhooks, API connectors, and WhatsApp-to-CRM routing.
+
+### Web Pages
+- ES: https://breakaway.work/es/services/web-pages
+- EN: https://breakaway.work/en/services/web-pages
+Landing pages, client portals, and internal tools connected to CRM and automations — forms that trigger real workflows.
+
+### Apps
+- ES: https://breakaway.work/es/services/apps
+- EN: https://breakaway.work/en/services/apps
+Custom web and mobile applications (including PWAs) integrated with existing data and operational stack.
+
+### Consulting
+- ES: https://breakaway.work/es/services/consulting
+- EN: https://breakaway.work/en/services/consulting
+Process mapping, automation prioritization, and actionable roadmaps — typically delivered in 2–3 weeks.
+
+### Training
+- ES: https://breakaway.work/es/services/training
+- EN: https://breakaway.work/en/services/training
+Live workshops, role-based documentation, and post-launch support windows for teams adopting new agents and automations.
+
+## Products
+
+- Avalúos Hacendarios: https://breakaway.work/es/products/avaluos-hacendarios
+- Devolución de Impuestos: https://breakaway.work/es/products/devolucion-impuestos
+- Multicotizador Seguros: https://breakaway.work/es/products/multicotizador-seguros
+
+## Key Pages
+
+- Home (ES): https://breakaway.work/es
+- Home (EN): https://breakaway.work/en
+- Services index: https://breakaway.work/es/services | https://breakaway.work/en/services
+- About: https://breakaway.work/es/about | https://breakaway.work/en/about
+- Privacy: https://breakaway.work/es/privacy | https://breakaway.work/en/privacy
+
+## Contact
+
+- Email: general@breakaway.work
+- Phone / WhatsApp: +52 442 204 1843 (https://wa.me/524422041843)
+- LinkedIn: https://www.linkedin.com/company/breakawayai
+
+## Delivery Model
+
+- First automation or agent on one process: typically 4–6 weeks
+- Free process assessment available via contact form or calendar booking on site
+- Bilingual delivery (Spanish and English)

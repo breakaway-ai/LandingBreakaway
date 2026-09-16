@@ -44,8 +44,7 @@ export default function ProductHeroVisual({
   return (
     <Image
       src={heroSvg}
-      alt=""
-      aria-hidden="true"
+      alt={t("title")}
       fill
       priority
       sizes="(max-width: 1024px) 100vw, 45vw"

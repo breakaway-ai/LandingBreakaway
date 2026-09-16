@@ -626,7 +626,10 @@
     "buttonSubmitting": "Enviando...",
     "errorParse": "Error al procesar la respuesta del servidor",
     "errorSubmitFallback": "Error al enviar el formulario",
-    "privacyInfo": "Al enviar este formulario aceptas nuestra <policy>política de privacidad</policy> y el envío de comunicaciones relacionadas con tu solicitud."
+    "privacyInfo": "Al enviar este formulario aceptas nuestra <policy>política de privacidad</policy> y el envío de comunicaciones relacionadas con tu solicitud.",
+    "scheduleBannerTitle": "¿Prefieres agendar directo?",
+    "scheduleBannerSubtitle": "Reserva una consulta en el calendario y elige el horario que te convenga.",
+    "scheduleBannerButton": "Agendar cita"
   },
   "footer": {
     "slogan": "Tus procesos, sin que nadie los persiga.",

@@ -57,6 +57,7 @@ export default function PrimaryCtaButton({
   return (
     <PrimaryCtaLink
       onHome={onHome}
+      href={variant === "nav" || variant === "navMobile" ? "/contact" : undefined}
       onClick={onClick}
       className={
         className ? `${variantClassName} ${className}` : variantClassName

@@ -64,6 +64,7 @@ function CtaHoverMark({
 interface PrimaryCtaLinkProps {
   onHome: boolean;
   className: string;
+  href?: string;
   onClick?: () => void;
   markDark?: boolean;
   markSize?: number;
@@ -73,13 +74,14 @@ interface PrimaryCtaLinkProps {
 export default function PrimaryCtaLink({
   onHome,
   className,
+  href: hrefOverride,
   onClick,
   markDark = false,
   markSize = 18,
   children,
 }: PrimaryCtaLinkProps) {
-  const href = getPrimaryCtaHref("#contact");
-  const external = isExternalBookingUrl(href);
+  const href = hrefOverride ?? getPrimaryCtaHref("#contact");
+  const external = !hrefOverride && isExternalBookingUrl(href);
   const [hovered, setHovered] = useState(false);
   const hoverHandlers = {
     onMouseEnter: () => setHovered(true),
@@ -116,7 +118,7 @@ export default function PrimaryCtaLink({
 
   return (
     <Link
-      href={onHome ? href : "/#contact"}
+      href={hrefOverride ?? (onHome ? href : "/#contact")}
       className={className}
       onClick={onClick}
       {...hoverHandlers}

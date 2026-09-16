@@ -626,7 +626,10 @@
     "buttonSubmitting": "Sending...",
     "errorParse": "Error processing server response",
     "errorSubmitFallback": "Error submitting form",
-    "privacyInfo": "By submitting this form you accept our <policy>privacy policy</policy> and the sending of communications related to your request."
+    "privacyInfo": "By submitting this form you accept our <policy>privacy policy</policy> and the sending of communications related to your request.",
+    "scheduleBannerTitle": "Prefer to book directly?",
+    "scheduleBannerSubtitle": "Schedule a consultation on the calendar and pick a time that works for you.",
+    "scheduleBannerButton": "Book a call"
   },
   "footer": {
     "slogan": "Your processes, without anyone chasing them.",

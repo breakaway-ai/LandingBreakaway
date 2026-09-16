@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, type ReactNode } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -12,11 +12,6 @@ import { SERVICES } from "@/config/services";
 import { PRODUCTS } from "@/config/products";
 import { LAYOUT_MAX } from "@/lib/layout";
 import Wordmark from "./Wordmark";
-
-const sectionLinks = [
-  { key: "nav.process", id: "process" },
-  { key: "nav.testimonials", id: "testimonials" },
-];
 
 const expandEase = [0.22, 1, 0.36, 1] as const;
 const collapseEase = [0.7, 0, 0.84, 0] as const;
@@ -31,32 +26,6 @@ const collapseTransition = {
   ease: collapseEase,
 };
 const ISLAND_RADIUS = 12;
-interface SectionLinkProps {
-  onHome: boolean;
-  id: string;
-  className: string;
-  onClick?: () => void;
-  children: ReactNode;
-}
-
-function SectionLink({
-  onHome,
-  id,
-  className,
-  onClick,
-  children,
-}: SectionLinkProps) {
-  return (
-    <Link
-      href={onHome ? `#${id}` : `/#${id}`}
-      className={className}
-      onClick={onClick}
-    >
-      {children}
-    </Link>
-  );
-}
-
 function viewWidth() {
   return document.documentElement.clientWidth;
 }
@@ -584,17 +553,6 @@ export default function Navbar() {
               <ProductsNavMenu linkClass={linkClass} />
             </div>
 
-            {sectionLinks.map((link) => (
-              <SectionLink
-                key={link.id}
-                onHome={onHome}
-                id={link.id}
-                className={linkClass}
-              >
-                {t(link.key)}
-              </SectionLink>
-            ))}
-
             <Link
               href="/about"
               className={`${linkClass} ${onHome ? "" : "text-ink"}`}
@@ -662,28 +620,10 @@ export default function Navbar() {
                 />
               </motion.div>
 
-              {sectionLinks.map((link, i) => (
-                <motion.div
-                  key={link.id}
-                  initial={{ opacity: 0, x: -16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * (i + 1) }}
-                >
-                  <SectionLink
-                    onHome={onHome}
-                    id={link.id}
-                    onClick={() => setMobileOpen(false)}
-                    className="block border-b border-ink/10 py-4 font-display text-2xl font-bold text-ink"
-                  >
-                    {t(link.key)}
-                  </SectionLink>
-                </motion.div>
-              ))}
-
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.05 * (sectionLinks.length + 1) }}
+                transition={{ delay: 0.1 }}
               >
                 <Link
                   href="/about"

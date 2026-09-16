@@ -38,7 +38,7 @@ export default function CtaSection() {
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-12 sm:flex-row sm:items-center sm:gap-4">
-            <Link href="#contact" className={primaryButtonClassName}>
+            <Link href="/contact" className={primaryButtonClassName}>
               {t("ctaSection.contactButton")}
             </Link>
             <ScheduleLink className={secondaryButtonClassName}>

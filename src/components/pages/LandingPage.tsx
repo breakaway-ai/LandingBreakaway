@@ -8,7 +8,6 @@ import Products from "@/components/Products";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import CtaSection from "@/components/CtaSection";
-import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 
@@ -25,7 +24,6 @@ export default function LandingPage() {
         <Process />
         <Testimonials />
         <CtaSection />
-        <ContactForm />
       </main>
       <Footer />
     </>

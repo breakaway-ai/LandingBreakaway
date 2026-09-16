@@ -633,13 +633,15 @@
   },
   "footer": {
     "slogan": "Tus procesos, sin que nadie los persiga.",
-    "navTitle": "Navegación",
+    "productsTitle": "Producto",
     "servicesTitle": "Servicios",
-    "productsTitle": "Productos",
+    "companyTitle": "Empresa",
     "contactTitle": "Contacto",
     "linkedin": "LinkedIn",
-    "legalTitle": "Legal",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
     "copyright": "© {currentYear} BRK AI Todos los derechos reservados.",
+    "faq": "Preguntas frecuentes",
     "policy": "Privacidad"
   },
   "whatsappWidget": {
@@ -716,6 +718,33 @@
     "ctaButton": "Contáctanos",
     "ctaPhotoAlt": "El equipo de Breakaway en un evento de tecnología"
   },
+  "faqPage": {
+    "label": "Ayuda",
+    "title": "Preguntas frecuentes",
+    "intro": "Respuestas directas sobre cómo trabajamos, qué esperar y cómo empezar con Breakaway.",
+    "whatWeDoQuestion": "¿Qué hace Breakaway?",
+    "whatWeDoAnswer": "Construimos agentes de IA, automatizaciones e integraciones que conectan las herramientas que ya usas — CRM, correo, WhatsApp, ERP, facturación — para eliminar el trabajo repetitivo en tus procesos operativos. No vendemos software genérico: empezamos por un flujo concreto y lo llevamos a producción.",
+    "whoForQuestion": "¿Para quién es Breakaway?",
+    "whoForAnswer": "Para firmas de servicios profesionales y empresas con operaciones complejas que crecieron más rápido que sus procesos: despachos contables y legales, brokers de seguros, valuadores, consultoras y equipos donde alguien termina siendo el pegamento entre sistemas.",
+    "agentsVsAutomationQuestion": "¿Cuál es la diferencia entre agentes de IA y automatizaciones?",
+    "agentsVsAutomationAnswer": "Las automatizaciones siguen reglas fijas: si pasa X, haz Y. Los agentes de IA leen contexto — un hilo de correo, un registro del CRM, un deadline — y deciden qué acción tomar dentro de permisos que defines. Usamos automatizaciones para flujos predecibles y agentes cuando el proceso requiere interpretar información antes de actuar.",
+    "existingToolsQuestion": "¿Tengo que cambiar mis herramientas actuales?",
+    "existingToolsAnswer": "No. Conectamos lo que ya usas. Si el proceso necesita una pieza nueva — un portal, un formulario, una app — la construimos, pero no te vendemos migrar todo a una plataforma distinta. La integración va primero.",
+    "timelineQuestion": "¿Cuánto tarda el primer resultado?",
+    "timelineAnswer": "Típicamente 4–6 semanas para el primer agente o automatización corriendo en producción en un proceso concreto. No es un proyecto interminable: entregamos algo útil, medimos las horas recuperadas y seguimos con el siguiente flujo si tiene sentido.",
+    "engagementQuestion": "¿Cómo funciona el primer proyecto?",
+    "engagementAnswer": "Empezamos con un diagnóstico sin costo: mapeamos un proceso contigo, identificamos cuellos de botella y te decimos con franqueza si vale la pena automatizarlo. Si avanzamos, definimos alcance, conectamos tus sistemas, construimos la solución y la entregamos con documentación y sesión de handoff para tu equipo.",
+    "pricingQuestion": "¿Cuánto cuesta?",
+    "pricingAnswer": "Depende del alcance del proceso, las integraciones necesarias y si requiere agentes, automatizaciones o ambos. El diagnóstico inicial es sin costo. Después de entender tu flujo te damos una propuesta con precio fijo para la primera entrega — sin sorpresas a mitad del proyecto.",
+    "securityQuestion": "¿Mis datos están seguros?",
+    "securityAnswer": "Cada agente declara a qué sistemas entra y qué puede escribir, con registro auditable de cada acción. Pasos sensibles pueden requerir aprobación humana. No vendemos datos ni los usamos para entrenar modelos públicos. Puedes leer más en nuestra política de privacidad.",
+    "locationQuestion": "¿Trabajan solo en México?",
+    "locationAnswer": "Estamos en Querétaro, México, y la mayoría de nuestros clientes son firmas mexicanas — especialmente en industrias reguladas como fiscal, seguros e inmobiliario. Si tu operación está en otro país pero los procesos son similares, contáctanos y vemos si encaja.",
+    "gettingStartedQuestion": "¿Cómo empiezo?",
+    "gettingStartedAnswer": "Escríbenos por el formulario de contacto o agenda una llamada directamente. Cuéntanos qué proceso te está costando más tiempo. Te respondemos en menos de 24 horas hábiles con los siguientes pasos.",
+    "contact": "¿No encontraste lo que buscabas?",
+    "contactLink": "Contáctanos"
+  },
   "privacyPage": {
     "metaTitle": "Privacidad · Breakaway",
     "label": "Legal",
@@ -786,6 +815,10 @@
     "privacy": {
       "title": "Privacidad · Breakaway",
       "description": "Política de privacidad de Breakaway: cómo tratamos datos en breakaway.work, el formulario de contacto y nuestros asistentes de WhatsApp."
+    },
+    "faq": {
+      "title": "Preguntas frecuentes · Breakaway",
+      "description": "Respuestas sobre agentes de IA, automatización de procesos, integraciones, tiempos de entrega y cómo empezar con Breakaway."
     },
     "thankYou": {
       "title": "Gracias · Breakaway",

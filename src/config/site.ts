@@ -10,6 +10,9 @@ export const CONTACT_EMAIL = "general@breakaway.work";
 export const CONTACT_PHONE = WHATSAPP_PHONE;
 export const CONTACT_PHONE_DISPLAY = "+52 442 204 1843";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/breakawayai";
+export const INSTAGRAM_URL = "https://www.instagram.com/breakaway_ai/";
+export const FACEBOOK_URL =
+  "https://www.facebook.com/profile.php?id=61593204412109";
 export const CONTACT_ADDRESS = [
   "",
   "Juriquilla, C.P. 76226",
@@ -61,7 +64,7 @@ export const ORGANIZATION_JSON_LD = {
     areaServed: "MX",
     availableLanguage: ["Spanish", "English"],
   },
-  sameAs: [LINKEDIN_URL],
+  sameAs: [LINKEDIN_URL, INSTAGRAM_URL, FACEBOOK_URL],
 } as const;
 
 export const PUBLIC_PATHS = [
@@ -69,6 +72,7 @@ export const PUBLIC_PATHS = [
   "/about",
   "/contact",
   "/privacy",
+  "/faq",
   "/products",
 ] as const;
 export type PublicPath = (typeof PUBLIC_PATHS)[number];

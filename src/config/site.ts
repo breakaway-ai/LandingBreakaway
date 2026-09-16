@@ -34,7 +34,7 @@ export const ORGANIZATION_JSON_LD = {
   sameAs: [LINKEDIN_URL],
 } as const;
 
-export const PUBLIC_PATHS = ["/", "/about", "/privacy"] as const;
+export const PUBLIC_PATHS = ["/", "/about", "/contact", "/privacy"] as const;
 export type PublicPath = (typeof PUBLIC_PATHS)[number];
 
 export function localizedPath(

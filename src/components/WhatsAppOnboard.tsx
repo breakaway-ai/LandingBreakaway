@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Script from "next/script";
+import { useSearchParams } from "next/navigation";
 import { primaryCtaClassName } from "@/components/PrimaryCtaButton";
 
 const META_APP_ID = "1085723453969135";
-const META_ES_CONFIG_ID = "9380278027";
+const META_ES_CONFIG_ID = "938027802714272";
 const GRAPH_VERSION = "v23.0";
 
 type SignupPayload = {
@@ -44,21 +45,31 @@ function parseSignupMessage(raw: unknown): SignupPayload | null {
 }
 
 export default function WhatsAppOnboard() {
+  const searchParams = useSearchParams();
+  const configId = useMemo(() => {
+    const fromQuery = searchParams.get("config_id")?.trim();
+    return fromQuery || META_ES_CONFIG_ID;
+  }, [searchParams]);
+
   const [sdkReady, setSdkReady] = useState(false);
   const [status, setStatus] = useState("Carga el SDK de Meta y pulsa conectar.");
   const [session, setSession] = useState<SignupPayload | null>(null);
 
+  const initFb = useCallback(() => {
+    if (!window.FB) return;
+    window.FB.init({
+      appId: META_APP_ID,
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: GRAPH_VERSION,
+    });
+    setSdkReady(true);
+    setStatus("Listo. Entra con el Facebook de Mauricio, no el de Marco.");
+  }, []);
+
   useEffect(() => {
-    window.fbAsyncInit = () => {
-      window.FB?.init({
-        appId: META_APP_ID,
-        autoLogAppEvents: true,
-        xfbml: true,
-        version: GRAPH_VERSION,
-      });
-      setSdkReady(true);
-      setStatus("Listo. Entra con el Facebook de Mauricio, no el de Marco.");
-    };
+    window.fbAsyncInit = initFb;
+    if (window.FB) initFb();
 
     const onMessage = (event: MessageEvent) => {
       if (
@@ -85,11 +96,15 @@ export default function WhatsAppOnboard() {
 
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, []);
+  }, [initFb]);
 
   const launch = useCallback(() => {
     if (!window.FB) {
       setStatus("El SDK aún no carga. Recarga la página.");
+      return;
+    }
+    if (!configId) {
+      setStatus("Falta config_id. Cópialo del Embedded Signup Builder.");
       return;
     }
     setStatus("Abriendo Meta… elige Corman Sports y conectar WhatsApp Business.");
@@ -100,17 +115,18 @@ export default function WhatsAppOnboard() {
         }
       },
       {
-        config_id: META_ES_CONFIG_ID,
+        config_id: configId,
         response_type: "code",
         override_default_response_type: true,
         extras: {
-          setup: {},
           featureType: "whatsapp_business_app_onboarding",
           sessionInfoVersion: "3",
+          version: "v4",
+          setup: {},
         },
       },
     );
-  }, []);
+  }, [configId]);
 
   return (
     <main className="px-5 pb-20 pt-28 sm:px-6 sm:pb-24 sm:pt-32">
@@ -141,6 +157,9 @@ export default function WhatsAppOnboard() {
           {sdkReady ? "Conectar WhatsApp Business" : "Cargando Meta…"}
         </button>
         <p className="mt-6 font-mono text-[12px] text-ink-dim">{status}</p>
+        <p className="mt-2 font-mono text-[11px] text-ink-dim/70">
+          config_id: {configId}
+        </p>
         {session ? (
           <pre className="mt-6 overflow-x-auto rounded-2xl bg-ink/5 p-4 font-mono text-[11px] text-ink">
             {JSON.stringify(session, null, 2)}
@@ -150,6 +169,7 @@ export default function WhatsAppOnboard() {
       <Script
         src="https://connect.facebook.net/en_US/sdk.js"
         strategy="afterInteractive"
+        onLoad={initFb}
       />
     </main>
   );

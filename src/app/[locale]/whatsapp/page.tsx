@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import WhatsAppOnboard from "@/components/WhatsAppOnboard";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function WhatsAppOnboardPage() {
-  return <WhatsAppOnboard />;
+  return (
+    <Suspense fallback={<main className="px-5 pt-28">Cargando…</main>}>
+      <WhatsAppOnboard />
+    </Suspense>
+  );
 }

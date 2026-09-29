@@ -64,7 +64,9 @@ export default function WhatsAppOnboard() {
       version: GRAPH_VERSION,
     });
     setSdkReady(true);
-    setStatus("Listo. Entra con el Facebook de Mauricio, no el de Marco.");
+    setStatus(
+      "Listo. Entra con el Facebook del cliente, no con el admin de Breakaway.",
+    );
   }, []);
 
   useEffect(() => {
@@ -86,9 +88,7 @@ export default function WhatsAppOnboard() {
         payload.event === "FINISH_WHATSAPP_BUSINESS_APP_ONBOARDING" ||
         payload.event === "FINISH"
       ) {
-        setStatus(
-          "WhatsApp Business quedó conectado. No cierres; avísame y seguimos con el token.",
-        );
+        setStatus("WhatsApp Business quedó conectado.");
       } else if (payload.event === "CANCEL") {
         setStatus("Cancelaste el flujo. Puedes intentar otra vez.");
       }
@@ -107,7 +107,9 @@ export default function WhatsAppOnboard() {
       setStatus("Falta config_id. Cópialo del Embedded Signup Builder.");
       return;
     }
-    setStatus("Abriendo Meta… elige Corman Sports y conectar WhatsApp Business.");
+    setStatus(
+      "Abriendo Meta… elige el portafolio del cliente y conecta WhatsApp Business.",
+    );
     window.FB.login(
       (response) => {
         if (!response.authResponse) {
@@ -136,13 +138,13 @@ export default function WhatsAppOnboard() {
           Conectar WhatsApp Business
         </h1>
         <p className="prose-mono mt-6">
-          Esto une el número que ya está en WhatsApp Business (el chip) con
-          Breakaway Tech Provider. No desconectes el número. No uses la cuenta
-          de Marco.
+          Une un número que ya está en WhatsApp Business con Breakaway Tech
+          Provider. No desconectes el número. No uses la cuenta admin de la
+          app.
         </p>
         <ol className="prose-mono mt-6 list-decimal space-y-2 pl-5">
-          <li>WhatsApp Business abierto en el celular viejo.</li>
-          <li>Facebook de Mauricio (Corman Sports).</li>
+          <li>WhatsApp Business abierto en el teléfono del cliente.</li>
+          <li>Facebook y portafolio del cliente (no el del Tech Provider).</li>
           <li>
             En Meta: conectar la app de WhatsApp Business, no “crear número
             nuevo”.

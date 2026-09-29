@@ -7,6 +7,10 @@ const intlMiddleware = createMiddleware(routing);
 export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
+  if (pathname === "/whatsapp") {
+    return NextResponse.redirect(new URL("/es/whatsapp", request.url));
+  }
+
   if (searchParams.get("lead") === "success") {
     const localeFromPath = routing.locales.find(
       (locale) =>
